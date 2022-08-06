@@ -1,3 +1,89 @@
 @tailwind base;
+
+@layer base {
+  h1 {
+    @apply 
+      font-semibold 
+      text-[4rem] 
+      leading-[4rem] 
+      text-gray-600 
+      dark:text-white-500;
+  }
+  h2 {
+    @apply 
+      font-semibold 
+      text-[2.5rem] 
+      leading-[2.5rem] 
+      text-gray-600 
+      dark:text-white-500;
+  }
+  p {
+    @apply 
+      font-normal 
+      text-[2.125rem] 
+      text-gray-600 
+      dark:text-white-500;
+  }
+  button {
+    @apply 
+      font-normal 
+      text-[1.625rem] 
+      text-gray-700 
+      dark:text-white-500
+      bg-white-600
+      dark:bg-gray-500
+      hover:text-gray-700 
+      hover:bg-primary-500
+      active:text-white-500
+      active:bg-primary-600
+      rounded-[15px];
+  }
+  span {
+    @apply 
+      hover:text-primary-500;
+  }
+  a {
+    @apply 
+      underline-offset-2 
+      hover:underline;
+  }
+  time {
+    @apply 
+      text-red-50;
+  }
+}
+
 @tailwind components;
+
+@layer components {
+  .nav-link {
+    button {
+      @apply rounded-none;
+    }
+
+    &:first-child {
+      button {
+        @apply rounded-bl-[15px];
+      }
+    }
+
+    &:last-child {
+      button {
+        @apply rounded-br-[15px];
+      }
+    }
+  }
+};
+
 @tailwind utilities;
+
+* {
+  font-size: 12px;
+  @apply
+    transition-colors
+    font-inter
+    ring-primary-500
+    ring-offset-2
+    focus-visible:outline-none
+    focus-visible:ring-2;
+}

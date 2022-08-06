@@ -1,12 +1,20 @@
-import { StyledButton } from "./index.style";
+import { HTMLAttributes } from "react";
+import { ButtonContainer, ButtonSize } from "./styles";
 
-export type ButtonProps = React.HtmlHTMLAttributes<HTMLButtonElement>;
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  size?: ButtonSize;
+  actived?: boolean;
+}
 
 export function Button({
+  size = "md",
+  actived = false,
   ...rest
 }: ButtonProps) {
   return (
-    <StyledButton
+    <ButtonContainer
+      actived={actived}
+      size={size}
       {...rest}
     />
   );
