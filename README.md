@@ -1,5 +1,5 @@
 <div>
-  <h1>👋 Hello, I'm <span>Lucas Marcel</span></h1>
+  <h1>Hello, I'm <span>Lucas Marcel</span></h1>
   <p>A Brazilian web developer who loves Next.js.</p>
 </div>
 
