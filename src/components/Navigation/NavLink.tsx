@@ -19,12 +19,10 @@ export function NavLink({
     (!locale && router.asPath.replace(/\/en-us/, "/") === path);
 
   return (
-    <li
-      className="nav-link"
-    >
+    <li>
       <Link href={path} locale={locale}>
         <Button 
-          actived={isActive}
+          selected={isActive}
         >
           {name}
         </Button>
@@ -32,3 +30,9 @@ export function NavLink({
     </li>
   );
 }
+
+//Novo: 64px - 16px - 4rem
+//Rodando: 61,5px - 12px - 5,125rem
+
+// 4rem = 16px
+// 4rem = 12px

@@ -3,17 +3,17 @@ import { ButtonContainer, ButtonSize } from "./styles";
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
-  actived?: boolean;
+  selected?: boolean;
 }
 
 export function Button({
   size = "md",
-  actived = false,
+  selected = false,
   ...rest
 }: ButtonProps) {
   return (
     <ButtonContainer
-      actived={actived}
+      selected={selected}
       size={size}
       {...rest}
     />

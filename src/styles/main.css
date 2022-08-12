@@ -1,46 +1,59 @@
 @tailwind base;
 
 @layer base {
-  h1 {
+  body {
+    @apply
+      bg-white-500
+      dark:bg-gray-700;
+  }
+  h1, h1 > span {
     @apply 
       font-semibold 
-      text-[4rem] 
-      leading-[4rem] 
+      text-5xl
+      leading-[3rem]
       text-gray-600 
       dark:text-white-500;
   }
-  h2 {
+  h2, h2 > span {
     @apply 
       font-semibold 
-      text-[2.5rem] 
-      leading-[2.5rem] 
+      text-4xl
+      leading-9
       text-gray-600 
       dark:text-white-500;
   }
-  p {
-    @apply 
-      font-normal 
-      text-[2.125rem] 
-      text-gray-600 
-      dark:text-white-500;
-  }
-  button {
+  p, pre, p > span, pre > span {
     @apply 
       font-normal 
       text-[1.625rem] 
+      text-gray-600 
+      dark:text-white-500;
+  }
+  pre > span {
+    @apply 
+      text-[1.500rem];
+  }
+  button, button > span {
+    @apply 
+      font-normal 
+      text-xl
       text-gray-700 
       dark:text-white-500
       bg-white-600
       dark:bg-gray-500
       hover:text-gray-700 
+      dark:hover:text-gray-700 
       hover:bg-primary-500
+      dark:hover:bg-primary-500
       active:text-white-500
       active:bg-primary-600
-      rounded-[15px];
+      dark:active:text-white-500
+      dark:active:bg-primary-600
+      rounded-[15px]
+      align-middle;
   }
   span {
-    @apply 
-      hover:text-primary-500;
+    @apply !text-primary-500;
   }
   a {
     @apply 
@@ -49,14 +62,16 @@
   }
   time {
     @apply 
-      text-red-50;
+      text-xl 
+      font-light 
+      italic;
   }
 }
 
 @tailwind components;
 
 @layer components {
-  .nav-link {
+  .nav-links > li {
     button {
       @apply rounded-none;
     }
@@ -73,12 +88,16 @@
       }
     }
   }
+  .with-description > p:first-of-type {
+    @apply
+      text-2xl;
+  }
 };
 
 @tailwind utilities;
 
 * {
-  font-size: 12px;
+  font-size: 14px;
   @apply
     transition-colors
     font-inter

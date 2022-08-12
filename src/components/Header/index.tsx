@@ -1,10 +1,22 @@
+import { useTheme } from "next-themes";
+import { IconButton } from "../Button/IconButton";
 import { NavLink } from "../Navigation/NavLink";
+import { VerticalDivider } from "../VerticalDivider";
 
 export function Header() {
+  const { theme, setTheme } = useTheme();
+  
+  const isDarkMode = theme === "dark";
+
+  function handleToggleTheme() {
+    console.log(theme);
+    setTheme(isDarkMode? "light":"dark");
+  }
+
   return (
-    <header className="border-t-[1.75rem] border-primary-600">
-      <nav className="mt-[-1.75rem] flex flex-row justify-between px-[5.125rem]">
-        <ul className="flex flex-row">
+    <header className="border-t-[1.3125rem] border-primary-600">
+      <nav className="mt-[-1.3125rem] flex flex-row justify-between px-16">
+        <ul className="nav-links flex flex-row">
           <NavLink
             path="/"
             name="resume"
@@ -18,7 +30,11 @@ export function Header() {
             name="achievements"
           />
         </ul>
-        <ul className="flex flex-row">
+        <ul className="nav-links flex flex-row">
+          <li><IconButton onClick={handleToggleTheme} icon={isDarkMode? "moon":"sun"}/></li>
+          <li><VerticalDivider/></li>
+          <li><IconButton icon="download"/></li>
+          <li><VerticalDivider/></li>
           <NavLink
             path=""
             name="pt-br"
