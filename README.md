@@ -5,27 +5,27 @@
     <a class="navigation-link" href="#" target="__blank__">
       pt-br
     </a>
-    <span>•</span>
+    •
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       download
     </a>
-    <span>•</span>
+    •
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       download
     </a>
-    <span>•</span>
+    •
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       download
     </a>
-    <span>•</span>
+    •
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       download
     </a>
-    <span>•</span>
+    •
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       download
     </a>
-    <span>•</span>
+    •
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       download
     </a>
