@@ -2,11 +2,11 @@
   <h1>Hello, I'm <span>Lucas Marcel</span></h1>
   <p>A Brazilian web developer who loves Next.js.</p>
   <nav>
-    <a href="#" target="__blank__">
+    <a class="navigation-link" href="#" target="__blank__">
       pt-br
     </a>
     <span>•</span>
-    <a href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
+    <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       download
     </a>
   </nav>
