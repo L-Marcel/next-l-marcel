@@ -2,7 +2,8 @@ import { GetStaticProps } from "next";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
-import { DivContainer, H1Container, PContainer, PreContainer } from "../components/Markdown/styles";
+import { MarkdownLink } from "../components/Markdown/MarkdownLink";
+import { MarkdownBrContainer, MarkdownDivContainer, MarkdownH1Container, MarkdownNavContainer, MarkdownPContainer, MarkdownPreContainer } from "../components/Markdown/styles";
 import { Profile } from "../components/Profile";
 import { api } from "../services/api";
 
@@ -27,11 +28,14 @@ function Home({
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
           components={{
-            h1: H1Container as any,
-            p: PContainer as any,
-            pre: PreContainer as any,
-            div: DivContainer as any
-          }}
+            h1: MarkdownH1Container,
+            p: MarkdownPContainer,
+            a: MarkdownLink,
+            pre: MarkdownPreContainer,
+            div: MarkdownDivContainer,
+            br: MarkdownBrContainer,
+            nav: MarkdownNavContainer,
+          } as any}
         >
           {data}
         </ReactMarkdown>

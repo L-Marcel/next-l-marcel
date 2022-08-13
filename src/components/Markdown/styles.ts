@@ -1,14 +1,34 @@
-import { tw } from "../../services/tw";
+import tw from "tw-tailwind";
 
-export const H1Container = tw.h1`
+export const MarkdownH1Container = tw.h1`
   px-16
 `;
 
-export const PContainer = tw.p`
+export const MarkdownPContainer = tw.p`
   px-16
 `;
 
-export const PreContainer = tw.pre`
+export const MarkdownAContainer = tw.a``;
+
+export const MarkdownNavContainer = tw.nav`
+  flex
+  flex-1
+  flex-row 
+  items-center 
+  gap-x-2
+  gap-y-2 
+  text-xl
+  flex-wrap
+  mt-4
+  text-primary-500
+  markdown-navigation
+`;
+
+export const MarkdownBrContainer = tw.br`
+  ignore-first-break
+`;
+
+export const MarkdownPreContainer = tw.pre`
   mx-16
   w-[calc(100% - 8rem)]
   bg-white-600
@@ -18,9 +38,10 @@ export const PreContainer = tw.pre`
   dark:bg-gray-500
 `;
 
-export const DivContainer = tw.div`
+export const MarkdownDivContainer = tw.div`
   py-8
   bg-white-600
   dark:bg-gray-600
+  markdown-section-container
   first-of-type:with-description
 `;

@@ -2,10 +2,10 @@
   <h1>Hello, I'm <span>Lucas Marcel</span></h1>
   <p>A Brazilian web developer who loves Next.js.</p>
   <nav>
-    <a class="navigation-link disabled" href="#" target="__blank__">
+    <a class="navigation-link disabled" href="https://localhost:3000" target="__blank__">
       pt-br
     </a>
-    <p class="disabled">•</p>
+    <span class="disabled">•</span>
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       download
     </a>

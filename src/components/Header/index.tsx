@@ -33,8 +33,6 @@ export function Header() {
         <ul className="nav-links flex flex-row">
           <li><IconButton onClick={handleToggleTheme} icon={isDarkMode? "moon":"sun"}/></li>
           <li><VerticalDivider/></li>
-          <li><IconButton icon="download"/></li>
-          <li><VerticalDivider/></li>
           <NavLink
             path=""
             name="pt-br"

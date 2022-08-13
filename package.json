@@ -20,7 +20,7 @@
     "react-markdown": "^8.0.3",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
-    "styled-components": "^5.3.5"
+    "tw-tailwind": "^1.0.21"
   },
   "devDependencies": {
     "@types/node": "18.6.1",
@@ -38,7 +38,6 @@
     "postcss-import": "^14.1.0",
     "postcss-nesting": "^10.1.10",
     "tailwind-scrollbar": "^1.3.1",
-    "tailwind-styled-components": "^2.1.8",
     "tailwindcss": "^3.1.6",
     "typescript": "4.7.4"
   }

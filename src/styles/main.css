@@ -25,18 +25,19 @@
   p, pre, p > span, pre > span {
     @apply 
       font-normal 
-      text-[1.625rem] 
+      text-xl
       text-gray-600 
       dark:text-white-500;
   }
   pre > span {
     @apply 
-      text-[1.500rem];
+      text-inherit;
   }
   button, button > span {
     @apply 
       font-normal 
       text-xl
+      whitespace-nowrap
       text-gray-700 
       dark:text-white-500
       bg-white-600
@@ -57,7 +58,8 @@
   }
   a {
     @apply 
-      underline-offset-2 
+      underline-offset-2
+      !text-primary-500
       hover:underline;
   }
   time {
@@ -88,9 +90,43 @@
       }
     }
   }
+
+  .markdown-section-container {
+    @apply
+      px-16;
+
+    h1, h2, p, a {
+      @apply 
+        px-0;
+    }
+  }
+
   .with-description > p:first-of-type {
     @apply
       text-2xl;
+  }
+
+  .ignore-first-break {
+    @apply
+      hidden;
+    
+    & + & {
+      @apply
+        block;
+    }
+  }
+
+  .markdown-navigation {
+    .disabled {
+      @apply
+        hidden;
+    }
+
+    button:not(:hover):not(:active) {
+      @apply
+        bg-white-700
+        dark:bg-gray-500;
+    }
   }
 };
 
