@@ -1,8 +1,9 @@
-<div>
+<div valing="top">
   <h1>Hello, I'm <span>Lucas Marcel</span></h1>
   <p>A Brazilian web developer who loves Next.js.</p>
+  <a href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">download</a>
 </div>
-
+<br/>
 <p>I've 19 years old, live in Brazil (Macau - RN), and finished computing technical high school in <span>IFRN - MC</span> in 2022. In this period, I dedicated myself to web development with technologies like <span>React.js</span>, <span>Next.js</span> and <span>Node.js</span>. After finishing the <span>Ignite</span> course of the <span>Rocketseat</span>, also I got a full <span>scholarship</span> in Do While 2021.</p>
 
 <pre>
