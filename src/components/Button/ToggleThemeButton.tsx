@@ -1,21 +1,33 @@
-import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
+import { useRef, useState } from "react";
+import { ThemeControllerProps, ThemeControllerRef, ThemeControllerRefProps, ThemeType } from "../../context/controller/ThemeController";
 import { IconButton } from "./IconButton";
 
+const ThemeController = dynamic<ThemeControllerProps & ThemeControllerRef>(
+  () => import("../../context/controller/ThemeController").then(mod => mod.ThemeController),
+  {
+    ssr: false,
+  }
+);
+
 export function ToggleThemeButton() {
-  const { theme, setTheme } = useTheme();
-  
+  const ref = useRef<ThemeControllerRefProps>();
+  const [theme, setTheme] = useState<ThemeType>("dark");
+
   const isDarkMode = theme === "dark";
 
-  function handleToggleTheme() {
-    setTheme(isDarkMode? "light":"dark");
-  }
-
   return (
-    <IconButton
-      className="!pl-[10px]"
-      onClick={handleToggleTheme} 
-      icon={isDarkMode? "moon":"sun"}
-      title={isDarkMode? "toggle to light theme":"toggle to dark theme"}
-    />
+    <>
+      <ThemeController
+        ref={ref}
+        onChange={(theme) => setTheme(theme)}
+      />
+      <IconButton
+        className="!pl-[10px]"
+        onClick={() => ref?.current?.onToggleTheme} 
+        icon={isDarkMode? "moon":"sun"}
+        title={isDarkMode? "toggle to light theme":"toggle to dark theme"}
+      />
+    </>
   );
 }
