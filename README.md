@@ -28,7 +28,7 @@ C:\projects\l-marcel> <span>yarn</span> dev
 
 <p>Four years ago (in <span>2018</span>), I had my first experience with programming. Python was incredible, but I love it much more the JavaScript. And today I'm still willing to expand my skills and learn new things as before.</p>
 
-<div id="technologies"/>
+<div id="technologies"></div>
 
 <div id="grid">
   <ul><h2 align="center">Some <span>competencies</span>:</h2>
