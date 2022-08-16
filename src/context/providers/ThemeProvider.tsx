@@ -18,13 +18,15 @@ export function ThemeProvider({
 }:ThemeProviderProps) {
   const [theme, setTheme] = useState<ThemeType>("dark");
 
-  const isDarkTheme = theme === "dark";
-
   function handleToggleTheme() {
     startTransition(() => {
-      const currentTheme = isDarkTheme? "light":"dark";
-      localStorage.setItem("theme", currentTheme);
-      setTheme(currentTheme);
+      setTheme(theme => {
+        const isDarkTheme = theme === "dark";
+        const currentTheme = isDarkTheme? "light":"dark";
+        localStorage.setItem("theme", currentTheme);
+
+        return currentTheme;
+      });
     });
   }
 
@@ -42,7 +44,8 @@ export function ThemeProvider({
     }
   }, [theme]);
 
- 
+  const isDarkTheme = theme === "dark";
+
   return (
     <themeContext.Provider
       value={{
