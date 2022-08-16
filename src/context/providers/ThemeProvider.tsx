@@ -22,18 +22,27 @@ export function ThemeProvider({
 
   function handleToggleTheme() {
     startTransition(() => {
-      setTheme(isDarkTheme? "light":"dark");
+      const currentTheme = isDarkTheme? "light":"dark";
+      localStorage.setItem("theme", currentTheme);
+      setTheme(currentTheme);
     });
   }
 
   useEffect(() => {
-    if(isDarkTheme && document) {
-      document.documentElement.classList.add("dark");
-    } else if(document) {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkTheme]);
+    const savedTheme = localStorage.getItem("theme");
 
+    if(savedTheme === "dark" || savedTheme === "light") {
+      setTheme(savedTheme);
+
+      if(theme === "dark" && document) {
+        document.documentElement.classList.add("dark");
+      } else if(document) {
+        document.documentElement.classList.remove("dark");
+      }
+    }
+  }, [theme]);
+
+ 
   return (
     <themeContext.Provider
       value={{
