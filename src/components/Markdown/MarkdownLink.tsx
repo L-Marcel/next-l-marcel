@@ -1,5 +1,6 @@
 import { HTMLAttributes } from "react";
 import { Button } from "../Button";
+import { Tooltip } from "../Tooltip";
 import { MarkdownAContainer } from "./styles";
 
 export interface MarkdownLinkProps extends HTMLAttributes<HTMLAnchorElement> {
@@ -13,22 +14,25 @@ export function MarkdownLink({
 }: MarkdownLinkProps) {
   if(!className?.includes("navigation-link")) {
     return (
-      <MarkdownAContainer
-        className={className}
-        href={href}
-        {...rest}
-      />
+      <Tooltip label={href} containerClassName={className}>
+        <MarkdownAContainer
+          className={className}
+          href={href}
+          {...rest}
+        />
+      </Tooltip>
     );
   }
 
   return (
-    <Button
-      size="sm"
-      onClick={() => window.open(href, "__blank__")}
-      title={href}
-      className={className}
-    >
-      {rest?.children}
-    </Button>
+    <Tooltip label={href} containerClassName={className}>
+      <Button
+        size="sm"
+        onClick={() => window.open(href, "__blank__")}
+        className={className}
+      >
+        {rest?.children}
+      </Button>
+    </Tooltip>
   );
 }

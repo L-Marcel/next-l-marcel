@@ -38,10 +38,15 @@ export const MarkdownPreContainer = tw.pre`
   dark:bg-gray-500
 `;
 
-export const MarkdownDivContainer = tw.div`
+export interface MarkdownDivContainerProps {
+  isHighlight: boolean;
+}
+
+export const MarkdownDivContainer = tw.div<MarkdownDivContainerProps>`
   py-8
-  bg-white-600
-  dark:bg-gray-600
+  ${props => props.isHighlight? 
+    "bg-primary-500 force-white-text text-4xl":
+    "bg-white-600 dark:bg-gray-600"}
   markdown-section-container
   first-of-type:with-description
 `;

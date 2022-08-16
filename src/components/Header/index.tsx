@@ -9,12 +9,11 @@ export function Header() {
   const isDarkMode = theme === "dark";
 
   function handleToggleTheme() {
-    console.log(theme);
     setTheme(isDarkMode? "light":"dark");
   }
 
   return (
-    <header className="border-t-[1.3125rem] border-primary-600">
+    <header className="fixed top-0 z-50 w-full border-t-[1.3125rem] border-primary-600 drop-shadow-lg">
       <nav className="mt-[-1.3125rem] flex flex-row justify-between px-16">
         <ul className="nav-links flex flex-row">
           <NavLink
@@ -31,7 +30,14 @@ export function Header() {
           />
         </ul>
         <ul className="nav-links flex flex-row">
-          <li><IconButton onClick={handleToggleTheme} icon={isDarkMode? "moon":"sun"}/></li>
+          <li>
+            <IconButton
+              className="!pl-[10px]"
+              onClick={handleToggleTheme} 
+              icon={isDarkMode? "moon":"sun"}
+              title={isDarkMode? "toggle to light theme":"toggle to dark theme"}
+            />
+          </li>
           <li><VerticalDivider/></li>
           <NavLink
             path=""

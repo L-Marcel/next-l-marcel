@@ -1,6 +1,18 @@
 @tailwind base;
 
 @layer base {
+  * {
+    @apply
+      text-[14px]
+      xl:text-[14px]
+      2xl:text-[18px]
+      transition-colors
+      font-inter
+      ring-primary-500
+      ring-offset-2
+      focus-visible:outline-none
+      focus-visible:ring-2;
+  }
   body {
     @apply
       bg-white-500
@@ -19,6 +31,14 @@
       font-semibold 
       text-4xl
       leading-9
+      text-gray-600 
+      dark:text-white-500;
+  }
+  h3, h3 > span {
+    @apply
+      font-semibold
+      text-2xl
+      leading-7
       text-gray-600 
       dark:text-white-500;
   }
@@ -128,17 +148,33 @@
         dark:bg-gray-500;
     }
   }
+
+  .force-white-text, .force-white-text > * {
+    @apply
+      text-white-600;
+  }
+
+  .tooltip-container {
+    p:first-of-type {
+      @apply
+        opacity-0
+        invisible
+        transition-opacity
+        duration-500
+        pointer-events-none;
+    }
+
+    @apply
+      pointer-events-auto;
+
+    &:hover {
+      p:first-of-type {
+        @apply          
+          opacity-100
+          visible;
+      }
+    }
+  }
 };
 
 @tailwind utilities;
-
-* {
-  font-size: 14px;
-  @apply
-    transition-colors
-    font-inter
-    ring-primary-500
-    ring-offset-2
-    focus-visible:outline-none
-    focus-visible:ring-2;
-}

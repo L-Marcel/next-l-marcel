@@ -1,7 +1,8 @@
-import { formatDistance } from "date-fns";
+import { format, formatDistance } from "date-fns";
 import Image from "next/image";
 import { useEffect } from "react";
 import { Icon } from "../Icon";
+import { Tooltip } from "../Tooltip";
 
 export interface ProfileProps {
   updatedAt: string;
@@ -20,8 +21,11 @@ export function Profile({
     }
   }, []);
   
+  const updatedAtDate = new Date(updatedAt);
+  const currentDate = new Date();
+
   return (
-    <article className="mx-16 my-8 flex flex-row">
+    <article className="mx-16 mb-8 mt-[4.43rem] flex flex-row">
       <div className="flex h-[11.875rem] w-[11.875rem] rounded-full">
         <Image
           width={190}
@@ -36,12 +40,14 @@ export function Profile({
         <p className="text-[1.5rem]">
           <span className="text-[1.5rem]">L</span>ucas <span className="text-[1.5rem]">Marcel</span> Silva de Brito
         </p>
-        <div className="mt-4 flex flex-row items-center gap-2 text-gray-500 dark:text-white-600">
-          <Icon name="clock" className="h-[1.7rem] w-[1.7rem]"/> 
-          <time>
-            last update: {formatDistance(new Date(updatedAt), new Date(), { addSuffix: true })}
-          </time>
-        </div>
+        <Tooltip label={format(updatedAtDate, "yyyy LLL'.' dd -> HH:mm:ss")}>
+          <div className="mt-4 flex flex-row items-center gap-2 text-gray-500 dark:text-white-600">
+            <Icon withoutTooltip name="clock" className="h-[1.7rem] w-[1.7rem]"/>
+            <time dateTime={format(updatedAtDate, "yyyy-MM-dd HH:mm")}>
+              last update: {formatDistance(updatedAtDate, currentDate, { addSuffix: true })}
+            </time>
+          </div>
+        </Tooltip>
       </div>
     </article>
   );

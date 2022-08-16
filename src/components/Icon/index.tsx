@@ -1,29 +1,67 @@
 import { IconBaseProps } from "react-icons";
 import { BsClockHistory } from "react-icons/bs";
 import { FaDownload, FaMoon, FaSun } from "react-icons/fa";
-import { } from "react-icons/si";
+import { SiChakraui, SiCss3, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiHtml5, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiYarn } from "react-icons/si";
+import { Tooltip } from "../Tooltip";
 
 const icons = {
   download: FaDownload,
   sun: FaSun,
   moon: FaMoon,
-  clock: BsClockHistory
+  clock: BsClockHistory,
+  "next.js": SiNextdotjs,
+  "react.js": SiReact,
+  "node.js": SiNodedotjs,
+  typescript: SiTypescript,
+  javascript: SiJavascript,
+  css: SiCss3,
+  html: SiHtml5,
+  git: SiGit,
+  vscode: SiVisualstudiocode,
+  npm: SiNpm,
+  yarn: SiYarn,
+  jamstack: SiJamstack,
+  figma: SiFigma,
+  docker: SiDocker,
+  gitbook: SiGitbook,
+  "json-web-tokens": SiJsonwebtokens,
+  prisma: SiPrisma,
+  "framer-motion": SiFramer,
+  jest: SiJest,
+  "socket.io": SiSocketdotio,
+  "chakra-ui": SiChakraui,
+  tailwind: SiTailwindcss 
 };
 
 export type IconType = keyof typeof icons;
+export type IconSize = "sm" | "md";
 export interface IconProps extends IconBaseProps {
   name?: IconType;
+  size?: IconSize;
+  tooltip?: string;
+  withoutTooltip?: boolean;
 }
 
 export function Icon({
   name = "download",
+  size = "sm",
+  withoutTooltip = false,
   className,
   ...rest
 }: IconProps) {
-  return (<>
-    {icons[name]({
-      className: "text-[1.4125rem] " + className,
-      ...rest
-    })}
-  </>);
+  const icon = icons[name]({
+    className: 
+      "drop-shadow-lg " +
+      (size === "sm"? "text-[1.4125rem] ":"text-4xl ") + 
+      className,
+    ...rest
+  });
+
+  if(withoutTooltip) {
+    return icon;
+  }
+
+  return (<Tooltip label={name}>
+    {icon}
+  </Tooltip>);
 }

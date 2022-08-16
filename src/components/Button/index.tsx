@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import React, { HTMLAttributes } from "react";
 import { ButtonContainer, ButtonSize } from "./styles";
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
@@ -6,16 +6,22 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   selected?: boolean;
 }
 
-export function Button({
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   size = "md",
   selected = false,
   ...rest
-}: ButtonProps) {
+}, ref) => {
   return (
     <ButtonContainer
+      ref={ref}
       selected={selected}
       size={size}
       {...rest}
     />
   );
-}
+});
+
+Button.displayName = "Button";
+
+export { Button };
+

@@ -1,5 +1,6 @@
 import { HTMLAttributes } from "react";
 import { Icon, IconType } from "../Icon";
+import { Tooltip } from "../Tooltip";
 import { IconButtonContainer } from "./styles";
 
 export interface IconButtonProps extends HTMLAttributes<HTMLButtonElement> {
@@ -8,13 +9,26 @@ export interface IconButtonProps extends HTMLAttributes<HTMLButtonElement> {
 
 export function IconButton({
   icon,
+  title,
   ...rest
 }: IconButtonProps) {
+  if(!title) {
+    return (
+      <IconButtonContainer
+        {...rest}
+      >
+        <Icon name={icon} title={title} withoutTooltip/>
+      </IconButtonContainer>
+    );
+  }
+
   return (
-    <IconButtonContainer
-      {...rest}
-    >
-      <Icon name={icon}/>
-    </IconButtonContainer>
+    <Tooltip label={title} className="mt-2">
+      <IconButtonContainer
+        {...rest}
+      >
+        <Icon name={icon} title={title} withoutTooltip/>
+      </IconButtonContainer>
+    </Tooltip>
   );
 }

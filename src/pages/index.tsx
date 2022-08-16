@@ -3,7 +3,8 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { MarkdownLink } from "../components/Markdown/MarkdownLink";
-import { MarkdownBrContainer, MarkdownDivContainer, MarkdownH1Container, MarkdownNavContainer, MarkdownPContainer, MarkdownPreContainer } from "../components/Markdown/styles";
+import { MarkdownSections } from "../components/Markdown/MarkdownSections";
+import { MarkdownBrContainer, MarkdownH1Container, MarkdownNavContainer, MarkdownPContainer, MarkdownPreContainer } from "../components/Markdown/styles";
 import { Profile } from "../components/Profile";
 import { api } from "../services/api";
 
@@ -32,7 +33,7 @@ function Home({
             p: MarkdownPContainer,
             a: MarkdownLink,
             pre: MarkdownPreContainer,
-            div: MarkdownDivContainer,
+            div: MarkdownSections,
             br: MarkdownBrContainer,
             nav: MarkdownNavContainer,
           } as any}
