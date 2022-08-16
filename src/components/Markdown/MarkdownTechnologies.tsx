@@ -19,20 +19,22 @@ export function MarkdownTechnologies() {
         <TechnologiesIcons/>
       </MarkdownDiv>
       <TechnologiesLevel/>
-      <MarkdownDiv isHighlight className="flex flex-col gap-4">
-        {isPtBr? 
-          <h3>Proeficiência com as technologias</h3>:
-          <h3>Production utilities</h3>
-        }
-        <UtilitiesIcons/>
-      </MarkdownDiv>
-      <MarkdownDiv isHighlight className="flex flex-col gap-4">
-        {isPtBr? 
-          <h3>Bibliotecas mais usadas</h3>:
-          <h3>Frequently used libraries</h3>
-        }
-        <LibrariesIcons/>
-      </MarkdownDiv>
+      <div className="flex flex-col gap-2">
+        <MarkdownDiv isHighlight className="flex flex-col gap-4">
+          {isPtBr? 
+            <h3>Proeficiência com as technologias</h3>:
+            <h3>Production utilities</h3>
+          }
+          <UtilitiesIcons/>
+        </MarkdownDiv>
+        <MarkdownDiv isHighlight className="flex flex-col gap-4">
+          {isPtBr? 
+            <h3>Bibliotecas mais usadas</h3>:
+            <h3>Frequently used libraries</h3>
+          }
+          <LibrariesIcons/>
+        </MarkdownDiv>
+      </div>
     </>
   );
 }
