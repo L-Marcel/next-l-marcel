@@ -23,7 +23,8 @@ export const TooltipSpan = tw.span`
   px-2
   py-1
   rounded-md
-  shadow-lg
+  shadow-sm
+  md:shadow-lg
   text-base
   border-x-primary-500
   border-x-2

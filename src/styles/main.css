@@ -3,12 +3,13 @@
 @layer base {
   * {
     @apply
-      text-[12px]
+      text-[13px]
       xl:text-[14px]
       2xl:text-[18px]
       transition-colors
       scrollbar-thin
-      scrollbar-track-gray-500
+      scrollbar-track-white-700
+      dark:scrollbar-track-gray-500
       scrollbar-thumb-primary-600
       duration-200
       font-inter
@@ -16,8 +17,6 @@
       ring-offset-2
       focus-visible:outline-none
       focus-visible:ring-2;
-
-      scrollbar-color: #b03827 #252322;
   }
   body {
     @apply

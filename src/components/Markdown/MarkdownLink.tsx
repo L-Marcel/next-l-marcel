@@ -29,7 +29,7 @@ export function MarkdownLink({
       <Button
         size="sm"
         onClick={() => window.open(href, "__blank__")}
-        className={className + " shadow-lg"}
+        className={className + " shadow-sm md:shadow-lg"}
       >
         {rest?.children}
       </Button>

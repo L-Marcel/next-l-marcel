@@ -52,7 +52,7 @@ export function Icon({
 }: IconProps) {
   const icon = icons[name]({
     className: 
-      "drop-shadow-lg " +
+      "drop-shadow-sm md:drop-shadow-lg " +
       (size === "sm"? "text-[1.4rem] md:text-[1.4125rem] ":"text-[1.6rem] md:text-4xl ") + 
       className,
     ...rest
