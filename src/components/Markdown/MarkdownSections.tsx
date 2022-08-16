@@ -1,6 +1,7 @@
 import { HTMLAttributes } from "react";
 import { MarkdownDiv } from "./MarkdownDiv";
 import { MarkdownTechnologies } from "./MarkdownTechnologies";
+import { MarkdownGridContainer } from "./styles";
 
 export function MarkdownSections({
   id,
@@ -14,7 +15,7 @@ export function MarkdownSections({
     return null;
   case "grid":
     return (
-      <div></div>
+      <MarkdownGridContainer {...rest}/>
     );
   default:
     return (<MarkdownDiv {...rest}/>);

@@ -3,8 +3,9 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { MarkdownLink } from "../components/Markdown/MarkdownLink";
+import { MarkdownListItem } from "../components/Markdown/MarkdownListItem";
 import { MarkdownSections } from "../components/Markdown/MarkdownSections";
-import { MarkdownBrContainer, MarkdownH1Container, MarkdownNavContainer, MarkdownPContainer, MarkdownPreContainer } from "../components/Markdown/styles";
+import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, MarkdownListContainer, MarkdownNavContainer, MarkdownPContainer, MarkdownPreContainer } from "../components/Markdown/styles";
 import { Profile } from "../components/Profile";
 import { api } from "../services/api";
 
@@ -30,10 +31,13 @@ function Home({
           rehypePlugins={[rehypeRaw]}
           components={{
             h1: MarkdownH1Container,
+            h2: MarkdownH2Container,
             p: MarkdownPContainer,
             a: MarkdownLink,
             pre: MarkdownPreContainer,
             div: MarkdownSections,
+            ul: MarkdownListContainer,
+            li: MarkdownListItem,
             br: MarkdownBrContainer,
             nav: MarkdownNavContainer,
           } as any}
@@ -46,13 +50,12 @@ function Home({
 }
 
 export const getStaticProps: GetStaticProps = async() => {
-  const data = await api.get("https://raw.githubusercontent.com/l-marcel/next-l-marcel/main/README.md");
-
+  const res = await api.get("https://raw.githubusercontent.com/l-marcel/next-l-marcel/main/README.md");
   const updatedAt = new Date().toString();
 
   return {
     props: {
-      data: data.data,
+      data: res.data,
       updatedAt
     },
     revalidate: false

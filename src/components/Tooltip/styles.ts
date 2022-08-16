@@ -7,6 +7,8 @@ export const TooltipContainer = tw.label`
 `;
 
 export const TooltipText = tw.p`
+  hidden  
+  md:block
   absolute
   top-[calc(100%+1rem)]
   font-normal

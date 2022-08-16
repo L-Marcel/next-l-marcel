@@ -23,7 +23,6 @@ export function NavLink({
       <Link href={path} locale={locale}>
         <Button 
           selected={isActive}
-          title={path}
         >
           {name}
         </Button>

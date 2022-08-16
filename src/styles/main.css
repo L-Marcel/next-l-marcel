@@ -3,50 +3,71 @@
 @layer base {
   * {
     @apply
-      text-[14px]
+      text-[12px]
       xl:text-[14px]
       2xl:text-[18px]
       transition-colors
+      scrollbar-thin
+      scrollbar-track-gray-500
+      scrollbar-thumb-primary-600
       duration-200
       font-inter
       ring-primary-500
       ring-offset-2
       focus-visible:outline-none
       focus-visible:ring-2;
+
+      scrollbar-color: #b03827 #252322;
   }
   body {
     @apply
       bg-white-500
-      dark:bg-gray-700;
+      dark:bg-gray-700
+      overflow-x-hidden;
   }
   h1, h1 > span {
     @apply 
-      font-semibold 
-      text-5xl
-      leading-[3rem]
+      font-semibold
+      text-[1.6rem]
+      leading-[1.6rem]
+      sm:text-3xl
+      sm:leading-[1.875rem]
+      md:text-5xl
+      md:leading-[3rem]
       text-gray-600 
       dark:text-white-500;
   }
   h2, h2 > span {
     @apply 
       font-semibold 
-      text-4xl
-      leading-9
+      text-[1.4rem]
+      leading-[1.4rem]
+      md:text-4xl
+      md:leading-9
       text-gray-600 
       dark:text-white-500;
   }
   h3, h3 > span {
     @apply
       font-semibold
-      text-2xl
-      leading-7
+      text-[1.25rem]
+      leading-[1.25rem]
+      md:text-2xl
+      md:leading-7
       text-gray-600 
       dark:text-white-500;
   }
-  p, pre, p > span, pre > span {
+  pre {
+    @apply
+      overflow-auto
+      overflow-y-hidden
+      flex;
+  }
+  p, pre, p > span, pre > span, li, li > span {
     @apply 
       font-normal 
-      text-xl
+      text-[1.2rem]
+      md:text-xl
       text-gray-600 
       dark:text-white-500;
   }
@@ -85,7 +106,8 @@
   }
   time {
     @apply 
-      text-xl 
+      text-base  
+      md:text-xl
       font-light 
       italic;
   }
@@ -114,7 +136,8 @@
 
   .markdown-section-container {
     @apply
-      px-16;
+      px-12  
+      md:px-16;
 
     h1, h2, p, a {
       @apply 
@@ -124,7 +147,10 @@
 
   .with-description > p:first-of-type {
     @apply
-      text-2xl;
+      text-[1.2rem]
+      mt-2
+      md:text-2xl
+      md:mt-0;
   }
 
   .ignore-first-break {
@@ -174,6 +200,16 @@
           opacity-100
           visible;
       }
+    }
+  }
+  
+  .list-container {
+    h2, h2 > span {
+      @apply
+        text-left
+        text-[1.4rem]
+        md:text-3xl
+        mb-4;
     }
   }
 };

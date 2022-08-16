@@ -1,5 +1,5 @@
 import { IconBaseProps } from "react-icons";
-import { BsClockHistory } from "react-icons/bs";
+import { BsCheck2Circle, BsClockHistory } from "react-icons/bs";
 import { FaDownload, FaMoon, FaSun } from "react-icons/fa";
 import { SiChakraui, SiCss3, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiHtml5, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiYarn } from "react-icons/si";
 import { Tooltip } from "../Tooltip";
@@ -30,7 +30,8 @@ const icons = {
   jest: SiJest,
   "socket.io": SiSocketdotio,
   "chakra-ui": SiChakraui,
-  tailwind: SiTailwindcss 
+  tailwind: SiTailwindcss,
+  checked: BsCheck2Circle
 };
 
 export type IconType = keyof typeof icons;
@@ -52,7 +53,7 @@ export function Icon({
   const icon = icons[name]({
     className: 
       "drop-shadow-lg " +
-      (size === "sm"? "text-[1.4125rem] ":"text-4xl ") + 
+      (size === "sm"? "text-[1.4rem] md:text-[1.4125rem] ":"text-[1.6rem] md:text-4xl ") + 
       className,
     ...rest
   });
