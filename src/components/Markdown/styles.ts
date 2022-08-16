@@ -39,12 +39,12 @@ export const MarkdownPreContainer = tw.pre`
 `;
 
 export interface MarkdownDivContainerProps {
-  isHighlight: boolean;
+  $highlight: boolean;
 }
 
 export const MarkdownDivContainer = tw.div<MarkdownDivContainerProps>`
   py-8
-  ${props => props.isHighlight? 
+  ${props => props.$highlight? 
     "bg-primary-500 force-white-text text-4xl":
     "bg-white-600 dark:bg-gray-600"}
   markdown-section-container

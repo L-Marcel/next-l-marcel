@@ -11,7 +11,7 @@ export function MarkdownDiv({
 }: MarkdownDivProps) {
   return (
     <MarkdownDivContainer 
-      isHighlight={isHighlight} 
+      $highlight={isHighlight} 
       {...rest}
     />
   );

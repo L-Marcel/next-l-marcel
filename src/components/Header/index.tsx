@@ -1,3 +1,4 @@
+import { ThemeProvider } from "../../context/providers/ThemeProvider";
 import { ToggleThemeButton } from "../Button/ToggleThemeButton";
 
 import { NavLink } from "../Navigation/NavLink";
@@ -23,7 +24,9 @@ export function Header() {
         </ul>
         <ul className="nav-links flex flex-row">
           <li>
-            <ToggleThemeButton/>
+            <ThemeProvider>
+              <ToggleThemeButton/>
+            </ThemeProvider>
           </li>
           <li><VerticalDivider/></li>
           <NavLink
