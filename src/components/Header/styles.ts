@@ -7,7 +7,7 @@ export const MobileMenuContainer = tw.nav`
   md:hidden
   bg-primary-600 
   bottom-0 
-  pb-[calc(60px+3rem)]
+  pb-[3rem]
   z-[90]
   backdrop-blur-sm
   border-t-4
@@ -19,7 +19,7 @@ export const MobileMenuSideBar = tw.aside`
   absolute
   right-0
   w-1/2
-  border-t-[calc(60px+3rem)]
+  border-t-[3rem]
   border-t-primary-500
   border-l-[110px]
   border-l-transparent
@@ -27,7 +27,7 @@ export const MobileMenuSideBar = tw.aside`
 
 export const MobileMenuButtonsGroup = tw.menu`
   absolute
-  top-[calc(-60px-3rem)]
+  top-[-3rem]
   right-[calc(120px-2rem)]
 `;
 
