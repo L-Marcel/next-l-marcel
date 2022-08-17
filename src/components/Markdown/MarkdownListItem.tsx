@@ -14,7 +14,7 @@ export function MarkdownListItem({
         {...rest}
         className="flex flex-row items-start gap-2"
       >
-        <Icon name="checked" className="mt-[2px] text-primary-500"/>
+        <Icon withoutTooltip name="checked" className="mt-[2px] text-primary-500"/>
         {children}
       </MarkdownListItemContainer>
     );

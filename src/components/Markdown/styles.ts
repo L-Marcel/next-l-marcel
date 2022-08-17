@@ -39,6 +39,11 @@ export const MarkdownPreContainer = tw.pre`
   py-[0.875rem]
   rounded-[15px]
   dark:bg-gray-500
+  scrollbar-thin 
+  scrollbar-track-white-700 
+  scrollbar-thumb-primary-500 
+  dark:scrollbar-track-gray-500
+  hover:scrollbar-thumb-primary-600
 `;
 
 export interface MarkdownDivContainerProps {

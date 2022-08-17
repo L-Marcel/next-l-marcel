@@ -7,10 +7,6 @@
       xl:text-[14px]
       2xl:text-[18px]
       transition-colors
-      scrollbar-thin
-      scrollbar-track-white-700
-      dark:scrollbar-track-gray-500
-      scrollbar-thumb-primary-600
       duration-200
       font-inter
       ring-primary-500

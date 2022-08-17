@@ -6,7 +6,7 @@ import { VerticalDivider } from "../VerticalDivider";
 
 export function Header() {
   return (
-    <header className="fixed top-0 w-full md:drop-shadow-lg">
+    <header className="fixed top-0 z-50 w-full md:drop-shadow-lg">
       <nav className="z-40 hidden flex-row justify-between px-16 md:flex">
         <ul className="nav-links flex flex-row">
           <NavLink

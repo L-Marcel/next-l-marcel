@@ -17,7 +17,7 @@ export function IconButton({
       <IconButtonContainer
         {...rest}
       >
-        <Icon name={icon} title={title} withoutTooltip/>
+        <Icon className="duration-100" name={icon} title={title} withoutTooltip/>
       </IconButtonContainer>
     );
   }
@@ -27,7 +27,7 @@ export function IconButton({
       <IconButtonContainer
         {...rest}
       >
-        <Icon name={icon} title={title} withoutTooltip/>
+        <Icon className="duration-100" name={icon} title={title} withoutTooltip/>
       </IconButtonContainer>
     </Tooltip>
   );
