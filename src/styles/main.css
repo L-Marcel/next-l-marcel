@@ -61,7 +61,7 @@
       overflow-x-auto
       overflow-y-hidden
   }
-  p, pre, p > span, pre > span, li, li > span {
+  p, pre, p > span, pre > span, li, li > span, code, code > span {
     @apply 
       font-normal 
       text-[1.2rem]
