@@ -1,6 +1,6 @@
 import { IconBaseProps } from "react-icons";
 import { BsCheck2Circle, BsClockHistory } from "react-icons/bs";
-import { FaDownload, FaMoon, FaSun } from "react-icons/fa";
+import { FaAlignRight, FaDownload, FaMoon, FaSun } from "react-icons/fa";
 import { SiChakraui, SiCss3, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiHtml5, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiYarn } from "react-icons/si";
 import { Tooltip } from "../Tooltip";
 
@@ -31,7 +31,8 @@ const icons = {
   "socket.io": SiSocketdotio,
   "chakra-ui": SiChakraui,
   tailwind: SiTailwindcss,
-  checked: BsCheck2Circle
+  checked: BsCheck2Circle,
+  menu: FaAlignRight
 };
 
 export type IconType = keyof typeof icons;
