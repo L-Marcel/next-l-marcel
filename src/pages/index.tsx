@@ -2,10 +2,11 @@ import { GetStaticProps } from "next";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import { MarkdownCode } from "../components/Markdown/MarkdownCode";
 import { MarkdownLink } from "../components/Markdown/MarkdownLink";
 import { MarkdownListItem } from "../components/Markdown/MarkdownListItem";
 import { MarkdownSections } from "../components/Markdown/MarkdownSections";
-import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, MarkdownListContainer, MarkdownNavContainer, MarkdownPContainer, MarkdownPreContainer } from "../components/Markdown/styles";
+import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, MarkdownListContainer, MarkdownNavContainer, MarkdownPContainer } from "../components/Markdown/styles";
 import { Profile } from "../components/Profile";
 import { api } from "../services/api";
 
@@ -34,7 +35,7 @@ function Home({
             h2: MarkdownH2Container,
             p: MarkdownPContainer,
             a: MarkdownLink,
-            pre: MarkdownPreContainer,
+            pre: MarkdownCode,
             div: MarkdownSections,
             ul: MarkdownListContainer,
             li: MarkdownListItem,

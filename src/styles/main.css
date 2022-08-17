@@ -54,9 +54,12 @@
   }
   pre {
     @apply
-      overflow-auto
-      overflow-y-hidden
       flex;
+  }
+  code {
+    @apply
+      overflow-x-auto
+      overflow-y-hidden
   }
   p, pre, p > span, pre > span, li, li > span {
     @apply 
@@ -88,7 +91,8 @@
       dark:active:text-white-500
       dark:active:bg-primary-600
       rounded-[15px]
-      align-middle;
+      align-middle
+      select-none;
   }
   span {
     @apply !text-primary-500;

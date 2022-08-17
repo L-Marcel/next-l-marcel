@@ -3,7 +3,8 @@ import tw from "tw-tailwind";
 export const TooltipContainer = tw.label`
   relative
   tooltip-container
-  cursor-help
+  cursor-normal
+  md:cursor-help
 `;
 
 export const TooltipText = tw.p`
