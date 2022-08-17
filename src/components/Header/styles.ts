@@ -28,7 +28,7 @@ export const MobileMenuSideBar = tw.aside`
 export const MobileMenuButtonsGroup = tw.menu`
   absolute
   top-[calc(-60px-3rem)]
-  right-26
+  right-[calc(120px-2rem)]
 `;
 
 export const MobileToggleThemeIconButton = tw.button`
