@@ -11,7 +11,7 @@ export const MobileMenuContainer = tw.nav`
   z-[90]
   backdrop-blur-sm
   border-t-4
-  border-t-white-700
+  border-t-white-600
   dark:border-t-gray-600
 `;
 
@@ -34,15 +34,15 @@ export const MobileMenuButtonsGroup = tw.menu`
 export const MobileToggleThemeIconButton = tw.button`
   absolute
   top-[-1.4rem]
-  left-[-2rem]
+  left-[-1.9rem]
   z-40
   rounded-full
   bg-primary-500
   dark:bg-primary-500
   !text-gray-700
   border-4
-  border-white-500
-  dark:border-gray-700
+  border-white-600
+  dark:border-gray-600
   w-[3rem]
   h-[3rem]
   flex
@@ -67,8 +67,8 @@ export const MobileMenuMainButton = tw.button`
   dark:bg-primary-500
   !text-gray-700
   border-8
-  border-white-500
-  dark:border-gray-700
+  border-white-600
+  dark:border-gray-600
   text-xl
   pb-[1px]
 `;
