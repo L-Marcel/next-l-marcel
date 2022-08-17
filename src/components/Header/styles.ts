@@ -34,7 +34,7 @@ export const MobileMenuButtonsGroup = tw.menu`
 export const MobileToggleThemeIconButton = tw.button`
   absolute
   top-[-1.4rem]
-  left-[-1.2rem]
+  left-[-2rem]
   z-40
   rounded-full
   bg-primary-500
@@ -43,8 +43,8 @@ export const MobileToggleThemeIconButton = tw.button`
   border-4
   border-white-500
   dark:border-gray-700
-  w-[2.4rem]
-  h-[2.4rem]
+  w-[3rem]
+  h-[3rem]
   flex
   flex-row
   justify-center

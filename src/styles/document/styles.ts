@@ -6,6 +6,6 @@ export const PageBody = tw.body`
   scrollbar-track-white-700 
   scrollbar-thumb-primary-500 
   dark:scrollbar-track-gray-500
-  mb-5
+  mb-[40px]
   md:mb-0
 `;

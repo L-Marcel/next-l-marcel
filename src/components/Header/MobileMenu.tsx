@@ -13,7 +13,7 @@ export function MobileMenu() {
           </ThemeProvider>
           <MobileMenuMainButton>
             <Icon
-              className="text-[2.1rem] duration-100" 
+              className="!text-[2.1rem] duration-100" 
               name="menu"
               title="menu"
               withoutTooltip

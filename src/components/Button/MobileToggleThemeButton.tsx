@@ -11,7 +11,7 @@ export function MobileToggleThemeButton() {
       onClick={toggleTheme} 
     >
       <Icon 
-        className="text-[1.1rem] duration-100" 
+        className="!text-[1.5rem] duration-100" 
         name={isDarkTheme? "moon":"sun"}
         title={isDarkTheme? "toggle to light theme":"toggle to dark theme"}
         withoutTooltip
