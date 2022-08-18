@@ -1,5 +1,8 @@
 import { format, formatDistance } from "date-fns";
+import dateLocaleEnUs from "date-fns/locale/en-US";
+import dateLocalePtBr from "date-fns/locale/pt-BR";
 import Image from "next/future/image";
+import { useRouter } from "next/router";
 import { Icon } from "../Icon";
 import { Tooltip } from "../Tooltip";
 import { ProfileArticleContainer, ProfileAvatarContainer, ProfileTimerContainer } from "./styles";
@@ -10,9 +13,16 @@ export interface ProfileProps {
 
 export function Profile({
   updatedAt
-}: ProfileProps) {  
+}: ProfileProps) { 
+  const router = useRouter(); 
   const updatedAtDate = new Date(updatedAt);
   const currentDate = new Date();
+
+  const isNotPtBr = router.locale === "en-us";
+
+  const dateConfig = {
+    locale: isNotPtBr? dateLocaleEnUs:dateLocalePtBr
+  };
 
   return (
     <ProfileArticleContainer>
@@ -30,15 +40,18 @@ export function Profile({
         <p className="hidden text-base md:block md:text-[1.5rem]">
           <span className="text-lg md:text-[1.5rem]">L</span>ucas <span className="text-lg md:text-[1.5rem]">Marcel</span> Silva de Brito
         </p>
-        <Tooltip label={format(updatedAtDate, "yyyy LLL'.' dd -> HH:mm:ss")}>
+        <Tooltip label={format(updatedAtDate, "yyyy LLL'.' dd -> HH:mm:ss", dateConfig)}>
           <ProfileTimerContainer>
             <Icon 
               withoutTooltip 
               name="clock" 
-              className="hidden h-5 w-5 md:block md:h-[1.7rem] md:w-[1.7rem]"
+              className="mt-[2px] hidden h-5 w-5 md:block md:h-[1.7rem] md:w-[1.7rem]"
             />
-            <time dateTime={format(updatedAtDate, "yyyy-MM-dd HH:mm")}>
-                last update: {formatDistance(updatedAtDate, currentDate, { addSuffix: true })}
+            <time className="mb-[2px] max-w-[80vw] md:max-w-[33vw]" dateTime={format(updatedAtDate, "yyyy-MM-dd HH:mm", dateConfig)}>
+              {isNotPtBr? "last update":"última atualização"}: {formatDistance(updatedAtDate, currentDate, { 
+                ...dateConfig, 
+                addSuffix: true 
+              })}
             </time>
           </ProfileTimerContainer>
         </Tooltip>

@@ -30,7 +30,7 @@ export const ProfileTimerContainer = tw.div`
   mt-[0.1rem] 
   flex 
   flex-row 
-  items-center 
+  items-start 
   gap-2 
   text-gray-500 
   dark:text-white-600 

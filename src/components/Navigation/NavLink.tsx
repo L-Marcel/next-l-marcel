@@ -18,21 +18,30 @@ export function NavLink({
     (locale && router.locale?.toLowerCase().includes(name)) ||
     (!locale && router.asPath.replace(/\/en-us/, "/") === path);
 
+  const isNotPtBr = router.locale === "en-us";
+
   return (
     <li>
       <Link href={path} locale={locale}>
         <Button 
           selected={isActive}
         >
-          {name}
+          {isNotPtBr? name:getTranslatedRouteName(name)}
         </Button>
       </Link>
     </li>
   );
 }
 
-//Novo: 64px - 16px - 4rem
-//Rodando: 61,5px - 12px - 5,125rem
-
-// 4rem = 16px
-// 4rem = 12px
+function getTranslatedRouteName(name: string) {
+  switch(name) {
+  case "resume":
+    return "currículo";
+  case "projects":
+    return "projetos";
+  case "achievements":
+    return "conquistas";
+  default:
+    return name;
+  }
+}

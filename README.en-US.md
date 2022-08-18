@@ -7,7 +7,7 @@
     </a>
     <span class="disabled">•</span>
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
-      resume
+      download resume
     </a>
   </nav>
 </div>
