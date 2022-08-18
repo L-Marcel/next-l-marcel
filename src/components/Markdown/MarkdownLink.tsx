@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HTMLAttributes } from "react";
 import { Button } from "../Button";
 import { Tooltip } from "../Tooltip";
@@ -14,13 +15,12 @@ export function MarkdownLink({
 }: MarkdownLinkProps) {
   if(!className?.includes("navigation-link")) {
     return (
-      <Tooltip label={href} containerClassName={className}>
+      <Link href={href} passHref>
         <MarkdownAContainer
           className={className}
-          href={href}
           {...rest}
         />
-      </Tooltip>
+      </Link>
     );
   }
 
