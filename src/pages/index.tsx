@@ -4,9 +4,10 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { MarkdownCode } from "../components/Markdown/MarkdownCode";
 import { MarkdownLink } from "../components/Markdown/MarkdownLink";
+import { MarkdownList } from "../components/Markdown/MarkdownList";
 import { MarkdownListItem } from "../components/Markdown/MarkdownListItem";
 import { MarkdownSections } from "../components/Markdown/MarkdownSections";
-import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, MarkdownListContainer, MarkdownNavContainer, MarkdownPContainer } from "../components/Markdown/styles";
+import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, MarkdownNavContainer, MarkdownPContainer } from "../components/Markdown/styles";
 import { Profile } from "../components/Profile";
 import { Github } from "../services/Github";
 
@@ -37,7 +38,8 @@ function Home({
             a: MarkdownLink,
             pre: MarkdownCode,
             div: MarkdownSections,
-            ul: MarkdownListContainer,
+            ul: MarkdownList,
+            ol: MarkdownList,
             li: MarkdownListItem,
             br: MarkdownBrContainer,
             nav: MarkdownNavContainer,

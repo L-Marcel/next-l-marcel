@@ -5,8 +5,9 @@ import { MarkdownListItemContainer } from "./styles";
 export function MarkdownListItem({
   children,
   id,
+  ordered,
   ...rest
-}: HTMLAttributes<HTMLLIElement>) {
+}: HTMLAttributes<HTMLLIElement> & { ordered: boolean }) {
   switch(id) {
   case "checked":
     return (

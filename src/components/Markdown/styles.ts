@@ -74,6 +74,11 @@ export const MarkdownListItemContainer = tw.li`
   2xl:text-xl
 `;
 
+export const MarkdownOrderedListContainer = tw.ol`
+  text-lg
+  2xl:text-xl
+`;
+
 export const MarkdownGridContainer = tw.div`
   py-8
   markdown-section-container
