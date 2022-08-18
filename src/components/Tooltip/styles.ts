@@ -7,11 +7,15 @@ export const TooltipContainer = tw.label`
   md:cursor-help
 `;
 
-export const TooltipText = tw.p`
+export interface TooltipTextProps {
+  space: number; 
+}
+
+export const TooltipText = tw.p<TooltipTextProps>`
   hidden  
   md:block
   absolute
-  top-[calc(100%+1rem)]
+  ${props => `top-[calc(100%+${props.space}rem)]`}
   font-normal
   w-full
   text-center

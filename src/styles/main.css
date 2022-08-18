@@ -13,6 +13,7 @@
       ring-offset-2
       focus-visible:outline-none
       focus-visible:ring-2;
+      -webkit-tap-highlight-color: transparent;
   }
   body {
     @apply
@@ -105,7 +106,7 @@
   }
   time {
     @apply 
-      text-base  
+      text-sm  
       md:text-xl
       font-light 
       italic;

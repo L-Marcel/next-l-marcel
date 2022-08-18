@@ -14,20 +14,11 @@ export function Profile({
   const currentDate = new Date();
 
   return (
-    <article className="mx-12 mb-6 mt-[2.43rem] flex flex-row items-center md:mx-16 md:mb-8 md:mt-[4.43rem]">
-      <div className="mr-8 hidden h-[11.875rem] w-[11.875rem] rounded-full md:flex">
+    <article className="mx-4 mb-3 mt-[2.15rem] flex flex-row items-center md:mx-16 md:mb-8 md:mt-[4.43rem]">
+      <div className="mr-2 h-[40px] w-[40px] rounded-full md:mr-8 md:flex md:h-[190px] md:w-[190px] 2xl:h-[250px] 2xl:w-[250px]">
         <Image
-          width={190}
-          height={190}
-          alt=""
-          className="rounded-full"
-          src="https://avatars.githubusercontent.com/u/62476762?v=4"
-        />
-      </div>
-      <div className="mr-8 hidden h-24 w-24 rounded-full sm:flex md:hidden">
-        <Image
-          width={72}
-          height={72}
+          width={250}
+          height={250}
           alt=""
           className="rounded-full"
           src="https://avatars.githubusercontent.com/u/62476762?v=4"
@@ -35,12 +26,12 @@ export function Profile({
       </div>
       <div className="flex flex-col py-4 md:py-8 md:pr-8">
         <h1>l<span>-</span>marcel</h1>
-        <p className="text-base md:text-[1.5rem]">
+        <p className="hidden text-base md:block md:text-[1.5rem]">
           <span className="text-lg md:text-[1.5rem]">L</span>ucas <span className="text-lg md:text-[1.5rem]">Marcel</span> Silva de Brito
         </p>
         <Tooltip label={format(updatedAtDate, "yyyy LLL'.' dd -> HH:mm:ss")}>
-          <div className="mt-2 flex flex-row items-center gap-2 text-gray-500 dark:text-white-600 md:mt-4">
-            <Icon withoutTooltip name="clock" className="h-5 w-5 md:h-[1.7rem] md:w-[1.7rem]"/>
+          <div className="mt-[0.1rem] flex flex-row items-center gap-2 text-gray-500 dark:text-white-600 md:mt-4">
+            <Icon withoutTooltip name="clock" className="hidden h-5 w-5 md:block md:h-[1.7rem] md:w-[1.7rem]"/>
             <time dateTime={format(updatedAtDate, "yyyy-MM-dd HH:mm")}>
               last update: {formatDistance(updatedAtDate, currentDate, { addSuffix: true })}
             </time>

@@ -13,8 +13,13 @@ export const ButtonContainer = tw.button<ButtonContainerProps>`
   ${props => props.selected? "bg-primary-500 text-gray-700 dark:bg-primary-500 dark:text-gray-700":""}
 `;
 
-export const IconButtonContainer = tw.button`
-  p-[.6875rem]
-  h-[2.8125rem]
-  w-[2.8125rem]
+export type IconButtonSize = "md" | "sm";
+export interface IconButtonContainerProps {
+  size: ButtonSize;
+}
+
+export const IconButtonContainer = tw.button<IconButtonContainerProps>`
+  ${props => props.size === "md"? 
+    "h-[2.8125rem] w-[2.8125rem] p-[0.6875rem]":
+    "h-[2.4rem] w-[2.4rem] p-[0.48rem]"}
 `;

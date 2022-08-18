@@ -1,8 +1,9 @@
 import { IconBaseProps } from "react-icons";
 import { BsCheck2Circle, BsClockHistory } from "react-icons/bs";
 import { FaAlignRight, FaDownload, FaMoon, FaSun } from "react-icons/fa";
-import { SiChakraui, SiCss3, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiHtml5, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiYarn } from "react-icons/si";
+import { SiChakraui, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
 import { Tooltip } from "../Tooltip";
+import { AsRocketseat } from "./assets/AsRocketseat";
 
 const icons = {
   download: FaDownload,
@@ -32,7 +33,13 @@ const icons = {
   "chakra-ui": SiChakraui,
   tailwind: SiTailwindcss,
   checked: BsCheck2Circle,
-  menu: FaAlignRight
+  menu: FaAlignRight,
+  whatsapp: SiWhatsapp,
+  linkedin: SiLinkedin,
+  github: SiGithub,
+  discord: SiDiscord,
+  instagram: SiInstagram,
+  rocketseat: AsRocketseat
 };
 
 export type IconType = keyof typeof icons;
@@ -54,7 +61,10 @@ export function Icon({
   const icon = icons[name]({
     className: 
       "drop-shadow-sm md:drop-shadow-lg " +
-      (size === "sm"? "text-[1.4rem] md:text-[1.4125rem] ":"text-[1.6rem] md:text-4xl ") + 
+      (size === "sm"? 
+        "text-[1.4rem] md:text-[1.4125rem] ":
+        "text-[1.6rem] md:text-4xl "
+      ) + 
       className,
     ...rest
   });
