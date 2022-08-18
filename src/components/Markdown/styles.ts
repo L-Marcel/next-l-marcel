@@ -80,8 +80,10 @@ export const MarkdownGridContainer = tw.div`
   first-of-type:with-description
   bg-white-600 dark:bg-gray-600
   flex
-  gap-10
-  md:gap-16
+  gap-x-10
+  gap-y-8
+  md:gap-x-16
+  md:gap-y-8
   flex-wrap
 `;
 
