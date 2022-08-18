@@ -8,7 +8,7 @@ import { MarkdownListItem } from "../components/Markdown/MarkdownListItem";
 import { MarkdownSections } from "../components/Markdown/MarkdownSections";
 import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, MarkdownListContainer, MarkdownNavContainer, MarkdownPContainer } from "../components/Markdown/styles";
 import { Profile } from "../components/Profile";
-import { api } from "../services/api";
+import { Github } from "../services/Github";
 
 interface HomeProps {
   data: string;
@@ -50,13 +50,13 @@ function Home({
   );
 }
 
-export const getStaticProps: GetStaticProps = async() => {
-  const res = await api.get("https://raw.githubusercontent.com/l-marcel/next-l-marcel/main/README.md");
+export const getStaticProps: GetStaticProps = async({ locale }) => {
+  const data = await Github.getReadme(locale ?? "pt-br");
   const updatedAt = new Date().toString();
 
   return {
     props: {
-      data: res.data,
+      data,
       updatedAt
     },
     revalidate: false

@@ -15,7 +15,7 @@ export function Profile({
 
   return (
     <article className="mx-4 mb-3 mt-[2.15rem] flex flex-row items-center md:mx-16 md:mb-8 md:mt-[4.43rem]">
-      <div className="mr-2 h-[40px] w-[40px] rounded-full md:mr-8 md:flex md:h-[190px] md:w-[190px] 2xl:h-[250px] 2xl:w-[250px]">
+      <div className="mr-4 h-[40px] w-[40px] rounded-full md:mr-8 md:flex md:h-[190px] md:w-[190px] 2xl:h-[250px] 2xl:w-[250px]">
         <Image
           width={250}
           height={250}

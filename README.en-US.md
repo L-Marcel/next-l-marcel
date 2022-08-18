@@ -1,9 +1,9 @@
 <div valing="top">
-  <h1>Olá, sou <span>Lucas Marcel</span></h1>
-  <p>Um desenvolvedor web brasileiro que ama o Next.js.</p>
+  <h1>Hello, I'm <span>Lucas Marcel</span></h1>
+  <p>A Brazilian web developer who loves Next.js.</p>
   <nav>
-    <a class="navigation-link disabled" href="https://github.com/L-Marcel/l-marcel/blob/main/README.en-US.md" target="__blank__">
-      en-us
+    <a class="navigation-link disabled" href="https://github.com/L-Marcel/l-marcel/blob/main/README.md" target="__blank__">
+      pt-br
     </a>
     <span class="disabled">•</span>
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
@@ -14,46 +14,46 @@
 
 <br/>
 
-<p>Tenho 19 anos, moro no Brasil (Macau - RN) e terminei o ensino médio técnico em informática no <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> em 2022. Nesse período me dediquei ao desenvolvimento web com tecnologias como o <a href="https://pt-br.reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> and <a href="https://nodejs.org/pt-br" target="__blank__">Node.js</a>. Após terminar o curso <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Ignite</a> da <a href="https://www.rocketseat.com.br" target="__blank__">Rocketseat</a>, também consegui uma <span>bolsa de estudos completa</span> no <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
+<p>I've 19 years old, live in Brazil (Macau - RN), and finished computing technical high school in <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> in 2022. In this period, I dedicated myself to web development with technologies like <a href="https://reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> and <a href="https://nodejs.org/en" target="__blank__">Node.js</a>. After finishing the <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Ignite</a> course of the <a href="https://www.rocketseat.com.br" target="__blank__">Rocketseat</a>, also I got a <span>full scholarship</span> in <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
 
 <pre>
 C:\projects> <span>yarn</span> create next-app --typescript l-marcel
 </pre>
 
-<p>No momento tenho preferência com o <span>Front-end</span>, mas sei um pouco de tudo que preciso para concluir meus projetos sozinho (incluindo o processo de desenvolvimento do <span>Back-end</span>). Meu <span>framework</span> favorito é o <span>Next.js</span>. Alguns de seus recursos, principalmente as abordagens de renderização de páginas, permitem uma melhor <span>experiência do usuário</span> que se adapta a uma variedade de casos de uso. Além disso, usando serverless functions, posso implantar o ecossistema dos meus pequenos projetos de forma prática e rápida sem a necessidade de desmembrar o Front-end do Back-end.</p>
+<p>At the moment, I prefer the <span>Front-end</span>, but I know a bit of everything I need to complete my projects by myself (including the <span>Back-end</span> development process). My favorite <span>framework</span> is Next.js. Some of his features, mainly the page rendering approaches, allow a better <span>user experience</span> that suits a variety of use cases. Furthermore, using serverless functions, I can deploy the ecosystem of my small projects in a practical and fast way without the necessity of breaking apart the Front-end of the Back-end.</p>
 
 <pre>
 C:\projects\l-marcel> <span>yarn</span> dev
 </pre>
 
-<p>Há quatro anos (em <span>2018</span>), tive minha primeira experiência com programação. Python foi incrível, mas eu amo muito mais o JavaScript. E hoje continuo disposto a expandir minhas habilidades e aprender coisas novas como antes.</p>
+<p>Four years ago (in <span>2018</span>), I had my first experience with programming. Python was incredible, but I love it much more the JavaScript. And today I'm still willing to expand my skills and learn new things as before.</p>
 
 <div id="technologies"></div>
 
 <div id="grid">
-  <ul><h2 align="center">Algumas <span>competências</span>:</h2>
-    <li id="checked">Conheço e já utilizei metodologias ágeis;</li>
-    <li id="checked">Tenho experiência com várias opções de implementação;</li>
-    <li id="checked">Entendo os relacionamentos das entidades do banco de dados;</li>
-    <li id="checked">Desenvolvo com responsividade;</li>
-    <li id="checked">Procuro experimentar coisas novas;</li>
-    <li id="checked">Consigo encontrar e resolver erros sozinho.</li>
+  <ul><h2 align="center">Some <span>competencies</span>:</h2>
+    <li id="checked">I know and have used agile methodologies;</li>
+    <li id="checked">I’ve experienced a variety of deployment options;</li>
+    <li id="checked">I understand the database’s entity relations;</li>
+    <li id="checked">I develop responsively;</li>
+    <li id="checked">I try to try new things;</li>
+    <li id="checked">I can find and resolve errors myself.</li>
   </ul>
-  <ul><h2 align="center">Habilidades <span>interpessoais</span>:</h2>
-    <li id="checked">Raciocínio rápido;</li>
-    <li id="checked">Dedicação;</li>
-    <li id="checked">Aprendizado constante;</li>
-    <li id="checked">Objetividade;</li>
-    <li id="checked">Flexibilidade.</li>
+  <ul><h2 align="center"><span>Soft</span> skills:</h2>
+    <li id="checked">Fast reasoning;</li>
+    <li id="checked">Dedication;</li>
+    <li id="checked">Constant learning;</li>
+    <li id="checked">Objectivity;</li>
+    <li id="checked">Flexibility.</li>
   </ul>
-  <ul><h2 align="center"><span>Idiomas</span> falados:</h2>
-    <li id="checked">Português – nativo;</li>
-    <li id="checked">Inglês – técnico.</li>
+  <ul><h2 align="center"><span>Languages</span> proficiency:</h2>
+    <li id="checked">Portuguese – native;</li>
+    <li id="checked">English – technical.</li>
   </ul>
 </div>
 
 <div id="statistics">
-  <h2 align="center">Estatísticas do <span>Github</span>:</h2>
+  <h2 align="center"><span>Github profile</span> statistics:</h2>
   <div align="center">
     <a href="https://www.l-marcel.vercel.app"><img alt="linkedin" src="https://img.shields.io/badge/-Website-brightgreen?logoColor=ffffff&style=for-the-badge&logo=hack%20the%20box&color=423958"/></a>
     <a href="https://www.linkedin.com/in/l-marcel/"><img alt="linkedin" src="https://img.shields.io/badge/-LINKEDIN-brightgreen?logoColor=ffffff&style=for-the-badge&logo=linkedin&color=0A66C2"/></a>
