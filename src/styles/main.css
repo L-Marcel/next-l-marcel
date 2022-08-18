@@ -102,7 +102,8 @@
     @apply 
       underline-offset-2
       !text-primary-500
-      hover:underline;
+      underline
+      hover:underline-offset-4;
   }
   time {
     @apply 
@@ -110,6 +111,20 @@
       md:text-xl
       font-light 
       italic;
+  }
+  :focus-visible {
+    @apply
+      outline-none
+      ring-0
+      !bg-primary-600
+      !text-white-500
+      z-10;
+  }
+  a:focus-visible {
+    @apply
+      rounded-lg
+      px-1
+      py-1
   }
 }
 
@@ -211,6 +226,29 @@
         md:text-3xl
         mb-4;
     }
+  }
+
+  .bg-developer {
+    --bg-left-space: calc(530px + calc(50% - 200px));
+    background-image: url('/assets/developer.svg');
+
+    @apply
+      bg-[length:0rem]
+      md:bg-[left_var(--bg-left-space)_bottom_-4rem]
+      bg-no-repeat
+      md:bg-[length:25rem]
+  }
+
+  .bg-notifications {
+    --bg-left-sm-space: calc(15% - 100px);
+    --bg-left-space: calc(320px + calc(10% - 190px));
+    background-image: url('/assets/notifications.svg');
+
+    @apply
+      bg-[right_var(--bg-left-sm-space)_bottom_-14rem]
+      md:bg-[left_var(--bg-left-space)_bottom_-14rem]
+      bg-no-repeat
+      bg-[length:30rem]
   }
 };
 

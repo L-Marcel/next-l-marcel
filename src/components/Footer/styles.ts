@@ -11,6 +11,7 @@ export const FooterContainer = tw.footer`
   pb-0
   md:pb-8
   md:h-28
+  bg-notifications
 `;
 
 export const FooterNavigation = tw.nav`
