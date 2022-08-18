@@ -1,7 +1,7 @@
 import { IconBaseProps } from "react-icons";
 import { BsCheck2Circle, BsClockHistory } from "react-icons/bs";
 import { FaAlignRight, FaDownload, FaMoon, FaSun } from "react-icons/fa";
-import { SiChakraui, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
+import { SiChakraui, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
 import { Tooltip } from "../Tooltip";
 import { AsRocketseat } from "./assets/AsRocketseat";
 
@@ -39,7 +39,8 @@ const icons = {
   github: SiGithub,
   discord: SiDiscord,
   instagram: SiInstagram,
-  rocketseat: AsRocketseat
+  rocketseat: AsRocketseat,
+  mail: SiMaildotru
 };
 
 export type IconType = keyof typeof icons;

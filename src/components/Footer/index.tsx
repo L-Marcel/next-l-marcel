@@ -9,7 +9,9 @@ export function Footer() {
     github: "https://github.com/l-marcel",
     linkedin: "https://linkedin.com/in/l-marcel",
     npm: "https://www.npmjs.com/~lmarcel",
-    rocketseat: "https://app.rocketseat.com.br/me/l-marcel"
+    rocketseat: "https://app.rocketseat.com.br/me/l-marcel",
+    email: "https://mail.google.com/mail/u/0/?to=lmgh1312@gmail.com&su=&body=&tf=cm",
+    emailApp: "mailto:lmgh1312@gmail.com?subject=&body=&tf=cm"
   };
 
   function redirectToSocial(social: keyof typeof network) {
@@ -45,6 +47,24 @@ export function Footer() {
               icon="github"
               size="sm"
               title="github"
+            />
+          </li>
+          <li className="hidden md:inline">
+            <IconButton
+              onClick={() => redirectToSocial("email")}
+              className="rounded-lg"
+              icon="mail"
+              size="sm"
+              title="email"
+            />
+          </li>
+          <li className="inline md:hidden">
+            <IconButton
+              onClick={() => redirectToSocial("emailApp")}
+              className="rounded-lg"
+              icon="mail"
+              size="sm"
+              title="email"
             />
           </li>
           <li>

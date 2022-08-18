@@ -6,19 +6,17 @@ interface TooltipProps {
   children: ReactNode;
   className?: string;
   containerClassName?: string;
-  space?: number;
 }
 
 export function Tooltip({
   label,
   children,
   className,
-  space = 1,
   containerClassName
 }: TooltipProps) {
   return (
     <TooltipContainer className={containerClassName}>
-      <TooltipText className={className} space={space}>
+      <TooltipText className={className}>
         <TooltipSpan>{label}</TooltipSpan>
       </TooltipText>
       {children}
