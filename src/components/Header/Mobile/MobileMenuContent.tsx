@@ -16,7 +16,7 @@ export function MobileMenuContent() {
         leave="duration-[350ms] transition-all ease-in-out"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
-        className="fixed bottom-0 right-0 -z-30 h-screen w-screen bg-[#ffffff30] backdrop-blur-sm dark:bg-[#00000030]"
+        className="custom-backdrop-blur fixed bottom-0 right-0 -z-30 h-screen w-screen bg-[rgba(255,255,255,.3)] dark:bg-[rgba(0,0,0,.3)]"
       />
       <Transition
         show={isOpen}

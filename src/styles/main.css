@@ -83,10 +83,10 @@
       dark:text-white-500
       bg-white-600
       dark:bg-gray-500
-      hover:text-gray-700 
-      dark:hover:text-gray-700 
-      hover:bg-primary-500
-      dark:hover:bg-primary-500
+      md:hover:text-gray-700 
+      md:dark:hover:text-gray-700 
+      md:hover:bg-primary-500
+      md:dark:hover:bg-primary-500
       active:text-white-500
       active:bg-primary-600
       dark:active:text-white-500
@@ -264,6 +264,11 @@
     @apply
       border-b-primary-600
       border-b-4;
+  }
+  
+  .custom-backdrop-blur {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 };
 
