@@ -13,8 +13,6 @@ function Achivements({ data }: any) {
   );
 }
 
-export default Achivements;
-
 export const getStaticProps: GetStaticProps = async({ locale }) => {
   const isNotPtBr = locale !== "pt-br";
   const data = await Graphql.getInformation(isNotPtBr? "EN":"BR");
@@ -26,3 +24,5 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
     revalidate: false
   };
 };
+
+export default Achivements;
