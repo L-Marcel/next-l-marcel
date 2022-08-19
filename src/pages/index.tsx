@@ -11,15 +11,15 @@ import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, Markdown
 import { Profile } from "../components/Profile";
 import { Github } from "../services/Github";
 
-interface HomeProps {
+interface ResumeProps {
   data: string;
   updatedAt: string;
 }
 
-function Home({
+function Resume({
   data,
   updatedAt
-}: HomeProps) {
+}: ResumeProps) {
   return (
     <>
       <section>
@@ -65,4 +65,4 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
   };
 };
 
-export default Home;
+export default Resume;

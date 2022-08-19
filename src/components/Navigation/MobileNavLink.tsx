@@ -31,7 +31,7 @@ export function MobileNavLink({
           <MobileNavLinkIconContainer selected={isActive}>
             <Icon
               name={name as IconType}
-              className="text-4xl"
+              className="text-4xl duration-100"
               withoutTooltip
             />
           </MobileNavLinkIconContainer>

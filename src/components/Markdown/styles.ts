@@ -67,16 +67,22 @@ export const MarkdownDivContainer = tw.div<MarkdownDivContainerProps>`
 export const MarkdownListContainer = tw.ul`
   text-left
   list-container
+  gap-[3px]
+  flex
+  flex-col
 `;
 
 export const MarkdownListItemContainer = tw.li`
   text-lg
   2xl:text-xl
+  flex
+  flex-col
 `;
 
 export const MarkdownOrderedListContainer = tw.ol`
   text-lg
   2xl:text-xl
+  gap-[3px]
 `;
 
 export const MarkdownGridContainer = tw.div`

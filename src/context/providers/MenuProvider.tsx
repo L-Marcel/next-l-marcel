@@ -24,6 +24,14 @@ export function MenuProvider({
   }, [setIsOpen]);
 
   useEffect(() => {
+    window.onresize = () => {
+      if(document.documentElement.style.overflowY !== "scroll") {
+        document.documentElement.style.overflowY = "scroll";
+      }
+    };
+  });
+
+  useEffect(() => {
     if(isOpen) {
       document.documentElement.style.overflowY = "hidden";
     } else if(document) {
