@@ -17,8 +17,8 @@ export const MobileNavLinkListItemContainer = tw.li<MobileNavLinkListItemContain
 
 export const MobileNavLinkIconContainer = tw.div<MobileNavLinkIconContainerProps>`
   rounded-xl
-  bg-white-600 
-  dark:bg-gray-600 
   p-3
-  ${props => props.selected? "!bg-primary-600 text-gray-600":""}
+  ${props => props.selected? 
+    "dark:!bg-primary-600 !bg-primary-500 text-gray-600":
+    "bg-white-600 dark:bg-gray-600 "}
 `;
