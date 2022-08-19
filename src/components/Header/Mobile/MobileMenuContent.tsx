@@ -1,7 +1,8 @@
 import { Transition } from "@headlessui/react";
 import { useMobileMenuIsOpen } from "../../../context/hooks/useMobileMenuIsOpen";
+import { MobileNavLink } from "../../Navigation/MobileNavLink";
 import { NavLink } from "../../Navigation/NavLink";
-import { MobileMenuContentContainer } from "./styles";
+import { MobileMenuContentContainer, MobileMenuLinksList } from "./styles";
 
 export function MobileMenuContent() {
   const { isOpen } = useMobileMenuIsOpen();
@@ -26,7 +27,7 @@ export function MobileMenuContent() {
         leave="transform duration-[400ms] transition-all ease-in-out"
         leaveFrom="translate-y-0 opacity-100"
         leaveTo="translate-y-full opacity-60"
-        className="fixed bottom-0 right-0 -z-20 h-[70vh] w-full pb-[3rem]"
+        className="fixed bottom-0 right-0 -z-20 w-full pb-[3rem]"
       >
         <MobileMenuContentContainer>
           <ul className="mobile-locale-menu-group flex flex-row justify-center">
@@ -42,7 +43,22 @@ export function MobileMenuContent() {
               locale="en-us"
               liClassName="flex-1"
             />
+            
           </ul>
+          <MobileMenuLinksList>
+            <MobileNavLink
+              path="/"
+              name="resume"
+            />
+            <MobileNavLink
+              path="/projects"
+              name="projects"
+            />
+            <MobileNavLink
+              path="/achievements"
+              name="achievements"
+            />
+          </MobileMenuLinksList>
         </MobileMenuContentContainer>
       </Transition>
     </>

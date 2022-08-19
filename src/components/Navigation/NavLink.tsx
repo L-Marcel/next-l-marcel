@@ -35,7 +35,7 @@ export function NavLink({
   );
 }
 
-function getTranslatedRouteName(name: string) {
+export function getTranslatedRouteName(name: string) {
   switch(name) {
   case "resume":
     return "currículo";

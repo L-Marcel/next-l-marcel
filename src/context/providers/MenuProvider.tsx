@@ -1,4 +1,4 @@
-import { ReactNode, startTransition, useCallback, useState } from "react";
+import { ReactNode, startTransition, useCallback, useEffect, useState } from "react";
 import { createContext } from "use-context-selector";
 
 export interface MenuProviderProps {
@@ -22,6 +22,14 @@ export function MenuProvider({
       setIsOpen(isOpen => !isOpen);
     });
   }, [setIsOpen]);
+
+  useEffect(() => {
+    if(isOpen) {
+      document.documentElement.style.overflowY = "hidden";
+    } else if(document) {
+      document.documentElement.style.overflowY = "scroll";
+    }
+  }, [isOpen]);
 
   return (
     <menuContext.Provider

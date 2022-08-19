@@ -36,9 +36,9 @@ export function ThemeProvider({
     if(savedTheme === "dark" || savedTheme === "light") {
       setTheme(savedTheme);
 
-      if(theme === "dark" && document) {
+      if(theme === "dark") {
         document.documentElement.classList.add("dark");
-      } else if(document) {
+      } else {
         document.documentElement.classList.remove("dark");
       }
     }

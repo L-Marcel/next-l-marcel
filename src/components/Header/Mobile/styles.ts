@@ -79,7 +79,14 @@ export const MobileMenuContentContainer = tw.div`
   dark:bg-gray-700
   dark:border-b-gray-600
   border-b-4
-  mb-24
   rounded-t-2xl
   overflow-hidden
+`;
+
+export const MobileMenuLinksList = tw.ul`
+  px-5
+  py-5
+  flex
+  flex-col
+  gap-2
 `;

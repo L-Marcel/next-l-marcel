@@ -15,6 +15,7 @@ module.exports = {
         },
         primary: {
           500: "#EB513B",
+          "500-30": "#EB513B30",
           600: "#C1412E"
         },
         white: {
