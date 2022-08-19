@@ -230,6 +230,7 @@
 
   .bg-developer {
     --bg-left-space: calc(530px + calc(50% - 200px));
+    --bg-left-2xl-space: calc(530px + calc(75% - 200px));
     background-image: url('/assets/developer.svg');
 
     @apply
@@ -237,6 +238,8 @@
       md:bg-[left_var(--bg-left-space)_bottom_-4rem]
       bg-no-repeat
       md:bg-[length:25rem]
+      2xl:bg-[length:30rem]
+      2xl:bg-[left_var(--bg-left-2xl-space)_bottom_-4rem]
   }
 
   .bg-notifications {
@@ -249,6 +252,18 @@
       md:bg-[left_var(--bg-left-space)_bottom_-14rem]
       bg-no-repeat
       bg-[length:30rem]
+  }
+
+  .mobile-locale-menu-group {
+    li > button {
+      @apply
+        w-full
+        rounded-none;
+    }
+
+    @apply
+      border-b-primary-600
+      border-b-4;
   }
 };
 

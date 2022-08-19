@@ -1,4 +1,4 @@
-import { ReactNode, startTransition, useEffect, useState } from "react";
+import { ReactNode, startTransition, useCallback, useEffect, useState } from "react";
 import { createContext } from "use-context-selector";
 
 export type ThemeType = "light" | "dark";
@@ -18,7 +18,7 @@ export function ThemeProvider({
 }:ThemeProviderProps) {
   const [theme, setTheme] = useState<ThemeType>("dark");
 
-  function handleToggleTheme() {
+  const handleToggleTheme = useCallback(() => {
     startTransition(() => {
       setTheme(theme => {
         const isDarkTheme = theme === "dark";
@@ -28,7 +28,7 @@ export function ThemeProvider({
         return currentTheme;
       });
     });
-  }
+  }, [setTheme]);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");

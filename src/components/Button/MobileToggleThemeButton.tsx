@@ -1,6 +1,6 @@
 
 import { useTheme } from "../../context/hooks/useTheme";
-import { MobileToggleThemeIconButton } from "../Header/styles";
+import { MobileToggleThemeIconButton } from "../Header/Mobile/styles";
 import { Icon } from "../Icon";
 
 export function MobileToggleThemeButton() {

@@ -6,12 +6,14 @@ interface NavLinkProps {
   locale?: string;
   name: string;
   path: string;
+  liClassName?: string;
 }
 
 export function NavLink({
   name,
   path,
-  locale
+  locale,
+  liClassName
 }: NavLinkProps) {
   const router = useRouter();
   const isActive = 
@@ -21,7 +23,7 @@ export function NavLink({
   const isNotPtBr = router.locale === "en-us";
 
   return (
-    <li>
+    <li className={liClassName}>
       <Link href={path} locale={locale}>
         <Button 
           selected={isActive}

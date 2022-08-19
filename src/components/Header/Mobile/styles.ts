@@ -1,6 +1,6 @@
 import tw from "tw-tailwind";
 
-export const MobileMenuContainer = tw.nav`
+export const MobileMenuNavigationContainer = tw.nav`
   fixed
   flex
   w-full
@@ -25,7 +25,7 @@ export const MobileMenuSideBar = tw.aside`
   border-l-transparent
 `;
 
-export const MobileMenuButtonsGroup = tw.menu`
+export const MobileMenuContainer = tw.menu`
   absolute
   top-[-3rem]
   right-[calc(120px-2rem)]
@@ -71,4 +71,16 @@ export const MobileMenuMainButton = tw.button`
   dark:border-gray-600
   text-xl
   pb-[1px]
+`;
+
+export const MobileMenuContentContainer = tw.div`
+  h-full
+  w-full 
+  bg-white-500
+  dark:bg-gray-700
+  dark:border-b-gray-600
+  border-b-4
+  mb-24
+  rounded-t-2xl
+  overflow-hidden
 `;

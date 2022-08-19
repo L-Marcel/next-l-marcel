@@ -3,7 +3,7 @@ import { ToggleThemeButton } from "../Button/ToggleThemeButton";
 
 import { NavLink } from "../Navigation/NavLink";
 import { VerticalDivider } from "../VerticalDivider";
-import { MobileMenu } from "./MobileMenu";
+import { MobileMenu } from "./Mobile/MobileMenu";
 
 export function Header() {
   return (

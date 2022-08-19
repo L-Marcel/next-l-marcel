@@ -47,7 +47,7 @@ export const MarkdownCodeContainer = tw.code`
   scrollbar-thin 
   scrollbar-track-white-700 
   scrollbar-thumb-primary-500 
-  dark:scrollbar-track-gray-500
+  dark:scrollbar-track-gray-600
   hover:scrollbar-thumb-primary-600
 `;
 

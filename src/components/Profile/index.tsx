@@ -45,7 +45,7 @@ export function Profile({
             <Icon 
               withoutTooltip 
               name="clock" 
-              className="mt-[2px] hidden h-5 w-5 md:block md:h-[1.7rem] md:w-[1.7rem]"
+              className="hidden h-5 w-5 md:block md:h-[1.7rem] md:w-[1.7rem]"
             />
             <time className="mb-[2px] max-w-[80vw] md:max-w-[33vw]" dateTime={format(updatedAtDate, "yyyy-MM-dd HH:mm", dateConfig)}>
               {isNotPtBr? "last update":"última atualização"}: {formatDistance(updatedAtDate, currentDate, { 
