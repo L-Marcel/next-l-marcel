@@ -10,13 +10,23 @@ export function MobileMenuContent() {
     <>
       <Transition
         show={isOpen}
+        enter="duration-[350ms] transition-all ease-in-out"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="duration-[350ms] transition-all ease-in-out"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+        className="fixed bottom-0 right-0 -z-30 h-screen w-screen bg-[#ffffff30] backdrop-blur-sm dark:bg-[#00000030]"
+      />
+      <Transition
+        show={isOpen}
         enter="transform duration-[400ms] transition-all ease-in-out"
         enterFrom="translate-y-full opacity-60"
         enterTo="opacity-100 translate-y-0"
         leave="transform duration-[400ms] transition-all ease-in-out"
         leaveFrom="translate-y-0 opacity-100"
         leaveTo="translate-y-full opacity-60"
-        className="fixed bottom-0 right-0 -z-20 h-[70vh] w-full pb-[calc(3rem+2px)]"
+        className="fixed bottom-0 right-0 -z-20 h-[70vh] w-full pb-[3rem]"
       >
         <MobileMenuContentContainer>
           <ul className="mobile-locale-menu-group flex flex-row justify-center">
