@@ -1,6 +1,6 @@
 import tw from "tw-tailwind";
 
-export const MobileMenuNavigationContainer = tw.nav`
+export const MobileMenuNavigationContainer = tw.div`
   fixed
   flex
   w-full
@@ -9,7 +9,6 @@ export const MobileMenuNavigationContainer = tw.nav`
   bottom-0 
   pb-[3rem]
   z-[90]
-  backdrop-blur-sm
   border-t-4
   border-t-white-600
   dark:border-t-gray-600
@@ -25,7 +24,7 @@ export const MobileMenuSideBar = tw.aside`
   border-l-transparent
 `;
 
-export const MobileMenuContainer = tw.menu`
+export const MobileMenuContainer = tw.div`
   absolute
   top-[-3rem]
   right-[calc(120px-2rem)]
