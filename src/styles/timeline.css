@@ -33,7 +33,9 @@
         !text-gray-700
         dark:!text-white-700
         absolute
+        opacity-100
         2lg:!bg-transparent
+        2lg:dark:!bg-transparent
         2lg:!top-[.8rem]
         2lg:relative
         2lg:!text-xl;
@@ -58,7 +60,33 @@
         sm:!mr-[25px]
         2lg:!ml-0
         2lg:!mr-0
-        !shadow-none;
+        !rounded-lg
+        !shadow-none
+        !border-b-4
+        !border-b-primary-500
+        dark:!border-b-primary-600;
+      
+      h2 {
+        @apply
+          !text-2xl
+          text-primary-500
+          dark:text-primary-600;
+      }
+
+      h3 {
+        @apply
+          !text-lg
+          !mt-[3px]
+          !text-[#787878]
+          2lg:!mt-[4px];
+      }
+
+      p {
+        @apply
+          !mt-[3px]
+          2lg:!mt-[4px]
+          !text-[1.1rem];
+      }
     }
   }
 
@@ -87,6 +115,19 @@
         !h-[24px]
         2lg:!w-[32px]
         2lg:!h-[32px]
+        !top-0
+        !left-0
+        !m-0;
+    }
+  }
+
+  .small-icon {
+    svg {
+      @apply
+        !w-[18px]
+        !h-[18px]
+        2lg:!w-[26px]
+        2lg:!h-[26px]
         !top-0
         !left-0
         !m-0;

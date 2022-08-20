@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { IconType } from "react-icons";
+import { IconType } from "../components/Icon";
 import { Timeline } from "../components/Timeline";
 import { Graphql } from "../services/Graphql";
 

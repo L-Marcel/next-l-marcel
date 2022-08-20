@@ -1,7 +1,10 @@
 import { IconBaseProps } from "react-icons";
+import { BiCubeAlt } from "react-icons/bi";
 import { BsCheck2Circle, BsClockHistory, BsXLg } from "react-icons/bs";
 import { FaAlignRight, FaDownload, FaMoon, FaSun } from "react-icons/fa";
+import { FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
+import { IoIosSchool } from "react-icons/io";
 import { SiChakraui, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
 import { VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
 import { Tooltip } from "../Tooltip";
@@ -46,7 +49,10 @@ const icons = {
   x: BsXLg,
   resume: VscSymbolKeyword,
   projects: VscSymbolMethod,
-  achievements: GiSpellBook
+  achievements: GiSpellBook,
+  school: IoIosSchool,
+  cube: BiCubeAlt,
+  clip: FiPaperclip
 };
 
 export type IconType = keyof typeof icons;
