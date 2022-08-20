@@ -6,12 +6,14 @@ import { IconButtonContainer, IconButtonSize } from "./styles";
 export interface IconButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon: IconType;
   size?: IconButtonSize;
+  iconClassName?: string;
 }
 
 export function IconButton({
   icon,
   title,
   size = "md",
+  iconClassName,
   ...rest
 }: IconButtonProps) {
   if(!title) {
@@ -21,7 +23,7 @@ export function IconButton({
         {...rest}
       >
         <Icon
-          className="duration-100" 
+          className={(iconClassName ?? "") + " duration-100"} 
           name={icon} 
           title={title} 
           withoutTooltip

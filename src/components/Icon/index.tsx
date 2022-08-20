@@ -1,7 +1,7 @@
 import { IconBaseProps } from "react-icons";
 import { BiCubeAlt } from "react-icons/bi";
-import { BsCheck2Circle, BsClockHistory, BsXLg } from "react-icons/bs";
-import { FaAlignRight, FaDownload, FaMoon, FaSun } from "react-icons/fa";
+import { BsCheck2Circle, BsClockHistory, BsDownload, BsXLg } from "react-icons/bs";
+import { FaAlignRight, FaMoon, FaSun } from "react-icons/fa";
 import { FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
 import { IoIosSchool } from "react-icons/io";
@@ -11,7 +11,7 @@ import { Tooltip } from "../Tooltip";
 import { AsRocketseat } from "./assets/AsRocketseat";
 
 const icons = {
-  download: FaDownload,
+  download: BsDownload,
   sun: FaSun,
   moon: FaMoon,
   clock: BsClockHistory,

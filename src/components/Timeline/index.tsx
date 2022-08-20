@@ -7,7 +7,7 @@ import { Icon, IconType } from "../Icon";
 
 import dateLocaleEnUs from "date-fns/locale/en-US";
 import dateLocalePtBr from "date-fns/locale/pt-BR";
-import { TimelineElementTimerContainer } from "./styles";
+import { TimelineElementDownloadButton, TimelineElementTimerContainer } from "./styles";
 
 export interface TimelineProps {
   achievements: Achievement[];
@@ -63,6 +63,15 @@ export function Timeline({ achievements }: TimelineProps) {
                 }
               </TimelineElementTimerContainer>
             }
+            <div className="mt-4 flex flex-row items-center gap-2">
+              <TimelineElementDownloadButton
+                icon="download"
+                iconClassName="!text-[1.3rem]"
+                size="sm"
+                onClick={() => window.open(url, "__blank__")}
+              />
+              <h4>{isNotPtBr? "Download":"Baixar"}</h4>
+            </div>
           </VerticalTimelineElement>
         );
       })}

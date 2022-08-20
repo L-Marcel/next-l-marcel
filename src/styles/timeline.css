@@ -89,6 +89,12 @@
           2lg:!mt-[3px];
       }
 
+      h4 {
+        @apply
+          !text-[1.1rem]
+          !text-[#787878];
+      }
+
       p {
         @apply
           !mt-[3px]
