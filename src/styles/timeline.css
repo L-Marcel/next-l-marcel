@@ -3,7 +3,8 @@
 @layer components {
   .timeline {
     @apply
-      !pt-20;
+      !pt-12  
+      md:!pt-20;
     
     & > * {
       @apply
@@ -20,14 +21,28 @@
 
     .vertical-timeline-element-date {
       @apply
-        !top-[0px]
+        dark:!bg-gray-400
+        !bg-white-600
+        !rounded-lg
+        !px-2
+        !py-[.1rem]
+        !top-[-1rem]
+        2lg:!p-0
         !font-semibold
-        !text-gray-700;
+        !text-base
+        !text-gray-700
+        dark:!text-white-700
+        absolute
+        2lg:!bg-transparent
+        2lg:!top-[.8rem]
+        2lg:relative
+        2lg:!text-xl;
     }
 
     .vertical-timeline-element-content-arrow {
       @apply
-        !border-r-primary-600
+        !border-r-primary-500
+        dark:!border-r-primary-600
         !border-[10px]
         !top-[9px]
         2lg:!top-[17px];

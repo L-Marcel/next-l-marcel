@@ -21,7 +21,7 @@ export interface AchievementsProps {
 
 function Achivements({ achievements }: AchievementsProps) {
   return (
-    <section>
+    <section className="max-w-[100vw] overflow-x-hidden">
       <Timeline
         achievements={achievements}
       />
