@@ -35,13 +35,15 @@ export function Timeline({ achievements }: TimelineProps) {
         code,
         url
       }) => {
+        const iconName = getAchievementIcon(icon);
+        
         return (
           <VerticalTimelineElement
             key={id}
-            iconClassName={`vertical-timeline-element-icon ${icon === "rocketseat"? "small-icon":""}`}
+            iconClassName={`vertical-timeline-element-icon ${checkIfIconIsBig(iconName)? "small-icon":""}`}
             className="vertical-timeline-element--work"
             date={format(new Date(registered_in), "yyyy -> MMM. dd", dateConfig)}
-            icon={<Icon withoutTooltip name={getAchievementIcon(icon)}/>}
+            icon={<Icon withoutTooltip name={iconName}/>}
           >
             <h2>{title}</h2>
             <h3>{subtitle}</h3>
@@ -51,6 +53,16 @@ export function Timeline({ achievements }: TimelineProps) {
       })}
     </VerticalTimeline>
   );
+}
+
+export function checkIfIconIsBig(icon: IconType | "default") {
+  switch(icon) {
+  case "clip":
+  case "rocketseat":
+    return true;
+  default:
+    return false;
+  }
 }
 
 export function getAchievementIcon(icon: IconType | "default"): IconType {
