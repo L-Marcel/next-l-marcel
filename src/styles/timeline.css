@@ -21,7 +21,9 @@
 
     .vertical-timeline-element {
       @apply
-        !mt-12;
+        !mt-2
+        !mb-12
+        last-of-type:!mb-2
     }
 
     .vertical-timeline-element-date {
