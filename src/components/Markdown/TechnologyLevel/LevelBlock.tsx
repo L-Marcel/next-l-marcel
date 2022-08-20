@@ -10,7 +10,7 @@ export function LevelBlock({
   levelIsLow = false
 }: LevelBlockProps) {
   return (
-    <div className="h-7 w-3 bg-white-700 shadow-sm dark:bg-gray-500 md:h-11 md:w-4 md:shadow-lg 2xl:h-12 2xl:w-5">
+    <div className="h-7 w-3 bg-white-600 shadow-sm dark:bg-gray-500 md:h-11 md:w-4 md:shadow-lg 2xl:h-12 2xl:w-5">
       {isActived && <motion.div
         className="h-full w-full"
         variants={{

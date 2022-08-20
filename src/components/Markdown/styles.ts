@@ -39,7 +39,7 @@ export const MarkwodnPreContainer = tw.pre`
 
 export const MarkdownCodeContainer = tw.code`
   w-[calc(100%+2rem)]
-  bg-white-600
+  bg-white-500
   px-5
   flex
   py-[0.875rem]
@@ -59,7 +59,7 @@ export const MarkdownDivContainer = tw.div<MarkdownDivContainerProps>`
   py-8
   ${props => props.$highlight? 
     "bg-primary-500 force-white-text text-4xl":
-    "bg-white-600 dark:bg-gray-600"}
+    "bg-white-500 dark:bg-gray-600"}
   markdown-section-container
   first-of-type:with-description
 `;
@@ -89,7 +89,7 @@ export const MarkdownGridContainer = tw.div`
   py-8
   markdown-section-container
   first-of-type:with-description
-  bg-white-600 dark:bg-gray-600
+  bg-white-500 dark:bg-gray-600
   flex
   gap-x-10
   gap-y-8

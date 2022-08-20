@@ -1,25 +1,43 @@
 import { GetStaticProps } from "next";
+import { IconType } from "react-icons";
+import { Timeline } from "../components/Timeline";
 import { Graphql } from "../services/Graphql";
 
-function Achivements({ data }: any) {
+export type Achievement = {
+  id: string
+  title: string,
+  subtitle: string,
+  description: string,
+  registered_in: Date | string,
+  expires_in?: Date | string,
+  url?: string,
+  code?: string,
+  icon: IconType,
+};
+
+export interface AchievementsProps {
+  achievements: Achievement[];
+}
+
+function Achivements({ achievements }: AchievementsProps) {
   return (
-    <div className="flex h-full min-h-screen flex-1 flex-col items-center justify-center gap-4">
-      <pre className="max-w-xl">
-        <code>
-          {JSON.stringify(data, null, 2)}
-        </code>
-      </pre>
-    </div>
+    <section>
+      <Timeline
+        achievements={achievements}
+      />
+    </section>
   );
 }
 
 export const getStaticProps: GetStaticProps = async({ locale }) => {
   const isNotPtBr = locale !== "pt-br";
-  const data = await Graphql.getInformation(isNotPtBr? "EN":"BR");
+  const achievements = await Graphql.getInformation(isNotPtBr? "EN":"BR")
+    .then(res => res.achievements ?? [])
+    .catch(() => []);
 
   return {
     props: {
-      data
+      achievements
     },
     revalidate: false
   };

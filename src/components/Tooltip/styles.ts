@@ -19,7 +19,7 @@ export const TooltipText = tw.p`
 
 export const TooltipSpan = tw.span`
   !text-inherit
-  bg-white-600
+  bg-white-500
   dark:bg-gray-600
   px-2
   py-1

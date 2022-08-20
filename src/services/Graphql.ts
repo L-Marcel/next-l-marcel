@@ -14,14 +14,15 @@ export class Graphql {
     return await this.api.request(`
       query MyAchivements {
         achievements(orderBy: registered_in_DESC) {
-          expires_in
-          description
-          icon
-          registered_in
-          subtitle
+          id
           title
+          subtitle
+          description
+          registered_in
+          expires_in
           url
           code
+          icon
         }
       }
     `, undefined, {

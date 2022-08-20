@@ -1,5 +1,7 @@
 import { GetStaticProps } from "next";
 import ReactMarkdown from "react-markdown";
+import { SpecialComponents } from "react-markdown/lib/ast-to-react";
+import { NormalComponents } from "react-markdown/lib/complex-types";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { MarkdownCode } from "../components/Markdown/MarkdownCode";
@@ -11,6 +13,7 @@ import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, Markdown
 import { Profile } from "../components/Profile";
 import { Github } from "../services/Github";
 
+export type MarkdownComponents = Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents>;
 interface ResumeProps {
   data: string;
   updatedAt: string;
@@ -43,7 +46,7 @@ function Resume({
             li: MarkdownListItem,
             br: MarkdownBrContainer,
             nav: MarkdownNavContainer,
-          } as any}
+          } as MarkdownComponents}
         >
           {data}
         </ReactMarkdown>

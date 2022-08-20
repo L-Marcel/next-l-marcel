@@ -3,7 +3,7 @@ import { BsCheck2Circle, BsClockHistory, BsXLg } from "react-icons/bs";
 import { FaAlignRight, FaDownload, FaMoon, FaSun } from "react-icons/fa";
 import { GiSpellBook } from "react-icons/gi";
 import { SiChakraui, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
-import { VscGroupByRefType, VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
+import { VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
 import { Tooltip } from "../Tooltip";
 import { AsRocketseat } from "./assets/AsRocketseat";
 

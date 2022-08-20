@@ -5,9 +5,10 @@ import { MarkdownListItemContainer } from "./styles";
 export function MarkdownListItem({
   children,
   id,
-  ordered,
   ...rest
-}: HTMLAttributes<HTMLLIElement> & { ordered: boolean }) {
+}: HTMLAttributes<HTMLLIElement> & { ordered: boolean | undefined }) {
+  rest.ordered = undefined;
+
   switch(id) {
   case "checked":
     return (
