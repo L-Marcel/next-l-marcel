@@ -10,16 +10,17 @@ import dateLocalePtBr from "date-fns/locale/pt-BR";
 
 export interface TimelineProps {
   achievements: Achievement[];
+  locale?: Locale;
 }
 
 export function Timeline({ achievements }: TimelineProps) {
   const route = useRouter();
-  const isNotPtBr = route.locale !== "pt_BR";
+  const isNotPtBr = route.locale === "en-us";
 
   const dateConfig = {
     locale: isNotPtBr? dateLocaleEnUs:dateLocalePtBr
   };
-  
+
   return (
     <VerticalTimeline
       className="timeline"
@@ -36,13 +37,14 @@ export function Timeline({ achievements }: TimelineProps) {
         url
       }) => {
         const iconName = getAchievementIcon(icon);
+        const date = format(new Date(registered_in), "yyyy -> MMM. dd", dateConfig);
         
         return (
           <VerticalTimelineElement
             key={id}
             iconClassName={`vertical-timeline-element-icon ${checkIfIconIsBig(iconName)? "small-icon":""}`}
             className="vertical-timeline-element--work"
-            date={format(new Date(registered_in), "yyyy -> MMM. dd", dateConfig)}
+            date={date}
             icon={<Icon withoutTooltip name={iconName}/>}
           >
             <h2>{title}</h2>

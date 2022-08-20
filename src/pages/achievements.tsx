@@ -30,7 +30,7 @@ function Achivements({ achievements }: AchievementsProps) {
 }
 
 export const getStaticProps: GetStaticProps = async({ locale }) => {
-  const isNotPtBr = locale !== "pt-br";
+  const isNotPtBr = locale === "en-us";
   const achievements = await Graphql.getInformation(isNotPtBr? "EN":"BR")
     .then(res => res.achievements ?? [])
     .catch(() => []);

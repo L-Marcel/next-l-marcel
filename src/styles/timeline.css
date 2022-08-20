@@ -33,7 +33,8 @@
         !text-gray-700
         dark:!text-white-700
         absolute
-        opacity-100
+        !opacity-100
+        !capitalize
         2lg:!bg-transparent
         2lg:dark:!bg-transparent
         2lg:!top-[.8rem]
@@ -76,9 +77,9 @@
       h3 {
         @apply
           !text-lg
-          !mt-[3px]
+          !mt-[2px]
           !text-[#787878]
-          2lg:!mt-[4px];
+          2lg:!mt-[3px];
       }
 
       p {
