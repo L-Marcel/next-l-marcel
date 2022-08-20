@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { compareDesc, format } from "date-fns";
 import { useRouter } from "next/router";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
@@ -7,6 +7,7 @@ import { Icon, IconType } from "../Icon";
 
 import dateLocaleEnUs from "date-fns/locale/en-US";
 import dateLocalePtBr from "date-fns/locale/pt-BR";
+import { TimelineElementTimerContainer } from "./styles";
 
 export interface TimelineProps {
   achievements: Achievement[];
@@ -37,8 +38,12 @@ export function Timeline({ achievements }: TimelineProps) {
         url
       }) => {
         const iconName = getAchievementIcon(icon);
-        const date = format(new Date(registered_in), "yyyy -> MMM. dd", dateConfig);
-        
+        const date = format(new Date(registered_in + " 00:00:01"), "yyyy -> MMM. dd", dateConfig);
+
+        const dateToExpire = format(expires_in? new Date(`${expires_in} 00:00:01`):new Date(), "yyyy MMM. dd", dateConfig);
+        const dateTimeToExpire = format(expires_in? new Date(`${expires_in} 00:00:01`):new Date(), "yyyy-MM-dd HH:mm", dateConfig);
+        const isExpired = compareDesc(expires_in? new Date(`${expires_in} 00:00:01`):new Date(), new Date());
+
         return (
           <VerticalTimelineElement
             key={id}
@@ -50,6 +55,14 @@ export function Timeline({ achievements }: TimelineProps) {
             <h2>{title}</h2>
             <h3>{subtitle}</h3>
             <p>{description}</p>
+            {
+              expires_in && <TimelineElementTimerContainer dateTime={dateTimeToExpire}>
+                {isExpired >= 1? 
+                  <>{isNotPtBr? "Expired in":"Expirado em"} <span className="capitalize">{dateToExpire}</span></>:
+                  <>{isNotPtBr? "Expires in":"Expira em"} <span className="capitalize">{dateToExpire}</span></>
+                }
+              </TimelineElementTimerContainer>
+            }
           </VerticalTimelineElement>
         );
       })}

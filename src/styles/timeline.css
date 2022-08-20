@@ -15,8 +15,13 @@
       @apply
         !left-0
         sm:!left-[18px]
-        2lg:!left-[50%]
+        2lg:!left-1/2
         !bg-primary-600;
+    }
+
+    .vertical-timeline-element {
+      @apply
+        !mt-12;
     }
 
     .vertical-timeline-element-date {
