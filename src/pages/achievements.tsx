@@ -13,6 +13,8 @@ export type Achievement = {
   url?: string,
   code?: string,
   icon: IconType,
+  button_icon?: IconType,
+  button_text?: string,
 };
 
 export interface AchievementsProps {

@@ -36,8 +36,11 @@ export function Timeline({ achievements }: TimelineProps) {
         expires_in,
         icon,
         code,
-        url
+        url,
+        button_icon,
+        button_text
       }) => {
+        console.log(achievements);
         const iconName = getAchievementIcon(icon);
         const date = format(new Date(registered_in + " 00:00:01"), "yyyy -> MMM. dd", dateConfig);
 
@@ -67,12 +70,12 @@ export function Timeline({ achievements }: TimelineProps) {
               (url || code) && <div className="mt-4 flex flex-row items-center gap-3">
                 { url && <Tooltip className="!top-[calc(100%+.5rem)]" label={url.slice(0, 24) + "..."}>
                   <TimelineElementDownloadButton
-                    icon="download"
+                    icon={getAchievementIcon(button_icon ?? "download")}
                     size="sm"
                     onClick={() => window.open(url, "__blank__")}
                   />
                 </Tooltip> }
-                { (!code && url) && <h4>{isNotPtBr? "Download":"Baixar"}</h4> }
+                { (!code && url) && <h4>{button_text ?? (isNotPtBr? "Download":"Baixar")}</h4> }
                 { code &&  <TimelineElementCode code={code}/>}
               </div>
             }
@@ -93,9 +96,9 @@ export function checkIfIconIsBig(icon: IconType | "default") {
   }
 }
 
-export function getAchievementIcon(icon: IconType | "default"): IconType {
+export function getAchievementIcon(icon: IconType | "default", isButton = false): IconType {
   if(icon === "default") {
-    return "cube";
+    return isButton? "download":"cube";
   } else if(icon.includes("_")) {
     return icon.replace("_", ".") as IconType;
   } else {

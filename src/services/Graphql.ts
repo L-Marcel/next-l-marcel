@@ -23,6 +23,8 @@ export class Graphql {
           url
           code
           icon
+          button_icon
+          button_text
         }
       }
     `, undefined, {
