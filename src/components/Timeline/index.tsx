@@ -1,13 +1,14 @@
 import { compareDesc, format } from "date-fns";
 import { useRouter } from "next/router";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 import { Achievement } from "../../pages/achievements";
 import { Icon, IconType } from "../Icon";
 
 import dateLocaleEnUs from "date-fns/locale/en-US";
 import dateLocalePtBr from "date-fns/locale/pt-BR";
+import { Tooltip } from "../Tooltip";
 import { TimelineElementDownloadButton, TimelineElementTimerContainer } from "./styles";
+import { TimelineElementCode } from "./TimelineElementCode";
 
 export interface TimelineProps {
   achievements: Achievement[];
@@ -48,7 +49,6 @@ export function Timeline({ achievements }: TimelineProps) {
           <VerticalTimelineElement
             key={id}
             iconClassName={`vertical-timeline-element-icon ${checkIfIconIsBig(iconName)? "small-icon":""}`}
-            className="vertical-timeline-element--work"
             date={date}
             icon={<Icon withoutTooltip name={iconName}/>}
           >
@@ -63,14 +63,16 @@ export function Timeline({ achievements }: TimelineProps) {
                 }
               </TimelineElementTimerContainer>
             }
-            <div className="mt-4 flex flex-row items-center gap-2">
-              <TimelineElementDownloadButton
-                icon="download"
-                iconClassName="!text-[1.3rem]"
-                size="sm"
-                onClick={() => window.open(url, "__blank__")}
-              />
-              <h4>{isNotPtBr? "Download":"Baixar"}</h4>
+            <div className="mt-4 flex flex-row items-center gap-3">
+              { url && <Tooltip className="!top-[calc(100%+.5rem)]" label={url.slice(0, 24) + "..."}>
+                <TimelineElementDownloadButton
+                  icon="download"
+                  size="sm"
+                  onClick={() => window.open(url, "__blank__")}
+                />
+              </Tooltip> }
+              { (!code && url) && <h4>{isNotPtBr? "Download":"Baixar"}</h4> }
+              { code &&  <TimelineElementCode code={code}/>}
             </div>
           </VerticalTimelineElement>
         );

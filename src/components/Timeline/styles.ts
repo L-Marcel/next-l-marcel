@@ -20,8 +20,6 @@ export const TimelineElementTimerContainer = tw.time`
 `;
 
 export const TimelineElementDownloadButton = tw(IconButton)`
-  h-[2.1rem]
-  w-[2.1rem]
   flex 
   flex-row 
   items-center 
@@ -37,4 +35,38 @@ export const TimelineElementDownloadButton = tw(IconButton)`
   hover:dark:bg-primary-600
   active:text-white-500
   active:dark:text-gray-700
+`;
+
+export const TimelineElementCodeContainer = tw.code`
+  relative
+  whitespace-nowrap
+  px-2
+  py-1
+  rounded-md
+  overflow-hidden
+  bg-white-600
+  dark:bg-gray-600
+  flex
+  pr-14
+`;
+
+
+export const TimelineElementCodeCopyButton = tw.button`
+  absolute
+  top-0
+  bottom-0
+  right-0
+  h-full
+  w-min
+  rounded-none
+  flex-1
+  py-0
+  gap-3
+  px-3
+  bg-white-700
+  dark:bg-gray-400
+  flex
+  flex-row
+  items-center
+  timeline-code
 `;

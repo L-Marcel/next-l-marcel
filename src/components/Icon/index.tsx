@@ -2,7 +2,7 @@ import { IconBaseProps } from "react-icons";
 import { BiCubeAlt } from "react-icons/bi";
 import { BsCheck2Circle, BsClockHistory, BsDownload, BsXLg } from "react-icons/bs";
 import { FaAlignRight, FaMoon, FaSun } from "react-icons/fa";
-import { FiPaperclip } from "react-icons/fi";
+import { FiCopy, FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
 import { IoIosSchool } from "react-icons/io";
 import { SiChakraui, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGit, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
@@ -52,7 +52,8 @@ const icons = {
   achievements: GiSpellBook,
   school: IoIosSchool,
   cube: BiCubeAlt,
-  clip: FiPaperclip
+  clip: FiPaperclip,
+  copy: FiCopy
 };
 
 export type IconType = keyof typeof icons;

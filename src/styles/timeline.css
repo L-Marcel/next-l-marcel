@@ -30,7 +30,7 @@
       @apply
         dark:!bg-gray-400
         !bg-white-600
-        !rounded-lg
+        rounded-lg
         !px-2
         !py-[.1rem]
         !top-[-1rem]
@@ -41,7 +41,7 @@
         dark:!text-white-700
         absolute
         !opacity-100
-        !capitalize
+        capitalize
         2lg:!bg-transparent
         2lg:dark:!bg-transparent
         2lg:!top-[.8rem]
@@ -85,14 +85,14 @@
         @apply
           !text-lg
           !mt-[2px]
-          !text-[#787878]
+          !text-gray-default
           2lg:!mt-[3px];
       }
 
       h4 {
         @apply
-          !text-[1.1rem]
-          !text-[#787878];
+          !text-[1.2rem]
+          !text-gray-default;
       }
 
       p {
@@ -138,13 +138,39 @@
   .small-icon {
     svg {
       @apply
-        !w-[18px]
-        !h-[18px]
-        2lg:!w-[26px]
-        2lg:!h-[26px]
+        !w-[20px]
+        !h-[20px]
+        2lg:!w-[28px]
+        2lg:!h-[28px]
         !top-0
         !left-0
         !m-0;
+    }
+  }
+
+  .timeline-code {
+    @apply
+      duration-300
+      transition-transform
+      translate-x-[7.3rem]
+      delay-1000
+      hover:translate-x-0
+      active:translate-x-0
+      hover:!delay-[0s];
+
+    p {
+      @apply
+        transition-colors
+        duration-75
+        pb-1
+        md:pb-[5px]
+        text-inherit;
+    }
+
+    svg {
+      @apply
+        transition-colors
+        duration-75;
     }
   }
 }

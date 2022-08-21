@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import "react-vertical-timeline-component/style.min.css";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import "../styles/main.css";

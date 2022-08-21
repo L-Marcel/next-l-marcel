@@ -79,6 +79,10 @@
       font-normal 
       text-xl
       whitespace-nowrap
+      active:bg-primary-600
+      active:text-white-500
+      dark:active:bg-primary-600
+      dark:active:text-white-500
       text-gray-700 
       dark:text-white-500
       bg-white-600
@@ -87,10 +91,10 @@
       md:dark:hover:text-gray-700 
       md:hover:bg-primary-500
       md:dark:hover:bg-primary-500
-      active:text-white-500
-      active:bg-primary-600
-      dark:active:text-white-500
-      dark:active:bg-primary-600
+      md:active:text-white-500
+      md:active:bg-primary-600
+      md:dark:active:text-white-500
+      md:dark:active:bg-primary-600
       rounded-[15px]
       align-middle
       select-none;
