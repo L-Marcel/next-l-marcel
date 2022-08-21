@@ -162,7 +162,7 @@
       @apply
         transition-colors
         duration-75
-        pb-1
+        pb-[3px]
         md:pb-[5px]
         text-inherit;
     }
