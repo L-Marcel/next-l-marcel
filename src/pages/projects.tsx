@@ -14,7 +14,7 @@ function Projects({
   
   return (
     <>
-      <section className="relative mt-36 flex w-full flex-1 flex-col items-center justify-center gap-4">
+      <section className="relative flex min-h-full w-full flex-col items-center justify-center gap-4">
         <p>{isNotPtBr? "Just a test...":"Apenas um teste"}</p>
         <SearchRepositoryInput
           repositoriesNames={repositories.map(repository => [repository.name, repository.formattedName])}

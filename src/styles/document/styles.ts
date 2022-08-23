@@ -10,3 +10,12 @@ export const PageBody = tw.body`
   mb-[40px]
   md:mb-0
 `;
+
+export const Layout = tw.div`
+  relative
+  flex
+  flex-col
+  justify-between
+  min-h-[calc(100vh-3.1rem)]
+  md:min-h-[calc(100vh-2.8125rem)]
+`;

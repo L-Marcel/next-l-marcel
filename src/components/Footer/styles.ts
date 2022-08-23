@@ -1,7 +1,6 @@
 import tw from "tw-tailwind";
 
 export const FooterContainer = tw.footer`
-  h-34
   flex
   w-full
   flex-row
