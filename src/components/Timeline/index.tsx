@@ -40,7 +40,6 @@ export function Timeline({ achievements }: TimelineProps) {
         button_icon,
         button_text
       }) => {
-        console.log(achievements);
         const iconName = getAchievementIcon(icon);
         const date = format(new Date(registered_in + " 00:00:01"), "yyyy -> MMM. dd", dateConfig);
 

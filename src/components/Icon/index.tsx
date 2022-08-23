@@ -5,7 +5,7 @@ import { DiGithubAlt } from "react-icons/di";
 import { FaAlignRight, FaGitAlt, FaGoogleDrive, FaMoon, FaSun } from "react-icons/fa";
 import { FiCopy, FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
-import { IoIosSchool } from "react-icons/io";
+import { IoIosSchool, IoMdOpen } from "react-icons/io";
 import { SiChakraui, SiCss3, SiDocker, SiFigma, SiFramer, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
 import { VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
 import { Tooltip } from "../Tooltip";
@@ -55,7 +55,8 @@ const icons = {
   cube: BiCubeAlt,
   clip: FiPaperclip,
   copy: FiCopy,
-  drive: FaGoogleDrive
+  drive: FaGoogleDrive,
+  open: IoMdOpen
 };
 
 export type IconType = keyof typeof icons;
