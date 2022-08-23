@@ -10,7 +10,6 @@ export interface SearchRepositoryInputProps {
 export function SearchRepositoryInput({
   repositoriesNames = []
 }: SearchRepositoryInputProps) {
-  const [selectedRepository, setSelectedRepository] = useState("");
   const [query, setQuery] = useState("");
 
   const filteredPeople =
@@ -21,7 +20,7 @@ export function SearchRepositoryInput({
       }):[];
 
   return (
-    <Combobox value={query} onChange={setQuery}>
+    <Combobox value={query} onChange={setQuery} __demoMode={true}>
       <Combobox.Input onChange={(event) => setQuery(event.target.value)} />
       <Combobox.Options>
         {filteredPeople && filteredPeople.map((names) => (
