@@ -37,28 +37,31 @@ export function SearchRepositoryInput({
   }
 
   function handleOnChangeQuery(event: ChangeEvent<HTMLInputElement>) {
+    console.log(event);
     setQuery(event.target.value);
   }
 
   return (
     <Combobox value={query} onChange={setQuery}>
-      <Combobox.Button aria-expanded={false}>
-        <Combobox.Input
-          as={SearchInput}
-          placeholder={isNotPtBr? "Search by name":"Pesquisar por nome"}
-          onFocus={handleOnFocus}
-          onBlur={handleOnBlur}
-          onKeyUp={handleOnKeyUp} 
-          onChange={handleOnChangeQuery}
-        />
-      </Combobox.Button>
-      {isFocused && (<Combobox.Options static>
-        {filteredPeople && filteredPeople.map((names) => (
-          <Combobox.Option key={names[0]} value={names[0]}>
-            {names.length > 1? names[1]:names[0]}
-          </Combobox.Option>
-        ))}
-      </Combobox.Options>)}
+      {({ open }) => (<>
+        <Combobox.Button>
+          <Combobox.Input
+            as={SearchInput}
+            placeholder={isNotPtBr? "Search by name":"Pesquisar por nome"}
+            onFocus={handleOnFocus}
+            onBlur={handleOnBlur}
+            onKeyUp={handleOnKeyUp} 
+            onChange={handleOnChangeQuery}
+          />
+        </Combobox.Button>
+        {(open || isFocused) && (<Combobox.Options static>
+          {filteredPeople && filteredPeople.map((names) => (
+            <Combobox.Option key={names[0]} value={names[0]}>
+              {names.length > 1? names[1]:names[0]}
+            </Combobox.Option>
+          ))}
+        </Combobox.Options>)}
+      </>)} 
     </Combobox>
   );
 }
