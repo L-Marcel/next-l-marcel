@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "../../context/hooks/useRouter";
 import { Icon, IconType } from "../Icon";
 import { getTranslatedRouteName } from "./NavLink";
 import { MobileNavLinkIconContainer, MobileNavLinkListItemContainer } from "./styles";
@@ -17,12 +17,11 @@ export function MobileNavLink({
   locale,
   liClassName
 }: MobileNavLinkProps) {
-  const router = useRouter();
+  const { isNotPtBr, ...router } = useRouter();
+
   const isActive = 
     (locale && router.locale?.toLowerCase().includes(name)) ||
     (!locale && router.asPath.replace(/\/en-us/, "/") === path);
-
-  const isNotPtBr = router.locale === "en-us";
 
   return (
     <MobileNavLinkListItemContainer selected={isActive} className={liClassName}>
@@ -45,7 +44,7 @@ export function MobileNavLink({
   );
 }
 
-function getRouteDescription(name: string, isNotPtBr  = false) {
+function getRouteDescription(name: string, isNotPtBr = false) {
   switch(name) {
   case "resume":
     return isNotPtBr? "information about me":"informações sobre mim";

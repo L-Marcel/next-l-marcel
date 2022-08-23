@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
-import { useRouter } from "next/router";
 import { SearchRepositoryInput } from "../components/Input/SearchRepositoryInput";
+import { useRouter } from "../context/hooks/useRouter";
 import { Github, Repository } from "../services/Github";
 
 interface ProjectsProps {
@@ -10,9 +10,7 @@ interface ProjectsProps {
 function Projects({
   repositories
 }: ProjectsProps) {
-  console.log(repositories);
-  const router = useRouter();
-  const isNotPtBr = router.locale !== "pt-br";
+  const { isNotPtBr } = useRouter();
   
   return (
     <>
