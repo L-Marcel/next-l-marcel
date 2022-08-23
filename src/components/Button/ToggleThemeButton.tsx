@@ -1,13 +1,12 @@
 
-import { useRouter } from "next/router";
+
+import { useRouter } from "../../context/hooks/useRouter";
 import { useTheme } from "../../context/hooks/useTheme";
 import { IconButton } from "./IconButton";
 
 export function ToggleThemeButton() {
-  const router = useRouter();
+  const { isNotPtBr } = useRouter();
   const { isDarkTheme, toggleTheme } = useTheme();
-
-  const isNotPtBr = router.locale === "en-us";
 
   return (
     <IconButton

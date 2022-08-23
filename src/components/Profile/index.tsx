@@ -2,7 +2,7 @@ import { format, formatDistance } from "date-fns";
 import dateLocaleEnUs from "date-fns/locale/en-US";
 import dateLocalePtBr from "date-fns/locale/pt-BR";
 import Image from "next/future/image";
-import { useRouter } from "next/router";
+import { useRouter } from "../../context/hooks/useRouter";
 import { Icon } from "../Icon";
 import { Tooltip } from "../Tooltip";
 import { ProfileArticleContainer, ProfileAvatarContainer, ProfileTimerContainer } from "./styles";
@@ -14,11 +14,10 @@ export interface ProfileProps {
 export function Profile({
   updatedAt
 }: ProfileProps) { 
-  const router = useRouter(); 
+  const { isNotPtBr } = useRouter();
   const updatedAtDate = new Date(updatedAt);
   const currentDate = new Date();
 
-  const isNotPtBr = router.locale === "en-us";
 
   const dateConfig = {
     locale: isNotPtBr? dateLocaleEnUs:dateLocalePtBr

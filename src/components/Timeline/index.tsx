@@ -1,11 +1,11 @@
 import { compareDesc, format } from "date-fns";
-import { useRouter } from "next/router";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import { Achievement } from "../../pages/achievements";
 import { Icon, IconType } from "../Icon";
 
 import dateLocaleEnUs from "date-fns/locale/en-US";
 import dateLocalePtBr from "date-fns/locale/pt-BR";
+import { useRouter } from "../../context/hooks/useRouter";
 import { Tooltip } from "../Tooltip";
 import { TimelineElementDownloadButton, TimelineElementTimerContainer } from "./styles";
 import { TimelineElementCode } from "./TimelineElementCode";
@@ -16,8 +16,7 @@ export interface TimelineProps {
 }
 
 export function Timeline({ achievements }: TimelineProps) {
-  const route = useRouter();
-  const isNotPtBr = route.locale === "en-us";
+  const { isNotPtBr } = useRouter();
 
   const dateConfig = {
     locale: isNotPtBr? dateLocaleEnUs:dateLocalePtBr

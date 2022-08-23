@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "../../context/hooks/useRouter";
 import { Button } from "../Button";
 
 interface NavLinkProps {
@@ -15,12 +15,10 @@ export function NavLink({
   locale,
   liClassName
 }: NavLinkProps) {
-  const router = useRouter();
+  const { isNotPtBr, ...router } = useRouter();
   const isActive = 
     (locale && router.locale?.toLowerCase().includes(name)) ||
     (!locale && router.asPath.replace(/\/en-us/, "/") === path);
-
-  const isNotPtBr = router.locale === "en-us";
 
   return (
     <li className={liClassName}>
