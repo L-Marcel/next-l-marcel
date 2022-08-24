@@ -57,8 +57,10 @@ export const SearchOptions = tw.ul`
   bg-white-500
   dark:bg-gray-600
   max-h-[50vh]
+  max-w-[80vw]
   h-max
   overflow-y-auto
+  overflow-x-hidden
   border-b-2
   border-b-white-700
   dark:border-b-gray-400
