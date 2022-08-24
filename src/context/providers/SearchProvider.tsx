@@ -75,7 +75,7 @@ export function SearchProvider({
     });
   }, [filteredRepositories, setPagination]);
 
-  function handleNextPage() {
+  const handleNextPage = useCallback(() => {
     setPagination(({ max, min, page }) => {
       const nextPage = page + 1;
 
@@ -87,9 +87,9 @@ export function SearchProvider({
             nextPage
       };
     });
-  }
+  }, [setPagination]);
 
-  function handlePreviousPage() {
+  const handlePreviousPage = useCallback(() => {
     setPagination(({ max, min, page }) => {
       const previousPage = page - 1;
 
@@ -101,9 +101,9 @@ export function SearchProvider({
             previousPage
       };
     });
-  }
+  }, [setPagination]);
 
-  function handleLastPage() {
+  const handleLastPage = useCallback(() => {
     setPagination(({ max, min }) => {
       return {
         min,
@@ -111,9 +111,9 @@ export function SearchProvider({
         page: max
       };
     });
-  }
+  }, [setPagination]);
 
-  function handleFirstPage() {
+  const handleFirstPage = useCallback(() => {
     setPagination(({ max, min }) => {
       return {
         min,
@@ -121,7 +121,7 @@ export function SearchProvider({
         page: min
       };
     });
-  }
+  }, [setPagination]);
 
   return (
     <searchContext.Provider
