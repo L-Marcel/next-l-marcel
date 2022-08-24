@@ -1,29 +1,31 @@
 import { Combobox } from "@headlessui/react";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useEffect, useMemo, useState } from "react";
 import { useRouter } from "../../context/hooks/useRouter";
+import { useSearchFilter } from "../../context/hooks/useSearchFilter";
 import { Icon } from "../Icon";
 import { SearchInput, SearchInputIcon, SearchOption, SearchOptions } from "./styles";
 
-export type Repository = {
+export type RepositoryBasicData = {
   name: string;
   formattedName?: string;
   isPinned: boolean;
 };
 
 export interface SearchRepositoryInputProps {
-  repositories?: Repository[];
+  repositories?: RepositoryBasicData[];
 }
 
 export function SearchRepositoryInput({
   repositories = []
 }: SearchRepositoryInputProps) {
+  const { setFilter } = useSearchFilter();
   const { isNotPtBr } = useRouter();
 
   const [isFocused, setIsFocused] = useState(false);
   const [query, setQuery] = useState("");
 
-  const filteredPeople =
-    query === ""
+  const filteredRepositories = useMemo(() => {
+    return query === ""
       ? repositories
       : repositories? repositories.filter((repository) => {
         const includesTheName = repository.name.toLowerCase().includes(query.toLowerCase());
@@ -31,6 +33,13 @@ export function SearchRepositoryInput({
 
         return includesTheName || includesTheFormattedName;
       }):[];
+  }, [query, repositories]);
+
+  useEffect(() => {
+    setFilter({
+      names: filteredRepositories.map(repository => repository.name)
+    });
+  }, [filteredRepositories, setFilter]);
 
   function handleOnFocus() {
     setIsFocused(true);
@@ -71,8 +80,8 @@ export function SearchRepositoryInput({
             onChange={handleOnChangeQuery}
           />
         </Combobox.Button>
-        {((open || isFocused) && filteredPeople.length >= 1) && (<Combobox.Options as={SearchOptions} static>
-          {filteredPeople && filteredPeople
+        {((open || isFocused) && filteredRepositories.length >= 1) && (<Combobox.Options as={SearchOptions} static>
+          {filteredRepositories && filteredRepositories
             .sort((a, b) => Number(b.isPinned) - Number(a.isPinned))
             .map(({ name, formattedName, isPinned }) => (
               <Combobox.Option as={SearchOption} key={name} value={name}>

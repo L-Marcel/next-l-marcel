@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import { SearchRepositoryInput } from "../components/Input/SearchRepositoryInput";
 import { useRouter } from "../context/hooks/useRouter";
+import { SearchProvider } from "../context/providers/SearchProvider";
 import { Github, Repository } from "../services/Github";
 
 interface ProjectsProps {
@@ -13,7 +14,9 @@ function Projects({
   const { isNotPtBr } = useRouter();
   
   return (
-    <>
+    <SearchProvider
+      repositories={repositories}
+    >
       <section className="relative mx-12 mt-14 flex min-h-full w-[calc(100%-3rem)] flex-col items-start justify-center gap-4 md:mx-16 md:mt-[5rem] md:w-[calc(100%-4rem)]">
         <SearchRepositoryInput
           repositories={repositories.map(({ name, formattedName, importedConfig })=> ({
@@ -23,7 +26,7 @@ function Projects({
           }))}
         />
       </section>
-    </>
+    </SearchProvider>
   );
 }
 
