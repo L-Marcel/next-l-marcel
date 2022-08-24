@@ -14,7 +14,7 @@ function Projects({
   
   return (
     <>
-      <section className="relative mx-12 mt-14 flex min-h-full w-full flex-col items-start justify-center gap-4 md:mx-16 md:mt-[5rem]">
+      <section className="relative mx-12 mt-14 flex min-h-full w-[calc(100%-3rem)] flex-col items-start justify-center gap-4 md:mx-16 md:mt-[5rem] md:w-[calc(100%-4rem)]">
         <SearchRepositoryInput
           repositories={repositories.map(({ name, formattedName, importedConfig })=> ({
             name,
