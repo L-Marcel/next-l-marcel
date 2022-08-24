@@ -11,7 +11,7 @@ export const PageBody = tw.body`
   md:mb-0
 `;
 
-export const Layout = tw.div`
+export const Layout = tw.main`
   relative
   flex
   flex-col

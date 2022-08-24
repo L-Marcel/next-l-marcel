@@ -1,6 +1,7 @@
 {
-  "name": "Template: Next Start",
-  "translatedDescription": "O template criado e usado por mim para iniciar meus projetos. Este modelo tem a configuração do meu portfólio, Tailwind, Styled Components, Headless UI, Typescript e a minha estrutura de pastas comuns.",
+  "name": "Next: l-marcel",
+  "translatedDescription": "",
+  "pinned": true,
   "technologies": [
     "Next.js",
     "React.js",

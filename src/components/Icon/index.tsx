@@ -1,5 +1,5 @@
 import { IconBaseProps } from "react-icons";
-import { BiCubeAlt } from "react-icons/bi";
+import { BiCubeAlt, BiSearchAlt } from "react-icons/bi";
 import { BsCheck2Circle, BsClockHistory, BsDownload, BsXLg } from "react-icons/bs";
 import { DiGithubAlt } from "react-icons/di";
 import { FaAlignRight, FaGitAlt, FaGoogleDrive, FaMoon, FaSun } from "react-icons/fa";
@@ -7,6 +7,7 @@ import { FiCopy, FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
 import { IoIosSchool, IoMdOpen } from "react-icons/io";
 import { SiChakraui, SiCss3, SiDocker, SiFigma, SiFramer, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
+import { TiFlash } from "react-icons/ti";
 import { VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
 import { Tooltip } from "../Tooltip";
 import { AsRocketseat } from "./assets/AsRocketseat";
@@ -56,7 +57,9 @@ const icons = {
   clip: FiPaperclip,
   copy: FiCopy,
   drive: FaGoogleDrive,
-  open: IoMdOpen
+  open: IoMdOpen,
+  search: BiSearchAlt,
+  flash: TiFlash
 };
 
 export type IconType = keyof typeof icons;
@@ -66,12 +69,14 @@ export interface IconProps extends IconBaseProps {
   size?: IconSize;
   tooltip?: string;
   withoutTooltip?: boolean;
+  isFocused?: boolean;
 }
 
 export function Icon({
   name = "download",
   size = "sm",
   withoutTooltip = false,
+  isFocused = false,
   className,
   ...rest
 }: IconProps) {
@@ -81,7 +86,7 @@ export function Icon({
       (size === "sm"? 
         "text-[1.4rem] md:text-[1.4125rem] ":
         "text-[1.6rem] md:text-4xl "
-      ) + 
+      ) + (isFocused? "text-primary-700 ":"") +
       className,
     ...rest
   });

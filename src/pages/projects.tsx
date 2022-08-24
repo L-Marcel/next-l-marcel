@@ -14,10 +14,13 @@ function Projects({
   
   return (
     <>
-      <section className="relative mt-16 flex min-h-full w-full flex-col items-center justify-center gap-4">
-        <p>{isNotPtBr? "Just a test...":"Apenas um teste"}</p>
+      <section className="relative mx-12 mt-14 flex min-h-full w-full flex-col items-start justify-center gap-4 md:mx-16 md:mt-[5rem]">
         <SearchRepositoryInput
-          repositoriesNames={repositories.map(repository => [repository.name, repository.formattedName])}
+          repositories={repositories.map(({ name, formattedName, importedConfig })=> ({
+            name,
+            formattedName,
+            isPinned: importedConfig?.pinned ?? false
+          }))}
         />
       </section>
     </>

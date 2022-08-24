@@ -1,16 +1,21 @@
 import { Combobox } from "@headlessui/react";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { useRouter } from "../../context/hooks/useRouter";
-import { SearchInput } from "./styles";
+import { Icon } from "../Icon";
+import { SearchInput, SearchInputIcon, SearchOption, SearchOptions } from "./styles";
 
-export type RepositoryNames = [string, string?];
+export type Repository = {
+  name: string;
+  formattedName?: string;
+  isPinned: boolean;
+};
 
 export interface SearchRepositoryInputProps {
-  repositoriesNames?: RepositoryNames[];
+  repositories?: Repository[];
 }
 
 export function SearchRepositoryInput({
-  repositoriesNames = []
+  repositories = []
 }: SearchRepositoryInputProps) {
   const { isNotPtBr } = useRouter();
 
@@ -19,9 +24,12 @@ export function SearchRepositoryInput({
 
   const filteredPeople =
     query === ""
-      ? repositoriesNames
-      : repositoriesNames? repositoriesNames.filter((names) => {
-        return names.some(name => name?.toLowerCase().includes(query.toLowerCase()));
+      ? repositories
+      : repositories? repositories.filter((repository) => {
+        const includesTheName = repository.name.toLowerCase().includes(query.toLowerCase());
+        const includesTheFormattedName = repository.formattedName?.toLowerCase().includes(query.toLowerCase());
+
+        return includesTheName || includesTheFormattedName;
       }):[];
 
   function handleOnFocus() {
@@ -37,14 +45,23 @@ export function SearchRepositoryInput({
   }
 
   function handleOnChangeQuery(event: ChangeEvent<HTMLInputElement>) {
-    console.log(event);
     setQuery(event.target.value);
   }
 
   return (
-    <Combobox value={query} onChange={setQuery}>
+    <Combobox
+      as="div"
+      value={query} 
+      onChange={setQuery}
+      className="flex flex-col justify-start"
+    >
       {({ open }) => (<>
-        <Combobox.Button>
+        <Combobox.Button className="relative w-full">
+          <SearchInputIcon 
+            name="search"
+            isFocused={open || isFocused}
+            withoutTooltip
+          />
           <Combobox.Input
             as={SearchInput}
             placeholder={isNotPtBr? "Search by name":"Pesquisar por nome"}
@@ -54,12 +71,18 @@ export function SearchRepositoryInput({
             onChange={handleOnChangeQuery}
           />
         </Combobox.Button>
-        {(open || isFocused) && (<Combobox.Options static>
-          {filteredPeople && filteredPeople.map((names) => (
-            <Combobox.Option key={names[0]} value={names[0]}>
-              {names.length > 1? names[1]:names[0]}
-            </Combobox.Option>
-          ))}
+        {((open || isFocused) && filteredPeople.length >= 1) && (<Combobox.Options as={SearchOptions} static>
+          {filteredPeople && filteredPeople
+            .sort((a, b) => Number(b.isPinned) - Number(a.isPinned))
+            .map(({ name, formattedName, isPinned }) => (
+              <Combobox.Option as={SearchOption} key={name} value={name}>
+                {isPinned && <Icon 
+                  name="flash" 
+                  className="ml-[-3px] text-primary-500" 
+                  withoutTooltip
+                />}{formattedName ?? name}
+              </Combobox.Option>
+            ))}
         </Combobox.Options>)}
       </>)} 
     </Combobox>
