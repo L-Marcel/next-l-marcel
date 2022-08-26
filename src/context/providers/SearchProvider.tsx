@@ -1,12 +1,13 @@
-import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
+import { ReactNode, useCallback, useEffect, useMemo, useReducer, useState } from "react";
 import { createContext } from "use-context-selector";
 import { Repository } from "../../services/Github";
+import { Pagination } from "./reducers/pagination";
 
 type Filter = {
   names: string[];
 };
 
-type Pagination = {
+export type PaginationType = {
   page: number;
   max: number;
   min: number;
@@ -16,7 +17,7 @@ interface SearchContext {
   setFilter: (filter: Partial<Filter>) => void;
   filteredRepositories: Repository[];
 
-  pagination: Pagination;
+  pagination: PaginationType;
   nextPage: () => void;
   previousPage: () => void;
   lastPage: () => void;
@@ -34,7 +35,7 @@ export function SearchProvider({
   children,
   repositories
 }: SearchProviderProps) {
-  const [pagination, setPagination] = useState<Pagination>({
+  const [pagination, dispatch] = useReducer(Pagination.reducer, {
     max: 0,
     min: 0,
     page: 0
@@ -61,79 +62,21 @@ export function SearchProvider({
     const size = filteredRepositories.length;
 
     const min = 0;
-    const max = Math.ceil(size/10);
+    const max = Math.ceil(size/9);
 
-    setPagination(({ page }) => {
-      return {
-        min,
-        max,
-        page: 
-          page > max? max:
-            page < min? min:
-              page
-      };
-    });
-  }, [filteredRepositories, setPagination]);
-
-  const handleNextPage = useCallback(() => {
-    setPagination(({ max, min, page }) => {
-      const nextPage = page + 1;
-
-      return {
-        min,
-        max,
-        page: 
-          page >= max? max:
-            nextPage
-      };
-    });
-  }, [setPagination]);
-
-  const handlePreviousPage = useCallback(() => {
-    setPagination(({ max, min, page }) => {
-      const previousPage = page - 1;
-
-      return {
-        min,
-        max,
-        page: 
-          page <= min? min:
-            previousPage
-      };
-    });
-  }, [setPagination]);
-
-  const handleLastPage = useCallback(() => {
-    setPagination(({ max, min }) => {
-      return {
-        min,
-        max,
-        page: max
-      };
-    });
-  }, [setPagination]);
-
-  const handleFirstPage = useCallback(() => {
-    setPagination(({ max, min }) => {
-      return {
-        min,
-        max,
-        page: min
-      };
-    });
-  }, [setPagination]);
+    Pagination.updateLimit(dispatch, min, max);
+  }, [filteredRepositories, dispatch]);
 
   return (
     <searchContext.Provider
       value={{
         setFilter: _setFilter,
         filteredRepositories,
-
         pagination,
-        nextPage: handleNextPage,
-        previousPage: handlePreviousPage,
-        lastPage: handleLastPage,
-        firstPage: handleFirstPage
+        nextPage: Pagination.nextPage(dispatch),
+        lastPage: Pagination.lastPage(dispatch),
+        previousPage: Pagination.previousPage(dispatch),
+        firstPage: Pagination.firstPage(dispatch)
       }}
     >
       {children}

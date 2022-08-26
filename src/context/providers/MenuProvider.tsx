@@ -1,4 +1,4 @@
-import { ReactNode, startTransition, useCallback, useState } from "react";
+import { ReactNode, useCallback, useState } from "react";
 import { createContext } from "use-context-selector";
 
 export interface MenuProviderProps {
@@ -18,9 +18,7 @@ export function MenuProvider({
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggleMenu = useCallback(() => {
-    startTransition(() => {
-      setIsOpen(isOpen => !isOpen);
-    });
+    setIsOpen(isOpen => !isOpen);
   }, [setIsOpen]);
 
   return (
