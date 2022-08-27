@@ -34,6 +34,7 @@ export type Repository = {
   badge?: string;
   license?: string;
   template?: boolean;
+  _filtered: boolean;
 };
 
 export type License = {
@@ -115,9 +116,9 @@ export class Github {
     getLanguages = false,
     locale = "pt-br"
   }: GithubGetReposOptions): Promise<Repository[]> {
-    const url = "https://api.github.com/users/l-marcel/repos?sort=pushed";
+    const url = "https://api.github.com/users/l-marcel/repos";
   
-    const pageRepos = await this.api.get<GithubRepositoryData[]>(`${url}?per_page=${reposPerPage}&page=${initialPage}`).then(async(res) => {
+    const pageRepos = await this.api.get<GithubRepositoryData[]>(`${url}?sort=pushed&per_page=${reposPerPage}&page=${initialPage}`).then(async(res) => {
       const data = res.data;
       const repos: Repository[] = data.map(repo => {
         return {
@@ -133,6 +134,7 @@ export class Github {
           language: repo.language,
           branch: repo.default_branch,
           license: repo.license?.name ?? null,
+          _filtered: true,
         } as Repository;
       });
   

@@ -35,12 +35,6 @@ export function SearchProvider({
   children,
   repositories
 }: SearchProviderProps) {
-  const [pagination, dispatch] = useReducer(Pagination.reducer, {
-    max: 0,
-    min: 0,
-    page: 0
-  });
-
   const [filter, setFilter] = useState<Filter>({
     names: []
   });
@@ -54,23 +48,53 @@ export function SearchProvider({
     });
   }, [setFilter]);
 
+  const [pagination, dispatch] = useReducer(Pagination.reducer, {
+    max: 0,
+    min: 0,
+    page: 0
+  });
+
+  const nextPage = useCallback(() => {
+    dispatch(Pagination.nextPage());
+  }, [dispatch]);
+
+  const lastPage = useCallback(() => {
+    dispatch(Pagination.lastPage());
+  }, [dispatch]);
+
+  const previousPage = useCallback(() => {
+    dispatch(Pagination.previousPage());
+  }, [dispatch]);
+
+  const firstPage = useCallback(() => {
+    dispatch(Pagination.firstPage());
+  }, [dispatch]);
+
   const filteredRepositories = useMemo(() => {
-    const repositoriesFilteredByName = repositories.filter(repository => filter.names.includes(repository.name));
+    const repositoriesOrderedFilterByName = repositories
+      .map(repository => {
+        if(filter.names.includes(repository.name)) {
+          repository._filtered = true;
+        } else {
+          repository._filtered = false;
+        }
 
-    const { page } = pagination;
-    const repositoriesInPage = repositoriesFilteredByName.slice(page * 12, 12 + (page * 12));
+        return repository;
+      })
+      .sort((a, b) => Number(b._filtered) - Number(a._filtered));
 
-    return repositoriesInPage;
-  }, [repositories, pagination, filter]);
+    firstPage();
+    return repositoriesOrderedFilterByName;
+  }, [repositories, firstPage, filter]);
 
   useEffect(() => {
-    const size = filteredRepositories.length;
+    const size = filteredRepositories.filter(repository => repository._filtered).length;
 
     const min = 0;
-    const max = Math.ceil(size/9);
+    const max = Math.ceil(size/12) - 1;
 
-    Pagination.updateLimit(dispatch, min, max);
-  }, [filteredRepositories.length, dispatch]);
+    dispatch(Pagination.updateLimit(min, max));
+  }, [filteredRepositories, dispatch]);
 
   return (
     <searchContext.Provider
@@ -78,10 +102,10 @@ export function SearchProvider({
         setFilter: _setFilter,
         filteredRepositories,
         pagination,
-        nextPage: Pagination.nextPage(dispatch),
-        lastPage: Pagination.lastPage(dispatch),
-        previousPage: Pagination.previousPage(dispatch),
-        firstPage: Pagination.firstPage(dispatch)
+        nextPage,
+        lastPage,
+        previousPage,
+        firstPage
       }}
     >
       {children}

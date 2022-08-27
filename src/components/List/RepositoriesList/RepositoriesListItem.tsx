@@ -21,11 +21,12 @@ export function RepositoriesListItem({
     fork,
     license,
     template,
-    importedConfig
+    importedConfig,
+    _filtered
   } = repository;
 
   return (
-    <RepositoriesListItemContainer>
+    <RepositoriesListItemContainer _filtered={_filtered}>
       <ListItemBackgroundIcon 
         name={importedConfig?.icon.toLowerCase() as IconType} 
         withoutTooltip

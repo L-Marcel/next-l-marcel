@@ -1,7 +1,11 @@
 import tw from "tw-tailwind";
 import { Icon } from "../../Icon";
 
-export const RepositoriesListItemContainer = tw.div`
+interface RepositoriesListItemContainerProps {
+  _filtered: boolean;
+}
+
+export const RepositoriesListItemContainer = tw.div<RepositoriesListItemContainerProps>`
   absolute 
   w-full
   group
@@ -15,6 +19,7 @@ export const RepositoriesListItemContainer = tw.div`
   dark:bg-gray-500
   rounded-md
   overflow-hidden
+  ${props => props._filtered? "opacity-100":"opacity-20"}
 `;
 
 export const ListItemBackgroundIcon = tw(Icon)`

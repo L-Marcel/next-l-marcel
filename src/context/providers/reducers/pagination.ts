@@ -1,4 +1,3 @@
-import { Dispatch } from "react";
 import { PaginationType } from "../SearchProvider";
 
 export enum PaginationAction {
@@ -80,34 +79,37 @@ export class Pagination {
     }
   }
 
-  static updateLimit(dispatch: Dispatch<PaginationReducerAction>, min: number, max: number) {
-    dispatch({
+  static updateLimit(min: number, max: number) {
+    return {
       type: PaginationAction.UPDATE_LIMIT,
       payload: {
         max,
         min
       }
-    });
+    };
   }
 
-  static nextPage(dispatch: Dispatch<PaginationReducerAction>) {
-    return () => dispatch({
+  static nextPage() {
+    return {
       type: PaginationAction.NEXT_PAGE
-    });
+    };
   }
-  static lastPage(dispatch: Dispatch<PaginationReducerAction>) {
-    return () => dispatch({
+
+  static lastPage() {
+    return {
       type: PaginationAction.LAST_PAGE
-    });
+    };
   }
-  static previousPage(dispatch: Dispatch<PaginationReducerAction>) {
-    return () => dispatch({
+
+  static previousPage() {
+    return {
       type: PaginationAction.PREVIOUS_PAGE
-    });
+    };
   }
-  static firstPage(dispatch: Dispatch<PaginationReducerAction>) {
-    return () => dispatch({
+  
+  static firstPage() {
+    return {
       type: PaginationAction.FIRST_PAGE
-    });
+    };
   }
 }
