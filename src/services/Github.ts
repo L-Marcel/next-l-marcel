@@ -115,7 +115,7 @@ export class Github {
     getLanguages = false,
     locale = "pt-br"
   }: GithubGetReposOptions): Promise<Repository[]> {
-    const url = "https://api.github.com/users/l-marcel/repos";
+    const url = "https://api.github.com/users/l-marcel/repos?sort=pushed";
   
     const pageRepos = await this.api.get<GithubRepositoryData[]>(`${url}?per_page=${reposPerPage}&page=${initialPage}`).then(async(res) => {
       const data = res.data;

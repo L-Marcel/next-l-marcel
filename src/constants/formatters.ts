@@ -2,6 +2,10 @@ import { Formatter } from "../services/Github";
 
 export const formatters: Formatter[] = [
   {
+    regex: "exe-classwork",
+    replace: "Exe: Classwork"
+  },
+  {
     regex: "-",
     replace: " "
   },
@@ -20,5 +24,17 @@ export const formatters: Formatter[] = [
   {
     regex: "nodejs",
     replace: "/"
+  },
+  {
+    regex: "/ 2022",
+    replace: "/ 2022 /"
+  },
+  {
+    regex: "/ 2023",
+    replace: "/ 2023 /"
+  },
+  {
+    regex: "/ 2024",
+    replace: "/ 2024 /"
   }
 ];

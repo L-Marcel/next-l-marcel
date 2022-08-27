@@ -55,8 +55,13 @@ export function SearchProvider({
   }, [setFilter]);
 
   const filteredRepositories = useMemo(() => {
-    return repositories.filter(repository => filter.names.includes(repository.name));
-  }, [repositories, filter]);
+    const repositoriesFilteredByName = repositories.filter(repository => filter.names.includes(repository.name));
+
+    const { page } = pagination;
+    const repositoriesInPage = repositoriesFilteredByName.slice(page * 12, 12 + (page * 12));
+
+    return repositoriesInPage;
+  }, [repositories, pagination, filter]);
 
   useEffect(() => {
     const size = filteredRepositories.length;

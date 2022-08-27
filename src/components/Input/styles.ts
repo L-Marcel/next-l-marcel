@@ -1,6 +1,15 @@
 import tw from "tw-tailwind";
 import { Icon } from "../Icon";
 
+export const SearchBox = tw.div`
+  relative
+  flex
+  w-full 
+  flex-col 
+  justify-start
+  max-w-xl
+`;
+
 export const SearchInputIcon = tw(Icon)`
   absolute
   h-full
@@ -46,18 +55,21 @@ export const SearchInput = tw.input`
 `;
 
 export const SearchOptions = tw.ul`
+  absolute
+  top-12
+  z-20
   flx
   flex-col
   border-t-2
   border-t-primary-500
-  rounded-md
+  rounded-l-md
   my-4
-  py-2
+  py-1
   gap-1
   bg-white-500
   dark:bg-gray-600
+  w-full
   max-h-[50vh]
-  max-w-[80vw]
   h-max
   overflow-y-auto
   overflow-x-hidden
@@ -81,4 +93,9 @@ export const SearchOption = tw.li`
   cursor-pointer
   hover:bg-white-600
   hover:dark:bg-gray-400
+  capitalize
+  border-b-2
+  border-b-white-700
+  dark:border-b-gray-500
+  last-of-type:border-none
 `;

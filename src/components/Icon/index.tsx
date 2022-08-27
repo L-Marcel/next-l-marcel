@@ -1,12 +1,11 @@
 import { IconBaseProps } from "react-icons";
 import { BiCubeAlt, BiSearchAlt } from "react-icons/bi";
 import { BsCheck2Circle, BsClockHistory, BsDownload, BsXLg } from "react-icons/bs";
-import { DiGithubAlt } from "react-icons/di";
 import { FaAlignRight, FaGitAlt, FaGoogleDrive, FaMoon, FaSun } from "react-icons/fa";
 import { FiCopy, FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
 import { IoIosSchool, IoMdOpen } from "react-icons/io";
-import { SiChakraui, SiCss3, SiDocker, SiFigma, SiFramer, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
+import { SiChakraui, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
 import { TiFlash } from "react-icons/ti";
 import { VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
 import { Tooltip } from "../Tooltip";
@@ -44,7 +43,7 @@ const icons = {
   whatsapp: SiWhatsapp,
   linkedin: SiLinkedin,
   github: SiGithub,
-  discord: DiGithubAlt,
+  discord: SiDiscord,
   instagram: SiInstagram,
   rocketseat: AsRocketseat,
   mail: SiMaildotru,

@@ -3,7 +3,7 @@ import { ChangeEvent, KeyboardEvent, useEffect, useMemo, useState } from "react"
 import { useRouter } from "../../context/hooks/useRouter";
 import { useSearchFilter } from "../../context/hooks/useSearchFilter";
 import { Icon } from "../Icon";
-import { SearchInput, SearchInputIcon, SearchOption, SearchOptions } from "./styles";
+import { SearchBox, SearchInput, SearchInputIcon, SearchOption, SearchOptions } from "./styles";
 
 export type RepositoryBasicData = {
   name: string;
@@ -59,10 +59,9 @@ export function SearchRepositoryInput({
 
   return (
     <Combobox
-      as="div"
+      as={SearchBox}
       value={query} 
       onChange={setQuery}
-      className="flex flex-col justify-start"
     >
       {({ open }) => (<>
         <Combobox.Button className="relative w-full">
