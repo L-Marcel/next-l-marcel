@@ -1,18 +1,23 @@
+import { MasonryGrid } from "@egjs/react-grid";
 import { useFilteredRepositories } from "../../../context/hooks/useFilteredRepositories";
-import { RepositoriesListContainer } from "./styles";
 
 export function RepositoriesList() {
   const { filteredRepositories } = useFilteredRepositories();
   
   return (
-    <RepositoriesListContainer>
+    <MasonryGrid
+      className="container"
+      gap={5}
+      defaultDirection="end"
+      align="start"
+    >
       {(filteredRepositories && filteredRepositories.length > 0) &&
         filteredRepositories.map(repository => {
           return (
-            <li key={repository.id}>{repository.formattedName ?? repository.name}</li>
+            <div className="absolute w-full first-of-type:min-h-[10vh] sm:w-[38%] md:w-[33%]" key={repository.id}>{repository.formattedName ?? repository.name}</div>
           );
         })
       }
-    </RepositoriesListContainer>
+    </MasonryGrid>
   );
 }
