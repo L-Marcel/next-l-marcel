@@ -142,7 +142,11 @@ export class Github {
 
         const nameAlreadyDefined = !!config?.name;
   
-        if(locale === "pt-BR" && config?.translatedDescription) repos[i].description = config?.translatedDescription;
+        if(locale === "pt-br" && config?.translatedDescription) {
+          repos[i].description = config?.translatedDescription;
+        } else if(locale === "pt-br") {
+          repos[i].description = "";
+        }
         
         if(!config.name) config.name = repos[i]?.name ?? "";
         if(!config.icon) config.icon = repos[i]?.language ?? "default";

@@ -1,29 +1,39 @@
 import { IconBaseProps } from "react-icons";
 import { BiCubeAlt, BiSearchAlt } from "react-icons/bi";
-import { BsCheck2Circle, BsClockHistory, BsDownload, BsXLg } from "react-icons/bs";
+import { BsCheck2Circle, BsClockHistory, BsDownload, BsFillPatchQuestionFill, BsXLg } from "react-icons/bs";
 import { FaAlignRight, FaGitAlt, FaGoogleDrive, FaMoon, FaSun } from "react-icons/fa";
 import { FiCopy, FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
 import { IoIosSchool, IoMdOpen } from "react-icons/io";
-import { SiChakraui, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiReact, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
+import { SiAngular, SiChakraui, SiCplusplus, SiCsharp, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJava, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNestjs, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiPython, SiReact, SiRust, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
 import { TiFlash } from "react-icons/ti";
 import { VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
 import { Tooltip } from "../Tooltip";
 import { AsRocketseat } from "./assets/AsRocketseat";
+
+const languagesAndFrameworks = {
+  "next.js": SiNextdotjs,
+  "react.js": SiReact,
+  "node.js": SiNodedotjs,
+  "nest.js": SiNestjs,
+  typescript: SiTypescript,
+  javascript: SiJavascript,
+  css: SiCss3,
+  html: SiHtml5,
+  git: FaGitAlt,
+  angular: SiAngular,
+  rust: SiRust,
+  java: SiJava,
+  "c++": SiCplusplus,
+  "c#": SiCsharp,
+  python: SiPython
+};
 
 const icons = {
   download: BsDownload,
   sun: FaSun,
   moon: FaMoon,
   clock: BsClockHistory,
-  "next.js": SiNextdotjs,
-  "react.js": SiReact,
-  "node.js": SiNodedotjs,
-  typescript: SiTypescript,
-  javascript: SiJavascript,
-  css: SiCss3,
-  html: SiHtml5,
-  git: FaGitAlt,
   vscode: SiVisualstudiocode,
   npm: SiNpm,
   yarn: SiYarn,
@@ -58,7 +68,11 @@ const icons = {
   drive: FaGoogleDrive,
   open: IoMdOpen,
   search: BiSearchAlt,
-  flash: TiFlash
+  flash: TiFlash,
+
+  ...languagesAndFrameworks,
+  
+  default: BsFillPatchQuestionFill
 };
 
 export type IconType = keyof typeof icons;
@@ -79,6 +93,10 @@ export function Icon({
   className,
   ...rest
 }: IconProps) {
+  if(!icons[name]) {
+    name = "default";
+  }
+
   const icon = icons[name]({
     className: 
       "drop-shadow-sm md:drop-shadow-lg " +
