@@ -11,15 +11,13 @@ interface ProjectsProps {
 function Projects({
   repositories
 }: ProjectsProps) {
-  const orderredRepositories = repositories.sort((a, b) => a.fullname.toLowerCase().localeCompare(b.fullname.toLowerCase()));
-  
   return (
     <SearchProvider
-      repositories={orderredRepositories}
+      repositories={repositories}
     >
       <section className="relative mx-12 mt-14 flex flex-col items-start justify-center gap-4 md:mx-16 md:mt-[5rem]">
         <SearchRepositoryInput
-          repositories={orderredRepositories.map(({ name, formattedName, importedConfig })=> ({
+          repositories={repositories.map(({ name, formattedName, importedConfig })=> ({
             name,
             formattedName,
             isPinned: importedConfig?.pinned ?? false
@@ -43,7 +41,7 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
 
   return {
     props: {
-      repositories,
+      repositories: repositories.sort((a, b) => a.fullname.toLowerCase().localeCompare(b.fullname.toLowerCase())),
       updatedAt
     },
     revalidate: false

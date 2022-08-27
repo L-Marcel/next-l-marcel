@@ -10,7 +10,6 @@ export function RepositoriesList() {
       className="w-full"
       gap={12}
       defaultDirection="end"
-      
       align="justify"
     >
       {(filteredRepositories && filteredRepositories.length > 0) &&
@@ -18,7 +17,6 @@ export function RepositoriesList() {
           return (
             <RepositoriesListItem
               key={repository.id}
-              loading="lazy"
               repository={repository}
             />
           );

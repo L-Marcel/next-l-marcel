@@ -70,7 +70,7 @@ export function SearchProvider({
     const max = Math.ceil(size/9);
 
     Pagination.updateLimit(dispatch, min, max);
-  }, [filteredRepositories, dispatch]);
+  }, [filteredRepositories.length, dispatch]);
 
   return (
     <searchContext.Provider

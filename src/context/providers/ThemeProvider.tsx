@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useState } from "react";
+import { ReactNode, startTransition, useCallback, useEffect, useState } from "react";
 import { createContext } from "use-context-selector";
 
 export type ThemeType = "light" | "dark";
@@ -19,13 +19,14 @@ export function ThemeProvider({
   const [theme, setTheme] = useState<ThemeType>("dark");
 
   const handleToggleTheme = useCallback(() => {
-    setTheme(theme => {
-      console.log(theme);
-      const isDarkTheme = theme === "dark";
-      const currentTheme = isDarkTheme? "light":"dark";
-      localStorage.setItem("theme", currentTheme);
+    startTransition(() => {
+      setTheme(theme => {
+        const isDarkTheme = theme === "dark";
+        const currentTheme = isDarkTheme? "light":"dark";
+        localStorage.setItem("theme", currentTheme);
 
-      return currentTheme;
+        return currentTheme;
+      });
     });
   }, [setTheme]);
 
