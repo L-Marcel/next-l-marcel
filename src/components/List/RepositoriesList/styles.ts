@@ -6,11 +6,9 @@ interface RepositoriesListItemContainerProps {
 }
 
 export const RepositoriesListItemContainer = tw.div<RepositoriesListItemContainerProps>`
-  absolute 
+  relative
   w-full
   group
-  sm:w-[calc(49%-6px)] 
-  md:w-[calc(33%-6px)]
   text-gray-600
   dark:text-white-600
   px-4

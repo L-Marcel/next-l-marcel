@@ -91,7 +91,7 @@ export function SearchProvider({
     const size = filteredRepositories.filter(repository => repository._filtered).length;
 
     const min = 0;
-    const max = Math.ceil(size/12) - 1;
+    const max = Math.ceil(size/16) - 1;
 
     dispatch(Pagination.updateLimit(min, max));
   }, [filteredRepositories, dispatch]);

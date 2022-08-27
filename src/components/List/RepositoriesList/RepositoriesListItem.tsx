@@ -5,10 +5,12 @@ import { ListItemBackgroundIcon, RepositoriesListItemContainer } from "./styles"
 interface RepositoriesListItemProps {
   repository: Repository;
   loading?: string;
+  width: number;
 }
 
 export function RepositoriesListItem({
-  repository
+  repository,
+  width
 }: RepositoriesListItemProps) {
   const {
     fullname,

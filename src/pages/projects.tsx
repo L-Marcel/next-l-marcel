@@ -1,12 +1,16 @@
 import { GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 import { SearchRepositoryInput } from "../components/Input/SearchRepositoryInput";
-import { RepositoriesList } from "../components/List/RepositoriesList";
 import { SearchProvider } from "../context/providers/SearchProvider";
 import { Github, Repository } from "../services/Github";
 
 interface ProjectsProps {
   repositories: Repository[];
 }
+
+const RepositoriesList = dynamic<unknown>(() => import("../components/List/RepositoriesList").then(mod => mod.RepositoriesList), {
+  ssr: false
+});
 
 function Projects({
   repositories
