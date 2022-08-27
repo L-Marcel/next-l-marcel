@@ -277,9 +277,3 @@
 };
 
 @tailwind utilities;
-
-@layer utilities {
-  .items-self-start {
-    align-items: self-start;
-  }
-};

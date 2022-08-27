@@ -1,11 +1,13 @@
 import tw from "tw-tailwind";
 
-export const RepositoriesListContainer = tw.ul`
+export const RepositoriesListItem = tw.div`
+  absolute 
   w-full
-  gap-5
-  grid
-  grid-cols-1
-  sm:grid-cols-2
-  md:grid-cols-3
-  items-self-start
+  sm:w-[calc(50%-12px)] 
+  md:w-[calc(33%-6px)]
+  dark:text-white-600
+  px-4
+  py-3
+  dark:bg-gray-500
+  rounded-md
 `;
