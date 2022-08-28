@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
+import { PaginationButtons } from "../components/Button/PaginationButtons";
 import { SearchRepositoryInput } from "../components/Input/SearchRepositoryInput";
 import { SearchProvider } from "../context/providers/SearchProvider";
 import { Github, Repository } from "../services/Github";
@@ -30,6 +31,7 @@ function Projects({
       </section>
       <section className="relative mx-12 my-5 flex flex-1 flex-col items-start gap-4 justify-self-start md:mx-16">
         <RepositoriesList/>
+        <PaginationButtons/>
       </section>
     </SearchProvider>
   );

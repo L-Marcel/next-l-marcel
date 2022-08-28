@@ -88,13 +88,13 @@ export function SearchProvider({
   }, [repositories, firstPage, filter]);
 
   useEffect(() => {
-    const size = filteredRepositories.filter(repository => repository._filtered).length;
+    const size = repositories.length;
 
     const min = 0;
     const max = Math.ceil(size/12) - 1;
 
     dispatch(Pagination.updateLimit(min, max));
-  }, [filteredRepositories, dispatch]);
+  }, [repositories, dispatch]);
 
   return (
     <searchContext.Provider

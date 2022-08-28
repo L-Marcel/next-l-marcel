@@ -1,4 +1,5 @@
 import tw from "tw-tailwind";
+import { IconButton } from "./IconButton";
 
 export type ButtonSize = "lg" | "md" | "sm";
 export interface ButtonContainerProps {
@@ -22,4 +23,13 @@ export const IconButtonContainer = tw.button<IconButtonContainerProps>`
   ${props => props.size === "md"? 
     "h-[2.8125rem] w-[2.8125rem] p-[0.6875rem]":
     "h-[2.4rem] w-[2.4rem] p-[0.48rem]"}
+`;
+
+export const PaginationIconButtonContainer = tw(IconButton)`
+  flex 
+  h-9 
+  flex-row 
+  items-center 
+  justify-center 
+  rounded-none
 `;

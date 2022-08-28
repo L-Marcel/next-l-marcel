@@ -2,7 +2,7 @@ import { IconBaseProps } from "react-icons";
 import { BiCubeAlt, BiSearchAlt } from "react-icons/bi";
 import { BsCheck2Circle, BsClockHistory, BsDownload, BsFillPatchQuestionFill, BsXLg } from "react-icons/bs";
 import { FaAlignRight, FaGitAlt, FaGoogleDrive, FaMoon, FaSun } from "react-icons/fa";
-import { FiCopy, FiPaperclip } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight, FiChevronsLeft, FiChevronsRight, FiCopy, FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
 import { IoIosSchool, IoMdOpen } from "react-icons/io";
 import { SiAngular, SiChakraui, SiCplusplus, SiCsharp, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJava, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNestjs, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiPython, SiReact, SiRust, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
@@ -27,6 +27,13 @@ const languagesAndFrameworks = {
   "c++": SiCplusplus,
   "c#": SiCsharp,
   python: SiPython
+};
+
+const arrows = {
+  leftArrow: FiChevronLeft,
+  leftArrows: FiChevronsLeft,
+  rightArrow: FiChevronRight,
+  rightArrows: FiChevronsRight 
 };
 
 const icons = {
@@ -72,7 +79,9 @@ const icons = {
 
   ...languagesAndFrameworks,
   
-  default: BsFillPatchQuestionFill
+  default: BsFillPatchQuestionFill,
+
+  ...arrows,
 };
 
 export type IconType = keyof typeof icons;
