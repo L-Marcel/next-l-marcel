@@ -13,7 +13,7 @@ export function PageInput() {
 
   const { page } = pagination;
 
-  const [paginationInputValue, setPaginationInputValue] = useState(page);
+  const [paginationInputValue, setPaginationInputValue] = useState<string | number>(page);
 
   useEffect(() => {
     setPaginationInputValue(page + 1);
@@ -25,7 +25,7 @@ export function PageInput() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setPage(paginationInputValue - 1, (page) => {
+      setPage(Number(paginationInputValue) - 1, (page) => {
         setPaginationInputValue(page + 1);
       });
     }, 1500);
@@ -36,7 +36,7 @@ export function PageInput() {
   }, [setPage, paginationInputValue]);
 
   function handleOnChangePaginationInputValue(e: ChangeEvent<HTMLInputElement>) {
-    setPaginationInputValue(Number(e.target.value) + 1);
+    setPaginationInputValue(e.target.value);
   }
 
   return (
