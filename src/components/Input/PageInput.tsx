@@ -43,6 +43,7 @@ export function PageInput() {
     <PaginationInputContainer 
       ref={ref}
       value={paginationInputValue}
+      inputMode="numeric"
       onChange={handleOnChangePaginationInputValue}
     />
   );
