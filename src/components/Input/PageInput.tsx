@@ -18,7 +18,7 @@ export function PageInput() {
   useEffect(() => {
     setPaginationInputValue(page + 1);
 
-    if(ref.current !== null) {
+    if(ref.current !== null && window.scrollY !== 0) {
       ref.current.scrollIntoView({ behavior: "auto" });
     }
   }, [page, ref, setPaginationInputValue]);
