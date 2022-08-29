@@ -1,8 +1,13 @@
+import { useMediaQuery } from "react-responsive";
 import { usePagination } from "../../context/hooks/usePagination";
 import { PageInput } from "../Input/PageInput";
 import { PaginationIconButtonContainer, SpecialPaginationIconButtonContainer } from "./styles";
 
 export function PaginationButtons() {
+  const isVeryTiny = useMediaQuery({
+    query: "(max-width: 300px)"
+  });
+
   const { 
     nextPage, 
     previousPage, 
@@ -17,14 +22,14 @@ export function PaginationButtons() {
   const isFirstPage = page === min;
 
   return (
-    <div className="flex flex-row gap-3">
-      <SpecialPaginationIconButtonContainer
+    <div className="flex flex-row flex-wrap gap-3">
+      { !isVeryTiny && <SpecialPaginationIconButtonContainer
         onClick={firstPage} 
         className="rounded-md p-0 pr-[2px]" 
         iconClassName="h-[1.8rem] w-[1.8rem]" 
         icon="leftArrows"
         disabled={isFirstPage}
-      />
+      /> }
       <div className="flex flex-row">
         <PaginationIconButtonContainer
           onClick={previousPage} 
@@ -42,13 +47,13 @@ export function PaginationButtons() {
           disabled={isLastPage}
         />
       </div>
-      <SpecialPaginationIconButtonContainer
+      { !isVeryTiny && <SpecialPaginationIconButtonContainer
         onClick={lastPage} 
         className="rounded-md p-0 pl-[2px]" 
         iconClassName="h-[1.8rem] w-[1.8rem]" 
         icon="rightArrows"
         disabled={isLastPage}
-      />
+      /> }
     </div>
   );
 }

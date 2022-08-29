@@ -48,4 +48,8 @@ export const SpecialPaginationIconButtonContainer = tw(PaginationIconButtonConta
   md:dark:hover:bg-primary-600
   active:opacity-80
   active:dark:opacity-80
+  focus-visible:ring-2
+  dark:ring-offset-gray-900
+  focus-visible:ring-offset-2
+  focus-visible:ring-primary-600
 `;

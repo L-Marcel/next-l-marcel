@@ -11,7 +11,7 @@ export function PageInput() {
     pagination  
   } = usePagination();
 
-  const { page, max, min } = pagination;
+  const { page } = pagination;
 
   const [paginationInputValue, setPaginationInputValue] = useState(page);
 
@@ -42,9 +42,6 @@ export function PageInput() {
   return (
     <PaginationInputContainer 
       ref={ref}
-      min={min + 1} 
-      max={max + 1} 
-      type="number" 
       value={paginationInputValue}
       onChange={handleOnChangePaginationInputValue}
     />
