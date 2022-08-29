@@ -32,4 +32,20 @@ export const PaginationIconButtonContainer = tw(IconButton)`
   items-center 
   justify-center 
   rounded-none
+  disabled:opacity-50
+  disabled:dark:opacity-50
+  disabled:pointer-events-none
+  disabled:dark:pointer-events-none
+`;
+
+export const SpecialPaginationIconButtonContainer = tw(PaginationIconButtonContainer)`
+  bg-primary-500
+  dark:bg-primary-500
+  !text-gray-700 
+  md:hover:!sr-onlytext-white-500
+  md:hover:bg-primary-600
+  md:dark:hover:!text-white-500
+  md:dark:hover:bg-primary-600
+  active:opacity-80
+  active:dark:opacity-80
 `;

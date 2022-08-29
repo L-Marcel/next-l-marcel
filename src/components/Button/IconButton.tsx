@@ -7,6 +7,7 @@ export interface IconButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon: IconType;
   size?: IconButtonSize;
   iconClassName?: string;
+  disabled?: boolean;
 }
 
 export function IconButton({
@@ -14,12 +15,14 @@ export function IconButton({
   title,
   size = "md",
   iconClassName,
+  disabled = false,
   ...rest
 }: IconButtonProps) {
   if(!title) {
     return (
       <IconButtonContainer
         size={size}
+        disabled={disabled}
         {...rest}
       >
         <Icon

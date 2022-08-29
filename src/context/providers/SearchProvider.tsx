@@ -22,6 +22,7 @@ interface SearchContext {
   previousPage: () => void;
   lastPage: () => void;
   firstPage: () => void;
+  setPage: (page: number, onError?: (page: number) => void) => void;
 }
 
 export const searchContext = createContext<SearchContext>({} as SearchContext);
@@ -53,6 +54,14 @@ export function SearchProvider({
     min: 0,
     page: 0
   });
+
+  const setPage = useCallback((page: number, onError?: (page: number) => void) => {
+    dispatch(Pagination.setPage(page, onError));
+  }, [dispatch]);
+
+  const updatePageLimit = useCallback((min: number, max: number) => {
+    dispatch(Pagination.updateLimit(min, max));
+  }, [dispatch]);
 
   const nextPage = useCallback(() => {
     dispatch(Pagination.nextPage());
@@ -93,8 +102,8 @@ export function SearchProvider({
     const min = 0;
     const max = Math.ceil(size/12) - 1;
 
-    dispatch(Pagination.updateLimit(min, max));
-  }, [repositories, dispatch]);
+    updatePageLimit(min, max);
+  }, [repositories, updatePageLimit]);
 
   return (
     <searchContext.Provider
@@ -105,7 +114,8 @@ export function SearchProvider({
         nextPage,
         lastPage,
         previousPage,
-        firstPage
+        firstPage,
+        setPage
       }}
     >
       {children}

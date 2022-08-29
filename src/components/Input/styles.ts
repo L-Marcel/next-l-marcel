@@ -99,3 +99,19 @@ export const SearchOption = tw.li`
   dark:border-b-gray-500
   last-of-type:border-none
 `;
+
+export const PaginationInputContainer = tw.input`
+  w-12
+  px-1
+  text-center
+  appearance-[textfield]
+  dark:opacity-80
+  text-gray-600
+  dark:text-white-500
+  bg-white-700
+  dark:bg-gray-400
+  focus:!bg-primary-500
+  focus:dark:!bg-primary-500
+  focus-visible:!bg-primary-500
+  focus-visible:dark:!bg-primary-500
+`;

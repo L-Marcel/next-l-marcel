@@ -1,6 +1,7 @@
 import { PaginationType } from "../SearchProvider";
 
 export enum PaginationAction {
+  SET_PAGE = "SET_PAGE",
   UPDATE_LIMIT = "UPDATE_LIMIT",
   NEXT_PAGE = "NEXT_PAGE",
   PREVIOUS_PAGE = "PREVIOUS_PAGE",
@@ -8,14 +9,22 @@ export enum PaginationAction {
   FIRST_PAGE = "FIRST_PAGE "
 }
 
-export type PaginationActionPayload = {
+export type PaginationUpdateLimitActionPayload = {
   max: number;
   min: number;
 };
 
+export type PaginationSetPageActionPayload = {
+  page: number;
+  onError?: (page: number) => void;
+};
+
+
 export interface PaginationReducerAction {
   type: PaginationAction;
-  payload?: PaginationActionPayload;
+  payload?: 
+    PaginationUpdateLimitActionPayload | 
+    PaginationSetPageActionPayload;
 }
 
 export class Pagination {
@@ -23,12 +32,36 @@ export class Pagination {
     const { min, max, page } = pagination;
   
     switch (action.type) {
+    case PaginationAction.SET_PAGE: {
+      if(!action.payload) {
+        return pagination;
+      }
+      
+      const { page: newPage, onError } = action.payload as PaginationSetPageActionPayload;
+
+      if(isNaN(newPage)) {
+        onError && onError(page);
+        return pagination;
+      }
+
+      const _page = newPage > max? max:
+        newPage < min? min:
+          newPage;
+
+      (onError && _page !== newPage) && onError(_page);
+
+      return {
+        min,
+        max,
+        page: _page
+      };
+    }
     case PaginationAction.UPDATE_LIMIT: {
       if(!action.payload) {
         return pagination;
       }
   
-      const { min: newMin, max: newMax } = action.payload;
+      const { min: newMin, max: newMax } = action.payload as PaginationUpdateLimitActionPayload;
       return {
         min: newMin,
         max: newMax,
@@ -77,6 +110,16 @@ export class Pagination {
     default:   
       return pagination;
     }
+  }
+
+  static setPage(page: number, onError?: (page: number) => void) {
+    return {
+      type: PaginationAction.SET_PAGE,
+      payload: {
+        page,
+        onError
+      }
+    };
   }
 
   static updateLimit(min: number, max: number) {

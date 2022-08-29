@@ -5,8 +5,9 @@ import { RepositoriesListItem } from "./RepositoriesListItem";
 
 
 export function RepositoriesList() {
-  const { page } = usePagination();
+  const { pagination } = usePagination();
   const { filteredRepositories } = useFilteredRepositories();
+  const { page } = pagination;
 
   const baseIndex = page * 12;
   const repositoriesInPage = filteredRepositories.slice(baseIndex, baseIndex + 12);
