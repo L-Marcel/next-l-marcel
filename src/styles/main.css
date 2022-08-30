@@ -274,6 +274,21 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
+  
+  .repository-list-item:hover {
+    .repository-list-item-tech {
+      @apply
+        !text-primary-600;
+    }
+    .repository-list-item-title {
+      @apply
+      !text-primary-500;
+    }
+  }
 };
 
 @tailwind utilities;
+
+.text-break-word {
+  word-break: break-word;
+}

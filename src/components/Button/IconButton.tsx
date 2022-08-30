@@ -7,6 +7,7 @@ export interface IconButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon: IconType;
   size?: IconButtonSize;
   iconClassName?: string;
+  tooltipClassName?: string;
   disabled?: boolean;
 }
 
@@ -15,6 +16,7 @@ export function IconButton({
   title,
   size = "md",
   iconClassName,
+  tooltipClassName,
   disabled = false,
   ...rest
 }: IconButtonProps) {
@@ -36,15 +38,14 @@ export function IconButton({
   }
 
   return (
-    <Tooltip label={title} className="mt-2">
+    <Tooltip label={title} className={"mt-2 " + tooltipClassName}>
       <IconButtonContainer
         size={size}
         {...rest}
       >
         <Icon
           className="duration-100" 
-          name={icon} 
-          title={title} 
+          name={icon}
           withoutTooltip
         />
       </IconButtonContainer>

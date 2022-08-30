@@ -1,7 +1,7 @@
 import { IconBaseProps } from "react-icons";
 import { BiCubeAlt, BiSearchAlt } from "react-icons/bi";
 import { BsCheck2Circle, BsClockHistory, BsDownload, BsFillPatchQuestionFill, BsXLg } from "react-icons/bs";
-import { FaAlignRight, FaGitAlt, FaGoogleDrive, FaMoon, FaSun } from "react-icons/fa";
+import { FaAlignRight, FaBalanceScale, FaGitAlt, FaGoogleDrive, FaMoon, FaSun } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight, FiChevronsLeft, FiChevronsRight, FiCopy, FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
 import { IoIosSchool, IoMdOpen } from "react-icons/io";
@@ -82,6 +82,10 @@ const icons = {
   default: BsFillPatchQuestionFill,
 
   ...arrows,
+
+  self: IoMdOpen,
+  documentation: FiPaperclip,
+  license: FaBalanceScale
 };
 
 export type IconType = keyof typeof icons;
@@ -89,8 +93,11 @@ export type IconSize = "sm" | "md";
 export interface IconProps extends IconBaseProps {
   name?: IconType;
   size?: IconSize;
+  label?: string;
   tooltip?: string;
   withoutTooltip?: boolean;
+  tooltipClassName?: string;
+  tooltipContainerClassName?: string;
   isFocused?: boolean;
 }
 
@@ -98,6 +105,9 @@ export function Icon({
   name = "download",
   size = "sm",
   withoutTooltip = false,
+  tooltipClassName,
+  label,
+  tooltipContainerClassName,
   isFocused = false,
   className,
   ...rest
@@ -121,7 +131,11 @@ export function Icon({
     return icon;
   }
 
-  return (<Tooltip label={name}>
+  return (<Tooltip 
+    label={label ?? name} 
+    className={tooltipClassName}
+    containerClassName={tooltipContainerClassName}
+  >
     {icon}
   </Tooltip>);
 }

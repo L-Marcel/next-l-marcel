@@ -2,13 +2,12 @@ import tw from "tw-tailwind";
 import { Icon } from "../../Icon";
 
 interface RepositoriesListItemContainerProps {
-  _filtered: boolean;
+  $filtered: boolean;
 }
 
-export const RepositoriesListItemContainer = tw.div<RepositoriesListItemContainerProps>`
+export const RepositoriesListItemContainer = tw.article<RepositoriesListItemContainerProps>`
   relative
   w-full
-  group
   text-gray-600
   dark:text-white-600
   px-4
@@ -16,8 +15,11 @@ export const RepositoriesListItemContainer = tw.div<RepositoriesListItemContaine
   bg-white-500
   dark:bg-gray-500
   rounded-md
-  overflow-hidden
-  ${props => props._filtered? "opacity-100":"opacity-20"}
+  flex
+  flex-col
+  gap-2
+  repository-list-item
+  ${props => props.$filtered? "opacity-100":"opacity-20"}
 `;
 
 export const ListItemBackgroundIcon = tw(Icon)`
@@ -29,5 +31,6 @@ export const ListItemBackgroundIcon = tw(Icon)`
   dark:text-gray-400
   !drop-shadow-none
   z-0
+  repository-list-item-tech
   group-hover:dark:!text-primary-600
 `;
