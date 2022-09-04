@@ -43,7 +43,7 @@ export function Header() {
             />
           </ul>
         </nav>
-        <span className="fixed top-[2.78rem] z-[-5] w-full border-t-[1.3125rem] border-primary-600 drop-shadow-sm"></span>
+        <span className="fixed top-0 z-[-5] w-full border-t-[1.3125rem] border-primary-600 drop-shadow-sm md:top-[2.78rem]"></span>
       </header>
       <MobileMenu/>
     </>

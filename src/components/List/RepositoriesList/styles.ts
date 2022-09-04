@@ -65,7 +65,8 @@ export const RepositoriesListHeaderTitle = tw.h3`
   mt-[-4px] 
   whitespace-pre-wrap 
   capitalize 
-  leading-8
+  leading-6
+  md:leading-7
 `;
 
 export const RepositoriesListBadge = tw.p`
