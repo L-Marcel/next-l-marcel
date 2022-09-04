@@ -90,6 +90,7 @@ export function SearchProvider({
 
         return repository;
       })
+      .sort((a, b) => Number(b.importedConfig?.pinned ?? false) - Number(a.importedConfig?.pinned ?? false))
       .sort((a, b) => Number(b._filtered) - Number(a._filtered));
 
     firstPage();

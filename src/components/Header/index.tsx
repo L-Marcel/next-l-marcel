@@ -8,8 +8,8 @@ import { MobileMenu } from "./Mobile/MobileMenu";
 export function Header() {
   return (
     <>
-      <header className="fixed top-0 z-50 w-full md:drop-shadow-lg">
-        <nav className="z-40 hidden flex-row justify-between px-16 md:flex">
+      <header className="fixed top-[-2.78rem] z-50 w-full md:drop-shadow-lg">
+        <nav className="absolute bottom-0 top-[2.78rem] z-40 hidden w-full flex-row justify-between px-16 md:flex">
           <ul className="nav-links flex flex-row">
             <NavLink
               path="/"
@@ -30,7 +30,7 @@ export function Header() {
                 <ToggleThemeButton/>
               </ThemeProvider>
             </li>
-            <li><VerticalDivider/></li>
+            <li className="h-[2.8125rem]"><VerticalDivider/></li>
             <NavLink
               path=""
               name="pt-br"

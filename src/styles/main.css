@@ -276,6 +276,10 @@
   }
   
   .repository-list-item:hover {
+    .repository-list-item-group {
+      @apply
+        !bg-primary-500;
+    }
     .repository-list-item-tech {
       @apply
         !text-primary-600;

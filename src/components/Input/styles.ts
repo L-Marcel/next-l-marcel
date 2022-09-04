@@ -57,7 +57,7 @@ export const SearchInput = tw.input`
 export const SearchOptions = tw.ul`
   absolute
   top-12
-  z-20
+  z-40
   flx
   flex-col
   border-t-2
