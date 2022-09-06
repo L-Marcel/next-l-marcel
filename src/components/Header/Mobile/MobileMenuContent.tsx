@@ -5,12 +5,17 @@ import { NavLink } from "../../Navigation/NavLink";
 import { MobileMenuContentContainer, MobileMenuLinksList } from "./styles";
 
 export function MobileMenuContent() {
-  const { isOpen } = useMobileMenuIsOpen();
+  const { isOpen, toggleMenu } = useMobileMenuIsOpen();
+
+  function handleOnClickInOverlay() {
+    isOpen && toggleMenu();
+  }
 
   return (
     <>
       <Transition
         show={isOpen}
+        onClick={handleOnClickInOverlay}
         enter="duration-[350ms] transition-all ease-in-out"
         enterFrom="opacity-0"
         enterTo="opacity-100"

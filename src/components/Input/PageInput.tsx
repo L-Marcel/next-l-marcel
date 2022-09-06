@@ -17,7 +17,7 @@ export function PageInput() {
 
   useEffect(() => {
     setPaginationInputValue(page + 1);
-
+ 
     if(ref.current !== null && window.scrollY !== 0) {
       ref.current.scrollIntoView({ behavior: "auto" });
     }
@@ -25,7 +25,8 @@ export function PageInput() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setPage(Number(paginationInputValue) - 1, (page) => {
+      const newPage = Number(paginationInputValue) - 1;
+      setPage(newPage, (page) => {
         setPaginationInputValue(page + 1);
       });
     }, 1500);
