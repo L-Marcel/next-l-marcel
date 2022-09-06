@@ -2,7 +2,7 @@ import { useRouter } from "../../../context/hooks/useRouter";
 import { Repository } from "../../../services/Github";
 import { IconButton } from "../../Button/IconButton";
 import { Icon, IconType } from "../../Icon";
-import { RepositoriesListBadge, RepositoriesListDescription, RepositoriesListHeaderContainer, RepositoriesListHeaderIconContainer, RepositoriesListHeaderTitle, RepositoriesListItemBackgroundIcon, RepositoriesListItemContainer } from "./styles";
+import { RepositoriesListItemBackgroundIcon, RepositoriesListItemBadge, RepositoriesListItemContainer, RepositoriesListItemDescription, RepositoriesListItemHeaderContainer, RepositoriesListItemHeaderIconContainer, RepositoriesListItemHeaderTitle, RepositoriesListItemProgressContainer, RepositoriesListItemProgressItem } from "./styles";
 
 interface RepositoriesListItemProps {
   repository: Repository;
@@ -63,6 +63,16 @@ export function RepositoriesListItem({
   const links = importedConfig?.links;
   const linksInList = links? Object.entries(links):[];
   const isPinned = importedConfig? importedConfig.pinned ?? false:false;
+  const progress = importedConfig? importedConfig.progress ?? 0:0;
+  const progressBars = new Array(20).fill(false).map((barIsActived, i) => {
+    const number = (i + 1)/2;
+
+    if(number <= (progress * 10)) {
+      return true;
+    }
+
+    return barIsActived;
+  });
 
   const iconName =              
   isPinned? "flash":
@@ -83,21 +93,21 @@ export function RepositoriesListItem({
         />
       </span>
 
-      <RepositoriesListHeaderContainer>
-        <RepositoriesListHeaderTitle>
+      <RepositoriesListItemHeaderContainer>
+        <RepositoriesListItemHeaderTitle>
           {formattedName ?? fullname}
-        </RepositoriesListHeaderTitle>
-        <RepositoriesListHeaderIconContainer>
+        </RepositoriesListItemHeaderTitle>
+        <RepositoriesListItemHeaderIconContainer>
           { (isPinned || isFork || isTemplate || haveLicense) && <Icon 
             name={iconName}
             label={getTranslatedText(iconName, isNotPtBr)}
             tooltipClassName="z-20 mt-[-10px]"
             tooltipContainerClassName="h-fit" 
           /> }
-        </RepositoriesListHeaderIconContainer>
-      </RepositoriesListHeaderContainer>
-      { badge && <RepositoriesListBadge>{badge}</RepositoriesListBadge> }
-      { description && <RepositoriesListDescription>{description}</RepositoriesListDescription> }
+        </RepositoriesListItemHeaderIconContainer>
+      </RepositoriesListItemHeaderContainer>
+      { badge && <RepositoriesListItemBadge>{badge}</RepositoriesListItemBadge> }
+      { description && <RepositoriesListItemDescription>{description}</RepositoriesListItemDescription> }
 
       <footer className="z-20 mt-1 flex flex-col">
         <div className="z-10 flex flex-row flex-wrap items-center gap-2">
@@ -129,26 +139,16 @@ export function RepositoriesListItem({
               <h4 className="z-10 sm:hidden md:block">{getTranslatedText("Repository", isNotPtBr)}</h4>
           }
         </div>
+        {
+          progress !== 0 && <RepositoriesListItemProgressContainer>
+            { progressBars.map((barIsActived, i) => {
+              return (
+                <RepositoriesListItemProgressItem key={`${name}-progress-${i + 1}`} isActived={barIsActived}/>
+              );
+            })}
+          </RepositoriesListItemProgressContainer>
+        }
       </footer>
     </RepositoriesListItemContainer>
   );
 }
-
-/*
-  <div className="mt-3 flex h-2 w-full flex-row gap-[3px] overflow-hidden rounded-md bg-white-600 shadow-inner dark:bg-gray-700">
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-    <span className="repository-list-item-group h-full w-[5%] bg-gray-600 dark:bg-white-600"></span>
-  </div>
-*/

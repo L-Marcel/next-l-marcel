@@ -10,7 +10,7 @@ export const RepositoriesListItemContainer = tw.article<RepositoriesListItemCont
   w-full
   text-gray-600
   dark:text-white-600
-  p-3
+  p-4
   bg-white-500
   dark:bg-gray-500
   gap-1
@@ -34,7 +34,7 @@ export const RepositoriesListItemBackgroundIcon = tw(Icon)`
   repository-list-item-tech
 `;
 
-export const RepositoriesListHeaderContainer = tw.header`
+export const RepositoriesListItemHeaderContainer = tw.header`
   repository-list-item-title 
   flex 
   w-full 
@@ -44,7 +44,7 @@ export const RepositoriesListHeaderContainer = tw.header`
   pr-8
 `;
 
-export const RepositoriesListHeaderIconContainer = tw.div`
+export const RepositoriesListItemHeaderIconContainer = tw.div`
   absolute 
   top-2 
   right-2 
@@ -58,7 +58,7 @@ export const RepositoriesListHeaderIconContainer = tw.div`
   dark:bg-gray-500
 `;
 
-export const RepositoriesListHeaderTitle = tw.h3`
+export const RepositoriesListItemHeaderTitle = tw.h3`
   text-break-word
   relative 
   z-10 
@@ -67,9 +67,9 @@ export const RepositoriesListHeaderTitle = tw.h3`
   capitalize 
   leading-6
   md:leading-7
-`;
+`; 
 
-export const RepositoriesListBadge = tw.p`
+export const RepositoriesListItemBadge = tw.p`
   relative
   z-10
   my-1
@@ -87,11 +87,35 @@ export const RepositoriesListBadge = tw.p`
   leading-4
 `;
 
-export const RepositoriesListDescription = tw.p`
+export const RepositoriesListItemDescription = tw.p`
   relative 
   z-10 
   text-[1.1rem] 
   font-light 
   leading-5
   mb-1
+`;
+
+export const RepositoriesListItemProgressContainer = tw.div`
+  mt-4
+  flex
+  h-2
+  w-full
+  flex-row
+  gap-[3px]
+  overflow-hidden
+  rounded-md
+  bg-white-600
+  shadow-inner
+  dark:bg-gray-700
+`;
+
+export interface RepositoriesListItemProgressItemProps {
+  isActived: boolean;
+}
+
+export const RepositoriesListItemProgressItem = tw.div<RepositoriesListItemProgressItemProps>`
+  h-full
+  w-[5%]
+  ${props => props.isActived? "bg-gray-600 dark:bg-white-600 repository-list-item-group":"bg-transparent"}
 `;

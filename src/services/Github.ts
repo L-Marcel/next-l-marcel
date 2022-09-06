@@ -10,6 +10,7 @@ export type Config = {
   name: string;
   icon: string;
   translatedDescription: string;
+  progress?: number;
   technologies: string[];
   pinned: boolean;
   links?: { 
@@ -152,6 +153,7 @@ export class Github {
         
         if(!config.name) config.name = repos[i]?.name ?? "";
         if(!config.icon) config.icon = repos[i]?.language ?? "default";
+        if(!config.progress) config.progress = 0;
         if(!config.technologies) config.technologies = [];
 
         if(config.pinned !== true && config.pinned !== false) config.pinned = false;
