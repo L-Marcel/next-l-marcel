@@ -64,6 +64,7 @@ export function RepositoriesListItem({
   const linksInList = links? Object.entries(links):[];
   const isPinned = importedConfig? importedConfig.pinned ?? false:false;
   const progress = importedConfig? importedConfig.progress ?? 0:0;
+  const isCompleted = progress >= 1;
   const progressBars = new Array(20).fill(false).map((barIsActived, i) => {
     const number = (i + 1)/2;
 
@@ -73,7 +74,7 @@ export function RepositoriesListItem({
 
     return barIsActived;
   });
-
+  
   const iconName =              
   isPinned? "flash":
     isFork? "fork":
@@ -140,10 +141,13 @@ export function RepositoriesListItem({
           }
         </div>
         {
-          progress !== 0 && <RepositoriesListItemProgressContainer>
+          (progress !== 0 && !isCompleted) && <RepositoriesListItemProgressContainer>
             { progressBars.map((barIsActived, i) => {
               return (
-                <RepositoriesListItemProgressItem key={`${name}-progress-${i + 1}`} isActived={barIsActived}/>
+                <RepositoriesListItemProgressItem 
+                  key={`${name}-progress-${i + 1}`} 
+                  $actived={barIsActived}
+                />
               );
             })}
           </RepositoriesListItemProgressContainer>

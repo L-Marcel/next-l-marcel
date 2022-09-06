@@ -77,7 +77,8 @@ export const RepositoriesListItemBadge = tw.p`
   rounded-md
   bg-white-600
   dark:bg-gray-400
-  px-[0.4rem]
+  pl-[0.4rem]
+  pr-[0.5rem]
   pt-[0.15rem]
   pb-[0.3rem]
   text-[1rem]
@@ -111,11 +112,11 @@ export const RepositoriesListItemProgressContainer = tw.div`
 `;
 
 export interface RepositoriesListItemProgressItemProps {
-  isActived: boolean;
+  $actived: boolean;
 }
 
 export const RepositoriesListItemProgressItem = tw.div<RepositoriesListItemProgressItemProps>`
   h-full
   w-[5%]
-  ${props => props.isActived? "bg-gray-600 dark:bg-white-600 repository-list-item-group":"bg-transparent"}
+  ${props => props.$actived? "bg-gray-600 dark:bg-white-600 repository-list-item-group":"bg-transparent"}
 `;
