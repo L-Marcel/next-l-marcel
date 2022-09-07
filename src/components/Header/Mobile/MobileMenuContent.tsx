@@ -1,11 +1,11 @@
 import { Transition } from "@headlessui/react";
-import { useMobileMenuIsOpen } from "../../../context/hooks/useMobileMenuIsOpen";
+import { useMenuIsOpen } from "../../../context/hooks/useMenuIsOpen";
 import { MobileNavLink } from "../../Navigation/MobileNavLink";
 import { NavLink } from "../../Navigation/NavLink";
 import { MobileMenuContentContainer, MobileMenuLinksList } from "./styles";
 
 export function MobileMenuContent() {
-  const { isOpen, toggleMenu } = useMobileMenuIsOpen();
+  const { isOpen, toggleMenu } = useMenuIsOpen();
 
   function handleOnClickInOverlay() {
     isOpen && toggleMenu();

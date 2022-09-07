@@ -1,9 +1,9 @@
-import { useMobileMenuIsOpen } from "../../../context/hooks/useMobileMenuIsOpen";
+import { useMenuIsOpen } from "../../../context/hooks/useMenuIsOpen";
 import { Icon } from "../../Icon";
 import { MobileMenuMainButton } from "./styles";
 
 export function MobileToggleMenuButton() {
-  const { isOpen, toggleMenu } = useMobileMenuIsOpen();
+  const { isOpen, toggleMenu } = useMenuIsOpen();
   
   return (
     <MobileMenuMainButton onClick={toggleMenu}>

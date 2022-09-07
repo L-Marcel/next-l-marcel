@@ -4,7 +4,6 @@ import { createContext } from "use-context-selector";
 export interface MenuProviderProps {
   children: ReactNode;
 }
-
 export interface MenuContext {
   isOpen: boolean;
   toggleMenu: () => void;

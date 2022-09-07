@@ -8,7 +8,7 @@ import { HiTemplate } from "react-icons/hi";
 import { IoIosSchool, IoMdOpen } from "react-icons/io";
 import { SiAngular, SiChakraui, SiCplusplus, SiCsharp, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJava, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNestjs, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiPython, SiReact, SiRust, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
 import { TiFlash } from "react-icons/ti";
-import { VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
+import { VscListFilter, VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
 import { Tooltip } from "../Tooltip";
 import { AsRocketseat } from "./assets/AsRocketseat";
 
@@ -76,6 +76,7 @@ const icons = {
   drive: FaGoogleDrive,
   open: IoMdOpen,
   search: BiSearchAlt,
+  filter: VscListFilter,
 
   ...languagesAndFrameworks,
   
