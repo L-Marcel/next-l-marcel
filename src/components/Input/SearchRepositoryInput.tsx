@@ -1,4 +1,4 @@
-import { Combobox } from "@headlessui/react";
+import { Combobox, Transition } from "@headlessui/react";
 import { ChangeEvent, KeyboardEvent, useEffect, useMemo, useState } from "react";
 import { useRouter } from "../../context/hooks/useRouter";
 import { useSearchFilter } from "../../context/hooks/useSearchFilter";
@@ -64,6 +64,16 @@ export function SearchRepositoryInput({
       onChange={setQuery}
     >
       {({ open }) => (<>
+        <Transition
+          show={open || isFocused}
+          enter="duration-[350ms] transition-all ease-in-out"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="duration-[350ms] transition-all ease-in-out"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+          className="custom-backdrop-blur fixed bottom-0 right-0 z-0 h-screen w-screen bg-[rgba(255,255,255,.3)] dark:bg-[rgba(0,0,0,.3)]"
+        />
         <Combobox.Button className="relative w-full">
           <SearchInputIcon 
             name="search"

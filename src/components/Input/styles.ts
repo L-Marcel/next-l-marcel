@@ -8,6 +8,7 @@ export const SearchBox = tw.div`
   flex-col 
   justify-start
   max-w-xl
+  z-40
 `;
 
 export const SearchInputIcon = tw(Icon)`
