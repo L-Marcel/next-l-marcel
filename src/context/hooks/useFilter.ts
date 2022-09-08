@@ -2,10 +2,10 @@
 import { useContextSelector } from "use-context-selector";
 import { searchContext } from "../providers/SearchProvider";
 
-export function useSearchFilter() {
+export function useFilter() {
   return useContextSelector(searchContext, search => {
     return {
-      setFilter: search.setFilter
+      setNames: search.setNames
     };
   });
 }

@@ -2,7 +2,7 @@ import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import { PaginationButtons } from "../components/Button/PaginationButtons";
 import { FilterMenu } from "../components/FilterMenu";
-import { FilterToggleMenuButton } from "../components/FilterMenu/FilterToggleMenuButton";
+import { ToggleFilterMenuButton } from "../components/FilterMenu/ToggleFilterMenuButton";
 import { SearchRepositoryInput } from "../components/Input/SearchRepositoryInput";
 import { MenuProvider } from "../context/providers/MenuProvider";
 import { SearchProvider } from "../context/providers/SearchProvider";
@@ -32,7 +32,7 @@ function Projects({
               isPinned: importedConfig?.pinned ?? false
             }))}
           />
-          <FilterToggleMenuButton
+          <ToggleFilterMenuButton
             className="hidden rounded-md md:block"
           />
         </section>

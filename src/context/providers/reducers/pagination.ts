@@ -1,4 +1,8 @@
-import { PaginationType } from "../SearchProvider";
+export type PaginationType = {
+  page: number;
+  max: number;
+  min: number;
+};
 
 export enum PaginationAction {
   SET_PAGE = "SET_PAGE",
@@ -6,7 +10,7 @@ export enum PaginationAction {
   NEXT_PAGE = "NEXT_PAGE",
   PREVIOUS_PAGE = "PREVIOUS_PAGE",
   LAST_PAGE = "LAST_PAGE",
-  FIRST_PAGE = "FIRST_PAGE "
+  FIRST_PAGE = "FIRST_PAGE"
 }
 
 export type PaginationUpdateLimitActionPayload = {

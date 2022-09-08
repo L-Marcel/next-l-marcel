@@ -1,7 +1,7 @@
 import { Combobox, Transition } from "@headlessui/react";
 import { ChangeEvent, KeyboardEvent, useEffect, useMemo, useState } from "react";
+import { useFilter } from "../../context/hooks/useFilter";
 import { useRouter } from "../../context/hooks/useRouter";
-import { useSearchFilter } from "../../context/hooks/useSearchFilter";
 import { Icon } from "../Icon";
 import { SearchBox, SearchInput, SearchInputIcon, SearchOption, SearchOptions } from "./styles";
 
@@ -18,7 +18,7 @@ export interface SearchRepositoryInputProps {
 export function SearchRepositoryInput({
   repositories = []
 }: SearchRepositoryInputProps) {
-  const { setFilter } = useSearchFilter();
+  const { setNames } = useFilter();
   const { isNotPtBr } = useRouter();
 
   const [isFocused, setIsFocused] = useState(false);
@@ -36,10 +36,8 @@ export function SearchRepositoryInput({
   }, [query, repositories]);
 
   useEffect(() => {
-    setFilter({
-      names: filteredRepositories.map(repository => repository.name)
-    });
-  }, [filteredRepositories, setFilter]);
+    setNames(filteredRepositories.map(repository => repository.name));
+  }, [filteredRepositories, setNames]);
 
   function handleOnFocus() {
     setIsFocused(true);

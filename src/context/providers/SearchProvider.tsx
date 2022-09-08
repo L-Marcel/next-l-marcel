@@ -1,20 +1,15 @@
-import { ReactNode, useCallback, useEffect, useMemo, useReducer, useState } from "react";
+import { ReactNode, useEffect, useMemo } from "react";
 import { createContext } from "use-context-selector";
 import { Repository } from "../../services/Github";
-import { Pagination } from "./reducers/pagination";
-
-type Filter = {
-  names: string[];
-};
-
-export type PaginationType = {
-  page: number;
-  max: number;
-  min: number;
-};
+import { useFilterReducer } from "../hooks/useFilterReducer";
+import { usePaginationReducer } from "../hooks/usePaginationReducer";
+import { FilterType } from "./reducers/filter";
+import { PaginationType } from "./reducers/pagination";
 
 interface SearchContext {
-  setFilter: (filter: Partial<Filter>) => void;
+  filter: FilterType;
+  setNames: (names: string[]) => void;
+
   filteredRepositories: Repository[];
 
   pagination: PaginationType;
@@ -36,66 +31,25 @@ export function SearchProvider({
   children,
   repositories
 }: SearchProviderProps) {
-  const [filter, setFilter] = useState<Filter>({
-    names: []
-  });
+  const {
+    filter,
+    setNames,
+    getFilteredRepositories
+  } = useFilterReducer();
 
-  const _setFilter = useCallback((filter: Partial<Filter>) => {
-    setFilter(oldFilter => {
-      return {
-        ...oldFilter,
-        ...filter
-      };
-    });
-  }, [setFilter]);
-
-  const [pagination, dispatch] = useReducer(Pagination.reducer, {
-    max: 0,
-    min: 0,
-    page: 0
-  });
-
-  const setPage = useCallback((page: number, onError?: (page: number) => void) => {
-    dispatch(Pagination.setPage(page, onError));
-  }, [dispatch]);
-
-  const updatePageLimit = useCallback((min: number, max: number) => {
-    dispatch(Pagination.updateLimit(min, max));
-  }, [dispatch]);
-
-  const nextPage = useCallback(() => {
-    dispatch(Pagination.nextPage());
-  }, [dispatch]);
-
-  const lastPage = useCallback(() => {
-    dispatch(Pagination.lastPage());
-  }, [dispatch]);
-
-  const previousPage = useCallback(() => {
-    dispatch(Pagination.previousPage());
-  }, [dispatch]);
-
-  const firstPage = useCallback(() => {
-    dispatch(Pagination.firstPage());
-  }, [dispatch]);
+  const {
+    pagination,
+    firstPage,
+    lastPage,
+    nextPage,
+    previousPage,
+    setPage,
+    updatePageLimit
+  } = usePaginationReducer();
 
   const filteredRepositories = useMemo(() => {
-    const repositoriesOrderedFilterByName = repositories
-      .map(repository => {
-        if(filter.names.includes(repository.name)) {
-          repository._filtered = true;
-        } else {
-          repository._filtered = false;
-        }
-
-        return repository;
-      })
-      .sort((a, b) => Number(b.importedConfig?.pinned ?? false) - Number(a.importedConfig?.pinned ?? false))
-      .sort((a, b) => Number(b._filtered) - Number(a._filtered));
-
-    firstPage();
-    return repositoriesOrderedFilterByName;
-  }, [repositories, firstPage, filter]);
+    return getFilteredRepositories(repositories, firstPage);
+  }, [getFilteredRepositories, repositories, firstPage]);
 
   useEffect(() => {
     const size = repositories.length;
@@ -109,8 +63,11 @@ export function SearchProvider({
   return (
     <searchContext.Provider
       value={{
-        setFilter: _setFilter,
+        filter,
+        setNames,
+
         filteredRepositories,
+        
         pagination,
         nextPage,
         lastPage,
