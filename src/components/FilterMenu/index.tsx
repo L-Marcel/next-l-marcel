@@ -1,5 +1,6 @@
 import { Disclosure, Transition } from "@headlessui/react";
 import { useMenuIsOpen } from "../../context/hooks/useMenuIsOpen";
+import { FilterMenuOptionButton } from "../Button/FilterMenuOptionButton";
 import { FilterMenuContainer } from "./styles";
 
 export function FilterMenu() {
@@ -18,7 +19,8 @@ export function FilterMenu() {
         leaveTo="transform scale-y-95 opacity-0"
       >
         <Disclosure.Panel as={FilterMenuContainer} static>
-          <p>...temporary!</p>
+          <FilterMenuOptionButton/>
+          <FilterMenuOptionButton/>
         </Disclosure.Panel>
       </Transition>
     </Disclosure>

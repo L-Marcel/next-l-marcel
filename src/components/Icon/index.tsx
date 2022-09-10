@@ -15,6 +15,7 @@ import { AsRocketseat } from "./assets/AsRocketseat";
 const languagesAndFrameworks = {
   "next.js": SiNextdotjs,
   "react.js": SiReact,
+  "react native": SiReact,
   "node.js": SiNodedotjs,
   "nest.js": SiNestjs,
   typescript: SiTypescript,

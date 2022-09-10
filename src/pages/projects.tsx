@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import { PaginationButtons } from "../components/Button/PaginationButtons";
+import { ToggleFilterMenuButton } from "../components/Button/ToggleFilterMenuButton";
 import { FilterMenu } from "../components/FilterMenu";
-import { ToggleFilterMenuButton } from "../components/FilterMenu/ToggleFilterMenuButton";
 import { SearchRepositoryInput } from "../components/Input/SearchRepositoryInput";
 import { MenuProvider } from "../context/providers/MenuProvider";
 import { SearchProvider } from "../context/providers/SearchProvider";
@@ -19,9 +19,33 @@ const RepositoriesList = dynamic<unknown>(() => import("../components/List/Repos
 function Projects({
   repositories
 }: ProjectsProps) {
+  const data = repositories.reduce((prev, cur) => {
+    cur.badge && prev.badges.add(cur.badge.toLowerCase());
+
+    if(!cur.importedConfig || !cur.importedConfig?.technologies) {
+      return prev;
+    }
+
+    const currentTechnologies = cur.importedConfig?.technologies;
+
+    for(const t in currentTechnologies) {
+      prev.technologies.add(currentTechnologies[t].toLowerCase());
+    }
+
+    return prev;
+  }, {
+    technologies: new Set<string>(),
+    badges: new Set<string>()
+  });
+
+  const technologies = Array.from(data.technologies);
+  const badges = Array.from(data.badges);
+
   return (
     <SearchProvider
       repositories={repositories}
+      technologies={technologies}
+      badges={badges}
     >
       <MenuProvider>
         <section className="relative mx-12 mt-14 flex flex-row items-center justify-start gap-4 md:mx-16 md:mt-[5rem]">

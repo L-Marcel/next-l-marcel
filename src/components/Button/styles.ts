@@ -53,3 +53,7 @@ export const SpecialPaginationIconButtonContainer = tw(PaginationIconButtonConta
   focus-visible:ring-offset-2
   focus-visible:ring-primary-600
 `;
+
+export interface FilterMenuOptionButtonContainerProps  {
+  isSelected?: boolean;
+}

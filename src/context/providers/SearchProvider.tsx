@@ -25,17 +25,24 @@ export const searchContext = createContext<SearchContext>({} as SearchContext);
 interface SearchProviderProps {
   children: ReactNode;
   repositories: Repository[];
+  badges: string[];
+  technologies: string[];
 }
 
 export function SearchProvider({
   children,
-  repositories
+  repositories,
+  technologies,
+  badges
 }: SearchProviderProps) {
   const {
     filter,
     setNames,
     getFilteredRepositories
-  } = useFilterReducer();
+  } = useFilterReducer({
+    technologies,
+    badges
+  });
 
   const {
     pagination,

@@ -1,8 +1,20 @@
 import { useCallback, useReducer } from "react";
 import { Repository } from "../../services/Github";
+import arrayToData from "../../utils/arrayToData";
 import { Filter } from "../providers/reducers/filter";
 
-export function useFilterReducer() {
+export interface UseFilterReducerProps {
+  technologies?: string[];
+  badges?: string[];
+}
+
+export function useFilterReducer({
+  technologies = [],
+  badges = []
+}: UseFilterReducerProps) {
+  const initialTechnologies = arrayToData<boolean>(technologies, true);
+  const initialBadges = arrayToData<boolean>(badges, true);
+
   const [filter, dispatch] = useReducer(Filter.reducer, {
     names: [],
     progress: {
@@ -29,17 +41,18 @@ export function useFilterReducer() {
       licensed: false,
     },
     badges: {
-      some: false
+      some: true,
+      ...initialBadges
     },
     technologies: {
-      some: false
+      some: true,
+      ...initialTechnologies
     },
   });
 
   const setNames = useCallback((names: string[]) => {
     dispatch(Filter.setNames(names));
   }, [dispatch]);
-
   
   const getFilteredRepositories = useCallback((repositories: Repository[], onUpdate?: () => void) => {
     const repositoriesOrderedFilterByName = repositories

@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react";
 import { useMenuIsOpen } from "../../context/hooks/useMenuIsOpen";
-import { ToggleFilterMenuButtonContainer } from "./styles";
+import { ToggleFilterMenuButtonContainer } from "../FilterMenu/styles";
 
 export function ToggleFilterMenuButton({
   ...rest

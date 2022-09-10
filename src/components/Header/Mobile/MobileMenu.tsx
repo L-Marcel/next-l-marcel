@@ -1,8 +1,8 @@
 import { MenuProvider } from "../../../context/providers/MenuProvider";
 import { ThemeProvider } from "../../../context/providers/ThemeProvider";
+import { MobileToggleMenuButton } from "../../Button/MobileToggleMenuButton";
 import { MobileToggleThemeButton } from "../../Button/MobileToggleThemeButton";
 import { MobileMenuContent } from "./MobileMenuContent";
-import { MobileToggleMenuButton } from "./MobileToggleMenuButton";
 import { MobileMenuContainer, MobileMenuNavigationContainer, MobileMenuSideBar } from "./styles";
 
 export function MobileMenu() {
