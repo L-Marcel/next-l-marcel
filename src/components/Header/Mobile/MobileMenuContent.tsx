@@ -48,7 +48,6 @@ export function MobileMenuContent() {
               locale="en-us"
               liClassName="flex-1"
             />
-            
           </ul>
           <MobileMenuLinksList>
             <MobileNavLink

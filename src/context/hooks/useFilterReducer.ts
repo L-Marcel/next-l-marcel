@@ -10,7 +10,7 @@ export interface UseFilterReducerProps {
 export function useFilterReducer({
   technologies = []
 }: UseFilterReducerProps) {
-  const initialTechnologies = arrayToData<boolean>(technologies, true);
+  const initialTechnologies = arrayToData<boolean>(technologies, false);
 
   const [filter, dispatch] = useReducer(Filter.reducer, {
     names: [],
@@ -19,29 +19,29 @@ export function useFilterReducer({
       max: 100
     },
     have: {
-      _some: true,
-      none: true,
-      description: true,
-      documentation: true,
-      figma: true,
+      _some: false,
+      none: false,
+      description: false,
+      documentation: false,
+      figma: false,
     },
     as: {
-      _some: true,
-      common: true,
-      highlight: true,
-      fork: true,
-      template: true,
+      _some: false,
+      common: false,
+      highlight: false,
+      fork: false,
+      template: false,
     },
     status: {
-      _some: true,
-      finished: true,
-      deployed: true,
-      licensed: true,
-      progress: true,
-      canceled: true
+      _some: false,
+      finished: false,
+      deployed: false,
+      licensed: false,
+      progress: false,
+      canceled: false
     },
     technologies: {
-      _some: true,
+      _some: false,
       ...initialTechnologies
     },
   });
@@ -57,15 +57,6 @@ export function useFilterReducer({
   
   const getFilteredRepositories = useCallback((repositories: Repository[], onUpdate?: () => void) => {
     const repositoriesOrderedFilterByName = repositories
-      .map(repository => {
-        if(filter.names.includes(repository.name)) {
-          repository._filtered = true;
-        } else {
-          repository._filtered = false;
-        }
-
-        return repository;
-      })
       .map(repository => {
         const importedConfig = repository.importedConfig;
         const progress = importedConfig? importedConfig.progress ?? 0:0;
