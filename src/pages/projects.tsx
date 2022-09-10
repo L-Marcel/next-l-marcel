@@ -1,3 +1,4 @@
+import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import { PaginationButtons } from "../components/Button/PaginationButtons";
 import { ToggleFilterMenuButton } from "../components/Button/ToggleFilterMenuButton";
@@ -5,7 +6,7 @@ import { FilterMenu } from "../components/FilterMenu";
 import { SearchRepositoryInput } from "../components/Input/SearchRepositoryInput";
 import { MenuProvider } from "../context/providers/MenuProvider";
 import { SearchProvider } from "../context/providers/SearchProvider";
-import { Repository } from "../services/Github";
+import { Github, Repository } from "../services/Github";
 
 interface ProjectsProps {
   repositories: Repository[];
@@ -64,5 +65,21 @@ function Projects({
   );
 }
 
+export const getStaticProps: GetStaticProps = async({ locale }) => {
+  const repositories = await Github.getRepositories({
+    locale: locale ?? "pt-br",
+    getLanguages: true
+  });
+  
+  const updatedAt = new Date().toString();
+
+  return {
+    props: {
+      repositories: repositories.sort((a, b) => a.fullname.toLowerCase().localeCompare(b.fullname.toLowerCase())),
+      updatedAt
+    },
+    revalidate: false
+  };
+};
 
 export default Projects;
