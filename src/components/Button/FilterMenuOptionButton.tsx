@@ -18,7 +18,7 @@ export function FilterMenuOptionButton({
   
   return (
     <motion.button
-      className={`relative flex flex-row items-center justify-center px-3 active:!text-gray-600 ${
+      className={`relative flex flex-row items-center justify-center rounded-xl px-3 active:!text-gray-600 ${
         isSelected? "!bg-primary-500 !text-gray-700 hover:!bg-primary-600":""
       }`} 
       initial={isSelected? "selected":"initial"}

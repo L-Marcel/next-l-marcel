@@ -106,4 +106,10 @@ export class Filter {
       payload: technology
     };
   }
+
+  static allFiltersIsSelected(obj: { [key: string]: boolean }) {
+    return Object.entries(obj)
+      .map((([, isSelected]) => isSelected))
+      .every(isSelected => isSelected);
+  }
 }

@@ -70,6 +70,17 @@ export function useFilterReducer({
 
         return repository;
       })
+      .filter(repository => {
+        if(
+          repository.importedConfig && 
+          repository.importedConfig?.technologies
+            .some(technology => filter.technologies[technology.toLowerCase()])
+        ) {
+          return true;
+        }
+
+        return false;
+      })
       .sort((a, b) => Number(b.importedConfig?.pinned ?? false) - Number(a.importedConfig?.pinned ?? false))
       .sort((a, b) => Number(b._filtered) - Number(a._filtered));
 

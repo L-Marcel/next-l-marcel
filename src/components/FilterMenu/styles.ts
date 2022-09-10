@@ -10,8 +10,7 @@ export const FilterMenuContainer = tw.div`
   flex-wrap
   justify-start
   mt-5
-  gap-x-2
-  gap-y-3
+  gap-2
   px-16
   py-4
   bg-white-500
