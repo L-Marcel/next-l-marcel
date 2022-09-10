@@ -8,6 +8,7 @@ export type HaveFilterType = {
   description: boolean;
   documentation: boolean;
   figma: boolean;
+  none: boolean;
 };
 
 export type AsFilterType = {
@@ -18,16 +19,13 @@ export type AsFilterType = {
   template: boolean;
 };
 
-export type IsFilterType = {
+export type StatusFilterType = {
   _some: boolean;
   finished: boolean;
   deployed: boolean;
   licensed: boolean;
-};
-
-export type BadgesFilterType = {
-  _some: boolean;
-  [key: string]: boolean;
+  progress: boolean;
+  canceled: boolean;
 };
 
 export type TechnologiesFilterType = {
@@ -40,18 +38,22 @@ export type FilterType = {
   progress: ProgressFilterType;
   have: HaveFilterType;
   as: AsFilterType;
-  is: IsFilterType;
-  badges: BadgesFilterType;
+  status: StatusFilterType;
   technologies: TechnologiesFilterType;
 }
 
 export enum FilterAction {
   SET_NAMES = "SET_NAMES",
-  TOGGLE_TECHNOLOGY = "TOGGLE_TECHNOLOGY"
+  TOGGLE_OPTION = "TOGGLE_OPTION"
 }
 
 export type FilterSetNamesActionPayload = string[];
-export type FilterToggleTechnologyActionPayload = string;
+
+export type FilterToggleOptionActionGroups = "technologies" | "status" | "have" | "as";
+export type FilterToggleTechnologyActionPayload = {
+  group: FilterToggleOptionActionGroups;
+  item: string;
+};
 
 export interface FilterReducerAction {
   type: FilterAction;
@@ -73,18 +75,40 @@ export class Filter {
         names: newNames
       };
     }
-    case FilterAction.TOGGLE_TECHNOLOGY: {
+    case FilterAction.TOGGLE_OPTION: {
       if(!action.payload) {
         return filter;
       }
 
-      const technology = action.payload as FilterToggleTechnologyActionPayload;
+      const { group, item } = action.payload as FilterToggleTechnologyActionPayload;
+
+      if(!group || !item) {
+        return filter;
+      }
+
+      const groupData: { [key: string]: boolean } = filter[group];
+      
+      if(item === "_some") {
+        const allIsSelected = Filter.allFiltersIsSelected(groupData);
+        const newGroup = Filter.updateAllFilters(groupData, allIsSelected? false:true);
+
+        return {
+          ...filter,
+          [group]: newGroup
+        };
+      }
+
+      const newOption = !groupData[item];
+      const newGroup = {
+        ...groupData,
+        [item]: newOption,
+      };
 
       return {
         ...filter,
-        technologies: {
-          ...filter.technologies,
-          [technology]: !filter.technologies[technology]
+        [group]: {
+          ...newGroup,
+          _some: Filter.someFiltersIsSelected(newGroup)
         }
       };
     }
@@ -100,16 +124,32 @@ export class Filter {
     };
   }
 
-  static toggleTechnology(technology: string) {
+  static toggleOption(option: string, group: FilterToggleOptionActionGroups) {
     return {
-      type: FilterAction.TOGGLE_TECHNOLOGY,
-      payload: technology
+      type: FilterAction.TOGGLE_OPTION,
+      payload: {
+        item: option,
+        group
+      }
     };
   }
 
   static allFiltersIsSelected(obj: { [key: string]: boolean }) {
     return Object.entries(obj)
-      .map((([, isSelected]) => isSelected))
+      .map((([key, isSelected]) => isSelected || key === "_some"))
       .every(isSelected => isSelected);
+  }
+
+  static someFiltersIsSelected(obj: { [key: string]: boolean }) {
+    return Object.entries(obj)
+      .map((([key, isSelected]) => isSelected && key !== "_some"))
+      .some(isSelected => isSelected);
+  }
+
+  static updateAllFilters(obj: { [key: string]: boolean }, isSelected: boolean) {
+    return Object.entries(obj).reduce((prev, [key]) => {
+      prev[key] = isSelected;
+      return prev;
+    }, {} as { [key: string]: boolean });
   }
 }

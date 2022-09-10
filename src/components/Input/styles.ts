@@ -116,3 +116,18 @@ export const PaginationInputContainer = tw.input`
   focus-visible:!bg-primary-500
   focus-visible:dark:!bg-primary-500
 `;
+
+export interface CheckboxLabelProps {
+  isEnabled: boolean;
+}
+
+export const CheckboxLabel = tw.p<CheckboxLabelProps>`
+  text-base ${props => props.isEnabled? "":"line-through text-gray-default dark:text-gray-default"}
+`;
+
+export const CheckboxDisabledLabel = tw.p`
+  text-base
+  italic
+  text-gray-default
+  dark:text-gray-default
+`;

@@ -3,13 +3,13 @@ import { createContext } from "use-context-selector";
 import { Repository } from "../../services/Github";
 import { useFilterReducer } from "../hooks/useFilterReducer";
 import { usePaginationReducer } from "../hooks/usePaginationReducer";
-import { FilterType } from "./reducers/filter";
+import { FilterToggleOptionActionGroups, FilterType } from "./reducers/filter";
 import { PaginationType } from "./reducers/pagination";
 
 interface SearchContext {
   filter: FilterType;
   setNames: (names: string[]) => void;
-  toggleTechnology: (technology: string) => void;
+  toggleOption: (option: string, group: FilterToggleOptionActionGroups) => void;
 
   filteredRepositories: Repository[];
 
@@ -26,24 +26,21 @@ export const searchContext = createContext<SearchContext>({} as SearchContext);
 interface SearchProviderProps {
   children: ReactNode;
   repositories: Repository[];
-  badges: string[];
   technologies: string[];
 }
 
 export function SearchProvider({
   children,
   repositories,
-  technologies,
-  badges
+  technologies
 }: SearchProviderProps) {
   const {
     filter,
     setNames,
-    toggleTechnology,
+    toggleOption,
     getFilteredRepositories
   } = useFilterReducer({
-    technologies,
-    badges
+    technologies
   });
 
   const {
@@ -74,7 +71,7 @@ export function SearchProvider({
       value={{
         filter,
         setNames,
-        toggleTechnology,
+        toggleOption,
 
         filteredRepositories,
         

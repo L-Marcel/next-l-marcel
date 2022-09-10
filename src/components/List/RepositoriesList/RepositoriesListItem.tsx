@@ -2,7 +2,7 @@ import { useRouter } from "../../../context/hooks/useRouter";
 import { Repository } from "../../../services/Github";
 import { IconButton } from "../../Button/IconButton";
 import { Icon, IconType } from "../../Icon";
-import { RepositoriesListItemBackgroundIcon, RepositoriesListItemBadge, RepositoriesListItemContainer, RepositoriesListItemDescription, RepositoriesListItemHeaderContainer, RepositoriesListItemHeaderIconContainer, RepositoriesListItemHeaderTitle, RepositoriesListItemProgressContainer, RepositoriesListItemProgressItem } from "./styles";
+import { RepositoriesListItemBackgroundIcon, RepositoriesListItemContainer, RepositoriesListItemDescription, RepositoriesListItemHeaderContainer, RepositoriesListItemHeaderIconContainer, RepositoriesListItemHeaderTitle, RepositoriesListItemProgressContainer, RepositoriesListItemProgressItem } from "./styles";
 
 interface RepositoriesListItemProps {
   repository: Repository;
@@ -20,7 +20,6 @@ export function RepositoriesListItem({
     description,
     github,
     name,
-    badge,
     fork: isFork,
     license: haveLicense,
     template: isTemplate,
@@ -107,7 +106,6 @@ export function RepositoriesListItem({
           /> }
         </RepositoriesListItemHeaderIconContainer>
       </RepositoriesListItemHeaderContainer>
-      { badge && <RepositoriesListItemBadge>{badge}</RepositoriesListItemBadge> }
       { description && <RepositoriesListItemDescription>{description}</RepositoriesListItemDescription> }
 
       <footer className="z-20 mt-1 flex flex-col">

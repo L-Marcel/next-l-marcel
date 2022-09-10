@@ -286,7 +286,40 @@
     }
     .repository-list-item-title {
       @apply
-      !text-primary-500;
+        !text-primary-500;
+    }
+  }
+
+  .checkbox {
+    .checkbox-checked-input {
+      @apply
+        bg-primary-500;
+    }
+    .checkbox-unchecked-input {
+      @apply
+        bg-white-600
+        dark:bg-gray-400;
+    }
+  }
+
+  .checkbox:hover {
+    .checkbox-checked-input {
+      @apply
+        bg-primary-600;
+    }
+    .checkbox-unchecked-input {
+      @apply
+        bg-white-700 
+        opacity-100
+        dark:bg-gray-400
+        dark:opacity-60;
+    }
+  }
+
+  .checkbox:active {
+    .checkbox-input {
+      @apply
+        bg-primary-600;
     }
   }
 };

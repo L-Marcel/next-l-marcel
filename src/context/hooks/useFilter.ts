@@ -6,7 +6,7 @@ export function useFilter() {
   return useContextSelector(searchContext, search => {
     return {
       setNames: search.setNames,
-      toggleTechnology: search.toggleTechnology,
+      toggleOption: search.toggleOption,
       filter: search.filter
     };
   });

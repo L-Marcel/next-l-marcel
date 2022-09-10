@@ -1,25 +1,25 @@
-import { useFilter } from "../../context/hooks/useFilter";
-import { FilterMenuOptionButton } from "../Button/FilterMenuOptionButton";
+import { FilterMenuGroup } from "./FilterMenuGroup";
+import { FilterMenuContainer } from "./styles";
 
 export function FilterMenuContent() {
-  const { filter, toggleTechnology } = useFilter();
-  
   return (
-    <>
-      { Object.entries(filter.technologies).map(([technology, isSelected]) => {
-        if(technology === "_some") {
-          return null;
-        }
-
-        return (
-          <FilterMenuOptionButton
-            key={`${technology}-filter-option`}
-            onClick={toggleTechnology}
-            isSelected={isSelected}
-            item={technology}
-          />
-        );
-      }) }
-    </>
+    <FilterMenuContainer>
+      <FilterMenuGroup
+        type="technologies"
+        label="technologies"
+      />
+      <FilterMenuGroup
+        type="status"
+        label="status"
+      />
+      <FilterMenuGroup
+        type="as"
+        label="type"
+      />
+      <FilterMenuGroup
+        type="have"
+        label="documents"
+      />
+    </FilterMenuContainer>
   );
 }

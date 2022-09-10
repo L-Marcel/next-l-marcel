@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useRouter } from "../../context/hooks/useRouter";
 import { Icon } from "../Icon";
 
 export interface FilterMenuOptionButtonProps {
@@ -12,8 +13,50 @@ export function FilterMenuOptionButton({
   onClick,
   item
 }: FilterMenuOptionButtonProps) {
+  const { isNotPtBr } = useRouter();
+  
   function handleOnClick() {
     onClick(item);
+  }
+
+  function getTranslatedText(text: string, isNotPtBr: boolean) {
+    if(isNotPtBr) {
+      switch(text) {
+      case "progress":
+        return "in progress";
+      default:
+        return text;
+      }
+    }
+
+    switch(text) {
+    case "finished":
+      return "concluído";
+    case "deployed":
+      return "implementado";
+    case "licensed":
+      return "licenciado";
+    case "progress":
+      return "em progresso";
+    case "canceled":
+      return "cancelado";
+    case "common":
+      return "comum";
+    case "highlight":
+      return "destaque";
+    case "fork":
+      return "bifurcação";
+    case "template":
+      return "modelo";
+    case "none":
+      return "nenhum";
+    case "description":
+      return "descrição";
+    case "documentation":
+      return "documentação";
+    default:
+      return text;
+    }
   }
   
   return (
@@ -28,19 +71,23 @@ export function FilterMenuOptionButton({
         initial: {
           paddingTop: "0.12rem",
           paddingBottom: "0.12rem",
-          paddingRight: "0.75rem"
+          paddingRight: "0.75rem",
+          transition: {
+            ease: "easeInOut"
+          }
         },
         selected: {
           paddingTop: "0.12rem",
           paddingBottom: "0.12rem",
           paddingRight: "2.25rem",
           transition: {
-            duration: .2
+            duration: .2,
+            ease: "easeInOut"
           }
         }
       }}
     >
-      <p className="mt-[-1px] pb-[1px] align-baseline !text-inherit">{item}</p>
+      <p className="mt-[-1px] pb-[1px] align-baseline !text-inherit">{getTranslatedText(item, isNotPtBr)}</p>
       {
         isSelected && <motion.div
           className="absolute right-3"

@@ -69,25 +69,6 @@ export const RepositoriesListItemHeaderTitle = tw.h3`
   md:leading-7
 `; 
 
-export const RepositoriesListItemBadge = tw.p`
-  relative
-  z-10
-  my-1
-  w-fit
-  rounded-md
-  bg-white-600
-  dark:bg-gray-400
-  pl-[0.4rem]
-  pr-[0.5rem]
-  pt-[0.15rem]
-  pb-[0.3rem]
-  text-[1rem]
-  font-light
-  lowercase
-  italic
-  leading-4
-`;
-
 export const RepositoriesListItemDescription = tw.p`
   relative 
   z-10 

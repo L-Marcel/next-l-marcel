@@ -1,19 +1,16 @@
 import { useCallback, useReducer } from "react";
 import { Repository } from "../../services/Github";
 import arrayToData from "../../utils/arrayToData";
-import { Filter } from "../providers/reducers/filter";
+import { Filter, FilterToggleOptionActionGroups } from "../providers/reducers/filter";
 
 export interface UseFilterReducerProps {
   technologies?: string[];
-  badges?: string[];
 }
 
 export function useFilterReducer({
-  technologies = [],
-  badges = []
+  technologies = []
 }: UseFilterReducerProps) {
   const initialTechnologies = arrayToData<boolean>(technologies, true);
-  const initialBadges = arrayToData<boolean>(badges, true);
 
   const [filter, dispatch] = useReducer(Filter.reducer, {
     names: [],
@@ -22,27 +19,26 @@ export function useFilterReducer({
       max: 100
     },
     have: {
-      _some: false,
-      description: false,
-      documentation: false,
-      figma: false,
+      _some: true,
+      none: true,
+      description: true,
+      documentation: true,
+      figma: true,
     },
     as: {
-      _some: false,
-      common: false,
-      highlight: false,
-      fork: false,
-      template: false,
-    },
-    is: {
-      _some: false,
-      finished: false,
-      deployed: false,
-      licensed: false,
-    },
-    badges: {
       _some: true,
-      ...initialBadges
+      common: true,
+      highlight: true,
+      fork: true,
+      template: true,
+    },
+    status: {
+      _some: true,
+      finished: true,
+      deployed: true,
+      licensed: true,
+      progress: true,
+      canceled: true
     },
     technologies: {
       _some: true,
@@ -54,8 +50,8 @@ export function useFilterReducer({
     dispatch(Filter.setNames(names));
   }, [dispatch]);
 
-  const toggleTechnology = useCallback((technology: string) => {
-    dispatch(Filter.toggleTechnology(technology));
+  const toggleOption = useCallback((option: string, group: FilterToggleOptionActionGroups) => {
+    dispatch(Filter.toggleOption(option, group));
   }, [dispatch]);
   
   
@@ -70,16 +66,56 @@ export function useFilterReducer({
 
         return repository;
       })
-      .filter(repository => {
+      .map(repository => {
+        const importedConfig = repository.importedConfig;
+        const progress = importedConfig? importedConfig.progress ?? 0:0;
+        const badge = repository.badge?.toLowerCase();
+
+        const haveFigmaProject = importedConfig? importedConfig?.links?.figma? true:false:false;
+        const haveDocumentation = importedConfig? importedConfig?.links?.documentation? true:false:false;
+        const haveDescription = repository.description;
+        const haveSelfLink = importedConfig? importedConfig?.links?.self? true:false:false;
+
+        const isFork = repository.fork;
+        const isTemplate = repository.template;
+        const isHighlight = importedConfig && importedConfig?.pinned;
+        const isLicensed = repository.license? true:false;
+        const isCanceled = badge === "canceled" || badge === "cancelado";
+        const isCompleted = progress >= 1 || progress === 0;
+
         if(
-          repository.importedConfig && 
-          repository.importedConfig?.technologies
-            .some(technology => filter.technologies[technology.toLowerCase()])
+          !(filter.names.includes(repository.name)) ||
+
+          !((importedConfig && importedConfig.technologies
+            .some(technology => filter.technologies[technology.toLowerCase()])) ||
+            !filter.technologies._some) ||
+
+          (!(filter.status.finished && isCompleted && !isCanceled) &&
+          !(filter.status.canceled && isCanceled) &&
+          !(filter.status.deployed && haveSelfLink) &&
+          !(filter.status.licensed && isLicensed) &&
+          !(filter.status.progress && !isCompleted && !isCanceled) &&
+          filter.status._some) ||
+
+          (!(filter.as.fork && isFork) &&
+          !(filter.as.template && isTemplate) &&
+          !(filter.as.highlight && isHighlight) &&
+          !(filter.as.common && !isFork && !isTemplate && !isHighlight) &&
+          filter.as._some) ||
+
+          (!(filter.have.description && haveDescription) && 
+          !(filter.have.documentation && haveDocumentation) &&
+          !(filter.have.figma && haveFigmaProject) &&
+          !(filter.have.none && !haveDescription && !haveDocumentation && !haveFigmaProject) &&
+          filter.have._some)
         ) {
-          return true;
+
+          repository._filtered = false;
+        } else {
+          repository._filtered = true;
         }
 
-        return false;
+        return repository;
       })
       .sort((a, b) => Number(b.importedConfig?.pinned ?? false) - Number(a.importedConfig?.pinned ?? false))
       .sort((a, b) => Number(b._filtered) - Number(a._filtered));
@@ -91,7 +127,7 @@ export function useFilterReducer({
   return {
     filter,
     setNames,
-    toggleTechnology,
+    toggleOption,
     getFilteredRepositories
   };
 }
