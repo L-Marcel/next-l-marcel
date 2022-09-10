@@ -4,14 +4,14 @@ export type ProgressFilterType = {
 };
 
 export type HaveFilterType = {
-  some: boolean;
+  _some: boolean;
   description: boolean;
   documentation: boolean;
   figma: boolean;
 };
 
 export type AsFilterType = {
-  some: boolean;
+  _some: boolean;
   common: boolean;
   highlight: boolean;
   fork: boolean;
@@ -19,19 +19,19 @@ export type AsFilterType = {
 };
 
 export type IsFilterType = {
-  some: boolean;
+  _some: boolean;
   finished: boolean;
   deployed: boolean;
   licensed: boolean;
 };
 
 export type BadgesFilterType = {
-  some: boolean;
+  _some: boolean;
   [key: string]: boolean;
 };
 
 export type TechnologiesFilterType = {
-  some: boolean;
+  _some: boolean;
   [key: string]: boolean;
 };
 
@@ -46,14 +46,16 @@ export type FilterType = {
 }
 
 export enum FilterAction {
-  SET_NAMES = "SET_NAMES"
+  SET_NAMES = "SET_NAMES",
+  TOGGLE_TECHNOLOGY = "TOGGLE_TECHNOLOGY"
 }
 
 export type FilterSetNamesActionPayload = string[];
+export type FilterToggleTechnologyActionPayload = string;
 
 export interface FilterReducerAction {
   type: FilterAction;
-  payload?: FilterSetNamesActionPayload;
+  payload?: FilterSetNamesActionPayload | FilterToggleTechnologyActionPayload;
 }
 
 export class Filter {
@@ -71,6 +73,21 @@ export class Filter {
         names: newNames
       };
     }
+    case FilterAction.TOGGLE_TECHNOLOGY: {
+      if(!action.payload) {
+        return filter;
+      }
+
+      const technology = action.payload as FilterToggleTechnologyActionPayload;
+
+      return {
+        ...filter,
+        technologies: {
+          ...filter.technologies,
+          [technology]: !filter.technologies[technology]
+        }
+      };
+    }
     default: 
       return filter;
     }
@@ -80,6 +97,13 @@ export class Filter {
     return {
       type: FilterAction.SET_NAMES,
       payload: names
+    };
+  }
+
+  static toggleTechnology(technology: string) {
+    return {
+      type: FilterAction.TOGGLE_TECHNOLOGY,
+      payload: technology
     };
   }
 }

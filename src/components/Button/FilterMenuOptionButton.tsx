@@ -1,43 +1,61 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Icon } from "../Icon";
 
-export function FilterMenuOptionButton() {
-  const [isActive, setIsActive] = useState(false);
+export interface FilterMenuOptionButtonProps {
+  onClick: (item: string) => void;
+  isSelected: boolean;
+  item: string;
+}
+
+export function FilterMenuOptionButton({ 
+  isSelected, 
+  onClick,
+  item
+}: FilterMenuOptionButtonProps) {
+  function handleOnClick() {
+    onClick(item);
+  }
   
   return (
     <motion.button
-      className={`relative flex flex-row items-center justify-center px-3 py-[0.1rem] ${
-        isActive? "!bg-primary-500 !text-gray-700 hover:!bg-primary-600":""
+      className={`relative flex flex-row items-center justify-center px-3 active:!text-gray-600 ${
+        isSelected? "!bg-primary-500 !text-gray-700 hover:!bg-primary-600":""
       }`} 
-      onClick={() => setIsActive(active => !active)}
-      initial="initial"
-      animate={isActive? "selected":"initial"}
+      initial={isSelected? "selected":"initial"}
+      onClick={handleOnClick}
+      animate={isSelected? "selected":"initial"}
       variants={{
         initial: {
+          paddingTop: "0.12rem",
+          paddingBottom: "0.12rem",
           paddingRight: "0.75rem"
         },
         selected: {
-
+          paddingTop: "0.12rem",
+          paddingBottom: "0.12rem",
           paddingRight: "2.25rem",
           transition: {
-            duration: .2,
-            delayChildren: .1,
-            staggerChildren: .1
+            duration: .2
           }
         }
       }}
     >
-      <p className="mt-[-1px] pb-[1px] align-baseline !text-inherit">example</p>
+      <p className="mt-[-1px] pb-[1px] align-baseline !text-inherit">{item}</p>
       {
-        isActive && <motion.div
+        isSelected && <motion.div
           className="absolute right-3"
+          initial="initial"
+          animate="selected"
           variants={{
             initial: {
-              opacity: 0
+              opacity: 0,
             },
             selected: {
-              opacity: 1
+              opacity: 1,
+              transition: {
+                delay: .15,
+                duration: .1
+              }
             }
           }}
         >

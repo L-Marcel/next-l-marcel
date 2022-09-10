@@ -7,9 +7,11 @@ export const FilterMenuContainer = tw.div`
   flex-row
   items-center
   w-full
+  flex-wrap
   justify-start
   mt-5
-  gap-4
+  gap-x-2
+  gap-y-3
   px-16
   py-4
   bg-white-500

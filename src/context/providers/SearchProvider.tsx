@@ -9,6 +9,7 @@ import { PaginationType } from "./reducers/pagination";
 interface SearchContext {
   filter: FilterType;
   setNames: (names: string[]) => void;
+  toggleTechnology: (technology: string) => void;
 
   filteredRepositories: Repository[];
 
@@ -38,6 +39,7 @@ export function SearchProvider({
   const {
     filter,
     setNames,
+    toggleTechnology,
     getFilteredRepositories
   } = useFilterReducer({
     technologies,
@@ -72,6 +74,7 @@ export function SearchProvider({
       value={{
         filter,
         setNames,
+        toggleTechnology,
 
         filteredRepositories,
         

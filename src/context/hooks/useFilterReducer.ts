@@ -22,30 +22,30 @@ export function useFilterReducer({
       max: 100
     },
     have: {
-      some: false,
+      _some: false,
       description: false,
       documentation: false,
       figma: false,
     },
     as: {
-      some: false,
+      _some: false,
       common: false,
       highlight: false,
       fork: false,
       template: false,
     },
     is: {
-      some: false,
+      _some: false,
       finished: false,
       deployed: false,
       licensed: false,
     },
     badges: {
-      some: true,
+      _some: true,
       ...initialBadges
     },
     technologies: {
-      some: true,
+      _some: true,
       ...initialTechnologies
     },
   });
@@ -53,6 +53,11 @@ export function useFilterReducer({
   const setNames = useCallback((names: string[]) => {
     dispatch(Filter.setNames(names));
   }, [dispatch]);
+
+  const toggleTechnology = useCallback((technology: string) => {
+    dispatch(Filter.toggleTechnology(technology));
+  }, [dispatch]);
+  
   
   const getFilteredRepositories = useCallback((repositories: Repository[], onUpdate?: () => void) => {
     const repositoriesOrderedFilterByName = repositories
@@ -75,6 +80,7 @@ export function useFilterReducer({
   return {
     filter,
     setNames,
+    toggleTechnology,
     getFilteredRepositories
   };
 }
