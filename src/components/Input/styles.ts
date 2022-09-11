@@ -128,6 +128,7 @@ export const CheckboxLabel = tw.p<CheckboxLabelProps>`
 export const CheckboxDisabledLabel = tw.p`
   text-base
   italic
+  xs:hidden
   text-gray-default
   dark:text-gray-default
 `;

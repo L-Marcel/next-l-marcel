@@ -101,3 +101,16 @@ export const RepositoriesListItemProgressItem = tw.div<RepositoriesListItemProgr
   w-[5%]
   ${props => props.$actived? "bg-gray-600 dark:bg-white-600 repository-list-item-group":"bg-transparent"}
 `;
+
+export const RepositoriesListSectionContainer = tw.section`
+  relative
+  mx-12
+  my-5
+  flex
+  flex-1
+  flex-col
+  items-start
+  gap-4
+  justify-self-start
+  md:mx-16
+`;

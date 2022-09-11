@@ -1,8 +1,6 @@
 import { GetStaticProps } from "next";
-import dynamic from "next/dynamic";
-import { PaginationButtons } from "../components/Button/PaginationButtons";
 import { ToggleFilterMenuButton } from "../components/Button/ToggleFilterMenuButton";
-import { FilterMenu } from "../components/FilterMenu";
+import { CurrentRepositoriesView } from "../components/CurrentRepositoriesView";
 import { SearchRepositoryInput } from "../components/Input/SearchRepositoryInput";
 import { MenuProvider } from "../context/providers/MenuProvider";
 import { SearchProvider } from "../context/providers/SearchProvider";
@@ -11,10 +9,6 @@ import { Github, Repository } from "../services/Github";
 interface ProjectsProps {
   repositories: Repository[];
 }
-
-const RepositoriesList = dynamic<unknown>(() => import("../components/List/RepositoriesList").then(mod => mod.RepositoriesList), {
-  ssr: false
-});
 
 function Projects({
   repositories
@@ -51,16 +45,10 @@ function Projects({
               isPinned: importedConfig?.pinned ?? false
             }))}
           />
-          <ToggleFilterMenuButton
-            className="hidden rounded-md md:block"
-          />
+          <ToggleFilterMenuButton/>
         </section>
-        <FilterMenu/>
+        <CurrentRepositoriesView/>
       </MenuProvider>
-      <section className="relative mx-12 my-5 flex flex-1 flex-col items-start gap-4 justify-self-start md:mx-16">
-        <RepositoriesList/>
-        <PaginationButtons/>
-      </section>
     </SearchProvider>
   );
 }
