@@ -65,11 +65,11 @@ export function SearchRepositoryInput({
         <Transition
           show={open || isFocused}
           enter="duration-[350ms] transition-all ease-in-out"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
+          enterFrom="opacity-0 pointer-events-none"
+          enterTo="opacity-100 pointer-events-all"
           leave="duration-[350ms] transition-all ease-in-out"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          leaveFrom="opacity-100 pointer-events-all"
+          leaveTo="opacity-0 pointer-events-none"
           className="custom-backdrop-blur fixed bottom-0 right-0 z-0 h-screen w-screen bg-[rgba(255,255,255,.3)] dark:bg-[rgba(0,0,0,.3)]"
         />
         <Combobox.Button className="relative w-full">

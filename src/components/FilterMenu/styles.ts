@@ -42,6 +42,7 @@ export const ToggleFilterMenuButtonContainer = tw(IconButton)<ToggleFilterMenuBu
   items-center
   w-[3.5rem]
   h-[3.5rem]
+  !text-gray-700
   !bg-primary-500
   dark:!bg-primary-500
   fixed
@@ -58,7 +59,7 @@ export const ToggleFilterMenuButtonContainer = tw(IconButton)<ToggleFilterMenuBu
   md:rounded-md
   md:!bg-white-700
   md:dark:!bg-gray-400
-  ${props => props.isOpen? "!bg-primary-500 !text-gray-700 hover:!bg-primary-600":""}
+  ${props => props.isOpen? "!bg-primary-500 md:!text-gray-700 md:hover:!bg-primary-600":""}
 `;
 
 export const ToggleFilterMenuButtonContainerLabel = tw.label`
