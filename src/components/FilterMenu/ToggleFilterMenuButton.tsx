@@ -35,9 +35,7 @@ export function ToggleFilterMenuButton({
         isOpen={isOpen}
         onClick={toggleMenu}
         icon={isOpen? "returnLeftArrow":"filter"}
-        iconClassName={isOpen? 
-          "!text-[2.1rem] md:!text-[1.4125rem]":
-          "!text-[2.1rem] mt-[0.2rem] md:!text-[1.4125rem] md:mt-0"}
+        iconClassName="!text-[2.1rem] md:!text-[1.4125rem]"
         size="sm"
         {...rest}
       />

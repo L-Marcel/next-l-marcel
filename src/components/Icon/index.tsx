@@ -4,11 +4,11 @@ import { BsCheck2Circle, BsClockHistory, BsDownload, BsFillPatchQuestionFill, Bs
 import { FaAlignRight, FaBalanceScale, FaGitAlt, FaGoogleDrive, FaMoon, FaSun } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight, FiChevronsLeft, FiChevronsRight, FiCopy, FiPaperclip } from "react-icons/fi";
 import { GiSpellBook } from "react-icons/gi";
-import { HiArrowSmLeft, HiTemplate } from "react-icons/hi";
+import { HiArrowSmLeft, HiOutlineAdjustments, HiTemplate } from "react-icons/hi";
 import { IoIosSchool, IoMdOpen } from "react-icons/io";
 import { SiAngular, SiChakraui, SiCplusplus, SiCsharp, SiCss3, SiDiscord, SiDocker, SiFigma, SiFramer, SiGitbook, SiGithub, SiHtml5, SiInstagram, SiJamstack, SiJava, SiJavascript, SiJest, SiJsonwebtokens, SiLinkedin, SiMaildotru, SiNestjs, SiNextdotjs, SiNodedotjs, SiNpm, SiPrisma, SiPython, SiReact, SiRust, SiSocketdotio, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiWhatsapp, SiYarn } from "react-icons/si";
 import { TiFlash } from "react-icons/ti";
-import { VscListFilter, VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
+import { VscSymbolKeyword, VscSymbolMethod } from "react-icons/vsc";
 import { Tooltip } from "../Tooltip";
 import { AsRocketseat } from "./assets/AsRocketseat";
 
@@ -78,7 +78,7 @@ const icons = {
   drive: FaGoogleDrive,
   open: IoMdOpen,
   search: BiSearchAlt,
-  filter: VscListFilter,
+  filter: HiOutlineAdjustments,
 
   ...languagesAndFrameworks,
   

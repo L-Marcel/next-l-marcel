@@ -43,8 +43,8 @@ export const ToggleFilterMenuButtonContainer = tw(IconButton)<ToggleFilterMenuBu
   w-[3.5rem]
   h-[3.5rem]
   !text-gray-700
-  !bg-primary-500
-  dark:!bg-primary-500
+  !bg-primary-600
+  dark:!bg-primary-600
   fixed
   bottom-0
   ml-[-0.6rem]
@@ -83,7 +83,7 @@ export const ProgressRangeLabelBox = tw.div`
   mb-1 
   -top-3
   w-fit
-  pb-1
+  pb-[2px]
   px-3
   flex
   flex-row

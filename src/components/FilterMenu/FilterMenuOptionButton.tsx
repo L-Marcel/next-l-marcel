@@ -87,7 +87,7 @@ export function FilterMenuOptionButton({
         }
       }}
     >
-      <p className="mt-[-1px] pb-[1px] align-baseline !text-inherit">{getTranslatedText(item, isNotPtBr)}</p>
+      <p className="mt-[-1px] pb-[1px] align-baseline !text-inherit !transition-none !duration-75">{getTranslatedText(item, isNotPtBr)}</p>
       {
         isSelected && <motion.div
           className="absolute right-3"
@@ -109,7 +109,7 @@ export function FilterMenuOptionButton({
           <Icon
             name="x"
             size="sm"
-            className="h-4 w-4"
+            className="h-4 w-4 !transition-none !duration-75"
             withoutTooltip
           />
         </motion.div>
