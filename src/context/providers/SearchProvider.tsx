@@ -10,6 +10,7 @@ interface SearchContext {
   filter: FilterType;
   setNames: (names: string[]) => void;
   toggleOption: (option: string, group: FilterToggleOptionActionGroups) => void;
+  changeProgressRange: (min: number, max: number) => void;
 
   filteredRepositories: Repository[];
 
@@ -38,6 +39,7 @@ export function SearchProvider({
     filter,
     setNames,
     toggleOption,
+    changeProgressRange,
     getFilteredRepositories
   } = useFilterReducer({
     technologies
@@ -72,6 +74,7 @@ export function SearchProvider({
         filter,
         setNames,
         toggleOption,
+        changeProgressRange,
 
         filteredRepositories,
         

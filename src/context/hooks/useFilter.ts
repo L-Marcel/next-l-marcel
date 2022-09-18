@@ -7,6 +7,7 @@ export function useFilter() {
     return {
       setNames: search.setNames,
       toggleOption: search.toggleOption,
+      changeProgressRange: search.changeProgressRange,
       filter: search.filter
     };
   });

@@ -12,7 +12,7 @@ export interface MobileNavLinkIconContainerProps {
 export const MobileNavLinkListItemContainer = tw.li<MobileNavLinkListItemContainerProps>`
   p-3
   rounded-2xl
-  ${props => props.selected? "bg-primary-500-30":""}
+  ${props => props.selected? "bg-primary-500/30":""}
 `;
 
 export const MobileNavLinkIconContainer = tw.div<MobileNavLinkIconContainerProps>`

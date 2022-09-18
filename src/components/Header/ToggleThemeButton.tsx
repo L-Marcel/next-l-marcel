@@ -2,7 +2,7 @@
 
 import { useRouter } from "../../context/hooks/useRouter";
 import { useTheme } from "../../context/hooks/useTheme";
-import { IconButton } from "./IconButton";
+import { IconButton } from "../Button/IconButton";
 
 export function ToggleThemeButton() {
   const { isNotPtBr } = useRouter();

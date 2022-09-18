@@ -1,7 +1,7 @@
 
-import { useTheme } from "../../context/hooks/useTheme";
-import { MobileToggleThemeIconButton } from "../Header/Mobile/styles";
-import { Icon } from "../Icon";
+import { useTheme } from "../../../context/hooks/useTheme";
+import { Icon } from "../../Icon";
+import { MobileToggleThemeIconButton } from "./styles";
 
 export function MobileToggleThemeButton() {
   const { isDarkTheme, toggleTheme } = useTheme();

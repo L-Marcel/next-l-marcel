@@ -1,7 +1,7 @@
 import { useFilter } from "../../context/hooks/useFilter";
 import { Filter, FilterToggleOptionActionGroups } from "../../context/providers/reducers/filter";
-import { FilterMenuOptionButton } from "../Button/FilterMenuOptionButton";
 import { Checkbox } from "../Input/Checkbox";
+import { FilterMenuOptionButton } from "./FilterMenuOptionButton";
 import { FilterMenuGroupContainer } from "./styles";
 
 export interface FilterMenuGroupProps {

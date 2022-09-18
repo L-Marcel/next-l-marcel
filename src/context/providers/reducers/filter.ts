@@ -44,7 +44,8 @@ export type FilterType = {
 
 export enum FilterAction {
   SET_NAMES = "SET_NAMES",
-  TOGGLE_OPTION = "TOGGLE_OPTION"
+  TOGGLE_OPTION = "TOGGLE_OPTION",
+  CHANGE_PROGRESS_RANGE = "CHANGE_PROGRESS_RANGE"
 }
 
 export type FilterSetNamesActionPayload = string[];
@@ -55,9 +56,17 @@ export type FilterToggleTechnologyActionPayload = {
   item: string;
 };
 
+export type FilterChangeProgressRangeActionPayload = {
+  min: number;
+  max: number;
+};
+
 export interface FilterReducerAction {
   type: FilterAction;
-  payload?: FilterSetNamesActionPayload | FilterToggleTechnologyActionPayload;
+  payload?: 
+    FilterSetNamesActionPayload | 
+    FilterToggleTechnologyActionPayload | 
+    FilterChangeProgressRangeActionPayload;
 }
 
 export class Filter {
@@ -112,6 +121,25 @@ export class Filter {
         }
       };
     }
+    case FilterAction.CHANGE_PROGRESS_RANGE: {
+      if(!action.payload) {
+        return filter;
+      }
+
+      let { min, max } = action.payload as FilterChangeProgressRangeActionPayload;
+
+      if(min > max) {
+        [min, max] = [max, min];
+      }
+
+      return {
+        ...filter,
+        progress: {
+          min,
+          max
+        }
+      };
+    }
     default: 
       return filter;
     }
@@ -130,6 +158,16 @@ export class Filter {
       payload: {
         item: option,
         group
+      }
+    };
+  }
+
+  static changeProgressRange(min: number, max: number) {
+    return {
+      type: FilterAction.CHANGE_PROGRESS_RANGE,
+      payload: {
+        min,
+        max
       }
     };
   }

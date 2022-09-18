@@ -90,10 +90,12 @@
           2lg:!mt-[3px];
       }
 
-      h4 {
+      
+      .download-button-label {
         @apply
           !text-[1.2rem]
-          !text-gray-default;
+          !text-gray-default
+          cursor-pointer;
       }
 
       p {

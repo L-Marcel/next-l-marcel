@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   darkMode: "class",
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     extend: {
       screens: {
@@ -23,7 +26,6 @@ module.exports = {
         },
         primary: {
           500: "#EB513B",
-          "500-30": "#EB513B30",
           600: "#C1412E"
         },
         white: {

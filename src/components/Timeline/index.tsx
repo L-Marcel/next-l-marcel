@@ -67,13 +67,22 @@ export function Timeline({ achievements }: TimelineProps) {
             {
               (url || code) && <div className="mt-4 flex flex-row items-center gap-3">
                 { url && <Tooltip className="!top-[calc(100%+.5rem)]" label={url.slice(0, 24) + "..."}>
-                  <TimelineElementDownloadButton
-                    icon={getAchievementIcon(button_icon ?? "download")}
-                    size="sm"
-                    onClick={() => window.open(url, "__blank__")}
-                  />
+                  <div className="flex flex-row items-center gap-3">
+                    <TimelineElementDownloadButton
+                      icon={getAchievementIcon(button_icon ?? "download")}
+                      id={`${id}-donwload-button`}
+                      size="sm"
+                      onClick={() => window.open(url, "__blank__")}
+                    />
+                    { !code && <label 
+                      className="download-button-label" 
+                      htmlFor={`${id}-donwload-button`}
+                    >
+                      {button_text ?? (isNotPtBr? "Download":"Baixar")}
+                    </label> }
+                  </div>
                 </Tooltip> }
-                { (!code && url) && <h4>{button_text ?? (isNotPtBr? "Download":"Baixar")}</h4> }
+
                 { code &&  <TimelineElementCode code={code}/>}
               </div>
             }

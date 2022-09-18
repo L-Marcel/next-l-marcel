@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import { useMenuIsOpen } from "../../context/hooks/useMenuIsOpen";
 import { useRouter } from "../../context/hooks/useRouter";
-import { ToggleFilterMenuButtonContainer, ToggleFilterMenuButtonContainerLabel } from "../FilterMenu/styles";
+import { ToggleFilterMenuButtonContainer, ToggleFilterMenuButtonContainerLabel } from "./styles";
 
 export function ToggleFilterMenuButton({
   ...rest

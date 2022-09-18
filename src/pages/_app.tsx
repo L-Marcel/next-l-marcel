@@ -1,9 +1,11 @@
 import type { AppProps } from "next/app";
+import "rc-slider/assets/index.css";
 import "react-vertical-timeline-component/style.min.css";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Layout } from "../styles/document/styles";
 import "../styles/main.css";
+import "../styles/slider.css";
 import "../styles/timeline.css";
 
 function MyApp({ Component, pageProps }: AppProps) {

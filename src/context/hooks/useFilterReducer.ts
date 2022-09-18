@@ -54,6 +54,9 @@ export function useFilterReducer({
     dispatch(Filter.toggleOption(option, group));
   }, [dispatch]);
   
+  const changeProgressRange = useCallback((min: number, max: number) => {
+    dispatch(Filter.changeProgressRange(min, max));
+  }, [dispatch]);
   
   const getFilteredRepositories = useCallback((repositories: Repository[], onUpdate?: () => void) => {
     const repositoriesOrderedFilterByName = repositories
@@ -74,6 +77,9 @@ export function useFilterReducer({
         const isCanceled = badge === "canceled" || badge === "cancelado";
         const isCompleted = progress >= 1 || progress === 0;
 
+        const minProgress = filter.progress.min/100;
+        const maxProgress = filter.progress.max/100;
+        
         if(
           !(filter.names.includes(repository.name)) ||
 
@@ -98,9 +104,13 @@ export function useFilterReducer({
           !(filter.have.documentation && haveDocumentation) &&
           !(filter.have.figma && haveFigmaProject) &&
           !(filter.have.none && !haveDescription && !haveDocumentation && !haveFigmaProject) &&
-          filter.have._some)
-        ) {
+          filter.have._some) ||
 
+          (!((minProgress <= progress && maxProgress >= progress && progress !== 0) || 
+          (isCompleted && minProgress === 1) || 
+          (isCompleted && maxProgress === 0) ||
+          (minProgress === 0 && maxProgress === 1)))
+        ) {
           repository._filtered = false;
         } else {
           repository._filtered = true;
@@ -119,6 +129,7 @@ export function useFilterReducer({
     filter,
     setNames,
     toggleOption,
+    changeProgressRange,
     getFilteredRepositories
   };
 }

@@ -1,0 +1,47 @@
+@tailwind components;
+
+@layer components {
+  .slider {
+    .rc-slider-rail {
+      @apply
+        bg-white-700
+        dark:bg-gray-400;
+    }
+
+    .rc-slider-track {
+      @apply
+        bg-primary-500
+        dark:bg-primary-500;
+    }
+
+    .rc-slider-dot {
+      @apply
+        border-none
+        bg-white-700
+        dark:bg-gray-400;
+    }
+
+    .rc-slider-dot-active {
+      @apply
+        border-none
+        bg-primary-500
+        dark:bg-primary-500;
+    }
+
+    .rc-slider-handle {
+      @apply
+        border-none
+        opacity-100
+        bg-primary-500
+        dark:bg-primary-500;
+    }
+
+    .rc-slider-handle-dragging {
+      box-shadow: 0 0 0 4px #EB513B50 !important;
+    }
+
+    .rc-slider-handle:focus-visible {
+      box-shadow: 0 0 0 4px #EB513B50 !important;
+    }
+  }
+}

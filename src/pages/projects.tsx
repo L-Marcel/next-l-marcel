@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
-import { ToggleFilterMenuButton } from "../components/Button/ToggleFilterMenuButton";
 import { CurrentRepositoriesView } from "../components/CurrentRepositoriesView";
+import { ToggleFilterMenuButton } from "../components/FilterMenu/ToggleFilterMenuButton";
 import { SearchRepositoryInput } from "../components/Input/SearchRepositoryInput";
 import { MenuProvider } from "../context/providers/MenuProvider";
 import { SearchProvider } from "../context/providers/SearchProvider";
