@@ -1,6 +1,9 @@
 <div valing="top">
   <h1>I can't believe it!</h1>
   <p>Could not find file with repository information...</p>
+  <nav>
+    <div id="repository-buttons"/>
+  </nav>
 </div>
 
 <br/>

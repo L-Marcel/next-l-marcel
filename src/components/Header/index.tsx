@@ -18,6 +18,7 @@ export function Header() {
             <NavLink
               path="/projects"
               name="projects"
+              dynamic
             />
             <NavLink
               path="/achievements"

@@ -172,6 +172,11 @@
       md:mt-0;
   }
 
+  .with-description > #first-div-return-button {
+    @apply
+      w-full;
+  }
+
   .ignore-first-break {
     @apply
       hidden;
@@ -328,4 +333,8 @@
 
 .text-break-word {
   word-break: break-word;
+}
+
+#only-if-not-last:last-of-type {
+  display: none;
 }

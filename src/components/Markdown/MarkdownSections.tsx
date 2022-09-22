@@ -3,10 +3,15 @@ import { MarkdownDiv } from "./MarkdownDiv";
 import { MarkdownTechnologies } from "./MarkdownTechnologies";
 import { MarkdownGridContainer } from "./styles";
 
+export interface MarkdownSectionsProps extends HTMLAttributes<HTMLDivElement> {
+  showReturnButton?: boolean;
+}
+
 export function MarkdownSections({
+  showReturnButton = false,
   id,
   ...rest
-}: HTMLAttributes<HTMLDivElement>) {
+}: MarkdownSectionsProps) {
   switch(id) {
   case "technologies":
     return (<MarkdownTechnologies/>);
@@ -18,6 +23,6 @@ export function MarkdownSections({
       <MarkdownGridContainer {...rest}/>
     );
   default:
-    return (<MarkdownDiv {...rest}/>);
+    return (<MarkdownDiv showReturnButton={showReturnButton} {...rest}/>);
   }
 }

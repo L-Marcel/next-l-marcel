@@ -12,7 +12,7 @@ interface RepositoriesListItemProps {
 export function RepositoriesListItem({
   repository
 }: RepositoriesListItemProps) {
-  const { isNotPtBr } = useRouter();
+  const { isNotPtBr, push } = useRouter();
 
   const {
     fullname,
@@ -84,8 +84,18 @@ export function RepositoriesListItem({
     window.open(link, "__blank__");
   }
 
+  function handleNavigateToProject() {
+    const _name = name.toLowerCase();
+
+    if(_name === "l-marcel") {
+      push("/");
+    } else {
+      push(`/projects/${_name}`);
+    }
+  }
+
   return (
-    <RepositoriesListItemContainer $filtered={isFiltered}>
+    <RepositoriesListItemContainer onClick={handleNavigateToProject} tabIndex={0} $filtered={isFiltered}>
       <span className="absolute top-0 left-0 h-full w-full overflow-hidden rounded-md">
         <RepositoriesListItemBackgroundIcon 
           name={importedConfig?.icon.toLowerCase() as IconType} 

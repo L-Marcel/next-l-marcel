@@ -12,24 +12,27 @@ import { MarkdownSections } from "../components/Markdown/MarkdownSections";
 import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, MarkdownNavContainer, MarkdownPContainer } from "../components/Markdown/styles";
 import { Profile } from "../components/Profile";
 import { Github } from "../services/Github";
+import { FirstSection } from "../styles/document/styles";
 
 export type MarkdownComponents = Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents>;
-interface ResumeProps {
+export interface ResumeProps {
   data: string;
   updatedAt: string;
+  withProfile: boolean;
 }
 
 function Resume({
   data,
+  withProfile,
   updatedAt
 }: ResumeProps) {
   return (
     <>
-      <section>
-        <Profile
+      <FirstSection hasProfile={withProfile}>
+        { withProfile && <Profile
           updatedAt={updatedAt}
-        />
-      </section>
+        /> }
+      </FirstSection>
       <section className="flex h-full min-h-screen flex-1 flex-col gap-8">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
@@ -40,7 +43,10 @@ function Resume({
             p: MarkdownPContainer,
             a: MarkdownLink,
             pre: MarkdownCode,
-            div: MarkdownSections,
+            div: ({ ...rest }) => <MarkdownSections 
+              showReturnButton={!withProfile} 
+              {...rest}
+            />,
             ul: MarkdownList,
             ol: MarkdownList,
             li: MarkdownListItem,
@@ -62,7 +68,8 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
   return {
     props: {
       data,
-      updatedAt
+      updatedAt,
+      withProfile: true
     },
     revalidate: false
   };

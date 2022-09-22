@@ -53,3 +53,15 @@ export const SpecialPaginationIconButtonContainer = tw(PaginationIconButtonConta
   focus-visible:ring-offset-2
   focus-visible:ring-primary-600
 `;
+
+export const ReturnButtonContainer = tw.button `
+  mb-3
+  !bg-transparent
+  text-gray-500
+  hover:text-gray-700
+  dark:text-white-500
+  dark:hover:text-white-700
+  italic
+  underline-offset-3
+  hover:underline
+`;

@@ -20,6 +20,14 @@ export const RepositoriesListItemContainer = tw.article<RepositoriesListItemCont
   repository-list-item
   cursor-pointer
   ${props => props.$filtered? "opacity-100":"opacity-20"}
+  ring-primary-500
+  ring-offset-white-500
+  dark:ring-offset-gray-500
+  ring-offset-2
+  focus-visible:outline-none
+  focus-visible:ring-2
+  focus-visible:!bg-white-500
+  focus-visible:dark:!bg-gray-500
 `;
 
 export const RepositoriesListItemBackgroundIcon = tw(Icon)`

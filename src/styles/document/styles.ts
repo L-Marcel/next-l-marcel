@@ -19,3 +19,11 @@ export const Layout = tw.main`
   min-h-[calc(100vh-3.1rem)]
   md:min-h-[calc(100vh-2.8125rem)]
 `;
+
+export interface FirstSectionProps {
+  hasProfile: boolean;
+}
+
+export const FirstSection = tw.section<FirstSectionProps>`
+ ${props => !props.hasProfile? "px-4 pt-[1.15rem] md:px-16 md:pb-12":""}
+`;

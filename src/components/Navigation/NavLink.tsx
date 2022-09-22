@@ -7,18 +7,27 @@ interface NavLinkProps {
   name: string;
   path: string;
   liClassName?: string;
+  dynamic?: boolean;
 }
 
 export function NavLink({
   name,
   path,
   locale,
-  liClassName
+  liClassName,
+  dynamic = false
 }: NavLinkProps) {
   const { isNotPtBr, ...router } = useRouter();
   const isActive = 
     (locale && router.locale?.toLowerCase().includes(name)) ||
+    (!locale && dynamic && router.asPath.replace(/\/en-us/, "/").startsWith(path)) ||
     (!locale && router.asPath.replace(/\/en-us/, "/") === path);
+
+  if(locale === "pt-br") {
+    path = router.asPath;
+  } else if(locale) {
+    path = router.asPath.replace(/\/en-us/, "/");
+  }
 
   return (
     <li className={liClassName}>
