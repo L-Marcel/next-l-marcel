@@ -121,8 +121,11 @@
       outline-none
       ring-0
       !bg-primary-600
-      !text-white-500
       z-10;
+  }
+  :focus-visible::not(.focus-defined) {
+    @apply
+      !text-white-500;
   }
   a:focus-visible {
     @apply

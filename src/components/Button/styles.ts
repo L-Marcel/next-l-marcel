@@ -64,4 +64,7 @@ export const ReturnButtonContainer = tw.button `
   italic
   underline-offset-3
   hover:underline
+  focus-visible:dark:text-white-700
+  focus-visible:text-gray-700
+  focus-defined
 `;
