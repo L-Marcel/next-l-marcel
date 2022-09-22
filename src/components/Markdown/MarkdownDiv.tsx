@@ -19,7 +19,7 @@ export function MarkdownDiv({
       {...rest}
     >
       { showReturnButton && <div id="first-div-return-button">
-        <ReturnButton/>
+        <ReturnButton path="/projects"/>
       </div> }
       {children}
     </MarkdownDivContainer>

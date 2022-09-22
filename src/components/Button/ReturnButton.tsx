@@ -1,7 +1,11 @@
 import { useRouter } from "../../context/hooks/useRouter";
 import { ReturnButtonContainer } from "./styles";
 
-export function ReturnButton(path: string) {
+export interface ReturnButtonProps {
+  path: string;
+}
+
+export function ReturnButton({ path }: ReturnButtonProps) {
   const { push, isNotPtBr } = useRouter();
 
   function handleNavigateBack() {
