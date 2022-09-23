@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps = async({ locale, params }) => {
 </a>
 <span id="only-if-not-last">•</span>`);
 
-  data = data.replace("<span id=\"repository-name\"/>", `<span>${params?.name}</span>`);
+  data = data.replace("<span id=\"repository-name\"/>", `<span style="font-size: revert;">${params?.name}</span>`);
 
   return {
     props: {
