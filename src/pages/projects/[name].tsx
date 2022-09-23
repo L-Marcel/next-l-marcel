@@ -54,9 +54,11 @@ export const getStaticProps: GetStaticProps = async({ locale, params }) => {
   const updatedAt = new Date().toString();
 
   data = data.replace("<div id=\"repository-buttons\"/>", `<a class="navigation-link" href="https://github.com/l-marcel/${params?.name}" target="__blank__">
-  github
+  ${locale !== "pt-br"? "repository":"repositório"}
 </a>
 <span id="only-if-not-last">•</span>`);
+
+  data = data.replace("<span id=\"repository-name\"/>", `<span>${params?.name}</span>`);
 
   return {
     props: {

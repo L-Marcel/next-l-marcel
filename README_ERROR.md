@@ -1,6 +1,6 @@
 <div valing="top">
   <h1>Não estou acreditando!</h1>
-  <p>Não foi possível localizar o arquivo com as informações do repositório...</p>
+  <p>Não foi possível localizar o arquivo em <span id="repository-name"/> com as informações do repositório...</p>
   <nav>
     <div id="repository-buttons"/>
   </nav>
