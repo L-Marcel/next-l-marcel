@@ -1,13 +1,20 @@
-import { buffer } from "micro";
 import { NextApiRequest, NextApiResponse } from "next";
+import { Readable } from "stream";
 import { getGithubWebookIsAuth } from "../../../services/webhook";
-import { revalidatePath } from "../../../utils/revalidatePath";
 
 export const config = {
   api: {
     bodyParser: false,
   },
 };
+
+async function buffer(readable: Readable) {
+  const chunks = [];
+  for await (const chunk of readable) {
+    chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
+  }
+  return Buffer.concat(chunks);
+}
 
 async function revalidatePagesWithGithubData(
   req: NextApiRequest, 
@@ -21,18 +28,21 @@ async function revalidatePagesWithGithubData(
         message: "[Github Webhook]: Unauthorized request."
       });
     }
-
+    
     if(req.headers["x-github-event"] === "push") {
-      const rawBody = await buffer(req.body);
-      const body = JSON.parse(rawBody.toString());
-
-      const repository = body?.repository?.name;
-      console.log(body);
+      const buf = await buffer(req);
+      const rawBody = buf.toString();
+      console.log(rawBody);
       
+      /*
+      const data = JSON.parse(rawBody);
+      
+      console.log(data);
+
       await Promise.all([
         revalidatePath(res, "projects"),
-        revalidatePath(res, `projects/${repository?.toLowerCase()}`)
-      ]);
+        revalidatePath(res, `projects/${data?.repository?.name?.toLowerCase()}`)
+      ]);*/
     }
 
     return res.status(200).json({
