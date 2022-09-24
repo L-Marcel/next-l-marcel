@@ -61,46 +61,50 @@ export function SearchRepositoryInput({
       value={query} 
       onChange={setQuery}
     >
-      {({ open }) => (<>
-        <Transition
-          show={open || isFocused}
-          enter="duration-[350ms] transition-all ease-in-out"
-          enterFrom="opacity-0 pointer-events-none"
-          enterTo="opacity-100 pointer-events-all"
-          leave="duration-[350ms] transition-all ease-in-out"
-          leaveFrom="opacity-100 pointer-events-all"
-          leaveTo="opacity-0 pointer-events-none"
-          className="custom-backdrop-blur fixed bottom-0 right-0 z-0 h-screen w-screen bg-[rgba(255,255,255,.3)] dark:bg-[rgba(0,0,0,.3)]"
-        />
-        <Combobox.Button className="relative w-full">
-          <SearchInputIcon 
-            name="search"
-            isFocused={open || isFocused}
-            withoutTooltip
+      {({ open }) => {
+        const show = (open || isFocused) && filteredRepositories.length > 1;
+
+        return (<>
+          <Transition
+            show={show}
+            enter="duration-[350ms] transition-all ease-in-out"
+            enterFrom="opacity-0 pointer-events-none"
+            enterTo="opacity-100 pointer-events-all"
+            leave="duration-[350ms] transition-all ease-in-out"
+            leaveFrom="opacity-100 pointer-events-all"
+            leaveTo="opacity-0 pointer-events-none"
+            className="custom-backdrop-blur fixed bottom-0 right-0 z-0 h-screen w-screen bg-[rgba(255,255,255,.3)] dark:bg-[rgba(0,0,0,.3)]"
           />
-          <Combobox.Input
-            as={SearchInput}
-            placeholder={isNotPtBr? "Search by name":"Pesquisar por nome"}
-            onFocus={handleOnFocus}
-            onBlur={handleOnBlur}
-            onKeyUp={handleOnKeyUp} 
-            onChange={handleOnChangeQuery}
-          />
-        </Combobox.Button>
-        {((open || isFocused) && filteredRepositories.length >= 1) && (<Combobox.Options as={SearchOptions} static>
-          {filteredRepositories && filteredRepositories
-            .sort((a, b) => Number(b.isPinned) - Number(a.isPinned))
-            .map(({ name, formattedName, isPinned }) => (
-              <Combobox.Option as={SearchOption} key={name} value={name}>
-                {isPinned && <Icon 
-                  name="flash" 
-                  className="ml-[-3px] text-primary-500" 
-                  withoutTooltip
-                />}{formattedName ?? name}
-              </Combobox.Option>
-            ))}
-        </Combobox.Options>)}
-      </>)} 
+          <Combobox.Button className="relative w-full">
+            <SearchInputIcon 
+              name="search"
+              isFocused={show}
+              withoutTooltip
+            />
+            <Combobox.Input
+              as={SearchInput}
+              placeholder={isNotPtBr? "Search by name":"Pesquisar por nome"}
+              onFocus={handleOnFocus}
+              onBlur={handleOnBlur}
+              onKeyUp={handleOnKeyUp} 
+              onChange={handleOnChangeQuery}
+            />
+          </Combobox.Button>
+          {(show && filteredRepositories.length >= 1) && (<Combobox.Options as={SearchOptions} static>
+            {filteredRepositories && filteredRepositories
+              .sort((a, b) => Number(b.isPinned) - Number(a.isPinned))
+              .map(({ name, formattedName, isPinned }) => (
+                <Combobox.Option as={SearchOption} key={name} value={name}>
+                  {isPinned && <Icon 
+                    name="flash" 
+                    className="ml-[-3px] text-primary-500" 
+                    withoutTooltip
+                  />}{formattedName ?? name}
+                </Combobox.Option>
+              ))}
+          </Combobox.Options>)}
+        </>);
+      }} 
     </Combobox>
   );
 }
