@@ -8,7 +8,6 @@ export const FilterMenuContainer = tw.section`
   py-6
   max-w-full
   gap-6
-  mb-4
   flex
   flex-row
   flex-wrap
@@ -44,8 +43,8 @@ export const ToggleFilterMenuButtonContainer = tw(IconButton)<ToggleFilterMenuBu
   w-[3.5rem]
   h-[3.5rem]
   !text-gray-700
-  !bg-primary-600
-  dark:!bg-primary-600
+  !bg-primary-500
+  dark:!bg-primary-500
   fixed
   bottom-0
   ml-[-0.6rem]

@@ -156,10 +156,12 @@
       duration-300
       transition-transform
       translate-x-[7.3rem]
-      delay-1000
+      delay-[1500ms]
+      md:delay-1000
       hover:translate-x-0
       focus:translate-x-0
       active:translate-x-0
+      active:!delay-[0s]
       focus:!delay-[0s]
       hover:!delay-[0s];
 
