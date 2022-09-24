@@ -66,7 +66,7 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
       repositories: repositories.sort((a, b) => a.fullname.toLowerCase().localeCompare(b.fullname.toLowerCase())),
       updatedAt
     },
-    revalidate: false
+    revalidate: 1
   };
 };
 

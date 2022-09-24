@@ -96,6 +96,7 @@ export const MarkdownGridContainer = tw.div`
   md:gap-x-16
   md:gap-y-8
   flex-wrap
+  last-of-type:-mb-8
 `;
 
 export const MarkdownH2Container = tw.h2`

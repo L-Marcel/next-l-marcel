@@ -121,4 +121,5 @@ export const RepositoriesListSectionContainer = tw.section`
   gap-4
   justify-self-start
   md:mx-16
+  -mb-4
 `;

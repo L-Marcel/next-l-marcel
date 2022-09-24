@@ -13,6 +13,7 @@ export const FilterMenuContainer = tw.section`
   flex-row
   flex-wrap
   overflow-y-auto
+  -mb-4
 `;
 
 export const FilterMenuGroupContainer = tw.ul`

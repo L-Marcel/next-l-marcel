@@ -33,7 +33,7 @@ function Resume({
           updatedAt={updatedAt}
         /> }
       </FirstSection>
-      <section className="flex h-full min-h-[calc(100vh_-_8rem)] flex-1 flex-col gap-8 md:min-h-[calc(100vh_-_14rem)]">
+      <section className="flex h-full min-h-[calc(100vh_-_14rem)] flex-1 flex-col gap-8 md:min-h-[calc(100vh_-_16rem)] xs:min-h-[calc(100vh_-_9rem)]">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}

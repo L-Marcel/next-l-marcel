@@ -23,7 +23,7 @@ export interface AchievementsProps {
 
 function Achivements({ achievements }: AchievementsProps) {
   return (
-    <section className="max-w-[100vw] overflow-x-hidden">
+    <section className="-mb-8 max-w-[100vw] overflow-x-hidden">
       <Timeline
         achievements={achievements}
       />
