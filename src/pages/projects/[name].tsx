@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async({ locale, params }) => {
       data,
       updatedAt
     },
-    revalidate: false
+    revalidate: 1
   };
 };
 
