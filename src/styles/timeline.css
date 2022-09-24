@@ -160,6 +160,7 @@
       md:delay-1000
       hover:translate-x-0
       focus-visible:translate-x-0
+      active:duration-[5ms]
       active:translate-x-0
       active:!delay-[0s]
       focus-visible:!delay-[0s]
