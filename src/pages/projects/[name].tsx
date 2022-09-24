@@ -50,6 +50,14 @@ export const getStaticProps: GetStaticProps = async({ locale, params }) => {
     };
   }
 
+  const repositoryExist = await Github.checkRepository(params?.name);
+
+  if(!repositoryExist) {
+    return {
+      notFound: true
+    };
+  }
+
   let data:string = await Github.getReadme(locale ?? "pt-br", `l-marcel/${params?.name}`);
   const updatedAt = new Date().toString();
 

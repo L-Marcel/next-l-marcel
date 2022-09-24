@@ -1,3 +1,4 @@
+import { buffer } from "micro";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getGithubWebookIsAuth } from "../../../services/webhook";
 import { revalidatePath } from "../../../utils/revalidatePath";
@@ -22,8 +23,12 @@ async function revalidatePagesWithGithubData(
     }
 
     if(req.headers["x-github-event"] === "push") {
-      const repository = req.body?.repository?.name;
+      const rawBody = await buffer(req.body);
+      const body = JSON.parse(rawBody.toString());
 
+      const repository = body?.repository?.name;
+      console.log(body);
+      
       await Promise.all([
         revalidatePath(res, "projects"),
         revalidatePath(res, `projects/${repository?.toLowerCase()}`)

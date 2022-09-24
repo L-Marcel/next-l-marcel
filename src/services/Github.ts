@@ -90,6 +90,12 @@ export class Github {
       });
   }
 
+  static async checkRepository(name: string) {
+    const url = `https://api.github.com/repos/l-marcel/${name}`;
+  
+    return await this.api.get(url).then(() => true).catch(() => false);
+  }
+
   private static getFormattedRepositoryName(name: string) {
     try {
       let formattedName = name;
