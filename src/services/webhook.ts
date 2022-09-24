@@ -1,5 +1,4 @@
 import { createHmac } from "crypto";
-import { buffer } from "micro";
 import { NextApiRequest } from "next";
 
 const secret = process.env.WEBHOOK_SECRET;
@@ -16,15 +15,11 @@ function getPrismicWebookIsAuth(req: NextApiRequest) {
   return false;
 }
 
-async function getGithubWebookIsAuth(req: NextApiRequest) {
+async function getGithubWebookIsAuth(rawBody: string, signature?: string | string[]) {
   try {
-    const raw = await buffer(req);
-
     const expectedSignature = "sha256=" + createHmac("sha256", secret as string)
-      .update(raw)
+      .update(rawBody)
       .digest("hex");
-
-    const signature = req.headers["x-hub-signature-256"];
 
     if (signature === expectedSignature) {
       return true;

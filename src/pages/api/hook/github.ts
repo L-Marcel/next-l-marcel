@@ -1,6 +1,7 @@
+import { buffer } from "micro";
 import { NextApiRequest, NextApiResponse } from "next";
-import { Readable } from "stream";
 import { getGithubWebookIsAuth } from "../../../services/webhook";
+import { revalidatePath } from "../../../utils/revalidatePath";
 
 export const config = {
   api: {
@@ -8,20 +9,17 @@ export const config = {
   },
 };
 
-async function buffer(readable: Readable) {
-  const chunks = [];
-  for await (const chunk of readable) {
-    chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
-  }
-  return Buffer.concat(chunks);
-}
-
 async function revalidatePagesWithGithubData(
   req: NextApiRequest, 
   res: NextApiResponse
 ) {
   if(req.method === "POST") {
-    const isAuth = await getGithubWebookIsAuth(req);
+    const buf = await buffer(req);
+    const rawBody = buf.toString();
+    const body = JSON.parse(rawBody);
+
+    const signature = req.headers["x-hub-signature-256"];
+    const isAuth = await getGithubWebookIsAuth(rawBody, signature);
     
     if(!isAuth) {
       return res.status(401).json({
@@ -30,23 +28,21 @@ async function revalidatePagesWithGithubData(
     }
     
     if(req.headers["x-github-event"] === "push") {
-      const buf = await buffer(req);
-      const rawBody = buf.toString();
-      console.log(rawBody);
-      
-      /*
-      const data = JSON.parse(rawBody);
-      
-      console.log(data);
+      const repositoryName = body?.repository?.name?.toLowerCase();
 
       await Promise.all([
         revalidatePath(res, "projects"),
-        revalidatePath(res, `projects/${data?.repository?.name?.toLowerCase()}`)
-      ]);*/
+        revalidatePath(res, `projects/${repositoryName}`)
+      ]);
+
+      return res.status(200).json({
+        message: "[Github Webhook]: Revalidate request received.",
+        updatedRepository: repositoryName
+      });
     }
 
-    return res.status(200).json({
-      message: "[Github Webhook]: Revalidate request received."
+    return res.status(202).json({
+      message: "[Github Webhook]: Revalidate request received, but skipped."
     });
   } else {
     return res.status(404).json({});
