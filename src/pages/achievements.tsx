@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import Head from "next/head";
 import { IconType } from "../components/Icon";
 import { Timeline } from "../components/Timeline";
 import { Graphql } from "../services/Graphql";
@@ -19,15 +20,21 @@ export type Achievement = {
 
 export interface AchievementsProps {
   achievements: Achievement[];
+  locale?: string;
 }
 
-function Achivements({ achievements }: AchievementsProps) {
+function Achivements({ achievements, locale }: AchievementsProps) {
   return (
-    <section className="-mb-8 max-w-[100vw] overflow-x-hidden">
-      <Timeline
-        achievements={achievements}
-      />
-    </section>
+    <>
+      <Head>
+        <title>{locale === "en-us"? "Achivements":"Conquistas"}</title>
+      </Head>
+      <section className="-mb-8 max-w-[100vw] overflow-x-hidden">
+        <Timeline
+          achievements={achievements}
+        />
+      </section>
+    </>
   );
 }
 
@@ -39,7 +46,8 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
 
   return {
     props: {
-      achievements
+      achievements,
+      locale
     },
     revalidate: false
   };

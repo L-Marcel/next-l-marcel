@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import Head from "next/head";
 import { CurrentRepositoriesView } from "../../components/CurrentRepositoriesView";
 import { ToggleFilterMenuButton } from "../../components/FilterMenu/ToggleFilterMenuButton";
 import { SearchRepositoryInput } from "../../components/Input/SearchRepositoryInput";
@@ -8,10 +9,12 @@ import { Github, Repository } from "../../services/Github";
 
 interface ProjectsProps {
   repositories: Repository[];
+  locale?: string;
 }
 
 function Projects({
-  repositories
+  repositories,
+  locale
 }: ProjectsProps) {
   const data = repositories.reduce((prev, cur) => {
     if(!cur.importedConfig || !cur.importedConfig?.technologies) {
@@ -32,24 +35,29 @@ function Projects({
   const technologies = Array.from(data.technologies);
 
   return (
-    <SearchProvider
-      repositories={repositories}
-      technologies={technologies}
-    >
-      <MenuProvider>
-        <section className="relative mx-12 mt-14 flex flex-row items-center justify-start gap-4 md:mx-16 md:mt-[5rem]">
-          <SearchRepositoryInput
-            repositories={repositories.map(({ name, formattedName, importedConfig })=> ({
-              name,
-              formattedName,
-              isPinned: importedConfig?.pinned ?? false
-            }))}
-          />
-          <ToggleFilterMenuButton/>
-        </section>
-        <CurrentRepositoriesView/>
-      </MenuProvider>
-    </SearchProvider>
+    <>
+      <Head>
+        <title>{locale === "en-us"? "Projects":"Projetos"}</title>
+      </Head>
+      <SearchProvider
+        repositories={repositories}
+        technologies={technologies}
+      >
+        <MenuProvider>
+          <section className="relative mx-12 mt-14 flex flex-row items-center justify-start gap-4 md:mx-16 md:mt-[5rem]">
+            <SearchRepositoryInput
+              repositories={repositories.map(({ name, formattedName, importedConfig })=> ({
+                name,
+                formattedName,
+                isPinned: importedConfig?.pinned ?? false
+              }))}
+            />
+            <ToggleFilterMenuButton/>
+          </section>
+          <CurrentRepositoriesView/>
+        </MenuProvider>
+      </SearchProvider>
+    </>
   );
 }
 
@@ -64,7 +72,8 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
   return {
     props: {
       repositories: repositories.sort((a, b) => a.fullname.toLowerCase().localeCompare(b.fullname.toLowerCase())),
-      updatedAt
+      updatedAt,
+      locale
     },
     revalidate: 1
   };

@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps = async({ locale, params }) => {
     };
   }
 
-  let data:string = await Github.getReadme(locale ?? "pt-br", `l-marcel/${params?.name}`);
+  let data: string = await Github.getReadme(locale ?? "pt-br", `l-marcel/${params?.name}`);
   const updatedAt = new Date().toString();
 
   data = data.replace("<div id=\"repository-buttons\"/>", `<a class="navigation-link" href="https://github.com/l-marcel/${params?.name}" target="__blank__">
@@ -71,7 +71,8 @@ export const getStaticProps: GetStaticProps = async({ locale, params }) => {
   return {
     props: {
       data,
-      updatedAt
+      updatedAt,
+      name: params?.name
     },
     revalidate: 1
   };

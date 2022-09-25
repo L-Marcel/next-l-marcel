@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import { SpecialComponents } from "react-markdown/lib/ast-to-react";
 import { NormalComponents } from "react-markdown/lib/complex-types";
@@ -19,15 +20,20 @@ export interface ResumeProps {
   data: string;
   updatedAt: string;
   withProfile: boolean;
+  name?: string;
 }
 
 function Resume({
   data,
   withProfile,
-  updatedAt
+  updatedAt,
+  name
 }: ResumeProps) {
   return (
     <>
+      <Head>
+        <title>L-Marcel{name && ` - ${name}`}</title>
+      </Head>
       <FirstSection hasProfile={withProfile}>
         { withProfile && <Profile
           updatedAt={updatedAt}
