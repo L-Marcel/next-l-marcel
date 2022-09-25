@@ -32,23 +32,23 @@ C:\projects\l-marcel> <span>yarn</span> dev
 
 <div id="grid">
   <ul><h2 align="center">Some <span>competencies</span>:</h2>
-    <li id="checked">I know and have used agile methodologies;</li>
-    <li id="checked">I’ve experienced a variety of deployment options;</li>
-    <li id="checked">I understand the database’s entity relations;</li>
-    <li id="checked">I develop responsively;</li>
-    <li id="checked">I try to try new things;</li>
-    <li id="checked">I can find and resolve errors myself.</li>
+    <li id="checked"><p>I know and have used agile methodologies;</p></li>
+    <li id="checked"><p>I’ve experienced a variety of deployment options;</p></li>
+    <li id="checked"><p>I understand the database’s entity relations;</p></li>
+    <li id="checked"><p>I develop responsively;</p></li>
+    <li id="checked"><p>I try to try new things;</p></li>
+    <li id="checked"><p>I can find and resolve errors myself.</p></li>
   </ul>
   <ul><h2 align="center"><span>Soft</span> skills:</h2>
-    <li id="checked">Fast reasoning;</li>
-    <li id="checked">Dedication;</li>
-    <li id="checked">Constant learning;</li>
-    <li id="checked">Objectivity;</li>
-    <li id="checked">Flexibility.</li>
+    <li id="checked"><p>Fast reasoning;</p></li>
+    <li id="checked"><p>Dedication;</p></li>
+    <li id="checked"><p>Constant learning;</p></li>
+    <li id="checked"><p>Objectivity;</p></li>
+    <li id="checked"><p>Flexibility.</p></li>
   </ul>
   <ul><h2 align="center"><span>Languages</span> proficiency:</h2>
-    <li id="checked">Portuguese – native;</li>
-    <li id="checked">English – technical.</li>
+    <li id="checked"><p>Portuguese – native;</p></li>
+    <li id="checked"><p>English – technical.</p></li>
   </ul>
 </div>
 

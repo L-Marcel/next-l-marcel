@@ -32,23 +32,23 @@ C:\projects\l-marcel> <span>yarn</span> dev
 
 <div id="grid">
   <ul><h2 align="center">Algumas <span>competências</span>:</h2>
-    <li id="checked">Conheço e já utilizei metodologias ágeis;</li>
-    <li id="checked">Tenho experiência com várias opções de implementação;</li>
-    <li id="checked">Entendo os relacionamentos das entidades do banco de dados;</li>
-    <li id="checked">Desenvolvo com responsividade;</li>
-    <li id="checked">Procuro experimentar coisas novas;</li>
-    <li id="checked">Consigo encontrar e resolver erros sozinho.</li>
+    <li id="checked"><p>Conheço e já utilizei metodologias ágeis;</p></li>
+    <li id="checked"><p>Tenho experiência com várias opções de implementação;</p></li>
+    <li id="checked"><p>Entendo os relacionamentos das entidades do banco de dados;</p></li>
+    <li id="checked"><p>Desenvolvo com responsividade;</p></li>
+    <li id="checked"><p>Procuro experimentar coisas novas;</p></li>
+    <li id="checked"><p>Consigo encontrar e resolver erros sozinho.</p></li>
   </ul>
   <ul><h2 align="center">Habilidades <span>interpessoais</span>:</h2>
-    <li id="checked">Raciocínio rápido;</li>
-    <li id="checked">Dedicação;</li>
-    <li id="checked">Aprendizado constante;</li>
-    <li id="checked">Objetividade;</li>
-    <li id="checked">Flexibilidade.</li>
+    <li id="checked"><p>Raciocínio rápido;</p></li>
+    <li id="checked"><p>Dedicação;</p></li>
+    <li id="checked"><p>Aprendizado constante;</p></li>
+    <li id="checked"><p>Objetividade;</p></li>
+    <li id="checked"><p>Flexibilidade.</p></li>
   </ul>
   <ul><h2 align="center"><span>Idiomas</span> falados:</h2>
-    <li id="checked">Português – nativo;</li>
-    <li id="checked">Inglês – técnico.</li>
+    <li id="checked"><p>Português – nativo;</p></li>
+    <li id="checked"><p>Inglês – técnico.</p></li>
   </ul>
 </div>
 
