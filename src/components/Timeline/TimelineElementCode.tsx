@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "../../context/hooks/useRouter";
 import { Icon } from "../Icon";
 import { TimelineElementCodeContainer, TimelineElementCodeCopyButton } from "./styles";
 
@@ -7,6 +8,7 @@ export interface TimelineElementCodeProps {
 }
 
 export function TimelineElementCode({ code }: TimelineElementCodeProps) {
+  const { isNotPtBr } = useRouter();
   const [isCopied, setIsCopied] = useState(false);
 
   function handleOnCopyCode(code: string) {
@@ -27,9 +29,14 @@ export function TimelineElementCode({ code }: TimelineElementCodeProps) {
   return (
     <TimelineElementCodeContainer>
       {code} 
-      <TimelineElementCodeCopyButton onClick={() => handleOnCopyCode(code)}>
+      <TimelineElementCodeCopyButton isNotPtBr={isNotPtBr} onClick={() => handleOnCopyCode(code)}>
         <Icon name="copy" withoutTooltip/>
-        <p className="flex !w-[6.6rem]">{isCopied? "code copied!":"click to copy"}</p>
+        <p className="flex !w-[6.6rem]">
+          {isNotPtBr?
+            (isCopied? "code copied!":"click to copy"):
+            (isCopied? "código copiado!":"aperte para copiar")
+          }
+        </p>
       </TimelineElementCodeCopyButton>
     </TimelineElementCodeContainer>
   );

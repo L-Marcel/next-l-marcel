@@ -151,11 +151,43 @@
     }
   }
 
-  .timeline-code {
+  .timeline-code-en-us {
     @apply
       duration-300
       transition-transform
       translate-x-[7.3rem]
+      delay-[1500ms]
+      md:delay-1000
+      hover:translate-x-0
+      focus-visible:translate-x-0
+      active:duration-[5ms]
+      active:translate-x-0
+      active:!delay-[0s]
+      focus-visible:!delay-[0s]
+      hover:!delay-[0s];
+
+    p {
+      @apply
+        transition-colors
+        duration-75
+        pb-[3px]
+        md:pb-[5px]
+        text-inherit;
+    }
+
+    svg {
+      @apply
+        transition-colors
+        duration-75;
+    }
+  }
+  
+  .timeline-code-pt-br {
+    @apply
+      duration-300
+      transition-transform
+      translate-x-[10.6rem]
+      !w-[13.5rem]
       delay-[1500ms]
       md:delay-1000
       hover:translate-x-0
