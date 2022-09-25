@@ -167,6 +167,10 @@
     }
   }
 
+  .with-description > span {
+    font-size: revert;
+  }
+
   .with-description > p:first-of-type {
     @apply
       text-[1.2rem]

@@ -1,5 +1,5 @@
 import { HTMLAttributes } from "react";
-import { Icon } from "../Icon";
+import { Icon, IconType } from "../Icon";
 import { MarkdownListItemContainer } from "./styles";
 
 export function MarkdownListItem({
@@ -9,26 +9,25 @@ export function MarkdownListItem({
 }: HTMLAttributes<HTMLLIElement> & { ordered: boolean | undefined }) {
   rest.ordered = undefined;
 
-  switch(id) {
-  case "checked":
+  if(id && id.length > 0) {
     return (
       <MarkdownListItemContainer 
         {...rest}
-        className="flex flex-row items-start gap-2"
+        className="flex flex-row items-start"
       >
         <Icon 
           withoutTooltip 
-          name="checked" 
-          className="mt-[2px] min-h-[1.4rem] min-w-[1.4rem] text-primary-500 md:min-h-[1.4125rem] md:min-w-[1.4125rem]"
+          name={id as IconType} 
+          className="mt-[2px] mr-2 min-h-[1.4rem] min-w-[1.4rem] text-primary-500 md:min-h-[1.4125rem] md:min-w-[1.4125rem]"
         />
         {children}
       </MarkdownListItemContainer>
     );
-  default:
-    return (
-      <MarkdownListItemContainer {...rest}>
-        {children}
-      </MarkdownListItemContainer>
-    );
   }
+
+  return (
+    <MarkdownListItemContainer {...rest}>
+      {children}
+    </MarkdownListItemContainer>
+  );
 }
