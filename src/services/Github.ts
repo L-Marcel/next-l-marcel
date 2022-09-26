@@ -80,17 +80,22 @@ export class Github {
   });
 
   static async getReadme(locale: string, repo = "l-marcel/next-l-marcel") {
-    return await this.raw
-      .get(`${repo}/main/README${locale === "en-us"? ".en-US":""}.md`)
-      .then(res => res.data)
+    return await this.api
+      .get(`${repo}/contents/README${locale === "en-us"? ".en-US":""}.md`)
+      .then(res => {
+        const { content, encoding } = res.data;
+        const buf = Buffer.from(content, encoding);
+
+        return buf.toString();
+      })
       .catch(async() => {
-        return await this.raw
-          .get(`${repo}/master/README${locale === "en-us"? ".en-US":""}.md`)
-          .then(res => res.data)
-          .catch(async() => {
-            return await this.raw
-              .get(`l-marcel/next-l-marcel/main/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
-              .then(res => res.data);
+        return await this.api
+          .get(`l-marcel/next-l-marcel/contents/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
+          .then(res => {
+            const { content, encoding } = res.data;
+            const buf = Buffer.from(content, encoding);
+
+            return buf.toString();
           });
       });
   }
