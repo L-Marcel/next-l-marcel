@@ -85,8 +85,13 @@ export class Github {
       .then(res => res.data)
       .catch(async() => {
         return await this.raw
-          .get(`l-marcel/next-l-marcel/main/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
-          .then(res => res.data);
+          .get(`${repo}/master/README${locale === "en-us"? ".en-US":""}.md`)
+          .then(res => res.data)
+          .catch(async() => {
+            return await this.raw
+              .get(`l-marcel/next-l-marcel/main/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
+              .then(res => res.data);
+          });
       });
   }
 
