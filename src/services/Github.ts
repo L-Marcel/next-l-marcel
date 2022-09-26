@@ -81,7 +81,7 @@ export class Github {
 
   static async getReadme(locale: string, repo = "l-marcel/next-l-marcel") {
     return await this.api
-      .get(`${repo}/contents/README${locale === "en-us"? ".en-US":""}.md`)
+      .get(`repos/${repo}/contents/README${locale === "en-us"? ".en-US":""}.md`)
       .then(res => {
         const { content, encoding } = res.data;
         const buf = Buffer.from(content, encoding);
@@ -90,7 +90,7 @@ export class Github {
       })
       .catch(async() => {
         return await this.api
-          .get(`l-marcel/next-l-marcel/contents/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
+          .get(`repos/l-marcel/next-l-marcel/contents/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
           .then(res => {
             const { content, encoding } = res.data;
             const buf = Buffer.from(content, encoding);
