@@ -79,23 +79,30 @@ export class Github {
     }
   });
 
+  private static getReadmeContent(res: {
+    data: {
+      content: string,
+      encoding: "utf8"
+    }
+  }): string {
+    const { content, encoding } = res.data;
+    const buf = Buffer.from(content, encoding);
+
+    return buf.toString();
+  }
+
   static async getReadme(locale: string, repo = "l-marcel/next-l-marcel") {
     return await this.api
       .get(`repos/${repo}/contents/README${locale === "en-us"? ".en-US":""}.md`)
-      .then(res => {
-        const { content, encoding } = res.data;
-        const buf = Buffer.from(content, encoding);
-
-        return buf.toString();
-      })
+      .then(res => this.getReadmeContent(res))
       .catch(async() => {
         return await this.api
-          .get(`repos/l-marcel/next-l-marcel/contents/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
-          .then(res => {
-            const { content, encoding } = res.data;
-            const buf = Buffer.from(content, encoding);
-
-            return buf.toString();
+          .get(`repos/${repo}/contents/readme${locale === "en-us"? ".en-US":""}.md`)
+          .then(res => this.getReadmeContent(res))
+          .catch(async() => {
+            return await this.api
+              .get(`repos/l-marcel/next-l-marcel/contents/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
+              .then(res => this.getReadmeContent(res));
           });
       });
   }
