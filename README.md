@@ -31,25 +31,34 @@ C:\projects\l-marcel> <span>yarn</span> dev
 <div id="technologies"></div>
 
 <div id="grid">
-  <ul><h2 align="center">Algumas <span>competências</span>:</h2>
-    <li id="checked"><p>Conheço e já utilizei metodologias ágeis;</p></li>
-    <li id="checked"><p>Tenho experiência com várias opções de implementação;</p></li>
-    <li id="checked"><p>Entendo os relacionamentos das entidades do banco de dados;</p></li>
-    <li id="checked"><p>Desenvolvo com responsividade;</p></li>
-    <li id="checked"><p>Procuro experimentar coisas novas;</p></li>
-    <li id="checked"><p>Consigo encontrar e resolver erros sozinho.</p></li>
-  </ul>
-  <ul><h2 align="center">Habilidades <span>interpessoais</span>:</h2>
-    <li id="checked"><p>Raciocínio rápido;</p></li>
-    <li id="checked"><p>Dedicação;</p></li>
-    <li id="checked"><p>Aprendizado constante;</p></li>
-    <li id="checked"><p>Objetividade;</p></li>
-    <li id="checked"><p>Flexibilidade.</p></li>
-  </ul>
-  <ul><h2 align="center"><span>Idiomas</span> falados:</h2>
-    <li id="checked"><p>Português – nativo;</p></li>
-    <li id="checked"><p>Inglês – técnico.</p></li>
-  </ul>
+  <div id="grid-item">
+    <h2 align="center">Algumas <span>competências</span>:</h2>
+    <ul>
+      <li id="checked"><p>Conheço e já utilizei metodologias ágeis;</p></li>
+      <li id="checked"><p>Tenho experiência com várias opções de implementação;</p></li>
+      <li id="checked"><p>Entendo os relacionamentos das entidades do banco de dados;</p></li>
+      <li id="checked"><p>Desenvolvo com responsividade;</p></li>
+      <li id="checked"><p>Procuro experimentar coisas novas;</p></li>
+      <li id="checked"><p>Consigo encontrar e resolver erros sozinho.</p></li>
+    </ul>
+  </div>
+  <div id="grid-item">
+    <h2 align="center">Habilidades <span>interpessoais</span>:</h2>
+    <ul>
+      <li id="checked"><p>Raciocínio rápido;</p></li>
+      <li id="checked"><p>Dedicação;</p></li>
+      <li id="checked"><p>Aprendizado constante;</p></li>
+      <li id="checked"><p>Objetividade;</p></li>
+      <li id="checked"><p>Flexibilidade.</p></li>
+    </ul>
+  </div>
+  <div id="grid-item">
+    <h2 align="center"><span>Idiomas</span> falados:</h2>
+    <ul>
+      <li id="checked"><p>Português – nativo;</p></li>
+      <li id="checked"><p>Inglês – técnico.</p></li>
+    </ul>
+  </div>
 </div>
 
 <div id="statistics">
