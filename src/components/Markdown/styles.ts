@@ -103,3 +103,11 @@ export const MarkdownH2Container = tw.h2`
   px-12  
   md:px-16
 `;
+
+export const MarkdownGridItem = tw.div`
+  text-left
+  list-container
+  gap-[3px]
+  flex
+  flex-col
+`;
