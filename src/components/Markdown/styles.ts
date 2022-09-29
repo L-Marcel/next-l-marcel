@@ -107,6 +107,7 @@ export const MarkdownH2Container = tw.h2`
 export const MarkdownGridItem = tw.div`
   text-left
   list-container
+  list-container-div
   gap-[3px]
   flex
   flex-col

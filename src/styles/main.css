@@ -244,6 +244,18 @@
     }
   }
 
+  .list-container-div {
+    h2, h2 > span {
+      @apply
+        !mb-0;
+    }
+
+    & > * + *:last-child {
+      @apply
+        !mt-4; 
+    }
+  }
+
   .bg-developer {
     --bg-left-space: calc(530px + calc(50% - 200px));
     --bg-left-2xl-space: calc(530px + calc(75% - 200px));
