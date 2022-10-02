@@ -86,12 +86,7 @@ export function RepositoriesListItem({
 
   function handleNavigateToProject() {
     const _name = name.toLowerCase();
-
-    if(_name === "l-marcel") {
-      push("/");
-    } else {
-      push(`/projects/${_name}`);
-    }
+    push(`/projects/${_name}`);
   }
 
   return (
