@@ -2,7 +2,6 @@
   <h1>Hello, I'm <span>Lucas Marcel</span></h1>
   <p>A Brazilian web developer who loves Next.js.</p>
   <nav>
-    <div id="repository-buttons"/>
     <a class="navigation-link disabled" href="https://github.com/L-Marcel/l-marcel/blob/main/README.md" target="__blank__">
       pt-br
     </a>
@@ -10,6 +9,7 @@
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       download resume
     </a>
+    <div id="repository-buttons"/>
   </nav>
 </div>
 
