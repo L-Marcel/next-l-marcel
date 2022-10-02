@@ -1,0 +1,11 @@
+{
+  "name": "Old: L-Marcel",
+  "translatedDescription": "Aplicação desenvolvida em Next.js para unificar todas as minhas conquistas e informações relevantes em um único lugar. Um ponto de partida para o que almejo ser.",
+  "technologies": [
+    "Next.js",
+    "React.js",
+    "HTML",
+    "CSS",
+    "SASS"
+  ]
+}
