@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
   let data = await Github.getReadme(locale ?? "pt-br");
   const updatedAt = new Date().toString();
 
-  data = data.replace("<div id=\"repository-buttons\"/>", "");
+  data = data.replace("<div id=\"repository-buttons\"/>", "\b");
 
   return {
     props: {
