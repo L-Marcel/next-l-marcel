@@ -2,6 +2,7 @@
   <h1>Olá, sou <span>Lucas Marcel</span></h1>
   <p>Um desenvolvedor web brasileiro que ama o Next.js.</p>
   <nav>
+    <div id="repository-buttons"/>
     <a class="navigation-link disabled" href="https://github.com/L-Marcel/l-marcel/blob/main/README.en-US.md" target="__blank__">
       en-us
     </a>
@@ -9,7 +10,6 @@
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       baixar currículo
     </a>
-    <div id="repository-buttons"/>
   </nav>
 </div>
 

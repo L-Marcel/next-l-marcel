@@ -91,7 +91,7 @@ export class Github {
     return buf.toString();
   }
 
-  static async getReadme(locale: string, repo = "l-marcel/next-l-marcel") {
+  static async getReadme(locale: string, repo = "l-marcel/l-marcel") {
     return await this.api
       .get(`repos/${repo}/contents/README${locale === "en-us"? ".en-US":""}.md`)
       .then(res => this.getReadmeContent(res))
@@ -101,7 +101,7 @@ export class Github {
           .then(res => this.getReadmeContent(res))
           .catch(async() => {
             return await this.api
-              .get(`repos/l-marcel/next-l-marcel/contents/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
+              .get(`repos/l-marcel/l-marcel/contents/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
               .then(res => this.getReadmeContent(res));
           });
       });
