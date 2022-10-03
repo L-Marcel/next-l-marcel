@@ -71,7 +71,10 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
   let data = await Github.getReadme(locale ?? "pt-br");
   const updatedAt = new Date().toString();
 
-  data = data.replace("<div id=\"repository-buttons\"/>", "\b");
+  data = data.replace("<div id=\"repository-buttons\"/>", `<a class="navigation-link" href="https://github.com/l-marcel/l-marcel" target="__blank__">
+  ${locale !== "pt-br"? "repository":"repositório"}
+</a>
+<span id="only-if-not-last">•</span>`);
 
   return {
     props: {

@@ -1,6 +1,6 @@
 <div valing="top">
   <h1>Hello, I'm <span>Lucas Marcel</span></h1>
-  <p>A Brazilian web developer who loves Next.js.</p>
+  <p>A Brazilian web developer who specializes in <span>TypeScript</span> and is a <span>Next.js</span> enthusiast.</p>
   <nav>
     <div id="repository-buttons"/>
     <a class="navigation-link disabled" href="https://github.com/L-Marcel/l-marcel/blob/main/README.md" target="__blank__">
