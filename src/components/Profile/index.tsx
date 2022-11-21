@@ -1,7 +1,7 @@
 import { format, formatDistance } from "date-fns";
 import dateLocaleEnUs from "date-fns/locale/en-US";
 import dateLocalePtBr from "date-fns/locale/pt-BR";
-import Image from "next/future/image";
+import Image from "next/image";
 import { useRouter } from "../../context/hooks/useRouter";
 import { Icon } from "../Icon";
 import { Tooltip } from "../Tooltip";

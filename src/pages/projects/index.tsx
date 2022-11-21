@@ -1,11 +1,11 @@
 import { GetStaticProps } from "next";
-import Head from "next/head";
 import { CurrentRepositoriesView } from "../../components/CurrentRepositoriesView";
 import { ToggleFilterMenuButton } from "../../components/FilterMenu/ToggleFilterMenuButton";
 import { SearchRepositoryInput } from "../../components/Input/SearchRepositoryInput";
 import { MenuProvider } from "../../context/providers/MenuProvider";
 import { SearchProvider } from "../../context/providers/SearchProvider";
 import { Github, Repository } from "../../services/Github";
+import { NextSeo } from "next-seo";
 
 interface ProjectsProps {
   repositories: Repository[];
@@ -36,9 +36,11 @@ function Projects({
 
   return (
     <>
-      <Head>
-        <title>{locale === "en-us"? "Projects":"Projetos"}</title>
-      </Head>
+      <NextSeo
+        title={locale === "en-us"? "Projects":"Projetos"}
+        defaultTitle="L-Marcel"
+        titleTemplate="L-Marcel - %s"
+      />
       <SearchProvider
         repositories={repositories}
         technologies={technologies}

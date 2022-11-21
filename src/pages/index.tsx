@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 import ReactMarkdown from "react-markdown";
 import { SpecialComponents } from "react-markdown/lib/ast-to-react";
 import { NormalComponents } from "react-markdown/lib/complex-types";
@@ -31,9 +32,10 @@ function Resume({
 }: ResumeProps) {
   return (
     <>
-      <Head>
-        <title>L-Marcel{name && ` - ${name}`}</title>
-      </Head>
+      <NextSeo
+        defaultTitle="L-Marcel"
+        titleTemplate="L-Marcel"
+      />
       <FirstSection hasProfile={withProfile}>
         { withProfile && <Profile
           updatedAt={updatedAt}

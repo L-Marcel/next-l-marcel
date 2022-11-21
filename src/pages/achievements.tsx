@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { IconType } from "../components/Icon";
 import { Timeline } from "../components/Timeline";
 import { Graphql } from "../services/Graphql";
@@ -26,9 +26,11 @@ export interface AchievementsProps {
 function Achivements({ achievements, locale }: AchievementsProps) {
   return (
     <>
-      <Head>
-        <title>{locale === "en-us"? "Achivements":"Conquistas"}</title>
-      </Head>
+      <NextSeo
+        title={locale === "en-us"? "Achivements":"Conquistas"}
+        defaultTitle="L-Marcel"
+        titleTemplate="L-Marcel - %s"
+      />
       <section className="-mb-8 max-w-[100vw] overflow-x-hidden">
         <Timeline
           achievements={achievements}
