@@ -15,7 +15,7 @@
 
 <br/>
 
-<p>I've 20 years old, I live in Brazil (Macau - RN), and I finished technical high school in informatics at <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> in 2022, even receiving an academic honor. During this period I became a professional in web development with technologies such as <a href="https://reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> and <a href="https://nodejs.org/en" target="__blank__">Node.js</a>. After finishing <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Rocketseat's Ignite</a> course, I also got a <span>full scholarship</span> in <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
+<p>I've 20 years old, I live in Brazil (Macau - RN), and I finished technical high school in informatics at <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> in 2022, even receiving an academic honor. During this period I became a professional in web development with technologies such as <a href="https://reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> and <a href="https://nodejs.org/en" target="__blank__">Node.js</a>. After finishing <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Rocketseat's Ignite</a> course I got a <span>full scholarship</span> in <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
 
 <pre>
 C:\projects> <span>yarn</span> create next-app --typescript l-marcel
