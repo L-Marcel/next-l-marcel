@@ -34,6 +34,7 @@ export function NavLink({
       <Link className="full-link" href={path} locale={locale}>
         <Button 
           selected={isActive}
+          tabIndex={-1}
         >
           {isNotPtBr? name:getTranslatedRouteName(name)}
         </Button>

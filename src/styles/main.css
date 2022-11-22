@@ -125,14 +125,17 @@
     @apply
       outline-none
       ring-0
-      !bg-primary-600
       z-10;
   }
-  :focus-visible::not(.focus-defined) {
+  :focus-visible:not(.full-link) {
+    @apply
+      !bg-primary-600;
+  }
+  :focus-visible:not(.focus-defined) {
     @apply
       !text-white-500;
   }
-  a:focus-visible {
+  a:focus-visible:not(.full-link) {
     @apply
       rounded-lg
       px-1
@@ -355,8 +358,18 @@
   .full-link {
     @apply w-full flex flex-1 no-underline overflow-hidden;
 
-    & > button {
-      @apply w-full !rounded-none;
+    &:focus-visible > button {
+      @apply
+        outline-none
+        ring-0
+        !bg-primary-600
+        z-10;
+    }
+
+    @media (max-width: 767px) {
+      & > button {
+        @apply w-full !rounded-none;
+      }
     }
   }
 };
