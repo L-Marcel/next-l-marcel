@@ -4,9 +4,9 @@ import "react-vertical-timeline-component/style.min.css";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Layout } from "../styles/document/styles";
-import "../styles/main.css";
-import "../styles/slider.css";
-import "../styles/timeline.css";
+import "../styles/main.scss";
+import "../styles/slider.scss";
+import "../styles/timeline.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -60,7 +60,7 @@
   code {
     @apply
       overflow-x-auto
-      overflow-y-hidden
+      overflow-y-hidden;
   }
   p, pre, p > span, p > a, pre > span, pre > a, li, li > span, li > a, code, code > span, code > a {
     @apply 
@@ -71,9 +71,9 @@
       dark:text-white-500;
   }
   p > a:focus-visible {
-    @apply
-      !text-white-500 
-      dark:!text-white-500;
+    @apply 
+      text-white-500
+      dark:text-white-500 #{!important};
   }
   pre > span {
     @apply 
@@ -105,14 +105,16 @@
       select-none;
   }
   span {
-    @apply !text-primary-500;
+    @apply text-primary-500 #{!important};
   }
   a {
     @apply 
       underline-offset-2
-      !text-primary-500
-      underline
-      hover:!text-primary-600;
+      underline;
+
+    @apply 
+      text-primary-500 
+      hover:text-primary-600 #{!important};
   }
   time {
     @apply 
@@ -129,17 +131,17 @@
   }
   :focus-visible:not(.full-link) {
     @apply
-      !bg-primary-600;
+      bg-primary-600 #{!important};
   }
   :focus-visible:not(.focus-defined) {
     @apply
-      !text-white-500;
+      text-white-500 #{!important};
   }
   a:focus-visible:not(.full-link) {
     @apply
       rounded-lg
       px-1
-      py-1
+      py-1;
   }
 }
 
@@ -255,12 +257,12 @@
   .list-container-div {
     h2, h2 > span {
       @apply
-        !mb-0;
+        mb-0 #{!important};
     }
 
     & > * + *:last-child {
       @apply
-        !mt-4; 
+        mt-4 #{!important}; 
     }
   }
 
@@ -275,7 +277,7 @@
       bg-no-repeat
       md:bg-[length:25rem]
       2xl:bg-[length:30rem]
-      2xl:bg-[left_var(--bg-left-2xl-space)_bottom_-4rem]
+      2xl:bg-[left_var(--bg-left-2xl-space)_bottom_-4rem];
   }
 
   .bg-notifications {
@@ -287,7 +289,7 @@
       bg-[right_var(--bg-left-sm-space)_bottom_-14rem]
       md:bg-[left_var(--bg-left-space)_bottom_-14rem]
       bg-no-repeat
-      bg-[length:30rem]
+      bg-[length:30rem];
   }
 
   .mobile-locale-menu-group {
@@ -310,15 +312,15 @@
   .repository-list-item:hover {
     .repository-list-item-group {
       @apply
-        !bg-primary-500;
+        bg-primary-500 #{!important};
     }
     .repository-list-item-tech {
       @apply
-        !text-primary-600;
+        text-primary-600 #{!important};
     }
     .repository-list-item-title {
       @apply
-        !text-primary-500;
+        text-primary-500 #{!important};
     }
   }
 
@@ -362,13 +364,19 @@
       @apply
         outline-none
         ring-0
-        !bg-primary-600
         z-10;
+
+      @apply
+        bg-primary-600 #{!important};
     }
 
     @media (max-width: 767px) {
       & > button {
-        @apply w-full !rounded-none;
+        @apply 
+          w-full;
+
+        @apply 
+          rounded-none #{!important};
       }
     }
   }
