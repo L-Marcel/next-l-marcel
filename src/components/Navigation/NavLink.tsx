@@ -31,7 +31,7 @@ export function NavLink({
 
   return (
     <li className={liClassName}>
-      <Link href={path} locale={locale}>
+      <Link className="full-link" href={path} locale={locale}>
         <Button 
           selected={isActive}
         >

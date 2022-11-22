@@ -28,7 +28,6 @@ function Resume({
   data,
   withProfile,
   updatedAt,
-  name
 }: ResumeProps) {
   return (
     <>

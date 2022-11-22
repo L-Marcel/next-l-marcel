@@ -25,7 +25,7 @@ export function MobileNavLink({
 
   return (
     <MobileNavLinkListItemContainer selected={isActive} className={liClassName}>
-      <Link href={path} locale={locale}>
+      <Link className="no-underline" href={path} locale={locale}>
         <div className="flex flex-row gap-4">
           <MobileNavLinkIconContainer selected={isActive}>
             <Icon

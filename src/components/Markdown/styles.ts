@@ -10,8 +10,6 @@ export const MarkdownPContainer = tw.p`
   md:px-16
 `;
 
-export const MarkdownAContainer = tw.a``;
-
 export const MarkdownNavContainer = tw.nav`
   flex
   flex-1

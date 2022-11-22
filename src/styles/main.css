@@ -70,6 +70,11 @@
       text-gray-600 
       dark:text-white-500;
   }
+  p > a:focus-visible {
+    @apply
+      !text-white-500 
+      dark:!text-white-500;
+  }
   pre > span {
     @apply 
       text-inherit;
@@ -344,6 +349,14 @@
     .checkbox-input {
       @apply
         bg-primary-600;
+    }
+  }
+
+  .full-link {
+    @apply w-full flex flex-1 no-underline overflow-hidden;
+
+    & > button {
+      @apply w-full !rounded-none;
     }
   }
 };
