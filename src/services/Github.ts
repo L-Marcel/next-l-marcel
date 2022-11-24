@@ -107,6 +107,13 @@ export class Github {
       });
   }
 
+  static async getDemoVideoURL(repo = "l-marcel/l-marcel") {
+    return await this.api
+      .get(`repos/${repo}/contents/public/demo.mp4`)
+      .then((res) => res.data.download_url)
+      .catch(() => undefined);
+  }
+
   static async checkRepository(name: string) {
     const url = `https://api.github.com/repos/l-marcel/${name}`;
   

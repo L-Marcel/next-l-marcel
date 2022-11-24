@@ -8,6 +8,7 @@ export const PageBody = tw.body`
   dark:scrollbar-track-gray-600
   hover:scrollbar-thumb-primary-600
   mb-[40px]
+  overflow-x-hidden
   md:mb-0
 `;
 
@@ -26,4 +27,17 @@ export interface FirstSectionProps {
 
 export const FirstSection = tw.section<FirstSectionProps>`
  ${props => !props.hasProfile? "px-4 pt-[1.15rem] md:px-16 md:pb-12":""}
+`;
+
+export const DemoVideoContainer = tw.div`
+  pr-12
+  pl-0
+  md:pr-16  
+  md:pl-16
+  markdown-section-container
+  bg-white-500 dark:bg-gray-600
+  flex
+  relative
+  overflow-hidden
+  w-full
 `;

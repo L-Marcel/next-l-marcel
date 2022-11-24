@@ -3,6 +3,9 @@
   "translatedDescription": "",
   "pinned": true,
   "progress": 0.95,
+  "link": {
+    "figma": "https://www.figma.com/file/RasJwsoUk7npUECQuWp2Yh/l-marcel?node-id=5%3A2&t=zXLOXZQQOlPbMviX-1"
+  },
   "technologies": [
     "Next.js",
     "React.js",

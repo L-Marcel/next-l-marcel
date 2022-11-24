@@ -68,11 +68,14 @@ export const getStaticProps: GetStaticProps = async({ locale, params }) => {
 
   data = data.replace("<span id=\"repository-name\"/>", `<span>${params?.name}</span>`);
 
+  const demoVideoURL = await Github.getDemoVideoURL(`l-marcel/${params?.name}`);
+
   return {
     props: {
       data,
       updatedAt,
-      name: params?.name
+      name: params?.name,
+      demoVideoURL
     },
     revalidate: 1
   };

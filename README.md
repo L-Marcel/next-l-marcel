@@ -7,6 +7,10 @@
       en-us
     </a>
     <span class="disabled">•</span>
+    <a class="navigation-link" href="https://www.figma.com/file/RasJwsoUk7npUECQuWp2Yh/l-marcel?node-id=5%3A2&t=zXLOXZQQOlPbMviX-1" target="__blank__">
+      figma
+    </a>
+    <span>•</span>
     <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
       baixar currículo
     </a>

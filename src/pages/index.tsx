@@ -14,7 +14,8 @@ import { MarkdownSections } from "../components/Markdown/MarkdownSections";
 import { MarkdownBrContainer, MarkdownH1Container, MarkdownH2Container, MarkdownNavContainer, MarkdownPContainer } from "../components/Markdown/styles";
 import { Profile } from "../components/Profile";
 import { Github } from "../services/Github";
-import { FirstSection } from "../styles/document/styles";
+import { DemoVideoContainer, FirstSection } from "../styles/document/styles";
+import Image from "next/image";
 
 export type MarkdownComponents = Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents>;
 export interface ResumeProps {
@@ -22,12 +23,14 @@ export interface ResumeProps {
   updatedAt: string;
   withProfile: boolean;
   name?: string;
+  demoVideoURL?: string;
 }
 
 function Resume({
   data,
   withProfile,
   updatedAt,
+  demoVideoURL
 }: ResumeProps) {
   return (
     <>
@@ -63,6 +66,17 @@ function Resume({
         >
           {data}
         </ReactMarkdown>
+        { demoVideoURL && <DemoVideoContainer>
+          <div className="absolute left-[3.75rem] h-full w-1 bg-primary-500"/>
+          <video className="z-10 border-r-4 border-primary-500 bg-white-500 dark:bg-gray-600" src={demoVideoURL} controls/>
+          <Image
+            src="/assets/coding.svg"
+            alt="A man coding..."
+            width={812}
+            height={612}
+            className="absolute -bottom-8 left-[45%] !h-[140%] opacity-60 md:left-[40%] lg:left-[25%]"
+          />
+        </DemoVideoContainer>}
       </section>
     </>
   );
@@ -77,11 +91,14 @@ export const getStaticProps: GetStaticProps = async({ locale }) => {
 </a>
 <span id="only-if-not-last">•</span>`);
 
+  const demoVideoURL = await Github.getDemoVideoURL();
+
   return {
     props: {
       data,
       updatedAt,
-      withProfile: true
+      withProfile: true,
+      demoVideoURL
     },
     revalidate: false
   };
