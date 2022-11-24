@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { TooltipContainer, TooltipSpan, TooltipText } from "./styles";
+import { TooltipContainer, TooltipText, TooltipTextContainer } from "./styles";
 
 interface TooltipProps {
   label: string;
@@ -16,9 +16,9 @@ export function Tooltip({
 }: TooltipProps) {
   return (
     <TooltipContainer className={containerClassName}>
-      <TooltipText className={className}>
-        <TooltipSpan>{label}</TooltipSpan>
-      </TooltipText>
+      <TooltipTextContainer className={className}>
+        <TooltipText>{label}</TooltipText>
+      </TooltipTextContainer>
       {children}
     </TooltipContainer>
   );

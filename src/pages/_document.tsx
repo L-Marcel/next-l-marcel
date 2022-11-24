@@ -3,7 +3,7 @@ import { PageBody } from "../styles/document/styles";
 
 function MyDocument() {
   return (
-    <Html lang="en" className="dark">
+    <Html translate="no" className="dark">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com"/>

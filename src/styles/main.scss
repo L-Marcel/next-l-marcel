@@ -223,7 +223,7 @@
   }
 
   .tooltip-container {
-    p:first-of-type {
+    .tooltip-text-container:first-of-type {
       @apply
         opacity-0
         invisible
@@ -236,7 +236,7 @@
       pointer-events-auto;
 
     &:hover {
-      p:first-of-type {
+      .tooltip-text-container:first-of-type {
         @apply          
           opacity-100
           visible;
