@@ -23,14 +23,14 @@ export interface ResumeProps {
   updatedAt: string;
   withProfile: boolean;
   name?: string;
-  demoVideoURL?: string;
+  demoVideoURL: string | null;
 }
 
 function Resume({
   data,
   withProfile,
   updatedAt,
-  demoVideoURL
+  demoVideoURL = null
 }: ResumeProps) {
   return (
     <>
@@ -66,7 +66,7 @@ function Resume({
         >
           {data}
         </ReactMarkdown>
-        { demoVideoURL && <DemoVideoContainer>
+        { demoVideoURL !== null && <DemoVideoContainer>
           <div className="absolute left-[3.75rem] h-full w-1 bg-primary-500"/>
           <video className="z-10 border-r-4 border-primary-500 bg-white-500 dark:bg-gray-600" src={demoVideoURL} controls/>
           <Image
@@ -76,7 +76,7 @@ function Resume({
             height={612}
             className="absolute -bottom-8 left-[45%] !h-[140%] opacity-60 md:left-[40%] lg:left-[25%]"
           />
-        </DemoVideoContainer>}
+        </DemoVideoContainer> }
       </section>
     </>
   );

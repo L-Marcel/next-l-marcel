@@ -111,7 +111,7 @@ export class Github {
     return await this.api
       .get(`repos/${repo}/contents/public/demo.mp4`)
       .then((res) => res.data.download_url)
-      .catch(() => undefined);
+      .catch(() => null);
   }
 
   static async checkRepository(name: string) {
