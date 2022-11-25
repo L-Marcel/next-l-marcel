@@ -17,6 +17,7 @@ export function MarkdownSections({
     return (<MarkdownTechnologies/>);
   case "statistics":
   case "images":
+  case "just-github":
     return null;
   case "grid":
     return (

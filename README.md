@@ -19,6 +19,10 @@
 
 <br/>
 
+<div id="just-github">
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&duration=4000&pause=1500&color=EB513B&vCenter=true&width=435&height=25&lines=Estou+feliz+em+v%C3%AA-lo+por+aqui;Espero+que+encontre+o+que+procura;H%C3%A1+sempre+espa%C3%A7o+para+sonhar;Aqui+%C3%A9+um+dos+lugares+onde+sonho;Certamente+h%C3%A1+muitos+defeitos;Mas+n%C3%A3o+ser%C3%A3o+os+primeiros;...nem+os+%C3%BAltimos" alt="Typing SVG"/>
+</div>
+
 <p>Tenho 20 anos, moro no Brasil (Macau - RN) e terminei o ensino médio técnico em informática no <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> em 2022, recebendo inclusive, uma láurea acadêmica. Nesse período eu me profissionalizei no desenvolvimento web com tecnologias como o <a href="https://pt-br.reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> and <a href="https://nodejs.org/pt-br" target="__blank__">Node.js</a>. Após terminar o curso <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Ignite</a> da <a href="https://www.rocketseat.com.br" target="__blank__">Rocketseat</a>, também consegui uma <span>bolsa de estudos completa</span> no <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
 
 <pre>
