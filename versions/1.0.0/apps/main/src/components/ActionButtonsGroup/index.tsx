@@ -10,21 +10,21 @@ import { SocialModalProps } from "../SocialModal";
 
 interface ActionButtonsGroupProps {
   user: User;
-};
+}
 
 const MusicButton = dynamic(() => 
-import("../Button/MusicButton").then(mod => mod.default), 
+  import("../Button/MusicButton").then(mod => mod.default), 
 {
   loading: () => null,
   ssr: false
 });
 
 const CertificatesModal = dynamic<CertificatesModalProps>(() => 
-import("../CertificatesModal").then(mod => mod.default)
+  import("../CertificatesModal").then(mod => mod.default)
 );
 
 const SocialModal = dynamic<SocialModalProps>(() => 
-import("../SocialModal").then(mod => mod.default)
+  import("../SocialModal").then(mod => mod.default)
 );
 
 function ActionButtonsGroup({ user }: ActionButtonsGroupProps) {
@@ -73,6 +73,6 @@ function ActionButtonsGroup({ user }: ActionButtonsGroupProps) {
       </ButtonGroup>
     </>
   );
-};
+}
 
 export default ActionButtonsGroup;

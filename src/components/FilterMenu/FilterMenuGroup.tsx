@@ -1,4 +1,5 @@
 import { useFilter } from "../../context/hooks/useFilter";
+import { usePagination } from "../../context/hooks/usePagination";
 import { Filter, FilterToggleOptionActionGroups } from "../../context/providers/reducers/filter";
 import { Checkbox } from "../Input/Checkbox";
 import { FilterMenuOptionButton } from "./FilterMenuOptionButton";
@@ -14,16 +15,19 @@ export function FilterMenuGroup({
   label
 }: FilterMenuGroupProps) {
   const { filter, toggleOption } = useFilter();
+  const { firstPage } = usePagination();
   
   const group = filter[type];
   const allIsSelected = Filter.allFiltersIsSelected(group);
 
   function handleToggleOption(option: string) {
     toggleOption(option, type);
+    firstPage();
   }
 
   function handleToggleAllOptions() {
     toggleOption("_some", type);
+    firstPage();
   }
   
   return (

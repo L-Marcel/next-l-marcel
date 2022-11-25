@@ -44,6 +44,7 @@ export type FilterType = {
 
 export enum FilterAction {
   SET_NAMES = "SET_NAMES",
+  SET_TECHNOLOGIES = "SET_TECHNOLOGIES",
   TOGGLE_OPTION = "TOGGLE_OPTION",
   CHANGE_PROGRESS_RANGE = "CHANGE_PROGRESS_RANGE"
 }
@@ -61,12 +62,19 @@ export type FilterChangeProgressRangeActionPayload = {
   max: number;
 };
 
+export type FilterSetTechnologiesActionPayload = {
+  newTechnologies: {
+    [key: string]: boolean;
+  }
+};
+
 export interface FilterReducerAction {
   type: FilterAction;
   payload?: 
     FilterSetNamesActionPayload | 
     FilterToggleTechnologyActionPayload | 
-    FilterChangeProgressRangeActionPayload;
+    FilterChangeProgressRangeActionPayload |
+    FilterSetTechnologiesActionPayload;
 }
 
 export class Filter {
@@ -140,6 +148,22 @@ export class Filter {
         }
       };
     }
+
+    case FilterAction.SET_TECHNOLOGIES: {
+      if(!action.payload) {
+        return filter;
+      }
+
+      const { newTechnologies } = action.payload as FilterSetTechnologiesActionPayload;
+
+      return {
+        ...filter,
+        technologies: {
+          ...newTechnologies,
+          ...filter.technologies
+        },
+      };
+    }
     default: 
       return filter;
     }
@@ -168,6 +192,17 @@ export class Filter {
       payload: {
         min,
         max
+      }
+    };
+  }
+
+  static setTechnologies(newTechnologies: {
+    [key: string]: boolean;
+  }) {
+    return {
+      type: FilterAction.SET_TECHNOLOGIES,
+      payload: {
+        newTechnologies
       }
     };
   }

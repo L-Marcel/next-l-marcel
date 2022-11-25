@@ -32,7 +32,7 @@ export function ToggleFilterMenuButton({
     <>
       <ToggleFilterMenuButtonContainer
         id="toggle-filter-menu-button-container"
-        isOpen={isOpen}
+        open={isOpen}
         onClick={toggleMenu}
         icon={isOpen? "returnLeftArrow":"filter"}
         iconClassName="!text-[2.1rem] md:!text-[1.4125rem]"

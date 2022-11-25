@@ -1,6 +1,7 @@
 import { Combobox, Transition } from "@headlessui/react";
 import { ChangeEvent, KeyboardEvent, useEffect, useMemo, useState } from "react";
 import { useFilter } from "../../context/hooks/useFilter";
+import { usePagination } from "../../context/hooks/usePagination";
 import { useRouter } from "../../context/hooks/useRouter";
 import { Icon } from "../Icon";
 import { SearchBox, SearchInput, SearchInputIcon, SearchOption, SearchOptions } from "./styles";
@@ -20,6 +21,7 @@ export function SearchRepositoryInput({
 }: SearchRepositoryInputProps) {
   const { setNames } = useFilter();
   const { isNotPtBr } = useRouter();
+  const { firstPage } = usePagination();
 
   const [isFocused, setIsFocused] = useState(false);
   const [query, setQuery] = useState("");
@@ -53,6 +55,7 @@ export function SearchRepositoryInput({
 
   function handleOnChangeQuery(event: ChangeEvent<HTMLInputElement>) {
     setQuery(event.target.value);
+    firstPage();
   }
 
   return (

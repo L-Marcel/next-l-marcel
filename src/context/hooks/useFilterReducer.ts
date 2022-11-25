@@ -1,50 +1,68 @@
-import { useCallback, useReducer } from "react";
+import { useCallback, useEffect } from "react";
 import { Repository } from "../../services/Github";
 import arrayToData from "../../utils/arrayToData";
+import create from "zustand";
+import { persist, redux } from "zustand/middleware";
 import { Filter, FilterToggleOptionActionGroups } from "../providers/reducers/filter";
 
 export interface UseFilterReducerProps {
   technologies?: string[];
 }
 
+const useZustandFilterReducer = create(persist(redux(Filter.reducer, {
+  names: [],
+  progress: {
+    min: 0,
+    max: 100
+  },
+  have: {
+    _some: false,
+    none: false,
+    description: false,
+    documentation: false,
+    figma: false,
+  },
+  as: {
+    _some: false,
+    common: false,
+    highlight: false,
+    fork: false,
+    template: false,
+  },
+  status: {
+    _some: false,
+    finished: false,
+    deployed: false,
+    licensed: false,
+    progress: false,
+    canceled: false
+  },
+  technologies: {
+    _some: false
+  },
+}), {
+  name: "l-marcel-filter",
+  getStorage: () => sessionStorage,
+  version: 1
+}));
+
 export function useFilterReducer({
   technologies = []
 }: UseFilterReducerProps) {
   const initialTechnologies = arrayToData<boolean>(technologies, false);
 
-  const [filter, dispatch] = useReducer(Filter.reducer, {
-    names: [],
-    progress: {
-      min: 0,
-      max: 100
-    },
-    have: {
-      _some: false,
-      none: false,
-      description: false,
-      documentation: false,
-      figma: false,
-    },
-    as: {
-      _some: false,
-      common: false,
-      highlight: false,
-      fork: false,
-      template: false,
-    },
-    status: {
-      _some: false,
-      finished: false,
-      deployed: false,
-      licensed: false,
-      progress: false,
-      canceled: false
-    },
-    technologies: {
-      _some: false,
-      ...initialTechnologies
-    },
-  });
+  const filter = useZustandFilterReducer((state) => state);
+  const dispatch = useZustandFilterReducer((state) => state.dispatch);
+
+  const setTechnologies = useCallback((newTechnologies: {
+    [key: string]: boolean;
+  }) => {
+    dispatch(Filter.setTechnologies(newTechnologies));
+  }, [dispatch]);
+
+  useEffect(() => {
+    setTechnologies(initialTechnologies);
+  }, []);
 
   const setNames = useCallback((names: string[]) => {
     dispatch(Filter.setNames(names));
@@ -58,7 +76,7 @@ export function useFilterReducer({
     dispatch(Filter.changeProgressRange(min, max));
   }, [dispatch]);
   
-  const getFilteredRepositories = useCallback((repositories: Repository[], onUpdate?: () => void) => {
+  const getFilteredRepositories = useCallback((repositories: Repository[]) => {
     const repositoriesOrderedFilterByName = repositories
       .map(repository => {
         const importedConfig = repository.importedConfig;
@@ -121,7 +139,6 @@ export function useFilterReducer({
       .sort((a, b) => Number(b.importedConfig?.pinned ?? false) - Number(a.importedConfig?.pinned ?? false))
       .sort((a, b) => Number(b._filtered) - Number(a._filtered));
 
-    onUpdate && onUpdate();
     return repositoriesOrderedFilterByName;
   }, [filter]);
 

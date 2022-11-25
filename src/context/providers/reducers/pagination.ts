@@ -34,7 +34,7 @@ export interface PaginationReducerAction {
 export class Pagination {
   static reducer(pagination: PaginationType, action: PaginationReducerAction) {
     const { min, max, page } = pagination;
-  
+
     switch (action.type) {
     case PaginationAction.SET_PAGE: {
       if(!action.payload) {

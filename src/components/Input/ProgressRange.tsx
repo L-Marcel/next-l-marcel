@@ -1,14 +1,17 @@
 import Slider from "rc-slider";
 import { useFilter } from "../../context/hooks/useFilter";
+import { usePagination } from "../../context/hooks/usePagination";
 
 export function ProgressRange() {
   const { filter, changeProgressRange } = useFilter();
+  const { firstPage } = usePagination();
 
   const { min, max } = filter.progress;
 
   function handleOnChangeInterval(interval: number | number[]) {
     if(Array.isArray(interval) && interval.length === 2) {
       changeProgressRange(interval[0], interval[1]);
+      firstPage();
     }
   }
 

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo } from "react";
+import { ReactNode, useCallback, useEffect, useMemo } from "react";
 import { createContext } from "use-context-selector";
 import { Repository } from "../../services/Github";
 import { useFilterReducer } from "../hooks/useFilterReducer";
@@ -51,22 +51,14 @@ export function SearchProvider({
     lastPage,
     nextPage,
     previousPage,
-    setPage,
-    updatePageLimit
-  } = usePaginationReducer();
+    setPage
+  } = usePaginationReducer({
+    size: repositories.length
+  });
 
   const filteredRepositories = useMemo(() => {
-    return getFilteredRepositories(repositories, firstPage);
-  }, [getFilteredRepositories, repositories, firstPage]);
-
-  useEffect(() => {
-    const size = repositories.length;
-
-    const min = 0;
-    const max = Math.ceil(size/12) - 1;
-
-    updatePageLimit(min, max);
-  }, [repositories, updatePageLimit]);
+    return getFilteredRepositories(repositories);
+  }, [getFilteredRepositories, repositories]);
 
   return (
     <searchContext.Provider
