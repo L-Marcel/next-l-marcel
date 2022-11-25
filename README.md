@@ -1,6 +1,6 @@
 <div valing="top">
   <h1>Olá, sou <span>Lucas Marcel</span></h1>
-  <p>Um desenvolvedor web brasileiro especializado em <span>TypeScript</span> e que é intusiasta do <span>Next.js</span>.</p>
+  <p>Um desenvolvedor web brasileiro especializado em <span>TypeScript</span> e que é entusiasta do <span>Next.js</span>.</p>
   <nav>
     <div id="repository-buttons"/>
     <a class="navigation-link disabled" href="https://github.com/L-Marcel/l-marcel/blob/main/README.en-US.md" target="__blank__">
@@ -19,7 +19,7 @@
 
 <br/>
 
-<p>Tenho 20 anos, moro no Brasil (Macau - RN) e terminei o ensino médio técnico em informática no <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> em 2022, recebendo inclusive, uma láurea acadêmica. Nesse período me profissionalizei ao desenvolvimento web com tecnologias como o <a href="https://pt-br.reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> and <a href="https://nodejs.org/pt-br" target="__blank__">Node.js</a>. Após terminar o curso <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Ignite</a> da <a href="https://www.rocketseat.com.br" target="__blank__">Rocketseat</a>, também consegui uma <span>bolsa de estudos completa</span> no <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
+<p>Tenho 20 anos, moro no Brasil (Macau - RN) e terminei o ensino médio técnico em informática no <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> em 2022, recebendo inclusive, uma láurea acadêmica. Nesse período euj me profissionalizei no desenvolvimento web com tecnologias como o <a href="https://pt-br.reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> and <a href="https://nodejs.org/pt-br" target="__blank__">Node.js</a>. Após terminar o curso <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Ignite</a> da <a href="https://www.rocketseat.com.br" target="__blank__">Rocketseat</a>, também consegui uma <span>bolsa de estudos completa</span> no <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
 
 <pre>
 C:\projects> <span>yarn</span> create next-app --typescript l-marcel
@@ -42,7 +42,7 @@ C:\projects\l-marcel> <span>yarn</span> dev
       <li id="checked"><p>Conheço e já utilizei metodologias ágeis;</p></li>
       <li id="checked"><p>Tenho experiência com várias opções de implementação;</p></li>
       <li id="checked"><p>Entendo os relacionamentos das entidades do banco de dados;</p></li>
-      <li id="checked"><p>Desenvolvo com responsividade;</p></li>
+      <li id="checked"><p>Desenvolvo se preocupando com a responsividade;</p></li>
       <li id="checked"><p>Procuro experimentar coisas novas;</p></li>
       <li id="checked"><p>Consigo encontrar e resolver erros sozinho.</p></li>
     </ul>
