@@ -38,7 +38,7 @@ function Resume({
         defaultTitle="L-Marcel"
         titleTemplate="L-Marcel"
       />
-      <FirstSection hasProfile={withProfile}>
+      <FirstSection profile={withProfile}>
         { withProfile && <Profile
           updatedAt={updatedAt}
         /> }

@@ -18,6 +18,7 @@ export function NavLink({
   dynamic = false
 }: NavLinkProps) {
   const { isNotPtBr, ...router } = useRouter();
+  
   const isActive = 
     (locale && router.locale?.toLowerCase().includes(name)) ||
     (!locale && dynamic && router.asPath.replace(/\/en-us/, "/").startsWith(path)) ||

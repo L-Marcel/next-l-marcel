@@ -57,6 +57,7 @@ export function MobileMenuContent() {
             <MobileNavLink
               path="/projects"
               name="projects"
+              dynamic
             />
             <MobileNavLink
               path="/achievements"

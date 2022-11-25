@@ -9,20 +9,30 @@ interface MobileNavLinkProps {
   name: string;
   path: string;
   liClassName?: string;
+  dynamic?: boolean;
 }
 
 export function MobileNavLink({
   name,
   path,
   locale,
-  liClassName
+  liClassName,
+  dynamic = false
 }: MobileNavLinkProps) {
   const { isNotPtBr, ...router } = useRouter();
 
   const isActive = 
     (locale && router.locale?.toLowerCase().includes(name)) ||
+    (!locale && dynamic && router.asPath.replace(/\/en-us/, "/").startsWith(path)) || 
     (!locale && router.asPath.replace(/\/en-us/, "/") === path);
 
+  if(locale === "pt-br") {
+    path = router.asPath;
+  } else if(locale) {
+    path = router.asPath.replace(/\/en-us/, "/");
+  }
+
+    
   return (
     <MobileNavLinkListItemContainer selected={isActive} className={liClassName}>
       <Link className="no-underline" href={path} locale={locale}>
