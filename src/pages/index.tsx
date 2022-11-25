@@ -68,13 +68,13 @@ function Resume({
         </ReactMarkdown>
         { demoVideoURL !== null && <DemoVideoContainer>
           <div className="absolute left-[3.75rem] h-full w-1 bg-primary-500"/>
-          <video className="z-10 border-r-4 border-primary-500 bg-white-500 dark:bg-gray-600" src={demoVideoURL} controls/>
+          <video className="2xç:max-h-[531px] z-10 border-r-4 border-primary-500 bg-white-500 dark:bg-gray-600 md:max-h-[354px] md:max-w-[630px] 2xl:max-w-[945px]" src={demoVideoURL} controls/>
           <Image
             src="/assets/coding.svg"
             alt="A man coding..."
             width={812}
             height={612}
-            className="absolute -bottom-8 left-[45%] !h-[140%] opacity-60 md:left-[40%] lg:left-[25%]"
+            className="absolute -bottom-8 left-[45%] !h-[140%] opacity-60 md:left-[40%] lg:left-[25%] 2xl:left-[22%]"
           />
         </DemoVideoContainer> }
       </section>
