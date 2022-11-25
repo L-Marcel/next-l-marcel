@@ -22,11 +22,11 @@ export const Layout = tw.main`
 `;
 
 export interface FirstSectionProps {
-  profile: boolean;
+  $profile: boolean;
 }
 
 export const FirstSection = tw.section<FirstSectionProps>`
- ${props => !props.profile? "px-4 pt-[1.15rem] md:px-16 md:pb-12":""}
+ ${props => !props.$profile? "px-4 pt-[1.15rem] md:px-16 md:pb-12":""}
 `;
 
 export const DemoVideoContainer = tw.div`
