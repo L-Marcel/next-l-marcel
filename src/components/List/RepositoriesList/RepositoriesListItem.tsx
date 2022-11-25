@@ -1,3 +1,4 @@
+import { MouseEvent } from "react";
 import { useRouter } from "../../../context/hooks/useRouter";
 import { Repository } from "../../../services/Github";
 import { IconButton } from "../../Button/IconButton";
@@ -80,11 +81,13 @@ export function RepositoriesListItem({
       isTemplate? "template":
         "license";
 
-  function handleOpenLink(link: string) {
+  function handleOpenLink(e: MouseEvent<HTMLButtonElement>, link: string) {
+    e.stopPropagation();
     window.open(link, "__blank__");
   }
 
-  function handleNavigateToProject() {
+  function handleNavigateToProject(e: MouseEvent<HTMLButtonElement>) {
+    e.stopPropagation();
     const _name = name.toLowerCase();
     push(`/projects/${_name}`);
   }
@@ -125,7 +128,7 @@ export function RepositoriesListItem({
                   tooltipClassName="z-10 mt-[-10px]" 
                   icon={key as IconType}
                   title={getTranslatedText(key, isNotPtBr)}
-                  onClick={() => handleOpenLink(value)}
+                  onClick={(e) => handleOpenLink(e, value)}
                 />
               );
             })
@@ -135,7 +138,7 @@ export function RepositoriesListItem({
             className="rounded-lg" 
             tooltipClassName="z-10 mt-[-10px]" 
             icon="github"
-            onClick={() => handleOpenLink(github)}      
+            onClick={(e) => handleOpenLink(e, github)}      
           />
           {
             linksInList.length <= 0? 
