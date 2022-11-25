@@ -19,7 +19,6 @@ export const TooltipTextContainer = tw.div`
   text-center
   tooltip-text-container
   px-2
-  py-1
   border-x-primary-500
   border-x-2
   bg-white-500
@@ -34,5 +33,8 @@ export const TooltipText = tw.p`
   text-base
   whitespace-nowrap
   overflow-hidden
+  no-timeline-margin
   text-ellipsis
+  !mt-0
+  !pt-0
 `;

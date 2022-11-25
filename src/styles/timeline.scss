@@ -110,7 +110,13 @@
         @apply
           mt-[3px]
           2lg:mt-[4px]
-          text-[1.1rem] #{!important};
+          text-base #{!important};
+      }
+      
+      .no-timeline-margin {
+        @apply
+          mt-0
+          2lg:mt-0 #{!important};
       }
     }
   }
