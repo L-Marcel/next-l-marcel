@@ -1,4 +1,4 @@
-<div valing="topo">
+<div valing="top">
   <h1>Olá, sou <span>Lucas Marcel</span></h1>
   <p>Um desenvolvedor web brasileiro especializado em <span>TypeScript</span> e que é entusiasta do <span>Next.js</span>.</p>
   <nav>
