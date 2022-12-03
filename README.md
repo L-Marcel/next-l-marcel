@@ -12,7 +12,7 @@
     </a>
     <span>•</span>
     <a class="navigation-link" href="https://l-marcel.vercel.app/curriculo.pdf" target="__blank__">
-      curriculo curriculo
+      baixar curriculo
     </a>
   </nav>
 </div>
