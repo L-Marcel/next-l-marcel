@@ -11,8 +11,8 @@
       figma
     </a>
     <span>•</span>
-    <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
-      baixar currículo
+    <a class="navigation-link" href="https://l-marcel.vercel.app/curriculo.pdf" target="__blank__">
+      curriculo curriculo
     </a>
   </nav>
 </div>
