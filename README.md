@@ -29,7 +29,7 @@
 C:\projects> <span>yarn</span> create next-app --typescript l-marcel
 </pre>
 
-<p>No momento tenho preferência com o <span>Front-end</span>, mas sei um pouco de tudo que preciso para concluir meus projetos sozinho, com ou sem <span>banco de dados</span>. O desenvolvimento de aplicativos mobile se trata de uma área onde possuo menos experiência. Meu <span>framework</span> favorito é o <span>Next.js</span>, com ele posso implantar o ecossistema dos meus projetos de forma otimizada e sem a necessidade de desmembrar o Front-end do Back-end completamente.</p>
+<p>No momento tenho preferência com o <span>Front-end</span>, mas sei um pouco de tudo que preciso para concluir meus projetos sozinho, com ou sem <span>banco de dados</span>. O desenvolvimento de aplicativos mobile se trata de uma área onde possuo menos experiência. Meu <span>framework</span> favorito é o <span>Next.js</span>, com ele posso implantar o ecossistema dos meus projetos de forma otimizada e sem precisar separar o Front-end do Back-end completamente.</p>
 
 <pre>
 C:\projects\l-marcel> <span>yarn</span> dev
