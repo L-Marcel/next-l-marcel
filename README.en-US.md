@@ -23,13 +23,13 @@
   <img src="https://readme-typing-svg.demolab.com?font=Inter&duration=4000&pause=1500&color=EB513B&vCenter=true&width=435&height=25&lines=I'm+happy+to+see+you+here;I+hope+you+find+what+you're+looking+for;There+is+always+room+to+dream;Here+is+one+of+the+places+where+I+dream;There+are+certainly+many+defects;But+they+aren't+the+first;...nor+the+lasts" alt="Typing SVG" />
 </div>
 
-<p>I'm 20 years old, I live in Brazil (Macau - RN), and I finished technical high school in informatics at <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> in 2022, even receiving an academic honor. During this period I became a professional in web development with technologies such as <a href="https://reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a>, and <a href="https://nodejs.org/en" target="__blank__">Node.js</a>. After finishing <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Rocketseat's Ignite</a> course I got a <span>full scholarship</span> in <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
+<p>I'm 20 years old, I live in Brazil (Macau - RN), and I finished technical high school in informatics at <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> in 2022, even receiving an academic honor. During this period I became a professional in web development with technologies such as <a href="https://reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a>, and <a href="https://nodejs.org/en" target="__blank__">Node.js</a>. After finishing the <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Rocketseat's Ignite</a> course I got a <span>full scholarship</span> in <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
 
 <pre>
 C:\projects> <span>yarn</span> create next-app --typescript l-marcel
 </pre>
 
-<p>At the moment I prefer the <span>Front-end</span>, but I know a bit of everything I need to complete my projects by myself, with database or not. Mobile application development is an area where I have less experience. My favorite <span>framework</span> is Next.js, with he I can deploy the ecosystem of my projects in an optimized way and without need to separate the Front-end and the Back-end completely.</p>
+<p>At the moment I prefer the <span>Front-end</span>, but I know a little bit of everything I need to complete my projects by myself, with database or not. Mobile application development is an area where I have less experience. My favorite <span>framework</span> is Next.js, with he I can deploy the ecosystem of my projects in an optimized way and without need to separate the Front-end and the Back-end completely.</p>
 
 <pre>
 C:\projects\l-marcel> <span>yarn</span> dev
