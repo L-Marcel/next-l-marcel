@@ -60,9 +60,21 @@ export interface GithubRepositoryData  {
 export type GithubGetReposOptions = {
   reposPerPage?: number;
   initialPage?: number;
-  repos?: Repository[];
+  repositories?: Repository[];
   getLanguages?: boolean;
   locale?: string;
+};
+
+export type GithubGetRepoOptions = {
+  repositoryName: string;
+  getLanguages?: boolean;
+  locale?: string;
+};
+
+export type GithubGetRepoData = {
+  repository: Repository;
+  readme: string;
+  demoVideoURL: string;
 };
 
 export class Github {
@@ -91,13 +103,13 @@ export class Github {
     return buf.toString();
   }
 
-  static async getReadme(locale: string, repo = "l-marcel/l-marcel") {
-    return await this.api
-      .get(`repos/${repo}/contents/README${locale === "en-us"? ".en-US":""}.md`)
+  static async getReadme(locale: string, repository = "l-marcel/l-marcel") {
+    let readme = await this.api
+      .get(`repos/${repository}/contents/README${locale === "en-us"? ".en-US":""}.md`)
       .then(res => this.getReadmeContent(res))
       .catch(async() => {
         return await this.api
-          .get(`repos/${repo}/contents/readme${locale === "en-us"? ".en-US":""}.md`)
+          .get(`repos/${repository}/contents/readme${locale === "en-us"? ".en-US":""}.md`)
           .then(res => this.getReadmeContent(res))
           .catch(async() => {
             return await this.api
@@ -105,11 +117,18 @@ export class Github {
               .then(res => this.getReadmeContent(res));
           });
       });
+
+    readme = readme.replace("<div id=\"repository-buttons\"/>", `<a class="navigation-link" href="https://github.com/${repository}" target="__blank__">
+    ${locale !== "pt-br"? "repository":"repositório"}
+</a>
+<span id="only-if-not-last">•</span>`);
+    
+    return readme;
   }
 
-  static async getDemoVideoURL(repo = "l-marcel/l-marcel") {
+  static async getDemoVideoURL(repository = "l-marcel/l-marcel") {
     return await this.api
-      .get(`repos/${repo}/contents/public/demo.mp4`)
+      .get(`repos/${repository}/contents/public/demo.mp4`)
       .then((res) => res.data.download_url)
       .catch(() => null);
   }
@@ -134,7 +153,6 @@ export class Github {
       return name;
     }
   }
-
   
   private static async getRepositoryLanguages(languageUrl: string) {
     return await this.api.get(languageUrl).then(res => res.data).catch(() => null);
@@ -143,7 +161,7 @@ export class Github {
   static async getRepositories({ 
     reposPerPage = 50, 
     initialPage = 1,
-    repos = [],
+    repositories = [],
     getLanguages = false,
     locale = "pt-br"
   }: GithubGetReposOptions): Promise<Repository[]> {
@@ -221,18 +239,97 @@ export class Github {
       return [] as Repository[];
     });
   
-    const reposListLength = repos.length + pageRepos.length;
+    const reposListLength = repositories.length + pageRepos.length;
   
     if(Math.floor(reposListLength/initialPage) >= reposPerPage) {
       return await this.getRepositories({ 
         reposPerPage, 
         initialPage: initialPage + 1, 
-        repos: [ ...repos, ...pageRepos ],
+        repositories: [ ...repositories, ...pageRepos ],
         getLanguages,
         locale
       });
     }
   
-    return [ ...repos, ...pageRepos ];
+    return [ ...repositories, ...pageRepos ];
+  }
+
+  static async getRepository({ 
+    repositoryName,
+    getLanguages = false,
+    locale = "pt-br"
+  }: GithubGetRepoOptions): Promise<GithubGetRepoData> {
+    const url = "https://api.github.com/repos/l-marcel/";
+  
+    const repository = await this.api.get<GithubRepositoryData>(`${url}${repositoryName}`).then((res) => {
+      const repo = res.data;
+      return {
+        id: repo.id,
+        name: repo?.name,
+        fullname: repo.full_name,
+        description: repo.description,
+        fork: repo.fork,
+        template: repo.is_template,
+        url: repo.url,
+        github: repo.svn_url,
+        languagesUrl: repo.languages_url,
+        language: repo.language,
+        branch: repo.default_branch,
+        license: repo.license?.name ?? null,
+        _filtered: true,
+      } as Repository;
+    });
+  
+    const config: Config = await this.raw.get(`${repository.fullname}/${repository.branch}/l-marcel.config.json`)
+      .then(config => config.data).catch(() => ({}));
+
+    const nameAlreadyDefined = !!config?.name;
+
+    if(locale === "pt-br" && config?.translatedDescription) {
+      repository.description = config?.translatedDescription;
+    } else if(locale === "pt-br") {
+      repository.description = "";
+    }
+    
+    if(!config.name) config.name = repository?.name ?? "";
+    if(!config.icon) config.icon = repository?.language ?? "default";
+    if(!config.progress) config.progress = 0;
+    if(!config.technologies) config.technologies = [];
+
+    if(config.pinned !== true && config.pinned !== false) config.pinned = false;
+    if(config.icon !== "self" && config.technologies.length > 0) config.icon = config.technologies[0];
+
+    const languageIsIncluded = config.technologies.includes(repository.language);
+
+    if(!languageIsIncluded && repository.language) config.technologies.push(repository.language);
+
+    const haveTypeScript = config.technologies.includes("TypeScript");
+    const notHaveJavaScript = !config.technologies.includes("JavaScript");
+
+    if(haveTypeScript && notHaveJavaScript) config.technologies.push("JavaScript");
+
+    config.technologies = Array.from(new Set(config.technologies)) as string[];
+
+    const badges = repository.description?.match(/\[+.+\]/g);
+  
+    if(badges) {
+      repository.badge = badges[0].replace(/\[/g, "").replace(/\]/g, "");
+      repository.description = repository.description?.replace(/\[+.+\]/g, "");
+    }
+
+    const newName = config.name;
+
+    repository.importedConfig = config;
+    repository.formattedName = nameAlreadyDefined? newName:this.getFormattedRepositoryName(newName);
+
+    repository.languages = getLanguages && !repository.fork? await this.getRepositoryLanguages(repository.languagesUrl):null;
+
+
+    let readme: string = await Github.getReadme(locale ?? "pt-br", `l-marcel/${repositoryName}`);
+    readme = readme.replace("<span id=\"repository-name\"/>", `<span>${repositoryName}</span>`);
+
+    const demoVideoURL = await Github.getDemoVideoURL(`l-marcel/${repositoryName}`);
+
+    return { repository, readme, demoVideoURL };
   }
 }

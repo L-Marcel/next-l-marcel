@@ -68,3 +68,5 @@ export const ReturnButtonContainer = tw.button `
   focus-visible:text-gray-700
   focus-defined
 `;
+
+export const TechnologiesButtonContainer = tw(ReturnButtonContainer)``;

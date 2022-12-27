@@ -16,6 +16,7 @@ import { Profile } from "../components/Profile";
 import { Github } from "../services/Github";
 import { DemoVideoContainer, FirstSection } from "../styles/document/styles";
 import Image from "next/image";
+import { technologies } from "../constants/technologies";
 
 export type MarkdownComponents = Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents>;
 export interface ResumeProps {
@@ -23,11 +24,13 @@ export interface ResumeProps {
   updatedAt: string;
   withProfile: boolean;
   name?: string;
+  technologies?: string[];
   demoVideoURL: string | null;
 }
 
 function Resume({
   data,
+  technologies,
   withProfile,
   updatedAt,
   demoVideoURL = null
@@ -54,7 +57,8 @@ function Resume({
             a: MarkdownLink,
             pre: MarkdownCode,
             div: ({ ...rest }) => <MarkdownSections 
-              showReturnButton={!withProfile} 
+              showReturnButton={!withProfile}
+              currentRepositoryTechnologies={technologies}
               {...rest}
             />,
             ul: MarkdownList,

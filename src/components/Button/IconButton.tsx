@@ -28,7 +28,7 @@ export function IconButton({
         {...rest}
       >
         <Icon
-          className={(iconClassName ?? "") + " duration-100"} 
+          className={(iconClassName ?? "") + " duration-75"} 
           name={icon} 
           title={title} 
           withoutTooltip
@@ -44,7 +44,7 @@ export function IconButton({
         {...rest}
       >
         <Icon
-          className="duration-100" 
+          className="duration-75" 
           name={icon}
           withoutTooltip
         />

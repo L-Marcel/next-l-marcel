@@ -58,21 +58,29 @@ export const getStaticProps: GetStaticProps = async({ locale, params }) => {
     };
   }
 
-  let data: string = await Github.getReadme(locale ?? "pt-br", `l-marcel/${params?.name}`);
+  const { repository, readme, demoVideoURL } = await Github.getRepository({
+    repositoryName: params?.name,
+    locale: locale ?? "pt-br",
+    getLanguages: true
+  });
+  
+  const uniqueTechnologies = new Set<string>();
+  const currentTechnologies = repository.importedConfig?.technologies;
+
+  if(currentTechnologies) {
+    for(const t in currentTechnologies) {
+      uniqueTechnologies.add(currentTechnologies[t].toLowerCase());
+    }
+  }
+
+  const technologies = Array.from(uniqueTechnologies);
+  
   const updatedAt = new Date().toString();
-
-  data = data.replace("<div id=\"repository-buttons\"/>", `<a class="navigation-link" href="https://github.com/l-marcel/${params?.name}" target="__blank__">
-  ${locale !== "pt-br"? "repository":"repositório"}
-</a>
-<span id="only-if-not-last">•</span>`);
-
-  data = data.replace("<span id=\"repository-name\"/>", `<span>${params?.name}</span>`);
-
-  const demoVideoURL = await Github.getDemoVideoURL(`l-marcel/${params?.name}`);
 
   return {
     props: {
-      data,
+      data: readme,
+      technologies,
       updatedAt,
       name: params?.name,
       demoVideoURL
