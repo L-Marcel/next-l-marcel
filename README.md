@@ -1,6 +1,6 @@
 <div valing="top">
   <h1>Olá, sou <span>Lucas Marcel</span></h1>
-  <p>Um desenvolvedor web brasileiro especializado em <span>TypeScript</span> e que é entusiasta do <span>Next.js</span>.</p>
+  <p>Um desenvolvedor fullstack especializado em <span>TypeScript</span> e que é entusiasta do <span>Next.js</span>.</p>
   <nav>
     <div id="repository-buttons"/>
     <a class="navigation-link disabled" href="https://github.com/L-Marcel/l-marcel/blob/main/README.en-US.md" target="__blank__">
@@ -11,8 +11,8 @@
       figma
     </a>
     <span>•</span>
-    <a class="navigation-link" href="https://l-marcel.vercel.app/resume.pdf" target="__blank__">
-      baixar currículo
+    <a class="navigation-link" href="https://l-marcel.vercel.app/curriculo.pdf" target="__blank__">
+      baixar curriculo
     </a>
   </nav>
 </div>
@@ -20,22 +20,22 @@
 <br/>
 
 <div id="just-github">
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&duration=4000&pause=1500&color=EB513B&vCenter=true&width=435&height=25&lines=Estou+feliz+em+v%C3%AA-lo+por+aqui;Espero+que+encontre+o+que+procura;H%C3%A1+sempre+espa%C3%A7o+para+sonhar;Aqui+%C3%A9+um+dos+lugares+onde+sonho;Certamente+h%C3%A1+muitos+defeitos;Mas+n%C3%A3o+s%C3%A3o+os+primeiros;...nem+os+%C3%BAltimos" alt="Typing SVG"/>
+  <img src="https://readme-typing-svg.demolab.com/?font=Inter&duration=4000&pause=1500&color=EB513B&vCenter=true&width=435&height=25&lines=Estou+feliz+em+v%C3%AA-lo+por+aqui;Espero+que+encontre+o+que+procura;H%C3%A1+sempre+espa%C3%A7o+para+sonhar;Aqui+%C3%A9+um+dos+lugares+onde+sonho;Certamente+h%C3%A1+muitos+defeitos;Mas+n%C3%A3o+s%C3%A3o+os+primeiros;...nem+os+%C3%BAltimos" alt="Typing SVG"/>
 </div>
 
-<p>Tenho 20 anos, moro no Brasil (Macau - RN) e terminei o ensino médio técnico em informática no <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> em 2022, recebendo inclusive, uma láurea acadêmica. Nesse período eu me profissionalizei no desenvolvimento web com tecnologias como o <a href="https://pt-br.reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> and <a href="https://nodejs.org/pt-br" target="__blank__">Node.js</a>. Após terminar o curso <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Ignite</a> da <a href="https://www.rocketseat.com.br" target="__blank__">Rocketseat</a>, também consegui uma <span>bolsa de estudos completa</span> no <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
+<p>Tenho 20 anos, moro no Brasil (Macau - RN) e terminei o ensino médio técnico em informática no <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> em 2022, recebendo, inclusive, uma láurea acadêmica. Nesse período me profissionalizei no desenvolvimento web com tecnologias como o <a href="https://pt-br.reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> e <a href="https://nodejs.org/pt-br" target="__blank__">Node.js</a>. Após terminar o curso <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Ignite</a> da <a href="https://www.rocketseat.com.br" target="__blank__">Rocketseat</a> consegui uma <span>bolsa de estudos completa</span> no <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
 
 <pre>
 C:\projects> <span>yarn</span> create next-app --typescript l-marcel
 </pre>
 
-<p>No momento tenho preferência com o <span>Front-end</span>, mas sei um pouco de tudo que preciso para concluir meus projetos sozinho (incluindo o processo de desenvolvimento do <span>Back-end</span>). Meu <span>framework</span> favorito é o <span>Next.js</span>. Alguns de seus recursos, principalmente as abordagens de renderização de páginas, permitem uma melhor <span>experiência do usuário</span> que se adapta a uma variedade de casos de uso. Além disso, usando serverless functions, posso implantar o ecossistema dos meus pequenos projetos de forma prática e rápida sem a necessidade de desmembrar o Front-end do Back-end completamente.</p>
+<p>No momento tenho preferência com o <span>Front-end</span>, mas sei um pouco de tudo que preciso para concluir meus projetos sozinho, com ou sem <span>banco de dados</span>. O desenvolvimento de aplicativos mobile se trata de uma área onde possuo menos experiência. Meu <span>framework</span> favorito é o <span>Next.js</span>, com ele posso implantar o ecossistema dos meus projetos de forma otimizada e sem precisar separar o Front-end do Back-end completamente.</p>
 
 <pre>
 C:\projects\l-marcel> <span>yarn</span> dev
 </pre>
 
-<p>Há quatro anos (em <span>2018</span>), tive minha primeira experiência com programação. Python foi incrível, mas eu amo muito mais o JavaScript. E hoje continuo disposto a expandir minhas habilidades e aprender coisas novas como antes, dando continuidade aos meus estudos.</p>
+<p>Comecei a programar em <span>2018</span> e hoje continuo disposto a expandir minhas habilidades e aprender coisas novas como antes, dando continuidade aos meus estudos.</p>
 
 <div id="technologies"></div>
 
@@ -57,6 +57,7 @@ C:\projects\l-marcel> <span>yarn</span> dev
       <li id="checked"><p>Raciocínio rápido;</p></li>
       <li id="checked"><p>Dedicação;</p></li>
       <li id="checked"><p>Aprendizado constante;</p></li>
+      <li id="checked"><p>Comunicação;</p></li>
       <li id="checked"><p>Objetividade;</p></li>
       <li id="checked"><p>Flexibilidade.</p></li>
     </ul>

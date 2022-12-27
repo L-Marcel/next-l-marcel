@@ -1,6 +1,6 @@
 <div valing="top">
   <h1>Hello, I'm <span>Lucas Marcel</span></h1>
-  <p>A Brazilian web developer who specializes in <span>TypeScript</span> and is a <span>Next.js</span> enthusiast.</p>
+  <p>A fullstack developer who specializes in <span>TypeScript</span> and is a <span>Next.js</span> enthusiast.</p>
   <nav>
     <div id="repository-buttons"/>
     <a class="navigation-link disabled" href="https://github.com/L-Marcel/l-marcel/blob/main/README.md" target="__blank__">
@@ -23,19 +23,19 @@
   <img src="https://readme-typing-svg.demolab.com?font=Inter&duration=4000&pause=1500&color=EB513B&vCenter=true&width=435&height=25&lines=I'm+happy+to+see+you+here;I+hope+you+find+what+you're+looking+for;There+is+always+room+to+dream;Here+is+one+of+the+places+where+I+dream;There+are+certainly+many+defects;But+they+aren't+the+first;...nor+the+lasts" alt="Typing SVG" />
 </div>
 
-<p>I'm 20 years old, I live in Brazil (Macau - RN), and I finished technical high school in informatics at <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> in 2022, even receiving an academic honor. During this period I became a professional in web development with technologies such as <a href="https://reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a> and <a href="https://nodejs.org/en" target="__blank__">Node.js</a>. After finishing <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Rocketseat's Ignite</a> course I got a <span>full scholarship</span> in <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
+<p>I'm 20 years old, I live in Brazil (Macau - RN), and I finished technical high school in informatics at <a href="https://portal.ifrn.edu.br/campus/macau" target="__blank__">IFRN - MC</a> in 2022, even receiving an academic honor. During this period I became a professional in web development with technologies such as <a href="https://reactjs.org" target="__blank__">React.js</a>, <a href="https://nextjs.org" target="__blank__">Next.js</a>, and <a href="https://nodejs.org/en" target="__blank__">Node.js</a>. After finishing the <a href="https://lp.rocketseat.com.br/ignite" target="__blank__">Rocketseat's Ignite</a> course I got a <span>full scholarship</span> in <a href="https://dowhile.io/espera" target="__blank__">Do While 2021</a>.</p>
 
 <pre>
 C:\projects> <span>yarn</span> create next-app --typescript l-marcel
 </pre>
 
-<p>At the moment I prefer the <span>Front-end</span>, but I know little bit of everything I need to complete my projects by myself (including the <span>Back-end</span> development process). My favorite <span>framework</span> is Next.js. Some of his features, particularly the page rendering approaches, allow for a better <span>user experience</span> that fits a variety of use cases. In addition, using serverless functions I can deploy the ecosystem of my small projects in a practical and fast way without the necessity of breaking apart the Front-end of the Back-end.</p>
+<p>At the moment I prefer the <span>Front-end</span>, but I know a little bit of everything I need to complete my projects by myself, with database or not. Mobile application development is an area where I have less experience. My favorite <span>framework</span> is Next.js, with he I can deploy the ecosystem of my projects in an optimized way and without need to separate the Front-end and the Back-end completely.</p>
 
 <pre>
 C:\projects\l-marcel> <span>yarn</span> dev
 </pre>
 
-<p>Four years ago (in <span>2018</span>), I had my first experience with programming. Python was incredible, but I love JavaScript so much more. And today I'm still willing to expand my skills and learn new things as before, continuing my studies.</p>
+<p>I started to program in <span>2018</span>, and today I'm still willing to expand my skills and learn new things as before, continuing my studies.</p>
 
 <div id="technologies"></div>
 
@@ -57,6 +57,7 @@ C:\projects\l-marcel> <span>yarn</span> dev
       <li id="checked"><p>Fast reasoning;</p></li>
       <li id="checked"><p>Dedication;</p></li>
       <li id="checked"><p>Constant learning;</p></li>
+      <li id="checked"><p>Communication;</p></li>
       <li id="checked"><p>Objectivity;</p></li>
       <li id="checked"><p>Flexibility.</p></li>
     </ul>
