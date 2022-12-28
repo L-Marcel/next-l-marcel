@@ -3,6 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 import Resume, { ResumeProps } from "..";
 import { useRouter } from "../../context/hooks/useRouter";
 import { Github } from "../../services/Github";
+import { ReadStream } from "tty";
 
 
 export function Project(props: ResumeProps) {
@@ -58,29 +59,24 @@ export const getStaticProps: GetStaticProps = async({ locale, params }) => {
     };
   }
 
-  const { repository, readme, demoVideoURL } = await Github.getRepository({
+  const { readme, demoVideoURL } = await Github.getRepositoryDocs({
     repositoryName: params?.name,
     locale: locale ?? "pt-br",
-    getLanguages: true
+    replaceRules: (readme) => {
+      readme = readme.replace("<span id=\"repository-name\"/>", `<span>${params?.name}</span>`);
+      readme = readme.replace("<div id=\"repository-buttons\"/>", `<a class="navigation-link" href="https://github.com/l-marcel/${params?.name}" target="__blank__">
+  ${locale !== "pt-br"? "repository":"repositório"}
+</a>
+<span id="only-if-not-last">•</span>`);
+      return readme;
+    },
   });
-  
-  const uniqueTechnologies = new Set<string>();
-  const currentTechnologies = repository.importedConfig?.technologies;
-
-  if(currentTechnologies) {
-    for(const t in currentTechnologies) {
-      uniqueTechnologies.add(currentTechnologies[t].toLowerCase());
-    }
-  }
-
-  const technologies = Array.from(uniqueTechnologies);
   
   const updatedAt = new Date().toString();
 
   return {
     props: {
       data: readme,
-      technologies,
       updatedAt,
       name: params?.name,
       demoVideoURL

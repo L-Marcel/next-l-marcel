@@ -65,14 +65,13 @@ export type GithubGetReposOptions = {
   locale?: string;
 };
 
-export type GithubGetRepoOptions = {
+export type GithubGetRepoDocsOptions = {
   repositoryName: string;
-  getLanguages?: boolean;
   locale?: string;
+  replaceRules?: (readme: string) => string;
 };
 
-export type GithubGetRepoData = {
-  repository: Repository;
+export type GithubGetRepoDocsData = {
   readme: string;
   demoVideoURL: string;
 };
@@ -103,27 +102,28 @@ export class Github {
     return buf.toString();
   }
 
+  private static async getErrorReadme(locale: string) {
+    return await this.api
+      .get(`repos/l-marcel/l-marcel/contents/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
+      .then(res => this.getReadmeContent(res));
+  }
+
   static async getReadme(locale: string, repository = "l-marcel/l-marcel") {
-    let readme = await this.api
+    return await this.api
+      //en-US
       .get(`repos/${repository}/contents/README${locale === "en-us"? ".en-US":""}.md`)
       .then(res => this.getReadmeContent(res))
       .catch(async() => {
-        return await this.api
-          .get(`repos/${repository}/contents/readme${locale === "en-us"? ".en-US":""}.md`)
-          .then(res => this.getReadmeContent(res))
-          .catch(async() => {
-            return await this.api
-              .get(`repos/l-marcel/l-marcel/contents/README_ERROR${locale === "en-us"? ".en-US":""}.md`)
-              .then(res => this.getReadmeContent(res));
-          });
-      });
+        if(locale === "en-us") {
+          return await this.api
+            //en-us
+            .get(`repos/${repository}/contents/readme${locale === "en-us"? ".en-us":""}.md`)
+            .then(res => this.getReadmeContent(res))
+            .catch(async() => await this.getErrorReadme(locale));
+        }
 
-    readme = readme.replace("<div id=\"repository-buttons\"/>", `<a class="navigation-link" href="https://github.com/${repository}" target="__blank__">
-    ${locale !== "pt-br"? "repository":"repositório"}
-</a>
-<span id="only-if-not-last">•</span>`);
-    
-    return readme;
+        return await this.getErrorReadme(locale);
+      });
   }
 
   static async getDemoVideoURL(repository = "l-marcel/l-marcel") {
@@ -254,82 +254,17 @@ export class Github {
     return [ ...repositories, ...pageRepos ];
   }
 
-  static async getRepository({ 
+  static async getRepositoryDocs({ 
     repositoryName,
-    getLanguages = false,
-    locale = "pt-br"
-  }: GithubGetRepoOptions): Promise<GithubGetRepoData> {
-    const url = "https://api.github.com/repos/l-marcel/";
-  
-    const repository = await this.api.get<GithubRepositoryData>(`${url}${repositoryName}`).then((res) => {
-      const repo = res.data;
-      return {
-        id: repo.id,
-        name: repo?.name,
-        fullname: repo.full_name,
-        description: repo.description,
-        fork: repo.fork,
-        template: repo.is_template,
-        url: repo.url,
-        github: repo.svn_url,
-        languagesUrl: repo.languages_url,
-        language: repo.language,
-        branch: repo.default_branch,
-        license: repo.license?.name ?? null,
-        _filtered: true,
-      } as Repository;
-    });
-  
-    const config: Config = await this.raw.get(`${repository.fullname}/${repository.branch}/l-marcel.config.json`)
-      .then(config => config.data).catch(() => ({}));
-
-    const nameAlreadyDefined = !!config?.name;
-
-    if(locale === "pt-br" && config?.translatedDescription) {
-      repository.description = config?.translatedDescription;
-    } else if(locale === "pt-br") {
-      repository.description = "";
-    }
-    
-    if(!config.name) config.name = repository?.name ?? "";
-    if(!config.icon) config.icon = repository?.language ?? "default";
-    if(!config.progress) config.progress = 0;
-    if(!config.technologies) config.technologies = [];
-
-    if(config.pinned !== true && config.pinned !== false) config.pinned = false;
-    if(config.icon !== "self" && config.technologies.length > 0) config.icon = config.technologies[0];
-
-    const languageIsIncluded = config.technologies.includes(repository.language);
-
-    if(!languageIsIncluded && repository.language) config.technologies.push(repository.language);
-
-    const haveTypeScript = config.technologies.includes("TypeScript");
-    const notHaveJavaScript = !config.technologies.includes("JavaScript");
-
-    if(haveTypeScript && notHaveJavaScript) config.technologies.push("JavaScript");
-
-    config.technologies = Array.from(new Set(config.technologies)) as string[];
-
-    const badges = repository.description?.match(/\[+.+\]/g);
-  
-    if(badges) {
-      repository.badge = badges[0].replace(/\[/g, "").replace(/\]/g, "");
-      repository.description = repository.description?.replace(/\[+.+\]/g, "");
-    }
-
-    const newName = config.name;
-
-    repository.importedConfig = config;
-    repository.formattedName = nameAlreadyDefined? newName:this.getFormattedRepositoryName(newName);
-
-    repository.languages = getLanguages && !repository.fork? await this.getRepositoryLanguages(repository.languagesUrl):null;
-
-
+    locale = "pt-br",
+    replaceRules
+  }: GithubGetRepoDocsOptions): Promise<GithubGetRepoDocsData> {
     let readme: string = await Github.getReadme(locale ?? "pt-br", `l-marcel/${repositoryName}`);
-    readme = readme.replace("<span id=\"repository-name\"/>", `<span>${repositoryName}</span>`);
 
     const demoVideoURL = await Github.getDemoVideoURL(`l-marcel/${repositoryName}`);
 
-    return { repository, readme, demoVideoURL };
+    readme = replaceRules? replaceRules(readme):readme;
+
+    return { readme, demoVideoURL };
   }
 }

@@ -16,7 +16,6 @@ import { Profile } from "../components/Profile";
 import { Github } from "../services/Github";
 import { DemoVideoContainer, FirstSection } from "../styles/document/styles";
 import Image from "next/image";
-import { technologies } from "../constants/technologies";
 
 export type MarkdownComponents = Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents>;
 export interface ResumeProps {
@@ -24,13 +23,11 @@ export interface ResumeProps {
   updatedAt: string;
   withProfile: boolean;
   name?: string;
-  technologies?: string[];
   demoVideoURL: string | null;
 }
 
 function Resume({
   data,
-  technologies,
   withProfile,
   updatedAt,
   demoVideoURL = null
@@ -58,7 +55,6 @@ function Resume({
             pre: MarkdownCode,
             div: ({ ...rest }) => <MarkdownSections 
               showReturnButton={!withProfile}
-              currentRepositoryTechnologies={technologies}
               {...rest}
             />,
             ul: MarkdownList,
@@ -87,19 +83,23 @@ function Resume({
 }
 
 export const getStaticProps: GetStaticProps = async({ locale }) => {
-  let data = await Github.getReadme(locale ?? "pt-br");
   const updatedAt = new Date().toString();
 
-  data = data.replace("<div id=\"repository-buttons\"/>", `<a class="navigation-link" href="https://github.com/l-marcel/l-marcel" target="__blank__">
+  const { readme, demoVideoURL } = await Github.getRepositoryDocs({
+    repositoryName: "l-marcel",
+    locale: locale ?? "pt-br",
+    replaceRules: (readme) => {
+      readme = readme.replace("<div id=\"repository-buttons\"/>", `<a class="navigation-link" href="https://github.com/l-marcel/l-marcel" target="__blank__">
   ${locale !== "pt-br"? "repository":"repositório"}
 </a>
 <span id="only-if-not-last">•</span>`);
-
-  const demoVideoURL = await Github.getDemoVideoURL();
-
+      return readme;
+    },
+  });
+  
   return {
     props: {
-      data,
+      data: readme,
       updatedAt,
       withProfile: true,
       demoVideoURL
