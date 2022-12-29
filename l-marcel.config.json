@@ -9,9 +9,19 @@
   "technologies": [
     "Next.js",
     "React.js",
+    "Axios",
+    "Date FNS",
+    "Framer Motion",
     "Tailwind",
+    "React Markdown",
+    "Graph CMS",
+    "Graphql",
+    "React Icons",
+    "Zustand",
+    "Eslint",
     "Styled Components",
     "Headless UI",
+    "Sass",
     "HTML",
     "CSS"
   ]
