@@ -17,7 +17,7 @@
     "date-fns": "^2.29.1",
     "framer-motion": "^7.1.1",
     "graphql": "^16.6.0",
-    "graphql-request": "^4.3.0",
+    "graphql-request": "^5.1.0",
     "micro": "^9.4.1",
     "next": "^13.0.4",
     "next-seo": "^5.14.1",
