@@ -1,10 +1,10 @@
 import { HTMLAttributes } from "react";
-import { MarkdownCodeContainer, MarkwodnPreContainer } from "./styles";
+import { MarkdowmPreMainContainer, MarkwodnPreContainer } from "./styles";
 
 export function MarkdownCode(props: HTMLAttributes<HTMLPreElement>) {
   return (
-    <MarkwodnPreContainer>
-      <MarkdownCodeContainer {...props}/>
-    </MarkwodnPreContainer>
+    <MarkdowmPreMainContainer>
+      <MarkwodnPreContainer {...props}/>
+    </MarkdowmPreMainContainer>
   );
 }

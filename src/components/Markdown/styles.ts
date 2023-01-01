@@ -28,18 +28,17 @@ export const MarkdownBrContainer = tw.br`
   ignore-first-break
 `;
 
-export const MarkwodnPreContainer = tw.pre`
+export const MarkdowmPreMainContainer = tw.div`
   mx-12
   md:mx-16
   rounded-[15px]
   overflow-hidden
 `;
 
-export const MarkdownCodeContainer = tw.code`
+export const MarkwodnPreContainer = tw.pre`
   w-[calc(100%+2rem)]
   bg-white-500
   px-5
-  flex
   py-[0.875rem]
   dark:bg-gray-500
   scrollbar-thin 
