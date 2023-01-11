@@ -4500,9 +4500,9 @@ yoga-wasm-web@0.1.2:
   version "0.1.2"
   resolved "https://registry.npmjs.org/yoga-wasm-web/-/yoga-wasm-web-0.1.2.tgz"
 
-zustand@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.2.0.tgz#f6ef9e63794eda9b296979578538a6df6be3e1b0"
+zustand@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.3.1.tgz#76c47ef713c43763953f7a9e518f89efd898e3bb"
   dependencies:
     use-sync-external-store "1.2.0"
 
