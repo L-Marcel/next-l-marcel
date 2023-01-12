@@ -417,10 +417,6 @@
   version "2.0.6"
   resolved "https://registry.npmjs.org/@types/unist/-/unist-2.0.6.tgz"
 
-"@types/yoga-layout@1.9.2":
-  version "1.9.2"
-  resolved "https://registry.npmjs.org/@types/yoga-layout/-/yoga-layout-1.9.2.tgz"
-
 "@typescript-eslint/eslint-plugin@^5.48.0":
   version "5.48.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.48.0.tgz#54f8368d080eb384a455f60c2ee044e948a8ce67"
@@ -530,13 +526,13 @@
   version "0.1.6"
   resolved "https://registry.npmjs.org/@vercel/analytics/-/analytics-0.1.6.tgz"
 
-"@vercel/og@^0.0.21":
-  version "0.0.21"
-  resolved "https://registry.npmjs.org/@vercel/og/-/og-0.0.21.tgz"
+"@vercel/og@^0.0.26":
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/@vercel/og/-/og-0.0.26.tgz#df5936063d7f9be7a45caab7da9fe91f2b35ad3b"
   dependencies:
     "@resvg/resvg-wasm" "2.0.0-alpha.4"
-    satori "0.0.44"
-    yoga-wasm-web "0.1.2"
+    satori "0.0.46"
+    yoga-wasm-web "0.3.0"
 
 abbrev@^1.0.0:
   version "1.1.1"
@@ -3771,9 +3767,9 @@ sass@^1.57.1:
     immutable "^4.0.0"
     source-map-js ">=0.6.2 <2.0.0"
 
-satori@0.0.44:
-  version "0.0.44"
-  resolved "https://registry.npmjs.org/satori/-/satori-0.0.44.tgz"
+satori@0.0.46:
+  version "0.0.46"
+  resolved "https://registry.yarnpkg.com/satori/-/satori-0.0.46.tgz#ad1fd94df4dda172871104c2a6d9a5300ca6dab8"
   dependencies:
     "@shuding/opentype.js" "1.4.0-beta.0"
     css-background-parser "^0.1.0"
@@ -3781,7 +3777,7 @@ satori@0.0.44:
     css-to-react-native "^3.0.0"
     emoji-regex "^10.2.1"
     postcss-value-parser "^4.2.0"
-    yoga-layout-prebuilt "^1.10.0"
+    yoga-wasm-web "^0.3.0"
 
 scheduler@^0.23.0:
   version "0.23.0"
@@ -4490,15 +4486,9 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
 
-yoga-layout-prebuilt@^1.10.0:
-  version "1.10.0"
-  resolved "https://registry.npmjs.org/yoga-layout-prebuilt/-/yoga-layout-prebuilt-1.10.0.tgz"
-  dependencies:
-    "@types/yoga-layout" "1.9.2"
-
-yoga-wasm-web@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/yoga-wasm-web/-/yoga-wasm-web-0.1.2.tgz"
+yoga-wasm-web@0.3.0, yoga-wasm-web@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/yoga-wasm-web/-/yoga-wasm-web-0.3.0.tgz#b14493f35dccda41701524de80ff089fcda0b4ae"
 
 zustand@^4.3.1:
   version "4.3.1"
