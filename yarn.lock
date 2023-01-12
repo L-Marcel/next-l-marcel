@@ -526,9 +526,9 @@
     "@typescript-eslint/types" "5.48.1"
     eslint-visitor-keys "^3.3.0"
 
-"@vercel/analytics@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.npmjs.org/@vercel/analytics/-/analytics-0.1.6.tgz"
+"@vercel/analytics@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@vercel/analytics/-/analytics-0.1.7.tgz#ee6670ca3196bfd4a7e0d0da4cd4f6c72d30c0a4"
 
 "@vercel/og@^0.0.21":
   version "0.0.21"
