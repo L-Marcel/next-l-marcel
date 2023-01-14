@@ -74,7 +74,7 @@ function Resume({
             alt="A man coding..."
             width={812}
             height={612}
-            className="absolute -bottom-8 left-[45%] !h-[140%] opacity-60 md:left-[40%] lg:left-[25%] 2xl:left-[22%]"
+            className="absolute -bottom-[20%] left-[40%] !h-[140%] opacity-60 lg:left-[25%] 2xl:left-[22%]"
           />
         </DemoVideoContainer> }
       </section>
