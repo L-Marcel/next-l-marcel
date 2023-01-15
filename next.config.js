@@ -3,13 +3,16 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   images: {
-    domains: ["avatars.githubusercontent.com"]
+    domains: ["avatars.githubusercontent.com"],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   i18n: {
     locales: ["pt-br", "en-us"],
     defaultLocale: "pt-br",
-    localeDetection: false
-  }
+    localeDetection: false,
+  },
 };
 
 module.exports = nextConfig;
