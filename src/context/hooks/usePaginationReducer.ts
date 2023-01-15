@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { Pagination } from "../providers/reducers/pagination";
-import create from "zustand";
+import { create } from "zustand";
 import { createJSONStorage, persist, redux } from "zustand/middleware";
 
 const useZustandPaginationReducer = create(

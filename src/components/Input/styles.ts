@@ -147,6 +147,8 @@ export const CheckboxDisabledLabel = tw.p`
 export const OptionsKdb = tw.kbd`
   mx-1
   lowercase
+  hidden
+  md:inline
   bg-gray-700
   rounded-lg
   px-[5px]
