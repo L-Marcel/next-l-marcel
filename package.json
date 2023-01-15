@@ -14,7 +14,7 @@
     "@graphcms/utils": "^1.2.0",
     "@headlessui/react": "^1.7.7",
     "@vercel/analytics": "^0.1.6",
-    "@vercel/og": "^0.0.21",
+    "@vercel/og": "^0.0.27",
     "axios": "^1.2.2",
     "date-fns": "^2.29.3",
     "framer-motion": "^8.4.2",
