@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useMemo } from "react";
+import { ReactNode, useMemo } from "react";
 import { createContext } from "use-context-selector";
 import { Repository } from "../../services/Github";
 import { useFilterReducer } from "../hooks/useFilterReducer";
@@ -33,28 +33,17 @@ interface SearchProviderProps {
 export function SearchProvider({
   children,
   repositories,
-  technologies
+  technologies,
 }: SearchProviderProps) {
-  const {
-    filter,
-    setNames,
-    toggleOption,
-    changeProgressRange,
-    getFilteredRepositories
-  } = useFilterReducer({
-    technologies
-  });
+  const { filter, setNames, toggleOption, changeProgressRange, getFilteredRepositories } =
+    useFilterReducer({
+      technologies,
+    });
 
-  const {
-    pagination,
-    firstPage,
-    lastPage,
-    nextPage,
-    previousPage,
-    setPage
-  } = usePaginationReducer({
-    size: repositories.length
-  });
+  const { pagination, firstPage, lastPage, nextPage, previousPage, setPage } =
+    usePaginationReducer({
+      size: repositories.length,
+    });
 
   const filteredRepositories = useMemo(() => {
     return getFilteredRepositories(repositories);
@@ -69,13 +58,13 @@ export function SearchProvider({
         changeProgressRange,
 
         filteredRepositories,
-        
+
         pagination,
         nextPage,
         lastPage,
         previousPage,
         firstPage,
-        setPage
+        setPage,
       }}
     >
       {children}

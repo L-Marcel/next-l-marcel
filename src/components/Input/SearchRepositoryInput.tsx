@@ -4,7 +4,17 @@ import { useFilter } from "../../context/hooks/useFilter";
 import { usePagination } from "../../context/hooks/usePagination";
 import { useRouter } from "../../context/hooks/useRouter";
 import { Icon } from "../Icon";
-import { SearchBox, SearchInput, SearchInputIcon, SearchOption, SearchOptions } from "./styles";
+
+import {
+  SearchBox,
+  OptionsKdb,
+  SearchInput,
+  SearchInputIcon,
+  SearchOption,
+  SearchOptions,
+} from "./styles";
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 export type RepositoryBasicData = {
   name: string;
@@ -16,98 +26,183 @@ export interface SearchRepositoryInputProps {
   repositories?: RepositoryBasicData[];
 }
 
-export function SearchRepositoryInput({
-  repositories = []
-}: SearchRepositoryInputProps) {
+interface ZustandQuery {
+  query: string;
+  setQuery: (query: string) => void;
+}
+
+const useZustandQuery = create(
+  persist<ZustandQuery>(
+    (set) => {
+      return {
+        query: "",
+        setQuery: (query: string) => {
+          return set(() => {
+            return {
+              query,
+            };
+          });
+        },
+      };
+    },
+    {
+      name: "l-marcel-search",
+      storage: createJSONStorage(() => {
+        return sessionStorage;
+      }),
+      version: 1,
+    }
+  )
+);
+
+export function SearchRepositoryInput({ repositories = [] }: SearchRepositoryInputProps) {
   const { setNames } = useFilter();
   const { isNotPtBr } = useRouter();
   const { firstPage } = usePagination();
 
+  const [userWantsToSeeMainList, setUserWantsToSeeMainList] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
-  const [query, setQuery] = useState("");
+
+  const { query, setQuery } = useZustandQuery();
 
   const filteredRepositories = useMemo(() => {
     return query === ""
       ? repositories
-      : repositories? repositories.filter((repository) => {
-        const includesTheName = repository.name.toLowerCase().includes(query.toLowerCase());
-        const includesTheFormattedName = repository.formattedName?.toLowerCase().includes(query.toLowerCase());
+      : repositories
+      ? repositories.filter((repository) => {
+          const includesTheName = repository.name
+            .toLowerCase()
+            .includes(query.toLowerCase());
+          const includesTheFormattedName = repository.formattedName
+            ?.toLowerCase()
+            .includes(query.toLowerCase());
 
-        return includesTheName || includesTheFormattedName;
-      }):[];
+          return includesTheName || includesTheFormattedName;
+        })
+      : [];
   }, [query, repositories]);
 
   useEffect(() => {
-    setNames(filteredRepositories.map(repository => repository.name));
+    setNames(
+      filteredRepositories.map((repository) => {
+        return repository.name;
+      })
+    );
   }, [filteredRepositories, setNames]);
 
   function handleOnFocus() {
     setIsFocused(true);
+    setUserWantsToSeeMainList(false);
   }
 
   function handleOnBlur() {
     setIsFocused(false);
+    setUserWantsToSeeMainList(false);
   }
 
   function handleOnKeyUp(event: KeyboardEvent<HTMLInputElement>) {
     event.preventDefault();
   }
 
+  function handleOnPressEnter(
+    event: KeyboardEvent<HTMLInputElement>,
+    activeIndex: number | null
+  ) {
+    if (event.key === "Enter") {
+      handleOnBlur();
+      setUserWantsToSeeMainList(true);
+
+      const needComplete = activeIndex && activeIndex > 0;
+      if (!needComplete) {
+        event.preventDefault();
+      }
+    } else {
+      setUserWantsToSeeMainList(false);
+    }
+  }
+
   function handleOnChangeQuery(event: ChangeEvent<HTMLInputElement>) {
     setQuery(event.target.value);
+    setUserWantsToSeeMainList(false);
     firstPage();
   }
 
-  return (
-    <Combobox
-      as={SearchBox}
-      value={query} 
-      onChange={setQuery}
-    >
-      {({ open }) => {
-        const show = (open || isFocused) && filteredRepositories.length > 1;
+  function handleOnSelect(newQuery: string) {
+    setQuery(newQuery);
+    handleOnBlur();
+    setUserWantsToSeeMainList(true);
+  }
 
-        return (<>
-          <Transition
-            show={show}
-            enter="duration-[350ms] transition-all ease-in-out"
-            enterFrom="opacity-0 pointer-events-none"
-            enterTo="opacity-100 pointer-events-all"
-            leave="duration-[350ms] transition-all ease-in-out"
-            leaveFrom="opacity-100 pointer-events-all"
-            leaveTo="opacity-0 pointer-events-none"
-            className="custom-backdrop-blur fixed bottom-0 right-0 z-0 h-screen w-screen bg-[rgba(255,255,255,.3)] dark:bg-[rgba(0,0,0,.3)]"
-          />
-          <Combobox.Button className="relative w-full">
-            <SearchInputIcon 
-              name="search"
-              isFocused={show}
-              withoutTooltip
+  return (
+    <Combobox as={SearchBox} value={query} onChange={setQuery}>
+      {({ open, activeIndex }) => {
+        const show = (open || isFocused) && !userWantsToSeeMainList;
+
+        return (
+          <>
+            <Transition
+              show={show}
+              enter="duration-[350ms] transition-all ease-in-out"
+              enterFrom="opacity-0 pointer-events-none"
+              enterTo="opacity-100 pointer-events-all"
+              leave="duration-[350ms] transition-all ease-in-out"
+              leaveFrom="opacity-100 pointer-events-all"
+              leaveTo="opacity-0 pointer-events-none"
+              className="custom-backdrop-blur fixed bottom-0 right-0 z-0 h-screen w-screen bg-[rgba(255,255,255,.3)] dark:bg-[rgba(0,0,0,.3)]"
             />
-            <Combobox.Input
-              as={SearchInput}
-              placeholder={isNotPtBr? "Search by name":"Pesquisar por nome"}
-              onFocus={handleOnFocus}
-              onBlur={handleOnBlur}
-              onKeyUp={handleOnKeyUp} 
-              onChange={handleOnChangeQuery}
-            />
-          </Combobox.Button>
-          {(show && filteredRepositories.length >= 1) && (<Combobox.Options as={SearchOptions} static>
-            {filteredRepositories && filteredRepositories
-              .sort((a, b) => Number(b.isPinned) - Number(a.isPinned))
-              .map(({ name, formattedName, isPinned }) => (
-                <Combobox.Option as={SearchOption} key={name} value={name}>
-                  {isPinned && <Icon 
-                    name="flash" 
-                    className="ml-[-3px] text-primary-500" 
-                    withoutTooltip
-                  />}{formattedName ?? name}
-                </Combobox.Option>
-              ))}
-          </Combobox.Options>)}
-        </>);
-      }} 
+            <Combobox.Button onFocus={handleOnFocus} className="relative w-full">
+              <SearchInputIcon name="search" isFocused={show} withoutTooltip />
+              <Combobox.Input
+                as={SearchInput}
+                autoComplete="off"
+                placeholder={isNotPtBr ? "Search by name" : "Pesquisar por nome"}
+                onKeyUp={handleOnKeyUp}
+                onFocusCapture={handleOnFocus}
+                onFocus={handleOnFocus}
+                onBlur={handleOnBlur}
+                onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
+                  return handleOnPressEnter(event, activeIndex);
+                }}
+                onChange={handleOnChangeQuery}
+              />
+            </Combobox.Button>
+            {show && filteredRepositories.length >= 1 && (
+              <Combobox.Options as={SearchOptions} static>
+                {filteredRepositories &&
+                  filteredRepositories
+                    .sort((a, b) => {
+                      return Number(b.isPinned) - Number(a.isPinned);
+                    })
+                    .map(({ name, formattedName, isPinned }, index) => {
+                      return (
+                        <Combobox.Option
+                          onClick={() => {
+                            handleOnSelect(name);
+                          }}
+                          as={SearchOption}
+                          key={name}
+                          value={name}
+                        >
+                          {isPinned && (
+                            <Icon
+                              name="flash"
+                              className="mt-[.2rem] ml-[-3px] text-primary-500"
+                              withoutTooltip
+                            />
+                          )}
+                          {formattedName ?? name}
+                          <div className="ml-auto pl-5">
+                            <OptionsKdb>tab</OptionsKdb>
+                            {index > 0 && <OptionsKdb>enter</OptionsKdb>}
+                          </div>
+                        </Combobox.Option>
+                      );
+                    })}
+              </Combobox.Options>
+            )}
+          </>
+        );
+      }}
     </Combobox>
   );
 }

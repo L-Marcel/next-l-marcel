@@ -1,84 +1,106 @@
 import { useCallback, useEffect } from "react";
 import { Repository } from "../../services/Github";
 import arrayToData from "../../utils/arrayToData";
-import create from "zustand";
-import { persist, redux } from "zustand/middleware";
+import { create } from "zustand";
+import { createJSONStorage, persist, redux } from "zustand/middleware";
 import { Filter, FilterToggleOptionActionGroups } from "../providers/reducers/filter";
 
 export interface UseFilterReducerProps {
   technologies?: string[];
 }
 
-const useZustandFilterReducer = create(persist(redux(Filter.reducer, {
-  names: [],
-  progress: {
-    min: 0,
-    max: 100
-  },
-  have: {
-    _some: false,
-    none: false,
-    description: false,
-    documentation: false,
-    figma: false,
-  },
-  as: {
-    _some: false,
-    common: false,
-    highlight: false,
-    fork: false,
-    template: false,
-  },
-  status: {
-    _some: false,
-    finished: false,
-    deployed: false,
-    licensed: false,
-    progress: false,
-    canceled: false
-  },
-  technologies: {
-    _some: false
-  },
-}), {
-  name: "l-marcel-filter",
-  getStorage: () => sessionStorage,
-  version: 1
-}));
+const useZustandFilterReducer = create(
+  persist(
+    redux(Filter.reducer, {
+      names: [],
+      progress: {
+        min: 0,
+        max: 100,
+      },
+      have: {
+        _some: false,
+        none: false,
+        description: false,
+        documentation: false,
+        figma: false,
+      },
+      as: {
+        _some: false,
+        common: false,
+        highlight: false,
+        fork: false,
+        template: false,
+      },
+      status: {
+        _some: false,
+        finished: false,
+        deployed: false,
+        licensed: false,
+        progress: false,
+        canceled: false,
+      },
+      technologies: {
+        _some: false,
+      },
+    }),
+    {
+      name: "l-marcel-filter",
+      storage: createJSONStorage(() => {
+        return sessionStorage;
+      }),
+      version: 1,
+    }
+  )
+);
 
-export function useFilterReducer({
-  technologies = []
-}: UseFilterReducerProps) {
+export function useFilterReducer({ technologies = [] }: UseFilterReducerProps) {
   const initialTechnologies = arrayToData<boolean>(technologies, false);
 
-  const filter = useZustandFilterReducer((state) => state);
-  const dispatch = useZustandFilterReducer((state) => state.dispatch);
+  const filter = useZustandFilterReducer((state) => {
+    return state;
+  });
 
-  const setTechnologies = useCallback((newTechnologies: {
-    [key: string]: boolean;
-  }) => {
-    dispatch(Filter.setTechnologies(newTechnologies));
-  }, [dispatch]);
+  const dispatch = useZustandFilterReducer((state) => {
+    return state.dispatch;
+  });
+
+  const setTechnologies = useCallback(
+    (newTechnologies: { [key: string]: boolean }) => {
+      dispatch(Filter.setTechnologies(newTechnologies));
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
     setTechnologies(initialTechnologies);
   }, []);
 
-  const setNames = useCallback((names: string[]) => {
-    dispatch(Filter.setNames(names));
-  }, [dispatch]);
+  const setNames = useCallback(
+    (names: string[]) => {
+      dispatch(Filter.setNames(names));
+    },
+    [dispatch]
+  );
 
-  const toggleOption = useCallback((option: string, group: FilterToggleOptionActionGroups) => {
-    dispatch(Filter.toggleOption(option, group));
-  }, [dispatch]);
-  
-  const changeProgressRange = useCallback((min: number, max: number) => {
-    dispatch(Filter.changeProgressRange(min, max));
-  }, [dispatch]);
-  
+  const toggleOption = useCallback(
+    (option: string, group: FilterToggleOptionActionGroups) => {
+      dispatch(Filter.toggleOption(option, group));
+    },
+    [dispatch]
+  );
+
+  const changeProgressRange = useCallback(
+    (min: number, max: number) => {
+      dispatch(Filter.changeProgressRange(min, max));
+    },
+    [dispatch]
+  );
+
+  /* eslint-disable prettier/prettier */
   const getFilteredRepositories = useCallback((repositories: Repository[]) => {
     const repositoriesOrderedFilterByName = repositories
-      .map(repository => {
+      .map((repository) => {
+
         const importedConfig = repository.importedConfig;
         const progress = importedConfig? importedConfig.progress ?? 0:0;
         const badge = repository.badge?.toLowerCase();
@@ -102,7 +124,7 @@ export function useFilterReducer({
           !(filter.names.includes(repository.name)) ||
 
           !((importedConfig && importedConfig.technologies
-            .some(technology => filter.technologies[technology.toLowerCase()])) ||
+            .some((technology) => { return filter.technologies[technology.toLowerCase()]; })) ||
             !filter.technologies._some) ||
 
           (!(filter.status.finished && isCompleted && !isCanceled) &&
@@ -136,17 +158,18 @@ export function useFilterReducer({
 
         return repository;
       })
-      .sort((a, b) => Number(b.importedConfig?.pinned ?? false) - Number(a.importedConfig?.pinned ?? false))
-      .sort((a, b) => Number(b._filtered) - Number(a._filtered));
+      .sort((a, b) => { return Number(b.importedConfig?.pinned ?? false) - Number(a.importedConfig?.pinned ?? false); })
+      .sort((a, b) => { return Number(b._filtered) - Number(a._filtered); });
 
     return repositoriesOrderedFilterByName;
   }, [filter]);
+  /* eslint-enable prettier/prettier */
 
   return {
     filter,
     setNames,
     toggleOption,
     changeProgressRange,
-    getFilteredRepositories
+    getFilteredRepositories,
   };
 }

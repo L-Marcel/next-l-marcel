@@ -17,9 +17,11 @@ export const SearchInputIcon = tw(Icon)`
   w-11
   rounded-md
   p-[8.2px]
-  ${props => props.isFocused? 
-    "bg-primary-500 dark:bg-primary-500 !text-white-500 dark:!text-gray-700":
-    "bg-white-700 dark:bg-gray-400 !text-gray-700 dark:!text-white-500"}
+  ${(props) => {
+    return props.isFocused
+      ? "bg-primary-500 dark:bg-primary-500 !text-white-500 dark:!text-gray-700"
+      : "bg-white-700 dark:bg-gray-400 !text-gray-700 dark:!text-white-500";
+  }}
   pl-[6.2px]
   border-l-2
   border-l-primary-500
@@ -84,10 +86,14 @@ export const SearchOptions = tw.ul`
   hover:scrollbar-thumb-primary-600
 `;
 
-export const SearchOption = tw.li`
+interface SearchOptionProps {
+  "data-headlessui-state"?: string;
+}
+
+export const SearchOption = tw.li<SearchOptionProps>`
   flex
   flex-row
-  items-center
+  items-start
   gap-1
   px-4
   py-[5px]
@@ -99,6 +105,9 @@ export const SearchOption = tw.li`
   border-b-white-700
   dark:border-b-gray-500
   last-of-type:border-none
+  ${({ "data-headlessui-state": state }) => {
+    return state?.includes("active") ? "bg-white-600 dark:bg-gray-400" : "";
+  }}
 `;
 
 export const PaginationInputContainer = tw.input`
@@ -122,7 +131,9 @@ export interface CheckboxLabelProps {
 }
 
 export const CheckboxLabel = tw.p<CheckboxLabelProps>`
-  text-base ${props => props.isEnabled? "":"line-through text-gray-default dark:text-gray-default"}
+  text-base ${(props) => {
+    return props.isEnabled ? "" : "line-through text-gray-default dark:text-gray-default";
+  }}
 `;
 
 export const CheckboxDisabledLabel = tw.p`
@@ -131,4 +142,13 @@ export const CheckboxDisabledLabel = tw.p`
   xs:hidden
   text-gray-default
   dark:text-gray-default
+`;
+
+export const OptionsKdb = tw.kbd`
+  mx-1
+  lowercase
+  bg-gray-700
+  rounded-lg
+  px-[5px]
+  py-[1px]
 `;
