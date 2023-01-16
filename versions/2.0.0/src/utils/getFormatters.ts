@@ -19,6 +19,10 @@ function getFormatters(): Formatter[] {
     {
       regex: "nodejs",
       replace: "/"
+    },
+    {
+      regex: "react-native",
+      replace: "/ native /"
     }
   ];
 };
