@@ -1,7 +1,7 @@
-# Olá, sou Lucas Marcel!
+# Olá! Sou Lucas Marcel, um desenvolvedor web.
 
-Estudei desenvolvimento Web com JavaScript durante anos, tenho conhecimento superficial de desenvolvimento Mobile e atualmente estou explorando a área de desenvolvimento de jogos pois quero assumir como um hobby.
+Me aprofundei no desenvolvimento web com `JavaScript` durante anos, dando preferência ao front-end. Além disso, sei um pouco de back-end e já estudei outras linguagens de programação como `Java`, `Python`, `C` e `C++`.
 
-Ingressei na UFRN em 2023 e pretendo me graduar como Técnico da Informação com ênfase em Engenharia de Software até 2028. De preferência com o certificado do Programa de Estudos Secundários (PES) de Jogos Digitais da UF.
+Atualmente, estou cursando `Tecnologia da Informação` com ênfase em `Engenharia de Software` na `UFRN`. A previsão de graduação é 2028 e durante essa jornada busco adquirir experiência e habilidades para me inserir no mercado de trabalho, crescer profissionalmente ao contribuir com projetos desafiadores.
 
-Atualmente não estou procurando emprego.
+Em paralelo, também estou estudando desenvolvimento de jogos, pois quero assumir como um hobby, porém sem a intenção de tornar uma profissão.
