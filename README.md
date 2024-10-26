@@ -39,5 +39,7 @@
 
 <p align="left">
   <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs?username=l-marcel&theme=react&hide_title=false&layout=compact&langs_count=6&hide_progress=false&card_width=400" alt="GitHub top-langs Card" />
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=l-marcel&repo=find.it&theme=react&cache_seconds=1800&border_radius=4&show_owner=false" alt="GitHub repo-card Card" />
+  <a href="https://github.com/L-Marcel/find.it" target="_blank">
+  <img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=l-marcel&repo=find.it&theme=react&cache_seconds=2000&border_radius=4&show_owner=false" alt="GitHub repo-card Card" />
+  </a>
 </p>
