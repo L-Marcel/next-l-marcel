@@ -1,6 +1,5 @@
 <!-- ![👋 Hi, my name is Lucas Marcel](https://user-images.githubusercontent.com/10498744/210012254-234538ff-d198-48aa-8964-37e6fd45d227.gif) -->
 
-![Profile views](https://komarev.com/ghpvc/?username=l-marel&label=Profile%20views&color=0e75b6&style=flat)
 
 <div id="toc">
   <ul align="left" style="list-style: none">
@@ -12,7 +11,8 @@
   </ul>
 </div>
 
-<p align="left"><a href="https://github.com/l-marcel" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="28" style="margin-right: 4px"></a> <a href="https://www.linkedin.com/in/l-marcel" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="28" style="margin-right: 4px"></a></p>
+<p align="left"><a href="https://github.com/l-marcel" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="28" style="margin-right: 4px"></a> <a href="https://www.linkedin.com/in/l-marcel" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="28" style="margin-right: 4px"></a>
+</p>
 
 <h3 align="left">🚀 Passionate fullstack web developer, experienced in building robust and scalable applications using frameworks like Next, React and Node. Skilled in both front-end and back-end technologies, with a strong focus on user experience and performance optimization.
 </br>
