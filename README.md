@@ -1,9 +1,43 @@
-# Olá! Sou Lucas Marcel, um desenvolvedor web.
+![👋 Hi, my name is Lucas Marcel](https://user-images.githubusercontent.com/10498744/210012254-234538ff-d198-48aa-8964-37e6fd45d227.gif)
 
-Me aprofundei no desenvolvimento web com `JavaScript` durante anos, dando preferência ao front-end. Além disso, sei um pouco de back-end e já estudei outras linguagens de programação como `Java`, `Python`, `C` e `C++`.
+![Profile views](https://komarev.com/ghpvc/?username=l-marel&label=Profile%20views&color=0e75b6&style=flat)
 
-Atualmente, estou cursando `Tecnologia da Informação` com ênfase em `Engenharia de Software` na `UFRN`. A previsão de graduação é 2028 e durante essa jornada busco adquirir experiência e habilidades para me inserir no mercado de trabalho, crescer profissionalmente ao contribuir com projetos desafiadores.
+<div id="toc">
+  <ul align="center" style="list-style: none">
+    <summary>
+      <h1>
+        👋 Hi, my name is Lucas Marcel
+      </h1>
+    </summary>
+  </ul>
+</div>
 
-Em paralelo, também estou estudando desenvolvimento de jogos, pois quero assumir como um hobby, porém, sem a intenção de tornar uma profissão.
+**<h3 align="left">Connect with me:</h3>** 
+<p align="left"><a href="lmgh1312@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" height="28" style="margin-right: 4px"></a> <a href="https://github.com/l-marcel" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="28" style="margin-right: 4px"></a> <a href="https://www.linkedin.com/in/l-marcel" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="28" style="margin-right: 4px"></a></p>
 
-[Baixar Currículo](https://raw.githubusercontent.com/L-Marcel/l-marcel/disabled/Lucas%20Marcel%20(Curr%C3%ADculo).pdf)
+ **<h3 align="left">🚀 Passionate fullstack web developer, experienced in building robust and scalable applications using frameworks like Next, React and Node. Skilled in both front-end and back-end technologies, with a strong focus on user experience and performance optimization.
+
+📖 Currently studying Software Engineering at UFRN, with a solid foundation in data structures and algorithm analysis. Eager to deepen my knowledge in concurrent programming to enhance my skills in developing high-performance applications.</h3>**
+
+**<h3 align="left">Rapid Fire</h3>**
+
+- 💼 I'm currently working on: **🙅 Nothing**
+- 🌱 I'm currently learning: **📚 Threads**
+- 💬 Ask me about: **💡 TypeScript, Next, React, Node, Godot, Java,  C++ and RESTful APIs**
+- 📂 Portfolio: **<a href="https://l-marcel.vercel.app" target="_blank">https://l-marcel.vercel.app</a>**
+
+ **<h3 align="left">Skills</h3>**
+
+<div style="display: flex; flex-wrap: wrap; gap: 4px; justify-content: left;"><img src="https://skillicons.dev/icons?i=typescript" height="40" alt="TypeScript" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=javascript" height="40" alt="JavaScript" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=cpp" height="40" alt="C++" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=java" height="40" alt="Java" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=prisma" height="40" alt="Prisma" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=nextjs" height="40" alt="Nextjs" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=react" height="40" alt="React" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=tailwind" height="40" alt="Tailwind CSS" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=vite" height="40" alt="Vite" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=sass" height="40" alt="Sass" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=nodejs" height="40" alt="Node.js" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=express" height="40" alt="Express" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=spring" height="40" alt="Spring" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=postgresql" height="40" alt="PostgreSQL" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=mysql" height="40" alt="MySQL" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=jest" height="40" alt="Jest" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=vscode" height="40" alt="VSCode" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=notion" height="40" alt="Notion" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=figma" height="40" alt="Figma" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=godot" height="40" alt="Godot" style="margin-right: 4px"></div>
+
+ **<h3 align="left">GitHub Stats</h3>**
+
+<p align="left">
+  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=l-marcel&theme=react&hide_title=false&hide_rank=false&show_icons=false&include_all_commits=false&count_private=true&line_height=23" alt="GitHub stats Card" />
+  <img width="48%" src="https://streak-stats.demolab.com/?user=l-marcel&theme=react&hide_border=false&date_format=M+j%5B%2C+Y%5D&mode=daily&hide_total_contributions=false&hide_current_streak=false&hide_longest_streak=false&card_height=200" alt="GitHub streak Card" />
+</p>
+
+<p align="left">
+  <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs?username=l-marcel&theme=react&hide_title=false&layout=compact&langs_count=6&hide_progress=false&card_width=400" alt="GitHub top-langs Card" />
+  <img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=l-marcel&repo=&theme=default&cache_seconds=1800&border_radius=4&show_owner=false" alt="GitHub repo-card Card" />
+</p>
