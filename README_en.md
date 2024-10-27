@@ -5,7 +5,7 @@
   <ul align="left" style="list-style: none">
     <summary>
       <h1>
-        👋 Olá, me chamo Lucas Marcel
+        👋 Hi, my name is Lucas Marcel
       </h1>
     </summary>
   </ul>
@@ -14,23 +14,23 @@
 <p align="left"><a href="https://github.com/l-marcel" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="28" style="margin-right: 4px"></a> <a href="https://www.linkedin.com/in/l-marcel" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="28" style="margin-right: 4px"></a>
 </p>
 
-<h3 align="left">🚀 Desenvolvedor <i>web</i> apaixonado, experiente em aplicações robustas e escaláveis usando <i>frameworks</i> como Next, React e Node. Hábil em tecnologias <i>front-end</i> e <i>back-end</i>, com forte foco na experiência do usuário e otimização de desempenho.
+<h3 align="left">🚀 Passionate fullstack web developer, experienced in building robust and scalable applications using frameworks like Next, React and Node. Skilled in both front-end and back-end technologies, with a strong focus on user experience and performance optimization.
 </br>
 </br>
-📖 Atualmente cursando Engenharia de Software na UFRN, com sólida base em estrutura de dados e análise de algoritmos. Desejo aprofundar meu conhecimento em programação concorrente para aprimorar minhas habilidades no desenvolvimento de aplicações de alto desempenho.</h3>
+📖 Currently studying Software Engineering at UFRN, with a solid foundation in data structures and algorithm analysis. Eager to deepen my knowledge in concurrent programming to enhance my skills in developing high-performance applications.</h3>
 
-**<h3 align="left">Mais sobre mim</h3>**
+**<h3 align="left">Rapid Fire</h3>**
 
-- 💼 Atualmente estou trabalho: **🙅 Em nada**
-- 🌱 Atualmente estou estudando: **📚 Threads**
-- 💬 Pode me perguntar sobre: **💡 TypeScript, Next, React, Node, Godot, Java, C++ e RESTful APIs**
+- 💼 I'm currently working on: **🙅 Nothing**
+- 🌱 I'm currently learning: **📚 Threads**
+- 💬 Ask me about: **💡 TypeScript, Next, React, Node, Godot, Java,  C++ and RESTful APIs**
 <!-- - 📂 Portfolio: **<a href="https://l-marcel.vercel.app" target="_blank">https://l-marcel.vercel.app</a>** -->
 
- **<h3 align="left">Habilidades</h3>**
+ **<h3 align="left">Skills</h3>**
 
 <div style="display: flex; flex-wrap: wrap; gap: 4px; justify-content: left;"><img src="https://skillicons.dev/icons?i=typescript" height="40" alt="TypeScript" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=javascript" height="40" alt="JavaScript" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=cpp" height="40" alt="C++" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=java" height="40" alt="Java" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=prisma" height="40" alt="Prisma" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=nextjs" height="40" alt="Nextjs" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=react" height="40" alt="React" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=tailwind" height="40" alt="Tailwind CSS" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=vite" height="40" alt="Vite" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=sass" height="40" alt="Sass" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=nodejs" height="40" alt="Node.js" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=express" height="40" alt="Express" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=spring" height="40" alt="Spring" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=postgresql" height="40" alt="PostgreSQL" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=mysql" height="40" alt="MySQL" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=jest" height="40" alt="Jest" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=vscode" height="40" alt="VSCode" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=notion" height="40" alt="Notion" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=figma" height="40" alt="Figma" style="margin-right: 4px"> <img src="https://skillicons.dev/icons?i=godot" height="40" alt="Godot" style="margin-right: 4px"></div>
 
-**<h3 align="left">Estatísticas do GitHub</h3>**
+**<h3 align="left">GitHub Stats</h3>**
 
 <p align="left">
   <img width="48%" src="https://github-readme-stats.vercel.app/api?username=l-marcel&theme=react&hide_title=false&hide_rank=false&show_icons=false&include_all_commits=false&count_private=true&line_height=23" alt="GitHub stats Card" />
