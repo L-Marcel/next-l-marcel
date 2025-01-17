@@ -24,8 +24,8 @@
 **<h3 align="left">Mais sobre mim</h3>**
 
 - 💼 Atualmente estou trabalho: **🙅 Em nada**
-- 🌱 Atualmente estou estudando: **📚 Threads**
-- 💬 Pode me perguntar sobre: **💡 TypeScript, Next, React, Node, Godot, Java, C++ e RESTful APIs**
+- 🌱 Atualmente estou estudando: **📚 Vetores, geometria analítica e redes de computadores**
+- 💬 Pode me perguntar sobre: **💡 TypeScript, Next, React, Node, Godot, Java, C++, Threads e RESTful APIs**
 <!-- - 📂 Portfolio: **<a href="https://l-marcel.vercel.app" target="_blank">https://l-marcel.vercel.app</a>** -->
 
  **<h3 align="left">Habilidades</h3>**
