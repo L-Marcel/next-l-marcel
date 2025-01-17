@@ -35,12 +35,12 @@
 **<h3 align="left">Estatísticas do GitHub</h3>**
 
 <p align="left">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=l-marcel&theme=react&hide_title=false&hide_rank=false&show_icons=false&include_all_commits=false&count_private=true&line_height=23" alt="GitHub stats Card" />
-  <img src="https://github-readme-streak-stats-eight.vercel.app?user=l-marcel&theme=react&hide_border=true&locale=pt_BR&exclude_days=Sun%2CSat" alt="GitHub Streak" />
+  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=l-marcel&theme=react&hide_title=false&hide_rank=false&show_icons=false&include_all_commits=false&locale=pt-br&count_private=true&line_height=23" alt="GitHub stats Card" />
+  <img src="https://github-readme-streak-stats-eight.vercel.app?user=l-marcel&theme=react&locale=pt_BR" alt="GitHub Streak" />
 </p>
 
 <p align="left">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs?username=l-marcel&theme=react&hide_title=false&layout=compact&langs_count=6&hide_progress=false&card_width=400" alt="GitHub top-langs Card" />
+  <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs?username=l-marcel&theme=react&hide_title=false&layout=compact&langs_count=6&hide_progress=false&card_width=400&locale=pt-br" alt="GitHub top-langs Card" />
   <a href="https://github.com/L-Marcel/find.it" target="_blank">
   <img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=l-marcel&repo=find.it&theme=react&cache_seconds=2000&border_radius=4&show_owner=false" alt="GitHub repo-card Card" />
   </a>
