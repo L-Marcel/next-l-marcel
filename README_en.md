@@ -24,8 +24,8 @@
 **<h3 align="left">Rapid Fire</h3>**
 
 - 💼 I'm currently working on: **🙅 Nothing**
-- 🌱 I'm currently learning: **📚 Threads**
-- 💬 Ask me about: **💡 TypeScript, Next, React, Node, Godot, Java,  C++ and RESTful APIs**
+- 🌱 I'm currently learning: **📚 Vectors, analytical geometry and computer networks**
+- 💬 Ask me about: **💡 TypeScript, Next, React, Node, Godot, Java,  C++, Threads and RESTful APIs**
 <!-- - 📂 Portfolio: **<a href="https://l-marcel.vercel.app" target="_blank">https://l-marcel.vercel.app</a>** -->
 
  **<h3 align="left">Skills</h3>**
