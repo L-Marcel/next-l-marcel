@@ -1,31 +1,32 @@
-<!-- ![👋 Hi, my name is Lucas Marcel](https://user-images.githubusercontent.com/10498744/210012254-234538ff-d198-48aa-8964-37e6fd45d227.gif) -->
-
-
-<a href="https://github.com/L-Marcel/l-marcel/blob/disabled/README_en.md" target="_blank"><-- English version</a>
-
 <div id="toc">
   <ul align="left" style="list-style: none">
     <summary>
       <h1>
         👋 Olá, me chamo Lucas Marcel
       </h1>
+      <p>
+        Estou bacharelando em Tecnologia da Informação – ênfase em Engenharia de Software.
+      </p>
     </summary>
   </ul>
 </div>
 
-<p align="left"><a href="https://github.com/l-marcel" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="28" style="margin-right: 4px"></a> <a href="https://www.linkedin.com/in/l-marcel" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="28" style="margin-right: 4px"></a>
+<p align="left">
+  <a href="https://github.com/l-marcel" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="28" style="margin-right: 4px"></a>
+  <a href="https://www.linkedin.com/in/l-marcel" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="28" style="margin-right: 4px"></a>
 </p>
 
-<h3 align="left">🚀 Desenvolvedor <i>web</i> apaixonado, experiente em aplicações robustas e escaláveis usando <i>frameworks</i> como Next, React e Node. Hábil em tecnologias <i>front-end</i> e <i>back-end</i>, com forte foco na experiência do usuário e otimização de desempenho.
+<p align="left">📖 Estudando desenvolvimento de aplicações robustas e escaláveis na UFRN. Hábil em tecnologias do <i>front-end</i> e <i>back-end</i>, dando foco a experiência do usuário, segurança e desempenho. Mas sem se limitar apenas ao desenvolvimento <i>web</i>.
 </br>
 </br>
-📖 Atualmente cursando Engenharia de Software na UFRN, com sólida base em estrutura de dados e análise de algoritmos. Desejo aprofundar meu conhecimento em programação concorrente para aprimorar minhas habilidades no desenvolvimento de aplicações de alto desempenho.</h3>
+🚀 Já experimentou e realizou projetos com várias linguagens de programação e tem uma sólida base em estrutura de dados, análise de algoritmos e padrões de projetos. Deseja aprofundar seu conhecimento em programação para aprimorar as habilidades no desenvolvimento de aplicações de alto desempenho.
+</p>
 
 **<h3 align="left">Mais sobre mim</h3>**
 
-- 💼 Atualmente estou trabalho: **🙅 Em nada**
-- 🌱 Atualmente estou estudando: **📚 Vetores, geometria analítica e redes de computadores**
-- 💬 Pode me perguntar sobre: **💡 TypeScript, Next, React, Node, Godot, Java, C++, Threads e RESTful APIs**
+- 💼 Atualmente estou trabalhando: **em nada**
+- 🌱 Atualmente estou estudando: **na UFRN**
+- 💬 Pode me perguntar sobre: **TypeScript, Next, React, Node, Godot, Java, C++, Threads e RESTful APIs**
 <!-- - 📂 Portfolio: **<a href="https://l-marcel.vercel.app" target="_blank">https://l-marcel.vercel.app</a>** -->
 
  **<h3 align="left">Habilidades</h3>**
