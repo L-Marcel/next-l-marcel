@@ -12,8 +12,8 @@
 </div>
 
 <p align="left">
-  <a href="https://github.com/l-marcel" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="28" style="margin-right: 4px"></a>
-  <a href="https://www.linkedin.com/in/l-marcel" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="28" style="margin-right: 4px"></a>
+  <a href="mailto:lmgh1312@gmail.com" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" height="28" style="margin-right: 4px"></a>
+  <a href="https://www.linkedin.com/in/l-marcel" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="28" style="margin-right: 4px"></a>
 </p>
 
 <p align="left">📖 Estudando desenvolvimento de aplicações robustas e escaláveis na UFRN. Hábil em tecnologias do <i>front-end</i> e <i>back-end</i>, dando foco a experiência do usuário, segurança e desempenho. Mas sem se limitar apenas ao desenvolvimento <i>web</i>.
@@ -42,7 +42,7 @@
 
 <p align="left">
   <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs?username=l-marcel&theme=react&hide_title=false&layout=compact&langs_count=6&hide_progress=false&card_width=400&locale=pt-br" alt="GitHub top-langs Card" />
-  <a href="https://github.com/L-Marcel/find.it" target="_blank">
+  <a href="https://github.com/L-Marcel/find.it" target="_blank" rel="noopener noreferrer">
   <img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=l-marcel&repo=find.it&theme=react&cache_seconds=2000&border_radius=4&show_owner=false" alt="GitHub repo-card Card" />
   </a>
 </p>
